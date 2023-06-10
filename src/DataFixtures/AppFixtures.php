@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Theme;
+use App\Entity\Tutorial;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
@@ -11,7 +12,10 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager,): void
     {
-        $this->createThemesFixtures($manager, 12);
+        $themes = $this->createThemesFixtures($manager, 12);
+        $this->createTutorialsFixtures($manager, $themes, 2);
+
+
 
         $manager->flush();
     }
@@ -33,5 +37,32 @@ class AppFixtures extends Fixture
         }
 
         return $themes;
+    }
+
+    private function createTutorialsFixtures(ObjectManager $manager, array $themes, int $tutorialsPerThemes): array
+    {
+        $faker = Factory::create();
+        $tutorials = [];
+
+        foreach ($themes as $theme) {
+            for ($i = 1; $i <= $tutorialsPerThemes; $i++) {
+                $tutorialData = [
+                    "title" => $faker->word(),
+                    "objective" => $faker->sentence(),
+                    "isPublished" => false,
+                    "indexOrder" => $i,
+                    "picturePath" => "test/test.png",
+                    "iconPath" => "test/test.png"
+                ];
+
+                $tutorial = Tutorial::withData($tutorialData);
+                $tutorial->setTheme($theme);
+
+                $manager->persist($tutorial);
+                $tutorials[] = $tutorial;
+            }
+        }
+
+        return $tutorials;
     }
 }
