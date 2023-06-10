@@ -9,6 +9,7 @@ use App\Entity\Tag;
 use App\Entity\Theme;
 use App\Entity\Tutorial;
 use App\Entity\User;
+use App\Entity\UserTutorial;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
@@ -25,13 +26,17 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager,): void
     {
-        $this->createUsersFixtures($manager, 3);
         $themes = $this->createThemesFixtures($manager, 12);
         $tutorials = $this->createTutorialsFixtures($manager, $themes, 2);
         $this->createSequencesFixtures($manager, $tutorials, 3);
         $quizzes = $this->createQuizFixture($manager, $tutorials);
         $this->createQuestionsFixtures($manager, $quizzes);
         $this->createTagsFixtures($manager, $tutorials);
+
+        $users = $this->createUsersFixtures($manager, 3);
+        // Le nombre de tutoriels par users peut faire buguer la fonction,
+        // relancez le d:f:l jusqu'à que ça marche.
+        $this->createUsersTutorialsFixtures($manager, $users, $tutorials, 1);
 
         $manager->flush();
     }
@@ -188,5 +193,32 @@ class AppFixtures extends Fixture
         }
 
         return $tags;
+    }
+
+    public function createUsersTutorialsFixtures(
+        ObjectManager $manager,
+        array $users,
+        array $tutorials,
+        int $tutorialsPerUser
+    ): array {
+        $usersTutorials = [];
+
+        foreach ($users as $user) {
+            for ($i = 1; $i <= $tutorialsPerUser; $i++) {
+                $usersTutorialsData = [
+                    "user" => $user,
+                    "tutorial" => $tutorials[array_rand($tutorials)],
+                    "status" => rand(1, 2) == 1 ? true : false,
+                    "favorite" => rand(1, 2) == 1 ? true : false
+                ];
+
+                $userTutorial = UserTutorial::withData($usersTutorialsData);
+
+                $manager->persist($userTutorial);
+                $usersTutorials[] = $userTutorial;
+            }
+        }
+
+        return $usersTutorials;
     }
 }
