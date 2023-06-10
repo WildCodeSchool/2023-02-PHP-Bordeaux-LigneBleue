@@ -8,7 +8,7 @@ use App\Entity\Sequence;
 use App\Entity\Tag;
 use App\Entity\Theme;
 use App\Entity\Tutorial;
-use App\Repository\ThemeRepository;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
@@ -25,6 +25,7 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager,): void
     {
+        $this->createUsersFixtures($manager, 3);
         $themes = $this->createThemesFixtures($manager, 12);
         $tutorials = $this->createTutorialsFixtures($manager, $themes, 2);
         $this->createSequencesFixtures($manager, $tutorials, 3);
@@ -33,6 +34,31 @@ class AppFixtures extends Fixture
         $this->createTagsFixtures($manager, $tutorials);
 
         $manager->flush();
+    }
+
+    private function createUsersFixtures(ObjectManager $manager, int $numberOfUsers): array
+    {
+        $users = [];
+
+        for ($i = 1; $i <= $numberOfUsers; $i++) {
+            $userData = [
+                "firstname" => $this->faker->firstName(),
+                "lastname" => $this->faker->lastName(),
+                "birthdate" => $this->faker->dateTime(),
+                "gender" => rand(1, 2) == 1 ? "Femme" : "Homme",
+                "email" => $this->faker->email(),
+                "password" => "password",
+                "country" => "France",
+                "zipcode" => $this->faker->randomNumber(5, true),
+                "level" => "débutant"
+            ];
+
+            $user = User::withData($userData);
+            $manager->persist($user);
+            $users[] = $user;
+        }
+
+        return $users;
     }
 
     private function createThemesFixtures(ObjectManager $manager, int $numberOfThemes): array
