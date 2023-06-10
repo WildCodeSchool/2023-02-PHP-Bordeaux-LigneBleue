@@ -11,10 +11,14 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager,): void
     {
+        $this->createThemesFixtures($manager, 12);
+
+        $manager->flush();
+    }
+
+    private function createThemesFixtures(ObjectManager $manager, int $numberOfThemes): array
+    {
         $faker = Factory::create();
-
-
-        $numberOfThemes = 12;
         $themes = [];
 
         for ($i = 1; $i <= $numberOfThemes; $i++) {
@@ -28,6 +32,6 @@ class AppFixtures extends Fixture
             $themes[] = $theme;
         }
 
-        $manager->flush();
+        return $themes;
     }
 }
