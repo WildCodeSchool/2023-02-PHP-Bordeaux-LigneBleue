@@ -2,32 +2,40 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Tag;
 use App\Entity\Theme;
 use App\Entity\Tutorial;
+use App\Repository\ThemeRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
+use Faker\Generator;
 
 class AppFixtures extends Fixture
 {
+    private Generator $faker;
+
+    public function __construct()
+    {
+        $this->faker = Factory::create();
+    }
+
     public function load(ObjectManager $manager,): void
     {
         $themes = $this->createThemesFixtures($manager, 12);
-        $this->createTutorialsFixtures($manager, $themes, 2);
-
-
+        $tutorials = $this->createTutorialsFixtures($manager, $themes, 2);
+        $this->createTagsFixtures($manager, $tutorials, 2);
 
         $manager->flush();
     }
 
     private function createThemesFixtures(ObjectManager $manager, int $numberOfThemes): array
     {
-        $faker = Factory::create();
         $themes = [];
 
         for ($i = 1; $i <= $numberOfThemes; $i++) {
             $themeData = [
-                "title" => $faker->word(),
+                "title" => $this->faker->word(),
                 "indexOrder" => $i,
                 "iconPath" => "test/test.png"
             ];
@@ -41,14 +49,13 @@ class AppFixtures extends Fixture
 
     private function createTutorialsFixtures(ObjectManager $manager, array $themes, int $tutorialsPerThemes): array
     {
-        $faker = Factory::create();
         $tutorials = [];
 
         foreach ($themes as $theme) {
             for ($i = 1; $i <= $tutorialsPerThemes; $i++) {
                 $tutorialData = [
-                    "title" => $faker->word(),
-                    "objective" => $faker->sentence(),
+                    "title" => $this->faker->word(),
+                    "objective" => $this->faker->sentence(),
                     "isPublished" => false,
                     "indexOrder" => $i,
                     "picturePath" => "test/test.png",
@@ -64,5 +71,26 @@ class AppFixtures extends Fixture
         }
 
         return $tutorials;
+    }
+
+    private function createTagsFixtures(
+        ObjectManager $manager,
+        array $tutorials,
+        int $tagsPerTutorial,
+    ): array {
+        $levelTags = ["débutant", "intermédiaire", "avancé"];
+        $tags = [];
+
+        foreach ($levelTags as $levelTag) {
+            $tag = Tag::withTitle($levelTag);
+            $manager->persist($tag);
+            $tags[] = $tag;
+        }
+
+        foreach ($tutorials as $tutorial) {
+            $tutorial->addTag($tags[array_rand($tags)]);
+        }
+
+        return $tags;
     }
 }
