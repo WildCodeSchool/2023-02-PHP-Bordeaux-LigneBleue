@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Question;
 use App\Entity\Quiz;
 use App\Entity\Sequence;
 use App\Entity\Tag;
@@ -27,8 +28,9 @@ class AppFixtures extends Fixture
         $themes = $this->createThemesFixtures($manager, 12);
         $tutorials = $this->createTutorialsFixtures($manager, $themes, 2);
         $this->createSequencesFixtures($manager, $tutorials, 3);
-        $this->createQuizFixture($manager, $tutorials);
-        $this->createTagsFixtures($manager, $tutorials, 2);
+        $quizzes = $this->createQuizFixture($manager, $tutorials);
+        $this->createQuestionsFixtures($manager, $quizzes);
+        $this->createTagsFixtures($manager, $tutorials);
 
         $manager->flush();
     }
@@ -117,10 +119,34 @@ class AppFixtures extends Fixture
         return $quizzes;
     }
 
+    private function createQuestionsFixtures(ObjectManager $manager, array $quizzes): array
+    {
+        $questions = [];
+
+        foreach ($quizzes as $quiz) {
+            for ($i = 1; $i <= rand(5, 10); $i++) {
+                $questionData = [
+                    "prompt" => $this->faker->sentence() . "?",
+                    "proposition1" => $this->faker->sentence(),
+                    "proposition2" => $this->faker->sentence(),
+                    "proposition3" => $this->faker->sentence(),
+                    "proposition4" => $this->faker->sentence(),
+                    "answer" => "proposition" . rand(1, 4)
+                ];
+
+                $question = Question::withData($questionData);
+                $question->setQuiz($quiz);
+                $manager->persist($question);
+                $questions[] = $question;
+            }
+        }
+
+        return $questions;
+    }
+
     private function createTagsFixtures(
         ObjectManager $manager,
-        array $tutorials,
-        int $tagsPerTutorial,
+        array $tutorials
     ): array {
         $levelTags = ["débutant", "intermédiaire", "avancé"];
         $tags = [];
