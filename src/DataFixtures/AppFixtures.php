@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Quiz;
 use App\Entity\Sequence;
 use App\Entity\Tag;
 use App\Entity\Theme;
@@ -26,6 +27,7 @@ class AppFixtures extends Fixture
         $themes = $this->createThemesFixtures($manager, 12);
         $tutorials = $this->createTutorialsFixtures($manager, $themes, 2);
         $this->createSequencesFixtures($manager, $tutorials, 3);
+        $this->createQuizFixture($manager, $tutorials);
         $this->createTagsFixtures($manager, $tutorials, 2);
 
         $manager->flush();
@@ -99,6 +101,20 @@ class AppFixtures extends Fixture
         }
 
         return $sequences;
+    }
+
+    private function createQuizFixture(ObjectManager $manager, array $tutorials): array
+    {
+        $quizzes = [];
+
+        foreach ($tutorials as $tutorial) {
+            $quiz = Quiz::withTitle($this->faker->word());
+            $quiz->setTutorial($tutorial);
+            $manager->persist($quiz);
+            $quizzes[] = $quiz;
+        }
+
+        return $quizzes;
     }
 
     private function createTagsFixtures(
