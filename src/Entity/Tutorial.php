@@ -142,11 +142,11 @@ class Tutorial
         $tutorial = new self();
 
         $tutorial->setTitle($data["title"]);
-        $tutorial->setObjective($data["objective"]);
-        $tutorial->setIsPublished($data["isPublished"]);
-        $tutorial->setIndexOrder($data["indexOrder"]);
-        $tutorial->setPicturePath($data["picturePath"]);
-        $tutorial->setIconPath($data["iconPath"]);
+        $tutorial->setObjective(isset($data["objective"]) ? $data["objective"] : null);
+        $tutorial->setIsPublished(isset($data["isPublished"]) ? $data["isPublished"] : false);
+        $tutorial->setIndexOrder(isset($data["indexOrder"]) ? $data["indexOrder"] : null);
+        $tutorial->setPicturePath(isset($data["picturePath"]) ? $data["picturePath"] : null);
+        $tutorial->setIconPath(isset($data["iconPath"]) ? $data["iconPath"] : null);
 
         return $tutorial;
     }

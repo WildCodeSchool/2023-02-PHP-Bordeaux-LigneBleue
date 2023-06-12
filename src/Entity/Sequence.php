@@ -129,11 +129,11 @@ class Sequence
         $sequence = new self();
 
         $sequence->setTitle($data["title"]);
-        $sequence->setContent($data["content"]);
-        $sequence->setExercice($data["exercice"]);
-        $sequence->setIndexOrder($data["indexOrder"]);
-        $sequence->setPicturePath($data["picturePath"]);
-        $sequence->setVideoPath($data["videoPath"]);
+        $sequence->setContent(isset($data["content"]) ? $data["content"] : null);
+        $sequence->setExercice(isset($data["exercice"]) ? $data["exercice"] : false);
+        $sequence->setIndexOrder(isset($data["indexOrder"]) ? $data["indexOrder"] : null);
+        $sequence->setPicturePath(isset($data["picturePath"]) ? $data["picturePath"] : null);
+        $sequence->setVideoPath(isset($data["videoPath"]) ? $data["videoPath"] : null);
 
         return $sequence;
     }

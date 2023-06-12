@@ -73,17 +73,6 @@ class Theme
         return $this;
     }
 
-    public static function withData(array $data): self
-    {
-        $theme = new self();
-
-        $theme->setTitle($data["title"]);
-        $theme->setIndexOrder(isset($data["indexOrder"]) ? $data["indexOrder"] : null);
-        $theme->setIconPath(isset($data["iconPath"]) ? $data["iconPath"] : null);
-
-        return $theme;
-    }
-
     /**
      * @return Collection<int, Tutorial>
      */
@@ -112,5 +101,16 @@ class Theme
         }
 
         return $this;
+    }
+
+    public static function withData(array $data): self
+    {
+        $theme = new self();
+
+        $theme->setTitle($data["title"]);
+        $theme->setIndexOrder(isset($data["indexOrder"]) ? $data["indexOrder"] : null);
+        $theme->setIconPath(isset($data["iconPath"]) ? $data["iconPath"] : null);
+
+        return $theme;
     }
 }

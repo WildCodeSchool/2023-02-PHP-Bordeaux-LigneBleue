@@ -107,7 +107,7 @@ class Quiz
     {
         $quiz = new self();
         $quiz->setTitle($data["title"]);
-        $quiz->setQuestionsAmount($data["questionsAmount"]);
+        $quiz->setQuestionsAmount(isset($data["questionsAmount"]) ? $data["questionsAmount"] : null);
 
         return $quiz;
     }
