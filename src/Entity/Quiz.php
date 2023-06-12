@@ -24,6 +24,9 @@ class Quiz
     #[ORM\OneToMany(mappedBy: 'quiz', targetEntity: Question::class)]
     private Collection $questions;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $questionsAmount = null;
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
@@ -58,14 +61,6 @@ class Quiz
         return $this;
     }
 
-    public static function withTitle(string $title): self
-    {
-        $quiz = new self();
-        $quiz->setTitle($title);
-
-        return $quiz;
-    }
-
     /**
      * @return Collection<int, Question>
      */
@@ -94,5 +89,26 @@ class Quiz
         }
 
         return $this;
+    }
+
+    public function getQuestionsAmount(): ?int
+    {
+        return $this->questionsAmount;
+    }
+
+    public function setQuestionsAmount(?int $questionsAmount): self
+    {
+        $this->questionsAmount = $questionsAmount;
+
+        return $this;
+    }
+
+    public static function withData(array $data): self
+    {
+        $quiz = new self();
+        $quiz->setTitle($data["title"]);
+        $quiz->setQuestionsAmount($data["questionsAmount"]);
+
+        return $quiz;
     }
 }

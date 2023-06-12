@@ -141,7 +141,12 @@ class AppFixtures extends Fixture
         $quizzes = [];
 
         foreach ($tutorials as $tutorial) {
-            $quiz = Quiz::withTitle($this->faker->word());
+            $quizData = [
+                "title" => $this->faker->word(),
+                "questionsAmount" => rand(5, 10)
+            ];
+
+            $quiz = Quiz::withData($quizData);
             $quiz->setTutorial($tutorial);
             $manager->persist($quiz);
             $quizzes[] = $quiz;
@@ -155,7 +160,7 @@ class AppFixtures extends Fixture
         $questions = [];
 
         foreach ($quizzes as $quiz) {
-            for ($i = 1; $i <= rand(5, 10); $i++) {
+            for ($i = 1; $i <= $quiz->getQuestionsAmount(); $i++) {
                 $questionData = [
                     "prompt" => $this->faker->sentence() . "?",
                     "proposition1" => $this->faker->sentence(),
