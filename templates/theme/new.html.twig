@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Theme{% endblock %}
+
+{% block body %}
+    <h1>Create new Theme</h1>
+
+    {{ include('theme/_form.html.twig') }}
+
+    <a href="{{ path('app_theme_index') }}">back to list</a>
+{% endblock %}
