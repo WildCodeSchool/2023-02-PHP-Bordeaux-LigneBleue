@@ -2,7 +2,6 @@
     color: $llb-blue;
     background-color: white;
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
     text-decoration: none;
@@ -32,4 +31,11 @@
     margin: 0;
     padding-top: 5%;
     padding-bottom: 5%;
+}
+
+@media screen and (max-width: 480px) {
+    .llb-theme-card {
+        max-width: 40%;
+        margin: 2%
+    }
 }
