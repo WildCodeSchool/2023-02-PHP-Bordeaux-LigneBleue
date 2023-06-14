@@ -1,0 +1,45 @@
+.llb-theme-index-container {
+    color: white;
+    background-color: $llb-blue;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 5%;
+    padding: 5%;
+    border-radius: 16px;
+}
+
+#llb-theme-index-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#llb-theme-index-title>h1 {
+    font-family: 'Baloo 2';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 64px;
+    text-align: center;
+    letter-spacing: -1px;
+}
+
+#llb-theme-index-title>p {
+    font-family: 'Baloo 2';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.llb-theme-index-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}

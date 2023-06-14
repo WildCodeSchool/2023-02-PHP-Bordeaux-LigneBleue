@@ -21,12 +21,18 @@ class ThemeFixtures extends Fixture
     {
         $themesAmount = 12;
 
+        $iconsPath = [
+            "IconTestComputer.png",
+            "IconTestPhone.png",
+            "IconTestPrinter.png",
+        ];
+
         for ($i = 0; $i < $themesAmount; $i++) {
             $theme = new Theme();
 
             $theme->setTitle($this->faker->word());
             $theme->setIndexOrder($i + 1);
-            $theme->setIconPath("test/test.png");
+            $theme->setIconPath("build/images/LogoFixtureTheme/" . $iconsPath[array_rand($iconsPath)]);
 
             $this->addReference("theme_" . $theme->getTitle(), $theme);
             $manager->persist($theme);

@@ -1,39 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Theme index{% endblock %}
+{% block title %}Theme index
+{% endblock %}
 
 {% block body %}
-    <h1>Theme index</h1>
+	<div class="llb-theme-index-container">
+		<div id="llb-theme-index-title">
+			<h1>Index des Thèmes</h1>
+			<p>Choisissez une Specialité:</p>
+		</div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>IndexOrder</th>
-                <th>IconPath</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for theme in themes %}
-            <tr>
-                <td>{{ theme.id }}</td>
-                <td>{{ theme.title }}</td>
-                <td>{{ theme.indexOrder }}</td>
-                <td>{{ theme.iconPath }}</td>
-                <td>
-                    <a href="{{ path('app_theme_show', {'id': theme.id}) }}">show</a>
-                    <a href="{{ path('app_theme_edit', {'id': theme.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_theme_new') }}">Create new</a>
+		<div class="llb-theme-index-card-container">
+			{% for theme in themes %}
+				{% include "/theme/_card.html.twig" %}
+			{% endfor %}
+		</div>
+	</div>
 {% endblock %}
