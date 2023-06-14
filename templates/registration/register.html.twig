@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <h1>Inscription</h1>
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.lastname, {
+            label: 'Nom*'
+        }) }}
+        {{ form_row(registrationForm.firstname, {
+            label: 'Prénom*'
+        }) }}
+        {{ form_row(registrationForm.gender, {
+            label: 'Sexe'
+        }) }}
+        {{ form_row(registrationForm.birthday, {
+            label: 'Date de naissance*'
+        }) }}
+        {{ form_row(registrationForm.zipcode, {
+            label: 'Code Postal*'
+        }) }}
+        {{ form_row(registrationForm.email, {
+            label: 'Email*'
+        }) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Mot de passe*'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn">Je m'inscris</button>
+    {{ form_end(registrationForm) }}
+{% endblock %}
