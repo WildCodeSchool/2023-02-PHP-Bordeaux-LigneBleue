@@ -9,7 +9,45 @@ $llb-grey: #edeeed;
 * {
     box-sizing: border-box;
 }
+a {
+    text-decoration: none;
+}
 
 body {
+
     background-color: white;
+    color: $llb-blue;
+}
+
+.llb-button-blue {
+    background-color: $llb-blue;
+    color: white;
+    border-radius: 6px;
+    border: white;
+    padding: 2vh;
+}
+
+.llb-button-yellow {
+    background-color: $llb-yellow;
+    color: $llb-dark-blue;
+    border-radius: 6px;
+    border-style: none;
+    padding: 2vh;
+}
+
+.llb-button-white {
+    background-color: white;
+    color: $llb-blue;
+    border-radius: 6px;
+    padding: 2vh;
+}
+.llb-cards-formation {
+    height: 464px;
+    width: 339px;
+    border-radius: 12px;
+}
+
+.llb-align-center {
+    margin-right: auto;
+    margin-left: auto;
 }
