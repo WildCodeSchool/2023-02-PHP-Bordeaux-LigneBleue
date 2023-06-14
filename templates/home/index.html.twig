@@ -3,13 +3,34 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-    <div class="pink-stripe">
-        <h1>
-            Let's start coding&nbsp;&#129304;
-        </h1>
-    </div>
-    <div class="white-stripe">
-        <img src="{{ asset('build/images/LOGO_WILD_CODE_SCHOOL.png') }}"
-             alt="">
+    <div class="landingPage">
+
+        <section class="leftPart-landingPage">
+            <h1 class="llb-titleLandingPage">La Ligne Bleue</h1>
+            <h2 class="llb-subtitleLandingPage">Contre l’exclusion numérique</h2>
+            <p class="llb-teaserText">Apprenez facilement grâce à notre plate-forme de cours en ligne sur le numérique.</p>
+            <button class="llb-button-blue">Clique Ici</button>
+        </section>
+
+        <section class="rightPart-landingPage">
+            <div class="llb-blue-oval1"></div>
+            <div class="llb-blue-oval2"></div>
+            <div class="llb-ovalShapeYellow1"></div>
+            <div class="llb-ovalShapeYellow2"></div>
+            <img class="img-landingPage" src="{{ asset('build/images/senior-landingPage.jpg') }}">
+
+            <div class="llb-blocVerbsLandingPage1">
+                <img class="logo-landingPage" src="{{ asset('build/images/icon-learn.png') }}">
+                Découvrir</div>
+            <div class="llb-blocVerbsLandingPage2">
+                <img class="logo-landingPage" src="{{ asset('build/images/icon-training.png') }}">
+                Apprendre
+            </div>
+            <div class="llb-blocVerbsLandingPage3">
+                <img class="logo-landingPage" src="{{ asset('build/images/icon-master.png') }}">
+                Maîtriser
+            </div>
+        </section>
+
     </div>
 {% endblock %}
