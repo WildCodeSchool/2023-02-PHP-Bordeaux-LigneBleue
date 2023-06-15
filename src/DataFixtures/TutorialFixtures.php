@@ -41,7 +41,6 @@ class TutorialFixtures extends Fixture implements DependentFixtureInterface
 
                 $this->addReference("tutorial_" . $i . $j, $tutorial);
 
-
                 $manager->persist($tutorial);
             }
         }
