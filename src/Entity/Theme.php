@@ -22,6 +22,9 @@ class Theme
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $iconPath = null;
 
+    #[ORM\ManyToOne(inversedBy: 'themes')]
+    private ?Category $category = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Theme
     public function setIconPath(?string $iconPath): self
     {
         $this->iconPath = $iconPath;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
