@@ -7,8 +7,9 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 use Faker\Generator;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
-class ThemeFixtures extends Fixture
+class ThemeFixtures extends Fixture implements DependentFixtureInterface
 {
     private Generator $faker;
 
@@ -33,6 +34,7 @@ class ThemeFixtures extends Fixture
             $theme->setTitle($this->faker->word());
             $theme->setIndexOrder($i + 1);
             $theme->setIconPath("build/images/LogoFixtureTheme/" . $iconsPath[array_rand($iconsPath)]);
+            $theme->setCategory($this->getReference("category_Smartphone"));
 
             $this->addReference("theme_" . $theme->getTitle(), $theme);
             $manager->persist($theme);
@@ -40,5 +42,10 @@ class ThemeFixtures extends Fixture
 
 
         $manager->flush();
+    }
+
+    public function getDependencies()
+    {
+        return [CategoryFixtures::class];
     }
 }
