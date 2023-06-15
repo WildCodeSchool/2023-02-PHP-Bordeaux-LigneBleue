@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+    <section class="llb-form-global">
+<form method="post" class="llb-form">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+
+    <h1 class="h3 mt-0 font-weight-normal text-center">Connectez vous à votre compte</h1>
+    <label for="inputEmail" class="mb-1 w-100">Email</label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mb-3" autocomplete="email" required autofocus>
+    <label for="inputPassword" class="mb-1 w-100">Mot de passe</label>
+    <input type="password" name="password" id="inputPassword" class="form-control mb-4" autocomplete="current-password" required>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Se souvenir de moi
+            </label>
+        </div>
+    #}
+
+    <button class="llb-button-yellow llb-align-center mb-4" type="submit">
+        Je me connecte
+    </button>
+</form>
+    <div class="llb-under-connexion">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <p class="text-center mb-0">Vous avez oublié votre mot de passe ?</p>
+            <a class="mb-2" href="">Cliquez ici</a>
+        </div>
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <p class="text-center mb-0">Vous n'avez pas encore de compte ?</p>
+            <a href="{{ path('app_register') }}">Cliquez ici</a>
+        </div>
+    </div>
+        <img src="{{ asset('build/images/logo-card-femme.faa093ba.png') }}" class="image-card-trio" alt="logo-card-femme">
+    </section>
+    <div class="d-flex justify-content-center align-items-center">
+        <a class="llb-button-yellow mb-2 mt-2" href="{{ path('app_home') }}">Cliquez ici pour revenir à l'accueil</a>
+    </div>
+{% endblock %}

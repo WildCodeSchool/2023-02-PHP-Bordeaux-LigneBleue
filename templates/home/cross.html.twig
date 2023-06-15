@@ -11,15 +11,20 @@
     <section class="llb-card-crossPage">
         <div class="llb-cardConnect">
             <h5 class="llb-h5-cardConnect">J'ai déja un compte</h5>
-            <button class="llb-button-yellow">Je me connecte</button>
+            <a class="nav-link text-warning" href="{{ path('app_login') }}"><button class="llb-button-yellow">Je me connecte</button></a>
+            <img class="llb-img-cardsCrossPage" src="{{ asset('build/images/logo-card-femme.png') }}">
         </div>
+
         <div class="llb-cardConnect">
             <h5 class="llb-h5-cardConnect">Je souhaite créer un compte</h5>
-            <button class="llb-button-yellow">Je m'inscris</button>
+            <a class="nav-link text-warning" href="{{ path('app_register') }}"><button class="llb-button-yellow">Je m'inscris</button></a>
+            <img class="llb-img-cardsCrossPage" src="{{ asset('build/images/logo-card-femme.png') }}">
         </div>
+
         <div class="llb-cardConnect">
             <h5 class="llb-h5-cardConnect">Je ne souhaite pas créer de compte</h5>
-            <button class="llb-button-yellow">Je découvre</button>
+            <a class="nav-link text-warning" href="{{ path('app_theme_index') }}"><button class="llb-button-yellow">Je découvre</button></a>
+            <img class="llb-img-cardsCrossPage" src="{{ asset('build/images/logo-card-femme.png') }}">
         </div>
     </section>
 {% endblock %}

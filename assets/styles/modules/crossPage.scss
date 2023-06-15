@@ -13,12 +13,18 @@
     border-radius: 16px;
 }
 .llb-cardConnect .llb-button-yellow{
-    margin:5% 0 5% 10%;
+    margin:3% 0 5% 10%;
 }
 .llb-h5-cardConnect{
     text-align: center;
     color:$llb-blue;
     margin-top: 10%;
+}
+
+.llb-img-cardsCrossPage{
+    height: 10vw;
+    margin-left:49%;
+    margin-top: -3%;
 }
 
 /*      MEDIA QUERY     */
@@ -35,5 +41,12 @@
         margin-top: 5%;
         height:40vh;
         margin-left: 3vw;
+    }
+    .llb-cardConnect .llb-img-cardsCrossPage{
+        height:40%;
+        width:40%;
+        margin-left:60%;
+        margin-top:1%;
+
     }
 }

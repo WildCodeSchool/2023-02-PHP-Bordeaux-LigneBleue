@@ -1,0 +1,13 @@
+.llb-under-connexion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+@media screen and (max-width: 480px) {
+    .image-card-trio {
+        height: 15vh;
+    }
+}
