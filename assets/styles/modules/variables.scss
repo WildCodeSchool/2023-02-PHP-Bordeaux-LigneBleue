@@ -1,40 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-$wild-color: #ff6c71;
-$light: #fffbfb;
+$llb-blue: #0C5395;
+$llb-yellow: #FFCB05;
+$llb-dark-blue: #062F55;
+$llb-light-blue: #D1E4E8;
+$llb-light-yellow: #ffe482;
+$llb-grey: #edeeed;
 
 * {
     box-sizing: border-box;
 }
 
 body {
-    margin:0;
-    background-color: $wild-color;
-    color: $light;
-}
 
-
-.pink-stripe {
-    height: 50vh;
-    width: 100%;
-    display: flex;
-    font-family: 'Varela Round', sans-serif;
-    text-align: center;
-    font-size: clamp(2rem, 5vw, 3rem);
-    align-items: center;
-    justify-content: center;
-}
-
-.white-stripe {
     background-color: white;
-    padding: 1rem;
-    width: 100%;
-    height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    img {
-        width: 500px;
-        max-width: 100%;
-        height: auto;
-    }
+}
+
+.llb-button-blue {
+    background-color: $llb-blue;
+    color: white;
+    height: 48px;
+    width: 186px;
+    border-radius: 6px;
+    border: white;
+}
+
+.llb-button-yellow {
+    background-color: $llb-yellow;
+    color: $llb-dark-blue;
+    height: 48px;
+    width: 186px;
+    border-radius: 6px;
+}
+
+.llb-button-white {
+    background-color: white;
+    color: $llb-blue;
+    height: 48px;
+    width: 186px;
+    border-radius: 6px;
+}
+.llb-cards-formation {
+    height: 464px;
+    width: 339px;
+    border-radius: 12px;
 }
