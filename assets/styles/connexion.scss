@@ -13,14 +13,6 @@
     right: 1px;
 }
 
-.llb-background-light-blue {
-    background-color: $llb-light-blue;
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    bottom: 0;
-}
-
 @media screen and (max-width: 480px) {
     .image-card-trio {
         height: 15vh;
