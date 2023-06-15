@@ -14,51 +14,51 @@ class Category
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $title = null;
+    private ?string $categoryTitle = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $indexOrder = null;
+    private ?int $categoryIndexOrder = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $iconPath = null;
+    private ?string $categoryIconPath = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getTitle(): ?string
+    public function getCategoryTitle(): ?string
     {
-        return $this->title;
+        return $this->categoryTitle;
     }
 
-    public function setTitle(string $title): self
+    public function setCategoryTitle(string $title): self
     {
-        $this->title = $title;
+        $this->categoryTitle = $title;
 
         return $this;
     }
 
-    public function getIndexOrder(): ?string
+    public function getCategoryIndexOrder(): ?int
     {
-        return $this->indexOrder;
+        return $this->categoryIndexOrder;
     }
 
-    public function setIndexOrder(?string $indexOrder): self
+    public function setCategoryIndexOrder(?int $indexOrder): self
     {
-        $this->indexOrder = $indexOrder;
+        $this->categoryIndexOrder = $indexOrder;
 
         return $this;
     }
 
-    public function getIconPath(): ?string
+    public function getCategoryIconPath(): ?string
     {
-        return $this->iconPath;
+        return $this->categoryIconPath;
     }
 
-    public function setIconPath(string $iconPath): self
+    public function setCategoryIconPath(string $iconPath): self
     {
-        $this->iconPath = $iconPath;
+        $this->categoryIconPath = $iconPath;
 
         return $this;
     }
