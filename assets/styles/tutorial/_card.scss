@@ -1,41 +1,4 @@
-.llb-tutorial-card {
-    color: $llb-blue;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    text-decoration: none;
+.card {
+    width: 20%;
     margin: 1%;
-    padding: 1%;
-    border: 1px solid #D1E8D8;
-    border-radius: 12px;
-    box-shadow: 0px 4px 12px rgba(16, 59, 25, 0.0798517);
-    max-width: 13%;
-}
-
-.llb-tutorial-card>img {
-    padding-top: 10%;
-    padding-bottom: 5%;
-    width: 80%;
-    height: auto;
-}
-
-.llb-tutorial-card>p {
-    font-family: 'Baloo 2';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 32px;
-    text-align: center;
-    letter-spacing: 1px;
-    margin: 0;
-    padding-top: 5%;
-    padding-bottom: 5%;
-}
-
-@media screen and (max-width: 480px) {
-    .llb-tutorial-card {
-        max-width: 40%;
-        margin: 2%
-    }
 }

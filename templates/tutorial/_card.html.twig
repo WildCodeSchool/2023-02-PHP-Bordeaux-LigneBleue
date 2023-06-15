@@ -1,4 +1,8 @@
-<a class="llb-tutorial-card" href={{ path("app_tutorial_show", {"id": tutorial.id} )}}>
-	<img src={{ asset(tutorial.iconPath) }} alt="">
-	<p>{{tutorial.title}}</p>
-</a>
+<div class="card">
+	<img class="card-img-top" src={{ asset("build/images/Fixtures/Pictures/TestPicture.webp")}} alt="">
+	<div class="card-body">
+		<h5 class="card-title">{{tutorial.title}}</h5>
+		<p class="card-text">{{ tutorial.objective }}</p>
+		<a href="#" class="btn btn-primary">Je me lance!</a>
+	</div>
+</div>
