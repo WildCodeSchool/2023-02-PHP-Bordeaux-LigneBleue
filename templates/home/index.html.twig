@@ -1,6 +1,28 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="{{ asset('build/images/favicon.png') }}"/>
+    <title>
+        {% block title %}La Ligne Bleue{% endblock %}
+    </title>
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
 
-{% block title %}Home{% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+<body class="llb-body-landingPage">
+{# read and display just one flash message type #}
+{% for message in app.flashes('notice') %}
+    <div class="flash-notice">
+        {{ message }}
+    </div>
+{% endfor %}
 
 {% block body %}
     <div class="landingPage">
@@ -9,7 +31,9 @@
             <h1 class="llb-titleLandingPage">La Ligne Bleue</h1>
             <h2 class="llb-subtitleLandingPage">Contre l’exclusion numérique</h2>
             <p class="llb-teaserText">Apprenez facilement grâce à notre plate-forme de cours en ligne sur le numérique.</p>
+            <a class="nav-link text-warning" href="{{ path('cross_page') }}">
             <button class="llb-button-blue">Clique Ici</button>
+            </a>
         </section>
 
         <section class="rightPart-landingPage">
@@ -33,4 +57,6 @@
         </section>
 
     </div>
+    </body>
+    </html>
 {% endblock %}
