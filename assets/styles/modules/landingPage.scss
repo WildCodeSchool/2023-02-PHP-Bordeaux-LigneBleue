@@ -25,7 +25,7 @@
     left: 46vw;
     top: -60vw;
     border-radius:59vw;
-    background: #0C5395;
+    background: $llb-blue;
 }
 .llb-blue-oval2{
     position: absolute;
@@ -34,17 +34,22 @@
     left: 43vw;
     top: 27vw;
     border-radius:14vw;
-    background: #0C5395;
+    background: $llb-blue;
 }
 
 /*      IMAGE LANDING PAGE      */
 .rightPart-landingPage .img-landingPage{
-    width:400px;
-    height:300px;
+    width:28vw;
+    height:21vw;
     position:absolute;
     left: 860px;
     top: 180.76px;
     border-radius: 2%;
+}
+.llb-responsiv-landingPage .img-landingPage{
+    border-radius: 40%;
+    width:28vw;
+    height:21vw;
 }
 .llb-ovalShapeYellow1{
     position: absolute;
@@ -96,14 +101,78 @@
     left: 834px;
     top: 440px;
     border-radius: 2%;
-
 }
+
+/*             test             */
+
+.llb-oval3{
+    display:none;
+}
+.llb-oval4{
+    display:none;
+}
+.llb-oval5{
+    display:none;
+}
+.llb-oval6{
+    display:none;
+}
+.img-responsive-landingPage{
+    display:none;
+}
+.top-responsive-landingPage{
+    display: none;
+}
+
 /*      END OF RIGHT PART LANDING PAGE*/
 /*      MEDIA QUERY     */
 @media screen and (max-width: 480px) {
-   .rightPart-landingPage{
-       position: absolute;
-       top:0;
-   }
-}
+    .llb-body-landingPage{
+        overflow:visible;
+    }
 
+   .llb-blue-oval1{
+       display: none;
+   }
+    .llb-blue-oval2{
+        display:none;
+    }
+    .rightPart-landingPage .img-landingPage{
+        display:none;
+    }
+    .llb-ovalShapeYellow1{
+        display:none;
+    }
+    .llb-ovalShapeYellow2{
+        display:none;
+    }
+    .llb-blocVerbsLandingPage1{
+        display:none;
+    }
+    .llb-blocVerbsLandingPage2{
+        display:none;
+    }
+    .llb-blocVerbsLandingPage3{
+        display:none;
+    }
+    .leftPart-landingPage{
+        padding-top: 100%;
+    }
+    .top-responsive-landingPage{
+        display:block;
+        background: $llb-blue;
+        width:100vw;
+        height:50%;
+        top:0;
+        position:absolute;
+    }
+    .img-responsive-landingPage{
+        display:block;
+        top:0;
+        position:absolute;
+        width:100vw;
+    }
+    .leftPart-landingPage .llb-button-blue{
+        margin-bottom: 5%;
+    }
+}
