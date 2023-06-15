@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
-    <h1>Inscription</h1>
-
-    {{ form_start(registrationForm) }}
+<section class="llb-form-global">
+    <div class="llb-form">
+<h1 class="h3 mt-0 font-weight-normal text-center">Créez votre compte</h1>
+    <p>*Champs obligatoires</p>
+        <div class="w-100">
+        {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.lastname, {
             label: 'Nom*'
         }) }}
@@ -13,13 +16,12 @@
             label: 'Prénom*'
         }) }}
         {{ form_row(registrationForm.gender, {
-            label: 'Sexe'
+            label: 'Sexe*'
         }) }}
         {{ form_row(registrationForm.birthday, {
             label: 'Date de naissance*'
         }) }}
-        {{ form_row(registrationForm.zipcode, {
-            label: 'Code Postal*'
+        {{ form_row(registrationForm.zipcode, { label: 'Code Postal*'
         }) }}
         {{ form_row(registrationForm.email, {
             label: 'Email*'
@@ -29,6 +31,14 @@
         }) }}
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn">Je m'inscris</button>
+        <button type="submit" class="llb-button-yellow mb-4">Je m'inscris</button>
     {{ form_end(registrationForm) }}
+        </div>
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <p class="text-center mb-0">Vous avez déjà un compte ?</p>
+            <a href="{{ path('app_login') }}">Cliquez ici</a>
+        </div>
+    </div>
+    <img src="{{ asset('build/images/logo-card-femme2.7faa699f.png') }}" class="image-card-trio" alt="logo-card-femme">
+</section>
 {% endblock %}

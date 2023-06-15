@@ -11,6 +11,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
 
 class RegistrationFormType extends AbstractType
 {
@@ -19,15 +21,22 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('firstname')
             ->add('lastname')
-            ->add('gender')
+            ->add('gender', ChoiceType::class, [
+                'choices'  => [
+                    'Femme' => 'homme',
+                    'Homme' => 'femme',
+                    'Non binaire' => 'non binaire'
+                ]
+            ])
             ->add('birthday')
             ->add('zipcode')
             ->add('email')
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
+                'label' => "Conditions d'utilisation",
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => "Vous devez acceptez les conditions d'utilisation.",
                     ]),
                 ],
             ])
