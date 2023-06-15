@@ -12,7 +12,10 @@
 
 		<div class="llb-theme-index-card-container">
 			{% for theme in themes %}
-				{% include "/theme/_card.html.twig" %}
+				<pre>
+				{{ dump(theme) }}
+			</pre>
+				{# {% include "/theme/_card.html.twig" %} #}
 			{% endfor %}
 		</div>
 	</div>

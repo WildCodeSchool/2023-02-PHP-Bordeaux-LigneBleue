@@ -31,7 +31,7 @@ class CategoryFixtures extends Fixture
         $category->setCategoryIndexOrder($indexOrder + 1);
         $category->setCategoryIconPath("build/images/LogoFixtureTheme/" . $iconPath);
 
-        $this->addReference("theme_" . $category->getCategoryTitle(), $category);
+        $this->addReference("category_" . $category->getCategoryTitle(), $category);
 
         return $category;
     }
