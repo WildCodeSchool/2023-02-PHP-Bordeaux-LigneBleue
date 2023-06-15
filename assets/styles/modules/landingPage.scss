@@ -1,0 +1,96 @@
+.landingPage{
+    width:100%;
+}
+/*      LEFT PART LANDING PAGE*/
+.leftPart-landingPage{
+    color:$llb-blue;
+    margin: 5% 0 0 5%;
+}
+.llb-titleLandingPage{
+    font-size: xxx-large;
+}
+.llb-teaserText{
+    padding:2% 0;
+    max-width:500px;
+}
+/*      END OF LEFT PART LANDING PAGE*/
+
+/*      RIGHT PART LANDING PAGE*/
+.llb-blue-oval1{
+    position: absolute;
+    width: 1760px;
+    height: 1760px;
+    left: 644px;
+    top: -880px;
+    border-radius:850px;
+    background: #0C5395;
+}
+.llb-blue-oval2{
+    position: absolute;
+    width: 403px;
+    height: 403px;
+    left: 625px;
+    top: 392px;
+    border-radius:200px;
+    background: #0C5395;
+}
+.rightPart-landingPage .img-landingPage{
+    width:400px;
+    height:300px;
+    position:absolute;
+    left: 860px;
+    top: 180.76px;
+    border-radius: 2%;
+}
+.llb-ovalShapeYellow1{
+    position: absolute;
+    width: 308.69px;
+    height: 550.24px;
+    left: 820px;
+    top: 100px;
+    border: 2px solid #DBAD36;
+    border-radius:70%;
+    transform: rotate(-15deg);
+}
+.llb-ovalShapeYellow2{
+    position: absolute;
+    width: 322.64px;
+    height: 418.56px;
+    left: 952.87px;
+    top: 126px;
+    border: 2px solid #DBAD36;
+    border-radius:80%;
+    transform: rotate(-8deg);
+}
+.llb-blocVerbsLandingPage1{
+    background-color:$llb-grey;
+    text-align: center;
+    position: absolute;
+    width: 130px;
+    height: 30px;
+    left: 980px;
+    top: 145px;
+    border-radius: 2%;
+}
+.llb-blocVerbsLandingPage2{
+    background-color:$llb-grey;
+    text-align: center;
+    position: absolute;
+    width: 130px;
+    height: 30px;
+    left: 1182.73px;
+    top: 390.18px;
+    border-radius: 2%;
+}
+.llb-blocVerbsLandingPage3{
+    background-color:$llb-grey;
+    text-align: center;
+    position: absolute;
+    width: 130px;
+    height: 30px;
+    left: 834px;
+    top: 440px;
+    border-radius: 2%;
+
+}
+/*      END OF RIGHT PART LANDING PAGE*/
