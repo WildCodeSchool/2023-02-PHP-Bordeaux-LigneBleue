@@ -1,0 +1,57 @@
+.llb-title-crossPage{
+    color:$llb-blue;
+    margin: 5% 0 0 5%;
+}
+
+.llb-card-crossPage{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin:5% 0 10% 0;
+}
+.llb-cardConnect{
+    width:25vw;
+    height:40vh;
+    background: #FFFFFF;
+    border: 1px solid #FFCB05;
+    box-shadow: 0px 4px 12px rgba(16, 59, 25, 0.0798517);
+    border-radius: 16px;
+}
+.llb-cardConnect .llb-button-yellow{
+    margin:3% 0 5% 10%;
+}
+.llb-h5-cardConnect{
+    text-align: center;
+    color:$llb-blue;
+    margin-top: 10%;
+}
+
+.llb-img-cardsCrossPage{
+    height: 10vw;
+    margin-left:49%;
+    margin-top: -3%;
+}
+
+/*      MEDIA QUERY     */
+@media screen and (max-width: 480px) {
+    .llb-card-crossPage{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+        margin-bottom:5%;
+    }
+    .llb-cardConnect{
+        width:90vw;
+        margin-top: 5%;
+        height:40vh;
+        margin-left: 3vw;
+    }
+    .llb-cardConnect .llb-img-cardsCrossPage{
+        height:40%;
+        width:40%;
+        margin-left:60%;
+        margin-top:1%;
+
+    }
+}
