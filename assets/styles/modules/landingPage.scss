@@ -1,3 +1,5 @@
+/*CSS LANDING PAGE*/
+
 .landingPage{
     width:100%;
 }
@@ -15,25 +17,28 @@
 }
 /*      END OF LEFT PART LANDING PAGE*/
 
+
 /*      RIGHT PART LANDING PAGE*/
 .llb-blue-oval1{
     position: absolute;
-    width: 1760px;
-    height: 1760px;
-    left: 644px;
-    top: -880px;
-    border-radius:850px;
+    width: 122vw;
+    height: 122vw;
+    left: 46vw;
+    top: -60vw;
+    border-radius:59vw;
     background: #0C5395;
 }
 .llb-blue-oval2{
     position: absolute;
-    width: 403px;
-    height: 403px;
-    left: 625px;
-    top: 392px;
-    border-radius:200px;
+    width: 28vw;
+    height: 28vw;
+    left: 43vw;
+    top: 27vw;
+    border-radius:14vw;
     background: #0C5395;
 }
+
+/*      IMAGE LANDING PAGE      */
 .rightPart-landingPage .img-landingPage{
     width:400px;
     height:300px;
@@ -62,6 +67,7 @@
     border-radius:80%;
     transform: rotate(-8deg);
 }
+
 .llb-blocVerbsLandingPage1{
     background-color:$llb-grey;
     text-align: center;
@@ -94,3 +100,11 @@
 
 }
 /*      END OF RIGHT PART LANDING PAGE*/
+/*      MEDIA QUERY     */
+@media screen and (max-width: 480px) {
+   .rightPart-landingPage{
+       position: absolute;
+       top:0;
+   }
+}
+
