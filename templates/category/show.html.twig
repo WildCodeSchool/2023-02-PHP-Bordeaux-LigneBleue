@@ -1,34 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Category{% endblock %}
+{% block title %}Category
+{% endblock %}
 
 {% block body %}
-    <h1>Category</h1>
+	<div class="llb-theme-index-container">
+		<div id="llb-theme-index-title">
+			<h1>Category:
+				{{ category.categoryTitle }}</h1>
+			<p>Choisissez un Thème:</p>
+		</div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ category.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ category.title }}</td>
-            </tr>
-            <tr>
-                <th>IndexOrder</th>
-                <td>{{ category.indexOrder }}</td>
-            </tr>
-            <tr>
-                <th>IconPath</th>
-                <td>{{ category.iconPath }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_category_index') }}">back to list</a>
-
-    <a href="{{ path('app_category_edit', {'id': category.id}) }}">edit</a>
-
-    {{ include('category/_delete_form.html.twig') }}
+		<div class="llb-theme-index-card-container">
+			{% for theme in category.themes %}
+				{% include "/theme/_card.html.twig" %}
+			{% endfor %}
+		</div>
+	</div>
 {% endblock %}

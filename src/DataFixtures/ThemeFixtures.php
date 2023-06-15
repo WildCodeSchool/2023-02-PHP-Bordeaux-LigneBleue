@@ -34,9 +34,17 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
             $theme->setTitle($this->faker->word());
             $theme->setIndexOrder($i + 1);
             $theme->setIconPath("build/images/LogoFixtureTheme/" . $iconsPath[array_rand($iconsPath)]);
-            $theme->setCategory($this->getReference("category_Smartphone"));
 
             $this->addReference("theme_" . $theme->getTitle(), $theme);
+
+            if ($i < 4) {
+                $theme->setCategory($this->getReference("category_Smartphone"));
+            } elseif ($i > 8) {
+                $theme->setCategory($this->getReference("category_Ordinateur"));
+            } else {
+                $theme->setCategory($this->getReference("category_Autres"));
+            }
+
             $manager->persist($theme);
         }
 
