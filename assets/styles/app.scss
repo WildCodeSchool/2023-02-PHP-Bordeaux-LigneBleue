@@ -4,11 +4,22 @@
 @import "modules/variables";
 @import "modules/card";
 @import "modules/form";
+
+@import "category/index.scss";
+@import "category/_card.scss";
+
 @import "modules/buton";
 @import "modules/landingPage";
 @import "modules/crossPage";
+
 @import "theme/index.scss";
 @import "theme/_card.scss";
+@import "tutorial/index.scss";
+@import "tutorial/_card.scss";
 @import "modules/landingPage.scss";
+
+@import "connexion";
+
 @import "connexion";
 @import "modules/footer.scss";
+

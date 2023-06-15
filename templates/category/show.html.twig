@@ -1,21 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Theme index
+{% block title %}Category
 {% endblock %}
 
 {% block body %}
 	<div class="llb-theme-index-container">
 		<div id="llb-theme-index-title">
-			<h1>Index des Thèmes</h1>
-			<p>Choisissez une Specialité:</p>
+			<h1>Category:
+				{{ category.categoryTitle }}</h1>
+			<p>Choisissez un Thème:</p>
 		</div>
 
 		<div class="llb-theme-index-card-container">
-			{% for theme in themes %}
-				<pre>
-				{{ dump(theme) }}
-			</pre>
-				{# {% include "/theme/_card.html.twig" %} #}
+			{% for theme in category.themes %}
+				{% include "/theme/_card.html.twig" %}
 			{% endfor %}
 		</div>
 	</div>
