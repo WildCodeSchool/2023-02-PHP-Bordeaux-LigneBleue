@@ -28,14 +28,12 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
             "IconTestPrinter.png",
         ];
 
-        for ($i = 0; $i < $themesAmount; $i++) {
+        for ($i = 1; $i <= $themesAmount; $i++) {
             $theme = new Theme();
 
             $theme->setTitle($this->faker->word());
             $theme->setIndexOrder($i + 1);
             $theme->setIconPath("build/images/LogoFixtureTheme/" . $iconsPath[array_rand($iconsPath)]);
-
-            $this->addReference("theme_" . $theme->getTitle(), $theme);
 
             if ($i < 4) {
                 $theme->setCategory($this->getReference("category_Smartphone"));
@@ -45,6 +43,7 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
                 $theme->setCategory($this->getReference("category_Autres"));
             }
 
+            $this->addReference("theme_" . $i, $theme);
             $manager->persist($theme);
         }
 
