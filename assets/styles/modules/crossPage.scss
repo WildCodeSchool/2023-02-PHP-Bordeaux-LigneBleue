@@ -1,8 +1,13 @@
+.llb-title-crossPage{
+    color:$llb-blue;
+    margin: 5% 0 0 5%;
+}
+
 .llb-card-crossPage{
     display:flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-top:5%;
+    margin:5% 0 10% 0;
 }
 .llb-cardConnect{
     width:25vw;
