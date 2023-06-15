@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tutorial index
+{% endblock %}
+
+{% block body %}
+	<div class="llb-tutorial-index-container">
+		<div id="llb-tutorial-index-title">
+			<h1>Index des Tutoriels</h1>
+			<p>Choisissez une une formation:</p>
+		</div>
+
+		<div class="llb-tutorial-index-card-container">
+			{% for tutorial in tutorials %}
+				{% include "/tutorial/_card.html.twig" %}
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

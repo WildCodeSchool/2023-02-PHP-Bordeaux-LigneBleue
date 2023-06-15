@@ -28,7 +28,7 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
             "IconTestPrinter.png",
         ];
 
-        for ($i = 0; $i < $themesAmount; $i++) {
+        for ($i = 1; $i <= $themesAmount; $i++) {
             $theme = new Theme();
 
             $theme->setTitle($this->faker->word());
@@ -45,6 +45,7 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
                 $theme->setCategory($this->getReference("category_Autres"));
             }
 
+            $this->addReference("theme_" . $i, $theme);
             $manager->persist($theme);
         }
 
