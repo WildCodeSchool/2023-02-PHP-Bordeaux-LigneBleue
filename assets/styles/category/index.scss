@@ -1,5 +1,4 @@
 .llb-category-index-container {
-    color: white;
     background-color: $llb-blue;
     display: flex;
     justify-content: center;
@@ -18,6 +17,7 @@
 }
 
 #llb-category-index-title>h1 {
+    color: white !important;
     font-family: 'Baloo 2';
     font-style: normal;
     font-weight: 700;
@@ -28,6 +28,7 @@
 }
 
 #llb-category-index-title>p {
+    color: white !important;
     font-family: 'Baloo 2';
     font-style: normal;
     font-weight: 400;

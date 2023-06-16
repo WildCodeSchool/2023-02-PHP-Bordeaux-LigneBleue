@@ -2,3 +2,10 @@
     width: 20%;
     margin: 1%;
 }
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+}
