@@ -27,7 +27,7 @@ class Theme
     #[ORM\ManyToOne(inversedBy: 'themes')]
     private ?Category $category = null;
 
-    #[ORM\OneToMany(mappedBy: 'tutorial', targetEntity: Tutorial::class)]
+    #[ORM\OneToMany(mappedBy: 'theme', targetEntity: Tutorial::class)]
     private Collection $tutorials;
 
     public function __construct()
