@@ -14,7 +14,6 @@
 }
 
 .llb-background-light-blue {
-    width: 100vw;
     background-color: $llb-light-blue;
     position: absolute;
     top: 30%;
@@ -22,10 +21,12 @@
 
 .llb-login-size {
     height: 70vh;
+    width: 100vw;
 }
 
 .llb-register-size {
     height: 130vh;
+    width: 98.9vw;
 }
 
 @media screen and (max-width: 480px) {
