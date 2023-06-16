@@ -25,7 +25,7 @@ class UserFixtures extends Fixture
         $userSuperAdmin->setLastname($faker->lastName);
         $userSuperAdmin->setBirthday($faker->dateTimeBetween('-50 years', '-18 years'));
         $userSuperAdmin->setGender('man');
-        $userSuperAdmin->setZipcode($faker->numberBetween(10000, 99999));
+        $userSuperAdmin->setAdress($faker->address);
         $userSuperAdmin->setEmail($faker->email);
         $userSuperAdmin->setPassword($this->passwordHasher->hashPassword($userSuperAdmin, 'admin'));
         $userSuperAdmin->setRoles(['ROLE_SUPER_ADMIN']);
@@ -39,7 +39,7 @@ class UserFixtures extends Fixture
             $user->setLevel(1);
             $user->setBirthday($faker->dateTimeBetween('-50 years', '-18 years'));
             $user->setGender('man');
-            $user->setZipcode($faker->numberBetween(10000, 99999));
+            $user->setAdress($faker->address);
             $user->setEmail($faker->email);
             $user->setPassword($this->passwordHasher->hashPassword($user, 'test'));
             $manager->persist($user);

@@ -6,6 +6,29 @@
     font-size: 0.9rem;
 }
 
+.image-card-trio {
+    height: 10vw;
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+}
+
+.llb-background-light-blue {
+    background-color: $llb-light-blue;
+    position: absolute;
+    top: 30%;
+}
+
+.llb-login-size {
+    height: 70vh;
+    width: 100vw;
+}
+
+.llb-register-size {
+    height: 130vh;
+    width: 98.9vw;
+}
+
 @media screen and (max-width: 480px) {
     .image-card-trio {
         height: 15vh;

@@ -2,45 +2,20 @@
 $llb-blue: #0C5395;
 $llb-yellow: #FFCB05;
 $llb-dark-blue: #062F55;
-$llb-light-blue: #D1E4E8;
+$llb-light-blue: #D6E3E7;
 $llb-light-yellow: #ffe482;
 $llb-grey: #edeeed;
 
 * {
     box-sizing: border-box;
+    color: $llb-blue;
 }
 
 body {
-
     background-color: white;
 }
 
-.llb-button-blue {
-    background-color: $llb-blue;
-    color: white;
-    height: 48px;
-    width: 186px;
-    border-radius: 6px;
-    border: white;
-}
-
-.llb-button-yellow {
-    background-color: $llb-yellow;
-    color: $llb-dark-blue;
-    height: 48px;
-    width: 186px;
-    border-radius: 6px;
-}
-
-.llb-button-white {
-    background-color: white;
-    color: $llb-blue;
-    height: 48px;
-    width: 186px;
-    border-radius: 6px;
-}
-.llb-cards-formation {
-    height: 464px;
-    width: 339px;
-    border-radius: 12px;
+.llb-align-center {
+    margin-left: auto;
+    margin-right: auto;
 }

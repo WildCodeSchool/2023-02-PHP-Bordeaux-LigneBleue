@@ -32,11 +32,8 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-
             $entityManager->persist($user);
             $entityManager->flush();
-            $this->addFlash('success', 'Bienvenue sur votre espace personnel ' . $this->getUser()->getFirstname() . ' ' . $this->getUser()->getLastname());
-
             // do anything else you need here, like send an email
 
             return $userAuthenticator->authenticateUser(

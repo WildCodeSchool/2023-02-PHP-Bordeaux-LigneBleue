@@ -1,0 +1,60 @@
+{# - Lien vers la Homepage
+- Lien vers la page d’inscription
+- Lien vers la page Login
+- barre de recherche #}
+
+
+{# LOGO. MOBILE : with a logo ; DESKTOP : without a logo but with name of brand 'La Ligne Bleue' #}
+
+<nav class="navbar">
+    <div class="llb-navbar-logo">
+        <a href="{{ path('app_home') }}">
+            <img src="../assets/images/LOGO_WILD_CODE_SCHOOL.png" alt="Logo" class="d-inline-block align-text-top">
+        </a>
+        <p>La Ligne Bleue</p>
+    </div>
+
+    <div class="llb-navbar-searchBar">
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Je cherche une formation" aria-label="Search" width ="60px">
+            <button class="llb-navbar-button-search" type="submit">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+        </form>
+    </div>
+
+    <div class="llb-navbar-buttons-signing">
+        <a class="llb-navbar-button-signUp" href="#">Inscription</a>
+        <a class="llb-navbar-button-signIn" href="#">Connexion</a>
+    </div>
+</nav>
+
+{# NAME OF BRAND #}
+<!-- As a link -->
+    {#<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+    </div>
+</nav>
+
+<!-- As a heading -->
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Navbar</span>
+    </div>
+</nav>#}
+
+{# LOGO & NAME BRAND #}
+
+{#  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            Bootstrap
+        </a>
+    </div>
+</nav>
+    #}
+
+
+
