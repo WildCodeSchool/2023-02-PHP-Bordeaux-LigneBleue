@@ -16,6 +16,7 @@
     border: 1px solid #FFCB05;
     box-shadow: 0px 4px 12px rgba(16, 59, 25, 0.0798517);
     border-radius: 16px;
+    position: relative;
 }
 .llb-cardConnect .llb-button-yellow{
     margin:3% 0 5% 10%;
@@ -28,8 +29,9 @@
 
 .llb-img-cardsCrossPage{
     height: 10vw;
-    margin-left:49%;
-    margin-top: -3%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 /*      MEDIA QUERY     */
