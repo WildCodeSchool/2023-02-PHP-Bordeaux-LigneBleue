@@ -1,0 +1,82 @@
+.llb-welcome-userPage{
+    width:90vw;
+    height:25vw;
+    background-image: url("../../images/welcome-user.jpeg");
+    background-size:100%;
+    margin: 5vw;
+    display: flex;
+    flex-direction: row;
+}
+.leftPart-userPage{
+    margin-left:2%;
+}
+.welcomeText-userPage{
+    width: 40%;
+    color:$llb-blue;
+    margin-bottom: 5%;
+}
+.bienvenue-title{
+    font-size:xxx-large;
+    color:$llb-blue;
+    width:10vw;
+    margin-top:5%
+}
+.avatar-userPage{
+    width:30vw;
+    height:20vw;
+    padding-right:35%;
+}
+.llb-button-white-UP{
+    background-color: white;
+    color: $llb-blue;
+    height: 3vw;
+    width: 10vw;
+    border-radius: 6px;
+    border-color:$llb-blue;
+    margin-left:5%;
+    margin-top:5%;
+}
+.llb-cards-userPage{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin:5% 0 10% 0;
+}
+
+.llb-card-userPage{
+    width:25vw;
+    height:40vh;
+    background: #FFFFFF;
+    border: 1px solid #FFCB05;
+    box-shadow: 0px 4px 12px rgba(16, 59, 25, 0.0798517);
+    border-radius: 16px;
+}
+.llb-img-cardsUserPage{
+    height: 10vw;
+    margin-left:49%;
+}
+
+.card-tutos-userPage{
+    padding:0;
+
+}
+.card-wrapper{
+
+}
+.logo-cards{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+}
+.llb-tuto-userPage{
+    background-color:$llb-blue;
+    width:90%;
+    margin-left:5%;
+    padding-bottom: 5%;
+    margin-bottom: 5%;
+}
+.llb-title-userTuto{
+    color: white;
+    margin:0 0 5% 5%;
+    padding-top:5%;
+}
