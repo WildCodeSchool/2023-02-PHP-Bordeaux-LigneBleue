@@ -33,7 +33,7 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
 
             $theme->setTitle($this->faker->word());
             $theme->setIndexOrder($i + 1);
-            $theme->setIconPath("build/images/LogoFixtureTheme/" . $iconsPath[array_rand($iconsPath)]);
+            $theme->setIconPath("build/images/Fixtures/CardIcons/" . $iconsPath[array_rand($iconsPath)]);
 
             $this->addReference("theme_" . $theme->getTitle(), $theme);
 

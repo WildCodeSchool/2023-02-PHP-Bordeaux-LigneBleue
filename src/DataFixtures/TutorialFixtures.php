@@ -20,7 +20,7 @@ class TutorialFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager): void
     {
-        $tutorialsAmount = 3;
+        $tutorialsPerTheme = 9;
 
         $iconsPath = [
             "IconTestComputer.png",
@@ -29,14 +29,15 @@ class TutorialFixtures extends Fixture implements DependentFixtureInterface
         ];
 
         for ($i = 1; $i <= 12; $i++) {
-            for ($j = 0; $j < $tutorialsAmount; $j++) {
+            for ($j = 0; $j < $tutorialsPerTheme; $j++) {
                 $tutorial = new Tutorial();
 
                 $tutorial->setTitle($this->faker->word());
                 $tutorial->setObjective($this->faker->sentence());
                 $tutorial->setIsPublished(true);
                 $tutorial->setIndexOrder($j + 1);
-                $tutorial->setIconPath("build/images/LogoFixtureTheme/" . $iconsPath[array_rand($iconsPath)]);
+                $tutorial->setPicturePath("build/images/Fixtures/Pictures/TestPicture.webp");
+                $tutorial->setIconPath("build/images/Fixtures/CardIcons/" . $iconsPath[array_rand($iconsPath)]);
                 $tutorial->setTheme($this->getReference("theme_" . $i));
 
                 $this->addReference("tutorial_" . $i . $j, $tutorial);
