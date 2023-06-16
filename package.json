@@ -5,6 +5,7 @@
         "@hotwired/stimulus": "^3.0.0",
         "@popperjs/core": "^2.11.8",
         "@symfony/stimulus-bridge": "^3.2.0",
+        "@symfony/ux-autocomplete": "file:vendor/symfony/ux-autocomplete/assets",
         "@symfony/webpack-encore": "^4.0.0",
         "bootstrap": "^5.3.0",
         "core-js": "^3.23.0",
@@ -14,6 +15,7 @@
         "regenerator-runtime": "^0.13.9",
         "sass": "^1.56.0",
         "sass-loader": "^13.1.0",
+        "tom-select": "^2.2.2",
         "webpack": "^5.74.0",
         "webpack-cli": "^4.10.0",
         "webpack-notifier": "^1.15.0"
@@ -27,6 +29,8 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "stimulus": "^3.2.1",
+        "stimulus-places-autocomplete": "^0.5.0",
         "watch": "^0.13.0"
     }
 }

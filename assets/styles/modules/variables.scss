@@ -2,16 +2,16 @@
 $llb-blue: #0C5395;
 $llb-yellow: #FFCB05;
 $llb-dark-blue: #062F55;
-$llb-light-blue: #D1E4E8;
+$llb-light-blue: #D6E3E7;
 $llb-light-yellow: #ffe482;
 $llb-grey: #edeeed;
 
 * {
     box-sizing: border-box;
+    color: $llb-blue;
 }
 
 body {
-
     background-color: white;
 }
 
@@ -44,4 +44,8 @@ body {
     height: 464px;
     width: 339px;
     border-radius: 12px;
+}
+.llb-align-center {
+    margin-left: auto;
+    margin-right: auto;
 }

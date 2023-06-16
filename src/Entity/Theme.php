@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ThemeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ThemeRepository::class)]
@@ -21,6 +23,17 @@ class Theme
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $iconPath = null;
+
+    #[ORM\ManyToOne(inversedBy: 'themes')]
+    private ?Category $category = null;
+
+    #[ORM\OneToMany(mappedBy: 'tutorial', targetEntity: Tutorial::class)]
+    private Collection $tutorials;
+
+    public function __construct()
+    {
+        $this->tutorials = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -59,6 +72,48 @@ class Theme
     public function setIconPath(?string $iconPath): self
     {
         $this->iconPath = $iconPath;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Tutorial>
+     */
+    public function getTutorials(): Collection
+    {
+        return $this->tutorials;
+    }
+
+    public function addTutorial(Tutorial $tutorial): self
+    {
+        if (!$this->tutorials->contains($tutorial)) {
+            $this->tutorials->add($tutorial);
+            $tutorial->setTheme($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTutorial(Tutorial $tutorial): self
+    {
+        if ($this->tutorials->removeElement($tutorial)) {
+            // set the owning side to null (unless already changed)
+            if ($tutorial->getTheme() === $this) {
+                $tutorial->setTheme(null);
+            }
+        }
 
         return $this;
     }
