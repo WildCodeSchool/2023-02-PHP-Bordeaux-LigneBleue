@@ -13,6 +13,21 @@
     right: 1px;
 }
 
+.llb-background-light-blue {
+    width: 100vw;
+    background-color: $llb-light-blue;
+    position: absolute;
+    top: 30%;
+}
+
+.llb-login-size {
+    height: 70vh;
+}
+
+.llb-register-size {
+    height: 130vh;
+}
+
 @media screen and (max-width: 480px) {
     .image-card-trio {
         height: 15vh;

@@ -2,7 +2,7 @@
 $llb-blue: #0C5395;
 $llb-yellow: #FFCB05;
 $llb-dark-blue: #062F55;
-$llb-light-blue: #D1E4E8;
+$llb-light-blue: #D6E3E7;
 $llb-light-yellow: #ffe482;
 $llb-grey: #edeeed;
 
@@ -13,4 +13,9 @@ $llb-grey: #edeeed;
 
 body {
     background-color: white;
+}
+
+.llb-align-center {
+    margin-left: auto;
+    margin-right: auto;
 }

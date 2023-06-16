@@ -3,7 +3,7 @@
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
-    <div class="llb-background-light-blue">
+    <div class="llb-background-light-blue llb-login-size"></div>
     <section class="llb-form-global">
 <form method="post" class="llb-form">
     {% if error %}
@@ -36,7 +36,7 @@
         </div>
     #}
 
-    <button class="llb-button-yellow llb-align-center mb-4" type="submit">
+    <button class="llb-button-yellow mb-4" type="submit">
         Je me connecte
     </button>
 </form>
@@ -54,6 +54,5 @@
     </section>
     <div class="d-flex justify-content-center align-items-center">
         <a class="llb-button-yellow mb-2 mt-2 text-decoration-none" href="{{ path('app_home') }}">Cliquez ici pour revenir à l'accueil</a>
-    </div>
     </div>
 {% endblock %}
