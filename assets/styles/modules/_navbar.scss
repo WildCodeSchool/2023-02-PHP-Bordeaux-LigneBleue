@@ -1,0 +1,53 @@
+.llb-navbar {
+    background-color: $llb-blue;
+    font-family: "Baloo 2";
+}
+
+.navbar-brand {
+    color: white;
+}
+
+.navbar-brand:hover {
+    color: $llb-yellow;
+}
+
+.navbar-brand>img {
+    margin-left: 1%;
+    margin-right: 3%;
+}
+
+.d-flex {
+    margin-right: 1%;
+}
+
+.llb_navbar_search_form {
+    margin-right: 0 !important;
+    border-radius: 5px 0px 0px 5px;
+    width: 20vw !important;
+}
+
+.llb_navbar_search_form::placeholder {
+    color: $llb-blue !important;
+    opacity: 0.8;
+    font-weight: bold;
+}
+
+.llb_navbar_search_button {
+    border-radius: 0px 10px 10px 0px;
+    border-color: $llb-light-blue;
+}
+
+.llb_navbar_search_button:hover {
+    background-color: $llb-yellow;
+}
+
+.llb_navbar_button {
+    color: white;
+    border-color: $llb-light-blue;
+}
+
+.llb_navbar_button:hover {
+    color: $llb-blue;
+    background-color: $llb-yellow;
+    border-color: $llb-yellow;
+}
