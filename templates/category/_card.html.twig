@@ -1,4 +1,4 @@
 <a class="llb-category-card" href={{ path("app_category_show", {"id": category.id} )}}>
-	<img src={{ asset(category.categoryIconPath) }} alt="">
+	<img src={{ asset(icone_path ~ category.categoryIconPath) }} alt="{{ category.categoryTitle }}">
 	<p>{{category.categoryTitle}}</p>
 </a>

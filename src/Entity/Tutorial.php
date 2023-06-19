@@ -29,11 +29,13 @@ class Tutorial
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $picturePath = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $iconPath = null;
-
     #[ORM\ManyToOne(inversedBy: 'tutorials')]
     private ?Theme $theme = null;
+
+    public function __toString()
+    {
+        return $this->title;
+    }
 
     public function getId(): ?int
     {
@@ -96,18 +98,6 @@ class Tutorial
     public function setPicturePath(?string $picturePath): self
     {
         $this->picturePath = $picturePath;
-
-        return $this;
-    }
-
-    public function getIconPath(): ?string
-    {
-        return $this->iconPath;
-    }
-
-    public function setIconPath(?string $iconPath): self
-    {
-        $this->iconPath = $iconPath;
 
         return $this;
     }

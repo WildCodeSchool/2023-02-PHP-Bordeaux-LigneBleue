@@ -1,6 +1,6 @@
 <div class="card">
-	<img class="card-img-top" src={{ asset("build/images/Fixtures/Pictures/TestPicture.webp")}} alt="">
-	<div class="card-body">
+    <img class="card-img-top" src={{ asset(picture_path ~ tutorial.picturePath) }} alt="{{ tutorial.title }}">
+    <div class="card-body">
 		<h5 class="card-title">{{tutorial.title}}</h5>
 		<p class="card-text">{{ tutorial.objective }}</p>
 		<a href={{ path("app_tutorial_show", {"id": tutorial.id} )}} class="btn btn-primary">Commencer</a>
