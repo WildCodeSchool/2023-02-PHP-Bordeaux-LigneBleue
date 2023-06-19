@@ -32,6 +32,11 @@ class Category
         $this->themes = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->categoryTitle;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
