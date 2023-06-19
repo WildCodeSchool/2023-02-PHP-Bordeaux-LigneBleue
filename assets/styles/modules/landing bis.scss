@@ -1,0 +1,167 @@
+/*
+!*CSS LANDING PAGE*!
+
+!*      LEFT PART LANDING PAGE*!
+.leftPart-landingPage{
+    color:$llb-blue;
+    margin: 10% 0 0 5%;
+}
+.llb-titleLandingPage{
+    font-size: xxx-large;
+}
+.llb-teaserText{
+    padding:2% 0;
+    max-width:500px;
+}
+!*      END OF LEFT PART LANDING PAGE*!
+
+!*      RIGHT PART LANDING PAGE*!
+.llb-blue-rect {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40vw;
+    height: 100vh;
+    background: $llb-blue;
+}
+.llb-blue-oval1{
+    position: absolute;
+    right: 0;
+    bottom: 30vh;
+    width: 60vw;
+    height: 60vw;
+    border-radius:30vw;
+    background: $llb-blue;
+}
+.llb-blue-oval2{
+    position: absolute;
+    right: 25vw;
+    bottom: 0;
+    width: 28vw;
+    height: 28vw;
+    border-radius:14vw;
+    background: $llb-blue;
+}
+
+!*      IMAGE LANDING PAGE      *!
+.rightPart-landingPage .img-landingPage{
+    width:28vw;
+    height:21vw;
+    position:absolute;
+    left: 860px;
+    top: 180.76px;
+    border-radius: 2%;
+}
+!*.llb-responsiv-landingPage .img-landingPage{
+    border-radius: 40%;
+    width:28vw;
+    height:21vw;
+}*!
+.llb-ovalShapeYellow1{
+    position: absolute;
+    width: 308.69px;
+    height: 550.24px;
+    left: 820px;
+    top: 100px;
+    border: 2px solid #DBAD36;
+    border-radius:70%;
+    transform: rotate(-15deg);
+}
+.llb-ovalShapeYellow2{
+    position: absolute;
+    width: 322.64px;
+    height: 418.56px;
+    left: 952.87px;
+    top: 126px;
+    border: 2px solid #DBAD36;
+    border-radius:80%;
+    transform: rotate(-8deg);
+}
+
+.llb-blocVerbsLandingPage{
+    background-color:white;
+    text-align: center;
+    width: auto;
+    height: auto;
+    padding: 2vh;
+    border-radius: 12%;
+}
+.llb-Verbs1{
+    position: absolute;
+    left: 980px;
+    top: 145px;
+}
+.llb-Verbs2{
+    position: absolute;
+    left: 1182.73px;
+    top: 390.18px;
+}
+.llb-Verbs3{
+    position: absolute;
+    left: 834px;
+    top: 440px;
+}
+!*      END OF RIGHT PART LANDING PAGE*!
+
+!*      MEDIA QUERY     *!
+@media screen and (max-width: 480px) {
+
+    .llb-homepage-global {
+        flex-direction: column;
+    }
+    .llb-blue-oval1, .llb-blue-rect{
+        display: none;
+    }
+    .llb-blue-oval2{
+        top: -50%;
+        right: unset;
+        bottom: unset;
+    }
+    .rightPart-landingPage, .leftPart-landingPage {
+        width: 100%;
+    }
+    .llb-titleLandingPage {
+        font-size: xx-large;
+    }
+
+    !*    .rightPart-landingPage .img-landingPage{
+            display:none;
+        }
+        .llb-ovalShapeYellow1{
+            display:none;
+        }
+        .llb-ovalShapeYellow2{
+            display:none;
+        }
+        .llb-blocVerbsLandingPage1{
+            display:none;
+        }
+        .llb-blocVerbsLandingPage2{
+            display:none;
+        }
+        .llb-blocVerbsLandingPage3{
+            display:none;
+        }
+        .leftPart-landingPage{
+            padding-top: 100%;
+        }
+        .top-responsive-landingPage{
+            display:block;
+            background: $llb-blue;
+            width:100vw;
+            height:50%;
+            top:0;
+            position:absolute;
+        }
+        .img-responsive-landingPage{
+            display:block;
+            top:0;
+            position:absolute;
+            width:100vw;
+        }
+        .leftPart-landingPage .llb-button-blue{
+            margin-bottom: 5%;
+        }
+    *!
+}
+*/
