@@ -22,12 +22,6 @@ class TutorialFixtures extends Fixture implements DependentFixtureInterface
     {
         $tutorialsPerTheme = 9;
 
-        $iconsPath = [
-            "IconTestComputer.png",
-            "IconTestPhone.png",
-            "IconTestPrinter.png",
-        ];
-
         for ($i = 1; $i <= 12; $i++) {
             for ($j = 0; $j < $tutorialsPerTheme; $j++) {
                 $tutorial = new Tutorial();
@@ -37,7 +31,6 @@ class TutorialFixtures extends Fixture implements DependentFixtureInterface
                 $tutorial->setIsPublished(true);
                 $tutorial->setIndexOrder($j + 1);
                 $tutorial->setPicturePath("build/images/Fixtures/Pictures/TestPicture.webp");
-                $tutorial->setIconPath("build/images/Fixtures/CardIcons/" . $iconsPath[array_rand($iconsPath)]);
                 $tutorial->setTheme($this->getReference("theme_" . $i));
 
                 $this->addReference("tutorial_" . $i . $j, $tutorial);
@@ -45,7 +38,6 @@ class TutorialFixtures extends Fixture implements DependentFixtureInterface
                 $manager->persist($tutorial);
             }
         }
-
 
         $manager->flush();
     }
