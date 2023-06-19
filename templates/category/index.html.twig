@@ -4,16 +4,6 @@
 {% endblock %}
 
 {% block body %}
-	<div class="llb-category-index-container">
-		<div id="llb-category-index-title">
-			<h1>Trouvez votre Formation</h1>
-			<p>Choisissez une catégorie parmis les suivants :</p>
-		</div>
-
-		<div class="llb-category-index-card-container">
-			{% for category in categories %}
-				{% include "/category/_card.html.twig" %}
-			{% endfor %}
-		</div>
-	</div>
+    <div class="llb-background-light-blue llb-category-size"></div>
+    {% include "/category/_blue.container.html.twig" %}
 {% endblock %}

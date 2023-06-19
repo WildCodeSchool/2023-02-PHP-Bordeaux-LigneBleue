@@ -4,11 +4,11 @@
 {% endblock %}
 
 {% block body %}
-    <div class="llb-background-light-blue llb-login-size"></div>
-    <div class="llb-theme-index-container">
+    <div class="llb-background-light-blue llb-category-size"></div>
+    <div class="llb-category-index-container mb-5 mt-4">
 		<div id="llb-theme-index-title">
 			<h1>Index des Thèmes</h1>
-			<p>Choisissez une Specialité:</p>
+			<p>Choisissez une spécialité :</p>
 		</div>
 
 		<div class="llb-theme-index-card-container">
@@ -17,4 +17,7 @@
 			{% endfor %}
 		</div>
 	</div>
+    <div class="d-flex justify-content-center align-items-center">
+        <a class="llb-button-yellow mb-5 mt-2 text-decoration-none text-center w-auto align-middle" href="{{ path('cross_page') }}">Cliquez ici pour revenir en arrière</a>
+    </div>
 {% endblock %}
