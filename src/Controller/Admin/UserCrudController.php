@@ -50,5 +50,4 @@ class UserCrudController extends AbstractCrudController
         yield DateField::new('updatedAt', 'Mise à jour')
             ->hideOnForm();
     }
-
 }

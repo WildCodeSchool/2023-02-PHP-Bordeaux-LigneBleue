@@ -28,5 +28,4 @@ class TutorialCrudController extends AbstractCrudController
         yield AssociationField::new('theme', 'Thème');
         yield BooleanField::new('isPublished', 'Publié');
     }
-
 }
