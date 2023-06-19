@@ -10,7 +10,7 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<div class="collapse navbar-collapse llb-navbar-content" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
 
 			<form class="d-flex" role="search">
@@ -21,14 +21,24 @@
 				</button>
 			</form>
 
-			<a href="">
-				<button class="btn btn-outline-success me-2 llb_navbar_button" type="button">INSCRIPTION</button>
-			</a>
+			<div class="llb-navbar-buttons">
+				{% if app.user %}
+					<a href="">
+						<button class="btn btn-outline-success me-2 llb_navbar_button" type="button">Espace Personnel</button>
+					</a>
+				{% else %}
+					<a href="">
+						<button class="btn btn-outline-success me-2 llb_navbar_button" type="button">Inscription</button>
+					</a>
 
-			<a href="">
-				<button class="btn btn-outline-success me-2 llb_navbar_button" type="button">CONNEXION</button>
-			</a>
-
+					<a href="">
+						<button class="btn btn-outline-success me-2 llb_navbar_button" type="button">Connexion</button>
+					</a>
+				{% endif %}
+				<a href="">
+					<button class="btn btn-outline-success me-2 llb_navbar_button" id="llb-navbar-contact" type="button">Contactez-nous</button>
+				</a>
+			</div>
 		</div>
 	</div>
 </nav>

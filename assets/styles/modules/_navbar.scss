@@ -33,7 +33,7 @@
 }
 
 .llb_navbar_search_button {
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 0px 5px 5px 0px;
     border-color: $llb-light-blue;
 }
 
@@ -50,4 +50,57 @@
     color: $llb-blue;
     background-color: $llb-yellow;
     border-color: $llb-yellow;
+}
+
+#llb-navbar-contact {
+    display: none;
+}
+
+@media screen and (max-width: 480px) {
+    .llb-navbar-content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        min-width: 90vw;
+    }
+
+    .llb_navbar_search_form {
+        width: 84vw !important;
+        margin-left: 1%;
+    }
+
+    .llb-navbar-buttons {
+        display: flex;
+        align-items: stretch;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .llb-navbar-buttons>a,
+    .llb-navbar-buttons>div {
+        margin-top: 3%;
+    }
+
+    .llb_navbar_button {
+        width: 100%;
+    }
+
+    .navbar-toggler {
+        border-color: white
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+
+    .navbar-toggler:focus,
+    .navbar-toggler:active,
+    .navbar-toggler-icon:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    #llb-navbar-contact {
+        display: inline
+    }
 }
