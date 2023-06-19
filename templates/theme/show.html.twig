@@ -4,16 +4,6 @@
 {% endblock %}
 
 {% block body %}
-	<div class="llb-theme-index-container">
-		<div id="llb-theme-index-title">
-			<h1>{{theme.title}}</h1>
-			<p>Choisissez votre Formation:</p>
-		</div>
-
-		<div class="llb-theme-index-card-container">
-			{% for tutorial in theme.tutorials %}
-				{% include "tutorial/_card.html.twig" %}
-			{% endfor %}
-		</div>
-	</div>
+    <div class="llb-background-light-blue llb-category-size"></div>
+    {% include "/category/_blue.container.html.twig" %}
 {% endblock %}
