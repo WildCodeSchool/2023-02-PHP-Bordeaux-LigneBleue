@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg llb-navbar">
+	<div class="container-fluid">
+
+		<a class="navbar-brand" href="/">
+			<img class="d-inline-block align-text-top" src={{ asset("build/images/LLB_Logo.png")}} alt="" width="30" height="30">
+			La Ligne Bleue
+		</a>
+
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse llb-navbar-content" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+
+			<form class="d-flex" role="search">
+				<input class="form-control llb_navbar_search_form" type="search" placeholder="Je cherche une formation" aria-label="Search">
+
+				<button class="btn btn-outline-success llb_navbar_search_button" type="submit">
+					<img class="d-inline-block align-text-top" src={{ asset("build/images/Search_loupe.png")}} alt="" width="20" height="20">
+				</button>
+			</form>
+
+			<div class="llb-navbar-buttons">
+				{% if app.user %}
+					<a href="">
+						<button class="btn btn-outline-success me-2 llb_navbar_button" type="button">Espace Personnel</button>
+					</a>
+				{% else %}
+					<a href="">
+						<button class="btn btn-outline-success me-2 llb_navbar_button" type="button">Inscription</button>
+					</a>
+
+					<a href="">
+						<button class="btn btn-outline-success me-2 llb_navbar_button" type="button">Connexion</button>
+					</a>
+				{% endif %}
+				<a href="">
+					<button class="btn btn-outline-success me-2 llb_navbar_button" id="llb-navbar-contact" type="button">Contactez-nous</button>
+				</a>
+			</div>
+		</div>
+	</div>
+</nav>
