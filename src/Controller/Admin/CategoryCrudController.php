@@ -6,6 +6,7 @@ use App\Entity\Category;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -21,7 +22,11 @@ class CategoryCrudController extends AbstractCrudController
     {
         yield TextField::new('categoryTitle', 'Titre');
         yield IntegerField::new('categoryIndexOrder', 'Ordre');
-        yield TextField::new('categoryIconPath', 'Icône');
-        yield AssociationField::new('themes', 'Thème(s)');
+        yield ImageField::new('categoryIconPath', 'Icône')
+            ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]')
+            ->setBasePath('uploads/icones')
+            ->setUploadDir('public/uploads/icones');
+        yield AssociationField::new('themes', 'Thème(s)')
+            ->hideWhenCreating();
     }
 }
