@@ -23,15 +23,15 @@
 
 			<div class="llb-navbar-buttons">
 				{% if app.user %}
-					<a href="">
+					<a href={{ path("app_user" )}}>
 						<button class="btn btn-outline-success me-2 llb_navbar_button" type="button">Espace Personnel</button>
 					</a>
 				{% else %}
-					<a href="">
+					<a href={{ path("app_register") }}>
 						<button class="btn btn-outline-success me-2 llb_navbar_button" type="button">Inscription</button>
 					</a>
 
-					<a href="">
+					<a href={{ path("app_login") }}>
 						<button class="btn btn-outline-success me-2 llb_navbar_button" type="button">Connexion</button>
 					</a>
 				{% endif %}
