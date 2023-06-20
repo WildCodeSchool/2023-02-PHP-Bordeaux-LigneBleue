@@ -1,24 +1,27 @@
 .llb-button-blue {
     background-color: $llb-blue;
     color: white;
-    height: 48px;
-    width: 186px;
+    padding: 2vh;
     border-radius: 6px;
     border: white;
 }
 
 .llb-button-yellow {
-    background-color: $llb-yellow;
+    background-color: $llb-light-yellow;
     color: $llb-dark-blue;
-    height: 48px;
-    width: 186px;
+    padding: 2vh;
     border-radius: 6px;
+    border: solid 1px $llb-yellow;
+    font-size: 1rem;
+}
+
+.llb-button-yellow:hover {
+    background-color: $llb-yellow;
 }
 
 .llb-button-white {
     background-color: white;
     color: $llb-blue;
-    height: 48px;
-    width: 186px;
+    padding: 2vh;
     border-radius: 6px;
 }

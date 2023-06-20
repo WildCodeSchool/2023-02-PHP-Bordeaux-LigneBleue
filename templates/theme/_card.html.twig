@@ -1,4 +1,4 @@
-<a class="llb-theme-card" href="">
-	<img src={{ asset(theme.iconPath) }} alt="">
-	<p>{{theme.title}}</p>
+<a class="llb-theme-card mt-3 mb-3" href={{ path("app_theme_show", {"id": theme.id} )}}>
+    <img src={{ asset(icone_path ~ theme.iconPath) }} alt="{{ theme.title }}">
+    <p>{{theme.title}}</p>
 </a>

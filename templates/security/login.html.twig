@@ -3,6 +3,7 @@
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
+    <div class="llb-background-light-blue llb-login-size"></div>
     <section class="llb-form-global">
 <form method="post" class="llb-form">
     {% if error %}
@@ -25,34 +26,29 @@
            value="{{ csrf_token('authenticate') }}"
     >
 
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
         <div class="checkbox mb-3">
             <label>
                 <input type="checkbox" name="_remember_me"> Se souvenir de moi
             </label>
         </div>
-    #}
 
-    <button class="llb-button-yellow llb-align-center mb-4" type="submit">
+    <button class="llb-button-yellow mb-4" type="submit">
         Je me connecte
     </button>
 </form>
     <div class="llb-under-connexion">
         <div class="d-flex flex-column justify-content-center align-items-center">
             <p class="text-center mb-0">Vous avez oublié votre mot de passe ?</p>
-            <a class="mb-2" href="">Cliquez ici</a>
+            <a class="mb-2" href="{{ path('app_forgot_password_request') }}">Cliquez ici</a>
         </div>
         <div class="d-flex flex-column justify-content-center align-items-center">
             <p class="text-center mb-0">Vous n'avez pas encore de compte ?</p>
             <a href="{{ path('app_register') }}">Cliquez ici</a>
         </div>
     </div>
-        <img src="{{ asset('build/images/logo-card-femme.faa093ba.png') }}" class="image-card-trio" alt="logo-card-femme">
+        <img src="{{ asset('build/images/logo-card-femme.png') }}" class="image-card-trio" alt="logo-card-femme">
     </section>
     <div class="d-flex justify-content-center align-items-center">
-        <a class="llb-button-yellow mb-2 mt-2" href="{{ path('app_home') }}">Cliquez ici pour revenir à l'accueil</a>
+        <a class="llb-button-yellow mb-5 mt-2 text-decoration-none text-center w-auto align-middle" href="{{ path('cross_page') }}">Cliquez ici pour revenir en arrière</a>
     </div>
 {% endblock %}

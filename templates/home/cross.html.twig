@@ -1,32 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home{% endblock %}
-
-{% block body %}
-<section class="llb-title-crossPage">
-    <h1 class="llb-titleLandingPage">La Ligne Bleue</h1>
-    <h2 class="llb-subtitleLandingPage">Contre l’exclusion numérique</h2>
-</section>
-
-    <section class="llb-card-crossPage">
-        <div class="llb-cardConnect">
-            <h5 class="llb-h5-cardConnect">J'ai déja un compte</h5>
-            <a class="nav-link text-warning" href="{{ path('app_login') }}"><button class="llb-button-yellow">Je me connecte</button></a>
-            <img class="llb-img-cardsCrossPage" src="{{ asset('build/images/logo-card-femme.png') }}">
-        </div>
-
-        <div class="llb-cardConnect">
-            <h5 class="llb-h5-cardConnect">Je souhaite créer un compte</h5>
-            <a class="nav-link text-warning" href="{{ path('app_register') }}"><button class="llb-button-yellow">Je m'inscris</button></a>
-            <img class="llb-img-cardsCrossPage" src="{{ asset('build/images/logo-card-femme.png') }}">
-        </div>
-
-        <div class="llb-cardConnect">
-            <h5 class="llb-h5-cardConnect">Je ne souhaite pas créer de compte</h5>
-            <a class="nav-link text-warning" href="{{ path('app_theme_index') }}"><button class="llb-button-yellow">Je découvre</button></a>
-            <img class="llb-img-cardsCrossPage" src="{{ asset('build/images/logo-card-femme.png') }}">
-        </div>
-    </section>
-    {% include 'modules/footer.html.twig' %}
+{% block title %}Home
 {% endblock %}
 
+{% block body %}
+	<section class="llb-title-crossPage">
+		<h1 class="llb-titleLandingPage">La Ligne Bleue</h1>
+		<h2 class="llb-subtitleLandingPage">Contre l’exclusion numérique</h2>
+	</section>
+
+	<section class="llb-card-crossPage">
+		<div class="llb-cardConnect d-flex flex-column">
+			<h4 class="llb-h5-cardConnect">J'ai déja un compte</h4>
+			<a class="llb-button-yellow text-center text-decoration-none mt-2"href="{{ path('app_login') }}">Je me connecte</a>
+			<img class="llb-img-cardsCrossPage" src="{{ asset('build/images/logo-card-femme.png') }}">
+		</div>
+
+		<div class="llb-cardConnect d-flex flex-column">
+			<h4 class="llb-h5-cardConnect">Je souhaite créer un compte</h4>
+			<a class="llb-button-yellow text-center text-decoration-none mt-2" href="{{ path('app_register') }}">Je m'inscris</a>
+			<img class="llb-img-cardsCrossPage" src="{{ asset('build/images/logo-card-femme2.png') }}">
+		</div>
+
+		<div class="llb-cardConnect d-flex flex-column">
+			<h4 class="llb-h5-cardConnect">Je ne souhaite pas créer de compte</h4>
+            <a class="llb-button-yellow text-center text-decoration-none mt-2" href="{{ path('app_category_index') }}">Je découvre</a>
+			<img class="llb-img-cardsCrossPage" src="{{ asset('build/images/logo-card-femme.png') }}">
+		</div>
+	</section>
+{% endblock %}

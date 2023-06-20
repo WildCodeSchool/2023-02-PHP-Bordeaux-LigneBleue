@@ -15,3 +15,10 @@ require('bootstrap');
 
 // start the Stimulus application
 import './bootstrap';
+
+// using API places
+import { Application } from 'stimulus'
+import PlacesAutocomplete from 'stimulus-places-autocomplete'
+
+const application = Application.start()
+application.register('places', PlacesAutocomplete)

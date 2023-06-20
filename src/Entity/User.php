@@ -46,7 +46,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $gender = null;
 
     #[ORM\Column]
-    private ?int $zipcode = null;
+    private ?string $adress = null;
 
     #[ORM\Column]
     private ?int $level = null;
@@ -145,6 +145,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    public function getFullname(): ?string
+    {
+        return $this->firstname . ' ' . $this->lastname;
+    }
+
     public function getBirthday(): ?\DateTimeInterface
     {
         return $this->birthday;
@@ -169,14 +174,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getZipcode(): ?int
+    public function getAdress(): ?string
     {
-        return $this->zipcode;
+        return $this->adress;
     }
 
-    public function setZipcode(int $zipcode): self
+    public function setAdress(string $adress): self
     {
-        $this->zipcode = $zipcode;
+        $this->adress = $adress;
 
         return $this;
     }
