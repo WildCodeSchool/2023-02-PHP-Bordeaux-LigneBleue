@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Réinitialiser mon mot de passe{% endblock %}
+{% block title %}Réinitialiser le mot de passe{% endblock %}
 
 {% block body %}
     {% for flash_error in app.flashes('reset_password_error') %}
@@ -16,10 +16,11 @@
     </div>
 
     {{ form_start(requestForm) }}
-        {{ form_row(requestForm.email, {'attr': {
-            'class': 'request-email'},
-            'label': 'Email de connexion',
-            'label_attr': {'class': 'text-white'}} ) }}
+        {{ form_row(requestForm.email,
+            {'attr': {
+                'class': 'request-email'},
+                'label': 'Email de connexion',
+                'label_attr': {'class': 'text-white'}} ) }}
 
         <button class="llb-button-yellow llb-responsive-w-100 ">Recevoir le lien</button>
     {{ form_end(requestForm) }}

@@ -5,11 +5,10 @@
 {% block body %}
     <div class="llb-background-light-blue llb-category-size"></div>
 <div class="llb-category-index-container mb-5 mt-4">
-<p>
-        Si votre email est lié à un compte existant, vous recevrez un email avec un lien pour ré
-        If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.
-        This link will expire in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+<p class="text-white">
+        Si votre email est lié à un compte existant, vous recevrez un email avec un lien pour réinitialiser votre mot de passe.
+        Ce lien expirera dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
     </p>
-    <p>If you don't receive an email please check your spam folder or <a href="{{ path('app_forgot_password_request') }}">try again</a>.</p>
+    <p class="text-white">SI vous ne recevez pas d'email, vérifier vos spams ou <a class="text-white" href="{{ path('app_forgot_password_request') }}">essayer à nouveau</a>.</p>
 </div>
 {% endblock %}

@@ -114,6 +114,8 @@
 @media screen and (max-width: 480px) {
     .llb-homepage-global {
         flex-direction: column-reverse;
+        justify-content: right;
+        height: auto;
     }
     .leftPart-landingPage {
         position: unset;
@@ -122,23 +124,16 @@
         margin: 0 auto 0 auto;
     }
     .rightPart-landingPage {
-        height: 52vh;
+        height: 45vh;
     }
-    .llb-blue-oval1, .llb-blue-oval3 {
+    .llb-blue-oval1, .llb-blue-oval3, .llb-blue-oval2 {
         display: none;
-    }
-    .llb-blue-oval2 {
-        top: 32vh;
-        left: 0;
-        width: 100vw;
-        height: 30vw;
-        border-radius: 20%;
     }
     .llb-blue-rect {
         top: 0;
         left: 0;
         width: 100vw;
-        height: 40vh;
+        height: 50vh;
     }
     .img-landingPage{
         display: none;
