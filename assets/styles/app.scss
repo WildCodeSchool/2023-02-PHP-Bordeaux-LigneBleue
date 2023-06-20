@@ -7,10 +7,8 @@
 @import "modules/buton";
 @import "modules/landingPage";
 @import "modules/crossPage";
-
 @import "modules/_navbar.scss";
 @import "modules/footer.scss";
-
 
 @import "category/index.scss";
 @import "category/_card.scss";
@@ -18,19 +16,12 @@
 @import "theme/index.scss";
 @import "theme/_card.scss";
 
-
 @import "tutorial/index.scss";
 @import "tutorial/_card.scss";
-
-@import "modules/landingPage.scss";
-
-@import "connexion";
-@import "modules/footer.scss";
-
 
 @import "connexion";
 
 @import "User/userPage.scss";
 
-@import "tutorial/index.scss";
-@import "tutorial/_card.scss";
+@import "reset password/request";
+

@@ -31,4 +31,10 @@ class TutorialCrudController extends AbstractCrudController
         yield AssociationField::new('theme', 'Thème');
         yield BooleanField::new('isPublished', 'Publié');
     }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return parent::configureCrud($crud)
+            ->setPageTitle('index', 'Formations');
+    }
 }

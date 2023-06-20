@@ -2,34 +2,44 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<div class="top-responsive-landingPage"></div>
-	<img class="img-responsive-landingPage" src="{{ asset('build/images/responsive-picture-landingPage.png') }}">
-	<section class="leftPart-landingPage">
-		<h1 class="llb-titleLandingPage">La Ligne Bleue</h1>
-		<h2 class="llb-subtitleLandingPage">Contre l’exclusion numérique</h2>
-		<p class="llb-teaserText">Apprenez facilement grâce à notre plate-forme de cours en ligne sur le numérique.</p>
-		<a class="nav-link text-warning" href="{{ path('cross_page') }}">
-			<button class="llb-button-blue">Clique Ici</button>
-		</a>
-	</section>
+{# read and display just one flash message type #}
+{% for message in app.flashes('notice') %}
+    <div class="flash-notice">
+        {{ message }}
+    </div>
+{% endfor %}
 
-	<section class="rightPart-landingPage">
-		<div class="llb-blue-oval1"></div>
-		<div class="llb-blue-oval2"></div>
-		<div class="llb-ovalShapeYellow1"></div>
-		<div class="llb-ovalShapeYellow2"></div>
-		<img class="img-landingPage" src="{{ asset('build/images/senior-landingPage.jpg') }}">
-
-		<div class="llb-blocVerbsLandingPage1">
-			<img class="logo-landingPage" src="{{ asset('build/images/icon-learn.png') }}">
-			Découvrir</div>
-		<div class="llb-blocVerbsLandingPage2">
-			<img class="logo-landingPage" src="{{ asset('build/images/icon-training.png') }}">
-			Apprendre
-		</div>
-		<div class="llb-blocVerbsLandingPage3">
-			  <img class="logo-landingPage" src="{{ asset('build/images/icon-master.png') }}">
-			  Maîtriser
-		  </div>
+    <section class="llb-homepage-global d-flex">
+    <section class="leftPart-landingPage">
+        <h1 class="llb-titleLandingPage">La Ligne Bleue</h1>
+        <h2 class="llb-subtitleLandingPage">Contre l’exclusion numérique</h2>
+        <p class="llb-teaserText">Apprenez facilement grâce à notre plate-forme de cours en ligne sur le numérique.</p>
+        <a class="nav-link text-warning" href="{{ path('cross_page') }}">
+            <button class="llb-button-blue mb-3">Cliquez Ici</button>
+        </a>
     </section>
-  {% endblock %}
+
+    <section class="rightPart-landingPage">
+        <div class="llb-blue-rect"></div>
+        <div class="llb-blue-oval1"></div>
+        <div class="llb-blue-oval2"></div>
+        <div class="llb-blue-oval3"></div>
+        <div class="llb-ovalShapeYellow1"></div>
+        <div class="llb-ovalShapeYellow2"></div>
+        <img class="img-landingPage" src="{{ asset('build/images/senior-vertical.png') }}">
+        <img class="img-landingPage-Responsive" src="{{ asset('build/images/senior-landingPage.jpg') }}">
+
+        <div class="llb-blocVerbsLandingPage llb-Verbs1">
+            <img class="logo-landingPage" src="{{ asset('build/images/icon-learn.png') }}">
+            Découvrir</div>
+        <div class="llb-blocVerbsLandingPage llb-Verbs2">
+            <img class="logo-landingPage" src="{{ asset('build/images/icon-training.png') }}">
+            Apprendre
+        </div>
+        <div class="llb-blocVerbsLandingPage llb-Verbs3">
+            <img class="logo-landingPage" src="{{ asset('build/images/icon-master.png') }}">
+            Maîtriser
+        </div>
+    </section>
+</section>
+{% endblock %}

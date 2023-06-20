@@ -39,7 +39,6 @@ class TutorialFixtures extends Fixture implements DependentFixtureInterface
             }
         }
 
-
         $manager->flush();
     }
 
