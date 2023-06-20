@@ -1,42 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tutorial{% endblock %}
+{% block title %}Tutorial
+{% endblock %}
 
 {% block body %}
-    <h1>Tutorial</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ tutorial.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ tutorial.title }}</td>
-            </tr>
-            <tr>
-                <th>Objective</th>
-                <td>{{ tutorial.objective }}</td>
-            </tr>
-            <tr>
-                <th>IsPublished</th>
-                <td>{{ tutorial.isPublished ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>IndexOrder</th>
-                <td>{{ tutorial.indexOrder }}</td>
-            </tr>
-            <tr>
-                <th>PicturePath</th>
-                <td>{{ tutorial.picturePath }}</td>
-            </tr>
-        </tbody>
-    </table>
+	<div class="llb-tutorial-show-start-card">
+		<div class="llb-tutorial-show-start-card-left-div">
+			<h2>{{tutorial.title}}</h2>
+			<p>{{ tutorial.objective }}</p>
+		</div>
 
-    <a href="{{ path('app_tutorial_index') }}">back to list</a>
-
-    <a href="{{ path('app_tutorial_edit', {'id': tutorial.id}) }}">edit</a>
-
-    {{ include('tutorial/_delete_form.html.twig') }}
+		<img class="llb-tutorial-show-start-card-img" src={{ asset(picture_path ~ tutorial.picturePath) }} alt="{{ tutorial.title }}">
+	</div>
 {% endblock %}

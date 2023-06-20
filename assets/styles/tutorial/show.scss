@@ -1,0 +1,32 @@
+.llb-tutorial-show-start-card {
+    width: 90vw;
+    height: 25vw;
+    background-image: url("../../images/welcome-user.jpeg");
+    background-size: 100%;
+    margin: 5vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.llb-tutorial-show-start-card-left-div {
+    margin-left: 2%;
+}
+
+.llb-tutorial-show-start-card-left-div>h2 {
+    font-size: xxx-large;
+    color: $llb-blue;
+    width: 10vw;
+    margin-top: 5%
+}
+
+.llb-tutorial-show-start-card-left-div>p {
+    width: 100%;
+    color: $llb-blue;
+    margin-bottom: 5%;
+}
+
+.llb-tutorial-show-start-card-img {
+    width: 30vw;
+    height: 20vw;
+    padding-right: 35%;
+}
