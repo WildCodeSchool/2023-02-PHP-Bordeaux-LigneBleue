@@ -36,6 +36,4 @@ class CategoryCrudController extends AbstractCrudController
         return parent::configureCrud($crud)
             ->setPageTitle('index', 'Catégories');
     }
-
-
 }
