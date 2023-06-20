@@ -1,5 +1,5 @@
 <div class="card">
-	<img class="card-img-top" src={{ asset(tutorial.picturePath) }} alt="{{ tutorial.title }}">
+	<img class="card-img-top" src={{ asset(picturePath ~ tutorial.picturePath) }} alt="{{ tutorial.title }}">
 	<div class="card-body">
 		<h5 class="card-title">{{tutorial.title}}</h5>
 		<p class="card-text">{{ tutorial.objective }}</p>
