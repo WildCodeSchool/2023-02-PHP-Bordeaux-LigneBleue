@@ -17,7 +17,6 @@ class TutorialType extends AbstractType
             ->add('isPublished')
             ->add('indexOrder')
             ->add('picturePath')
-            ->add('iconPath')
             ->add('theme')
         ;
     }
