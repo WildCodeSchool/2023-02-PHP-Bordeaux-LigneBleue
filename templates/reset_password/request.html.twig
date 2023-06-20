@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Reset your password{% endblock %}
+{% block title %}Réinitialiser mon mot de passe{% endblock %}
 
 {% block body %}
     {% for flash_error in app.flashes('reset_password_error') %}
@@ -8,19 +8,20 @@
     {% endfor %}
     <div class="llb-background-light-blue llb-category-size"></div>
 <div class="llb-category-index-container mb-5 mt-4">
-<h1 class="text-white">Mot de passe oublié</h1>
+<h1 class="text-white">Réinitialiser le mot de passe</h1>
     <div>
         <p class="text-white">
-            Merci de rentrer votre email et nous vous enverrons un lien pour réinitialiser votre mot de passe.
+            Veuillez saisir votre email de connexion afin de recevoir le lien de réinitialisation de votre mot de passe.
         </p>
     </div>
 
     {{ form_start(requestForm) }}
         {{ form_row(requestForm.email, {'attr': {
-            'class': 'request-email' },
-            'label_attr': {'class': 'text-white'}}) }}
+            'class': 'request-email'},
+            'label': 'Email de connexion',
+            'label_attr': {'class': 'text-white'}} ) }}
 
-        <button class="llb-button-yellow ">Envoyer l'email</button>
+        <button class="llb-button-yellow llb-responsive-w-100 ">Recevoir le lien</button>
     {{ form_end(requestForm) }}
 </div>
 {% endblock %}
