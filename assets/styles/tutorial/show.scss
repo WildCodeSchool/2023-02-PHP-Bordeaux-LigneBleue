@@ -1,21 +1,32 @@
+.llb-tutorial-show {
+    margin: 5vw;
+    margin-top: 0;
+    padding: 5vw;
+
+}
+
 .llb-tutorial-show-start-card {
-    width: 90vw;
     height: 25vw;
     background-image: url("../../images/welcome-user.jpeg");
     background-size: 100%;
-    margin: 5vw;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 2.5%;
 }
 
 .llb-tutorial-show-start-card-left-div {
-    margin-left: 2%;
+    margin-left: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
 .llb-tutorial-show-start-card-left-div>h2 {
     font-size: xxx-large;
     color: $llb-blue;
-    width: 10vw;
+    // width: 10vw;
     margin-top: 5%
 }
 
@@ -26,7 +37,60 @@
 }
 
 .llb-tutorial-show-start-card-img {
-    width: 30vw;
-    height: 20vw;
-    padding-right: 35%;
+    padding: 5%;
+}
+
+.llb-tutorial-show-sequences-container {
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+}
+
+
+.llb-tutorial-show-end-card {
+    height: 15vw;
+    background-color: $llb-blue;
+    background-size: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: space-around;
+    flex-direction: column;
+    padding: 5%;
+    margin-top: 2.5%;
+}
+
+.llb-tutorial-show-end-card>div {
+    color: white;
+}
+
+@media screen and (max-width: 480px) {
+    .llb-tutorial-show-start-card {
+        height: 20vh;
+    }
+
+    .llb-tutorial-show-start-card-left-div>h2 {
+        font-size: x-large;
+    }
+
+    .llb-tutorial-show-start-card-left-div>p {
+        font-size: small;
+    }
+
+    .llb-tutorial-show-end-card {
+        height: 15vh;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .llb-tutorial-show-end-card>div>h1 {
+        font-size: large;
+    }
+
+    .llb-tutorial-show-end-card>div>h5 {
+        font-size: small;
+    }
 }

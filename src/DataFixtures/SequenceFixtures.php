@@ -31,10 +31,10 @@ class SequenceFixtures extends Fixture implements DependentFixtureInterface
                     $sequence = new Sequence();
 
                     $sequence->setTitle($this->faker->words(3, true));
-                    $sequence->setContent($this->faker->paragraph(5));
+                    $sequence->setContent($this->faker->paragraph(30));
                     $sequence->setExercice(false);
                     $sequence->setIndexOrder($k);
-                    $sequence->setPicturePath("build/images/senior-vertical.png");
+                    $sequence->setPicturePath("build/images/mbl-sms.jpg");
                     $sequence->setTutorial($this->getReference("tutorial_" . $i . $j));
 
 
