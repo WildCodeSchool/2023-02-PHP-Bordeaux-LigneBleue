@@ -1,6 +1,7 @@
 .llb-navbar {
     background-color: $llb-blue;
     font-family: "Baloo 2";
+    z-index: 100;
 }
 
 .navbar-brand {
@@ -16,8 +17,12 @@
     margin-right: 3%;
 }
 
-.d-flex {
+.llb-navbar-search-container {
     margin-right: 1%;
+}
+
+.mb-3 {
+    margin: 0 !important;
 }
 
 .llb_navbar_search_form {
@@ -35,9 +40,11 @@
 .llb_navbar_search_button {
     border-radius: 0px 5px 5px 0px;
     border-color: $llb-light-blue;
+    height: 100%;
 }
 
 .llb_navbar_search_button:hover {
+    border-color: $llb-yellow;
     background-color: $llb-yellow;
 }
 
