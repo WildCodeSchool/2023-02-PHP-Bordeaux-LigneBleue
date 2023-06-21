@@ -39,7 +39,7 @@ class Tutorial
 
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
-  
+
     #[ORM\OneToMany(mappedBy: 'tutorial', targetEntity: Sequence::class)]
     private Collection $sequences;
 
@@ -166,6 +166,9 @@ class Tutorial
     public function setSlug(string $slug): static
     {
         $this->slug = $slug;
+
+        return $this;
+    }
     /**
      * @return Collection<int, Sequence>
      */
