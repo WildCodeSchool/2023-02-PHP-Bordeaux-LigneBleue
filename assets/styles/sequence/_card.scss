@@ -1,0 +1,34 @@
+.llb-sequence-card {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    padding-right: 2.5%;
+    padding-left: 2.5%;
+    margin: 3%;
+}
+
+.llb-sequence-card>img {
+    width: 20%;
+}
+
+.llb-sequence-card>div {
+    margin: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+}
+
+.llb-sequence-card>div>h3 {
+    margin-bottom: 2%;
+}
+
+@media screen and (max-width: 480px) {
+    .llb-sequence-card {
+        flex-direction: column;
+    }
+
+    .llb-sequence-card>img {
+        width: 100%;
+    }
+}

@@ -18,10 +18,12 @@
 
 @import "tutorial/index.scss";
 @import "tutorial/_card.scss";
+@import "tutorial/show.scss";
 
 @import "connexion";
 
 @import "User/userPage.scss";
 
-@import "reset password/request";
+@import "sequence/_card.scss";
 
+@import "reset password/request";

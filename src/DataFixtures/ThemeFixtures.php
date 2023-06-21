@@ -31,7 +31,7 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
         for ($i = 1; $i <= $themesAmount; $i++) {
             $theme = new Theme();
 
-            $theme->setTitle($this->faker->word());
+            $theme->setTitle($this->faker->words(2, true));
             $theme->setIndexOrder($i + 1);
             $theme->setIconPath("build/images/Fixtures/CardIcons/" . $iconsPath[array_rand($iconsPath)]);
 

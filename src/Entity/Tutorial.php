@@ -37,9 +37,13 @@ class Tutorial
     #[ORM\ManyToMany(targetEntity: Tag::class, mappedBy: 'tutorials')]
     private Collection $tags;
 
+    #[ORM\OneToMany(mappedBy: 'tutorial', targetEntity: Sequence::class)]
+    private Collection $sequences;
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
+        $this->sequences = new ArrayCollection();
     }
 
     public function __toString()
@@ -146,6 +150,36 @@ class Tutorial
     {
         if ($this->tags->removeElement($tag)) {
             $tag->removeTutorial($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Sequence>
+     */
+    public function getSequences(): Collection
+    {
+        return $this->sequences;
+    }
+
+    public function addSequence(Sequence $sequence): static
+    {
+        if (!$this->sequences->contains($sequence)) {
+            $this->sequences->add($sequence);
+            $sequence->setTutorial($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSequence(Sequence $sequence): static
+    {
+        if ($this->sequences->removeElement($sequence)) {
+            // set the owning side to null (unless already changed)
+            if ($sequence->getTutorial() === $this) {
+                $sequence->setTutorial(null);
+            }
         }
 
         return $this;

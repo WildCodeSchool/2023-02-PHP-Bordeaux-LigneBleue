@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sequence index{% endblock %}
+
+{% block body %}
+    <h1>Sequence index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Exercice</th>
+                <th>IndexOrder</th>
+                <th>PicturePath</th>
+                <th>VideoPath</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sequence in sequences %}
+            <tr>
+                <td>{{ sequence.id }}</td>
+                <td>{{ sequence.title }}</td>
+                <td>{{ sequence.content }}</td>
+                <td>{{ sequence.exercice ? 'Yes' : 'No' }}</td>
+                <td>{{ sequence.indexOrder }}</td>
+                <td>{{ sequence.picturePath }}</td>
+                <td>{{ sequence.videoPath }}</td>
+                <td>
+                    <a href="{{ path('app_sequence_show', {'id': sequence.id}) }}">show</a>
+                    <a href="{{ path('app_sequence_edit', {'id': sequence.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_sequence_new') }}">Create new</a>
+{% endblock %}
