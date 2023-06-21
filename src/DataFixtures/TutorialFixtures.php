@@ -42,6 +42,7 @@ class TutorialFixtures extends Fixture implements DependentFixtureInterface
                 $tutorial->setIndexOrder($j + 1);
                 $tutorial->setPicturePath("build/images/Fixtures/Pictures/TestPicture.webp");
                 $tutorial->setTheme($this->getReference("theme_" . $i));
+
                 $tutorial->addTag($this->getReference($tagReferences[array_rand($tagReferences)]));
                 $slug = $this->slugger->slug($tutorialTitle);
                 $tutorial->setSlug($slug);

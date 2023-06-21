@@ -2,6 +2,9 @@
 	<img class="card-img-top" src={{ asset(picture_path ~ tutorial.picturePath) }} alt="{{ tutorial.title }}">
 	<div class="card-body">
 		<h5 class="card-title">{{tutorial.title}}</h5>
+		{% for tag in tutorial.tags %}
+			{% include "tag/_badge.html.twig" %}
+		{% endfor %}
 		<p class="card-text">{{ tutorial.objective }}</p>
 		<a href={{ path("app_tutorial_show", {"slug": tutorial.slug} )}} class="btn btn-primary">Commencer</a>
 	</div>
