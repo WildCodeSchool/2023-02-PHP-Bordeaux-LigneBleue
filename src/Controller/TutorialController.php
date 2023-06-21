@@ -61,17 +61,6 @@ class TutorialController extends AbstractController
         ]);
     }
 
-    #[Route('/valid/{slug}', name: 'app_tutorial_valid', methods: ['GET'])]
-    public function showValidated(Tutorial $tutorial, UserTutorialRepository $utRepository): Response
-    {
-        $user = $this->getUser();
-        $utValidated = $utRepository->findByValidated($user);
-        dd($utValidated);
-        return $this->render('tutorial/show.html.twig', [
-            'tutorial' => $tutorial,
-        ]);
-    }
-
     #[Route('/{id}/edit', name: 'app_tutorial_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Tutorial $tutorial, TutorialRepository $tutorialRepository): Response
     {

@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Tutorial;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+use App\Repository\UserTutorialRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,10 +41,12 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}', name: '_show', methods: ['GET'])]
-    public function show(User $user): Response
+    public function show(User $user, UserTutorialRepository $utRepository): Response
     {
+        $utValidated = $utRepository->findByValidated($user);
         return $this->render('user/show.html.twig', [
             'user' => $user,
+            'utValidated' => $utValidated,
         ]);
     }
 

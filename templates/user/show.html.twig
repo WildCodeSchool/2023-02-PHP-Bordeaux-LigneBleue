@@ -56,6 +56,15 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="card-wrapper container-sm d-flex  justify-content-around">
+                        {% for utValidatedOne in utValidated %}
+                        <div class="card">
+                            <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="height:25vh">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ utValidatedOne.tutorial.title }}</h5>
+                                <button class="llb-button-blue">Voir</button>
+                            </div>
+                        </div>
+                        {% endfor %}
                         <div class="card">
                             <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="height:25vh">
                             <div class="card-body">
