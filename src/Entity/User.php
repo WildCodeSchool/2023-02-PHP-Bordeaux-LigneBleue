@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -50,6 +52,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column]
     private ?int $level = null;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserTutorial::class)]
+    private Collection $userTutorials;
+
+    public function __construct()
+    {
+        $this->userTutorials = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -194,6 +204,45 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setLevel(int $level): self
     {
         $this->level = $level;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, UserTutorial>
+     */
+    public function getUserTutorials(): Collection
+    {
+        return $this->userTutorials;
+    }
+
+/*    public function addUserTutorial(UserTutorial $userTutorial): static
+    {
+        if (!$this->userTutorials->contains($userTutorial)) {
+            $this->userTutorials->add($userTutorial);
+            $userTutorial->setUser($this);
+        }
+
+        return $this;
+    }*/
+
+    public function addUserTutorial(Tutorial $tutorial): static
+    {
+        if (!$this->userTutorials->contains($tutorial)) {
+            $this->userTutorials->add($tutorial);
+        }
+
+        return $this;
+    }
+
+    public function removeUserTutorial(UserTutorial $userTutorial): static
+    {
+        if ($this->userTutorials->removeElement($userTutorial)) {
+            // set the owning side to null (unless already changed)
+            if ($userTutorial->getUser() === $this) {
+                $userTutorial->setUser(null);
+            }
+        }
 
         return $this;
     }
