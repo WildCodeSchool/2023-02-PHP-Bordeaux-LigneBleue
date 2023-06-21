@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -22,6 +23,10 @@ class TutorialCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         yield TextField::new('title', 'Titre');
+        yield SlugField::new('slug', 'Slug')
+            ->hideOnIndex()
+            ->setTargetFieldName('title')
+            ->setUnlockConfirmationMessage('Il est conseillé de laisser ce champs en remplissage automatique.');
         yield TextareaField::new('objective', 'Objectif');
         yield IntegerField::new('indexOrder', 'Ordre');
         yield ImageField::new('picturePath', 'Photo')

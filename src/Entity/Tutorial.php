@@ -37,6 +37,9 @@ class Tutorial
     #[ORM\ManyToMany(targetEntity: Tag::class, mappedBy: 'tutorials')]
     private Collection $tags;
 
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
+  
     #[ORM\OneToMany(mappedBy: 'tutorial', targetEntity: Sequence::class)]
     private Collection $sequences;
 
@@ -155,6 +158,14 @@ class Tutorial
         return $this;
     }
 
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
     /**
      * @return Collection<int, Sequence>
      */

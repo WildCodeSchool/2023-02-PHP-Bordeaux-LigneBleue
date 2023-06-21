@@ -27,6 +27,9 @@ class Category
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Theme::class)]
     private Collection $themes;
 
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
+
     public function __construct()
     {
         $this->themes = new ArrayCollection();
@@ -104,6 +107,18 @@ class Category
                 $theme->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
 
         return $this;
     }
