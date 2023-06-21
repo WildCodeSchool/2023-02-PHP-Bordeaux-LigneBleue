@@ -13,17 +13,22 @@
 		<div class="collapse navbar-collapse llb-navbar-content" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
 
-			<form class="d-flex" role="search">
-				<input class="form-control llb_navbar_search_form" type="search" placeholder="Je cherche une formation" aria-label="Search">
+			{# <form action={{ path("app_search") }} class="d-flex" >
+				<input class="form-control llb_navbar_search_form" type="search" name="q" placeholder="Je cherche une formation" aria-label="Search">
 
-				<button class="btn btn-outline-success llb_navbar_search_button" type="submit">
-					<img class="d-inline-block align-text-top" src={{ asset("build/images/Search_loupe.png")}} alt="" width="20" height="20">
-				</button>
-			</form>
+                    <button class="btn btn-outline-success llb_navbar_search_button" type="submit">
+                        <img class="d-inline-block align-text-top" src={{ asset("build/images/Search_loupe.png")}} alt="" width="20" height="20">
+                    </button>
+			</form>#}
+
+            {{ render(controller(
+                'App\\Controller\\SearchController::search'
+            )) }}
+
 
 			<div class="llb-navbar-buttons">
 				{% if app.user %}
-					<a href={{ path("app_user" )}}>
+                    <a class="nav-link text-warning" href="{{ path('app_user_show', {"id": app.user.id}) }}">
 						<button class="btn btn-outline-success me-2 llb_navbar_button" type="button">Espace Personnel</button>
 					</a>
 				{% else %}
