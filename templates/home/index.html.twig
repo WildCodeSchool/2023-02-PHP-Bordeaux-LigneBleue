@@ -1,6 +1,9 @@
 
 {% extends 'base.html.twig' %}
 
+{% block title %}La Ligne Bleue
+{% endblock %}
+
 {% block body %}
 {# read and display just one flash message type #}
 {% for message in app.flashes('notice') %}

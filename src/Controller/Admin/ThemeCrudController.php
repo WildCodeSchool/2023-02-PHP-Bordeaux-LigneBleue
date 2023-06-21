@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class ThemeCrudController extends AbstractCrudController
@@ -21,6 +22,10 @@ class ThemeCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         yield TextField::new('title', 'Titre');
+        yield SlugField::new('slug', 'Slug')
+            ->hideOnIndex()
+            ->setTargetFieldName('title')
+            ->setUnlockConfirmationMessage('Il est conseillé de laisser ce champs en remplissage automatique.');
         yield IntegerField::new('indexOrder', 'Ordre');
         yield ImageField::new('iconPath', 'Icône')
             ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]')
