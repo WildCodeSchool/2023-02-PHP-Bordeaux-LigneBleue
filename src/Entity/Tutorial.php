@@ -37,6 +37,9 @@ class Tutorial
     #[ORM\ManyToMany(targetEntity: Tag::class, mappedBy: 'tutorials')]
     private Collection $tags;
 
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
@@ -147,6 +150,18 @@ class Tutorial
         if ($this->tags->removeElement($tag)) {
             $tag->removeTutorial($this);
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
 
         return $this;
     }

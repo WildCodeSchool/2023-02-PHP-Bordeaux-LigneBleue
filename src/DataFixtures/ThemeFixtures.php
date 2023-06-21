@@ -8,14 +8,17 @@ use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 use Faker\Generator;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class ThemeFixtures extends Fixture implements DependentFixtureInterface
 {
     private Generator $faker;
+    private SluggerInterface $slugger;
 
-    public function __construct()
+    public function __construct(SluggerInterface $slugger)
     {
         $this->faker = Factory::create();
+        $this->slugger = $slugger;
     }
 
     public function load(ObjectManager $manager): void
@@ -30,10 +33,12 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
 
         for ($i = 1; $i <= $themesAmount; $i++) {
             $theme = new Theme();
-
-            $theme->setTitle($this->faker->word());
+            $themeTitle = $this->faker->word();
+            $theme->setTitle($themeTitle);
             $theme->setIndexOrder($i + 1);
             $theme->setIconPath("build/images/Fixtures/CardIcons/" . $iconsPath[array_rand($iconsPath)]);
+            $slug = $this->slugger->slug($themeTitle);
+            $theme->setSlug($slug);
 
             $this->addReference("theme_" . $theme->getTitle(), $theme);
 

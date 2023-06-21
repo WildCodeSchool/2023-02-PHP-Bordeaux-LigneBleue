@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -22,6 +23,10 @@ class CategoryCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         yield TextField::new('categoryTitle', 'Titre');
+        yield SlugField::new('slug', 'Slug')
+            ->hideOnIndex()
+            ->hideWhenUpdating()
+            ->setTargetFieldName('categoryTitle');
         yield IntegerField::new('categoryIndexOrder', 'Ordre');
         yield ImageField::new('categoryIconPath', 'Icône')
             ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]')

@@ -5,9 +5,15 @@ namespace App\DataFixtures;
 use App\Entity\Category;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class CategoryFixtures extends Fixture
 {
+    private SluggerInterface $slugger;
+    public function __construct(SluggerInterface $slugger)
+    {
+        $this->slugger = $slugger;
+    }
     public function load(ObjectManager $manager): void
     {
         $categories = [
@@ -19,7 +25,6 @@ class CategoryFixtures extends Fixture
         foreach ($categories as $category) {
             $manager->persist($category);
         }
-
         $manager->flush();
     }
 
@@ -30,6 +35,8 @@ class CategoryFixtures extends Fixture
         $category->setCategoryTitle($categoryName);
         $category->setCategoryIndexOrder($indexOrder + 1);
         $category->setCategoryIconPath("build/images/Fixtures/CardIcons/" . $iconPath);
+        $slug = $this->slugger->slug($categoryName);
+        $category->setSlug($slug);
 
         $this->addReference("category_" . $category->getCategoryTitle(), $category);
 
