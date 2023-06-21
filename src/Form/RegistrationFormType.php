@@ -23,7 +23,7 @@ class RegistrationFormType extends AbstractType
     {
         $years = [];
 
-        for ($i = 1900; $i < 2023; $i++) {
+        for ($i = 1950; $i < 2023; $i++) {
             $years[] = $i;
         }
         return $years;

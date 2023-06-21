@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Tutorial;
+use App\Entity\UserTutorial;
 use App\Form\TutorialType;
 use App\Repository\TutorialRepository;
+use App\Repository\UserTutorialRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -44,8 +46,16 @@ class TutorialController extends AbstractController
     }
 
     #[Route('/{slug}', name: 'app_tutorial_show', methods: ['GET'])]
-    public function show(Tutorial $tutorial): Response
+    public function show(Tutorial $tutorial, UserTutorialRepository $userTutorialRepository): Response
     {
+        if ($this->getUser()) {
+            $userTutorial = new UserTutorial();
+            $userTutorial->setUser($this->getUser());
+            $userTutorial->setTutorial($tutorial);
+            $userTutorial->setIsLiked(false);
+            $userTutorial->setIsValidated(false);
+            $userTutorialRepository->save($userTutorial, true);
+        }
         return $this->render('tutorial/show.html.twig', [
             'tutorial' => $tutorial,
         ]);
