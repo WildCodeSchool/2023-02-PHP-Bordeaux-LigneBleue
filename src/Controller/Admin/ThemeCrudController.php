@@ -24,8 +24,8 @@ class ThemeCrudController extends AbstractCrudController
         yield TextField::new('title', 'Titre');
         yield SlugField::new('slug', 'Slug')
             ->hideOnIndex()
-            ->hideWhenUpdating()
-            ->setTargetFieldName('title');
+            ->setTargetFieldName('title')
+            ->setUnlockConfirmationMessage('Il est conseillé de laisser ce champs en remplissage automatique.');
         yield IntegerField::new('indexOrder', 'Ordre');
         yield ImageField::new('iconPath', 'Icône')
             ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]')

@@ -25,8 +25,8 @@ class TutorialCrudController extends AbstractCrudController
         yield TextField::new('title', 'Titre');
         yield SlugField::new('slug', 'Slug')
             ->hideOnIndex()
-            ->hideWhenUpdating()
-            ->setTargetFieldName('title');
+            ->setTargetFieldName('title')
+            ->setUnlockConfirmationMessage('Il est conseillé de laisser ce champs en remplissage automatique.');
         yield TextareaField::new('objective', 'Objectif');
         yield IntegerField::new('indexOrder', 'Ordre');
         yield ImageField::new('picturePath', 'Photo')

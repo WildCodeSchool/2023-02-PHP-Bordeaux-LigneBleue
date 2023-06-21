@@ -25,8 +25,8 @@ class CategoryCrudController extends AbstractCrudController
         yield TextField::new('categoryTitle', 'Titre');
         yield SlugField::new('slug', 'Slug')
             ->hideOnIndex()
-            ->hideWhenUpdating()
-            ->setTargetFieldName('categoryTitle');
+            ->setTargetFieldName('categoryTitle')
+            ->setUnlockConfirmationMessage('Il est conseillé de laisser ce champs en remplissage automatique.');
         yield IntegerField::new('categoryIndexOrder', 'Ordre');
         yield ImageField::new('categoryIconPath', 'Icône')
             ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]')
