@@ -3,28 +3,31 @@
     height:25vw;
     background-image: url("../../images/welcome-user.jpeg");
     background-size:100%;
+    background-repeat: no-repeat;
     margin: 5vw;
     display: flex;
     flex-direction: row;
+    border-radius:16px;
 }
+
 .leftPart-userPage{
     margin-left:2%;
 }
 .welcomeText-userPage{
-    width: 40%;
+    width: 45vw;
     color:$llb-blue;
     margin-bottom: 5%;
 }
 .bienvenue-title{
     font-size:xxx-large;
     color:$llb-blue;
-    width:10vw;
+    width:50vw;
     margin-top:5%
 }
 .avatar-userPage{
-    width:30vw;
+    width:20vw;
     height:20vw;
-    padding-right:35%;
+    margin-left:25%;
 }
 
 .llb-button-white-UP{
@@ -37,6 +40,18 @@
     margin-left:5%;
     margin-top:5%;
 }
+/*       BLUE STRIP                      */
+.llb-background-light-blue-userPage {
+    background-color: $llb-light-blue;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    bottom: 50%;
+    z-index: -50;
+}
+
+/*      Thirds cards             */
+
 .llb-cards-userPage{
     display:flex;
     flex-direction: row;
@@ -49,35 +64,149 @@
     height:40vh;
     background: #FFFFFF;
     border: 1px solid #FFCB05;
-    box-shadow: 0px 4px 12px rgba(16, 59, 25, 0.0798517);
+    box-shadow: 0 4px 12px rgba(16, 59, 25, 0.0798517);
     border-radius: 16px;
 }
 .llb-img-cardsUserPage{
     height: 10vw;
-    margin-left:49%;
 }
-
-.card-tutos-userPage{
-    padding:0;
-
+.llb-title-cards3-userPage{
+    text-align:center;
+    font-size:20px;
+    margin-top:8%;
 }
-.card-wrapper{
-
+.llb-card-userPage,
+.llb-cardConnect {
+    position: relative;
 }
-.logo-cards{
+.llb-cardConnect .llb-button-yellow{
+    margin-top:-5%;
+}
+.llb-img-container{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+/*          Edit profil                            */
+
+.llb-button-edit-profil{
     display:flex;
-    flex-direction:row;
-    justify-content:space-around;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content:center;
+    align-items:center;
 }
-.llb-tuto-userPage{
-    background-color:$llb-blue;
-    width:90%;
-    margin-left:5%;
-    padding-bottom: 5%;
-    margin-bottom: 5%;
+
+/*          Caroussel Formations        */
+.phone-slider-container{
+    display:none;
+    background-color: $llb-blue;
+    width: 80vw;
+    margin-left:10vw;
+    padding: 5%;
+    border-radius: 16px;
+}
+.card-title{
+    text-align:center;
 }
 .llb-title-userTuto{
     color: white;
     margin:0 0 5% 5%;
     padding-top:5%;
 }
+
+.llb-tuto-userPage{
+    background-color:$llb-blue;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 5%;
+    padding: 5%;
+    border-radius:16px;
+}
+.card-wrapper{
+}
+.logo-cards{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+}
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*      Media Query        */
+
+@media screen and (max-width: 1100px) {
+    .llb-button-white-UP {
+        font-size:10px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .llb-button-white-UP {
+        font-size:10px;
+    }
+    .bienvenue-title{
+        font-size:x-large;
+    }
+    .welcomeText-userPage{
+        font-size:12px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .llb-welcome-userPage{
+        height:60vw;
+        background-size:140%;
+        margin-right:0;
+    }
+    .welcomeText-userPage{
+        font-size:12px;
+    }
+    .bienvenue-title{
+        font-size:x-large;
+    }
+    .avatar-userPage{
+        width:40vw;
+        height:40vw;
+        margin-left:0;
+        margin-right:30%;
+        margin-top:10%;
+    }
+    .leftPart-userPage .llb-button-blue{
+        margin-top: 15%;
+    }
+    .llb-cards-userPage{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .llb-cardConnect{
+        height:40vw;
+        width:80vw;
+    }
+    .llb-cardConnect .llb-button-yellow{
+        position:relative;
+        top:150%;
+        width:40vw;
+        height:10vw;
+        font-size:12px;
+    }
+
+    .llb-tutorial-index-card-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .phone-slider-container{
+        display:block;
+    }
+    .llb-tuto-userPage{
+        display:none;
+    }
+}
+
+

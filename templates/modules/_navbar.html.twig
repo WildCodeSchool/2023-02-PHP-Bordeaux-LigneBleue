@@ -28,7 +28,7 @@
 
 			<div class="llb-navbar-buttons">
 				{% if app.user %}
-					<a href={{ path("app_user" )}}>
+                    <a class="nav-link text-warning" href="{{ path('app_user_show', {"id": app.user.id}) }}">
 						<button class="btn btn-outline-success me-2 llb_navbar_button" type="button">Espace Personnel</button>
 					</a>
 				{% else %}

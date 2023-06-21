@@ -1,12 +1,12 @@
 .llb-category-index-container {
     background-color: $llb-blue;
     display: flex;
-    justify-content: center;
     flex-direction: column;
     width: 60vw;
     margin: 20px auto 0 auto;
     padding: 5%;
     border-radius: 16px;
+    height:auto;
 }
 
 #llb-category-index-title {

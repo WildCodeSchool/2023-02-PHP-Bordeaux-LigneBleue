@@ -45,11 +45,11 @@
 }
 
 @media screen and (max-width: 480px) {
-    .llb-tutorial-index-card-container {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+    .llb-welcome-userPage {
+        height:800px;
+    }
+    .llb-cardConnect{
+        display:flex;
+        flex-direction:column;
     }
 }
