@@ -1,42 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tutorial{% endblock %}
+{% block title %}Tutorial
+{% endblock %}
 
 {% block body %}
-    <h1>Tutorial</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ tutorial.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ tutorial.title }}</td>
-            </tr>
-            <tr>
-                <th>Objective</th>
-                <td>{{ tutorial.objective }}</td>
-            </tr>
-            <tr>
-                <th>IsPublished</th>
-                <td>{{ tutorial.isPublished ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>IndexOrder</th>
-                <td>{{ tutorial.indexOrder }}</td>
-            </tr>
-            <tr>
-                <th>PicturePath</th>
-                <td>{{ tutorial.picturePath }}</td>
-            </tr>
-        </tbody>
-    </table>
+	<div class="llb-tutorial-show">
 
-    <a href="{{ path('app_tutorial_index') }}">back to list</a>
+		<div class="llb-tutorial-show-start-card">
+			<div class="llb-tutorial-show-start-card-left-div">
+				<h2>{{tutorial.title}}</h2>
+				<p>{{ tutorial.objective }}</p>
+			</div>
 
-    <a href="{{ path('app_tutorial_edit', {'id': tutorial.id}) }}">edit</a>
+			<img class="llb-tutorial-show-start-card-img" src={{ asset(picturePath ~ tutorial.picturePath) }} alt="{{ tutorial.title }}">
+		</div>
 
-    {{ include('tutorial/_delete_form.html.twig') }}
+		<div class="llb-tutorial-show-sequences-container">
+			{% for sequence in tutorial.sequences %}
+				{% include "sequence/_card.html.twig" %}
+			{% endfor %}
+		</div>
+
+		<div class="llb-tutorial-show-end-card">
+			<div>
+				<h1>Je teste mes connaissances</h1>
+				<h5>je sais pas ce que je dois mettre ici</h5>
+			</div>
+			<button class="llb-button-yellow">Je commence le quiz</button>
+		</div>
+	</div>
 {% endblock %}

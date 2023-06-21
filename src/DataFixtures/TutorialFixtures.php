@@ -29,7 +29,7 @@ class TutorialFixtures extends Fixture implements DependentFixtureInterface
             for ($j = 0; $j < $tutorialsPerTheme; $j++) {
                 $tutorial = new Tutorial();
 
-                $tutorialTitle = $this->faker->word();
+                $tutorialTitle = $this->faker->words(2, true));
                 $tutorial->setTitle($tutorialTitle);
                 $tutorial->setObjective($this->faker->sentence());
                 $tutorial->setIsPublished(true);
@@ -40,6 +40,8 @@ class TutorialFixtures extends Fixture implements DependentFixtureInterface
                 $tutorial->setSlug($slug);
 
                 $this->addReference("tutorial_" . $i . $j, $tutorial);
+
+                // echo "tutorial_" . $i . $j . "\n";
 
                 $manager->persist($tutorial);
             }

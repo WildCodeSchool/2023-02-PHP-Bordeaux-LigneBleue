@@ -39,10 +39,14 @@ class Tutorial
 
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
+  
+    #[ORM\OneToMany(mappedBy: 'tutorial', targetEntity: Sequence::class)]
+    private Collection $sequences;
 
     public function __construct()
     {
         $this->tags = new ArrayCollection();
+        $this->sequences = new ArrayCollection();
     }
 
     public function __toString()
@@ -162,6 +166,32 @@ class Tutorial
     public function setSlug(string $slug): static
     {
         $this->slug = $slug;
+    /**
+     * @return Collection<int, Sequence>
+     */
+    public function getSequences(): Collection
+    {
+        return $this->sequences;
+    }
+
+    public function addSequence(Sequence $sequence): static
+    {
+        if (!$this->sequences->contains($sequence)) {
+            $this->sequences->add($sequence);
+            $sequence->setTutorial($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSequence(Sequence $sequence): static
+    {
+        if ($this->sequences->removeElement($sequence)) {
+            // set the owning side to null (unless already changed)
+            if ($sequence->getTutorial() === $this) {
+                $sequence->setTutorial(null);
+            }
+        }
 
         return $this;
     }
