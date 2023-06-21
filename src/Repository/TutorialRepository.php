@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Tutorial;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\EntityManager;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -63,4 +64,12 @@ class TutorialRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+    public function searchTutorials(string $searchData): array
+    {
+        return $this->createQueryBuilder('tuto')
+            ->where("tuto.title LIKE '%" . $searchData . "%'")
+            ->getQuery()
+            ->getResult();
+    }
 }
