@@ -51,7 +51,7 @@ class RegistrationFormType extends AbstractType
                     'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour',
                 ],
                 'format' => 'dd MMMM yyyy',
-                'years' => $this->years,
+                'years' => range(1950,2023),
 
             ])
             ->add('adress', TextType::class)

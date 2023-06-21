@@ -46,16 +46,27 @@ class TutorialController extends AbstractController
     }
 
     #[Route('/{slug}', name: 'app_tutorial_show', methods: ['GET'])]
-    public function show(Tutorial $tutorial, UserTutorialRepository $userTutorialRepository): Response
+    public function show(Tutorial $tutorial, UserTutorialRepository $utRepository): Response
     {
         if ($this->getUser()) {
             $userTutorial = new UserTutorial();
             $userTutorial->setUser($this->getUser());
             $userTutorial->setTutorial($tutorial);
             $userTutorial->setIsLiked(false);
-            $userTutorial->setIsValidated(false);
-            $userTutorialRepository->save($userTutorial, true);
+            $userTutorial->setIsValidated(true);
+            $utRepository->save($userTutorial, true);
         }
+        return $this->render('tutorial/show.html.twig', [
+            'tutorial' => $tutorial,
+        ]);
+    }
+
+    #[Route('/valid/{slug}', name: 'app_tutorial_valid', methods: ['GET'])]
+    public function showValidated(Tutorial $tutorial, UserTutorialRepository $utRepository): Response
+    {
+        $user = $this->getUser();
+        $utValidated = $utRepository->findByValidated($user);
+        dd($utValidated);
         return $this->render('tutorial/show.html.twig', [
             'tutorial' => $tutorial,
         ]);
@@ -88,4 +99,5 @@ class TutorialController extends AbstractController
 
         return $this->redirectToRoute('app_tutorial_index', [], Response::HTTP_SEE_OTHER);
     }
+
 }

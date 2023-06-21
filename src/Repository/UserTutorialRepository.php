@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\User;
 use App\Entity\UserTutorial;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -39,20 +40,44 @@ class UserTutorialRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return UserTutorial[] Returns an array of UserTutorial objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('u')
-//            ->andWhere('u.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('u.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return UserTutorial[] Returns an array of UserTutorial objects
+     */
+/*    public function findByValidated($value): array
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.exampleField = :val')
+            ->setParameter('val', $value)
+            ->orderBy('u.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }*/
+
+    public function findByValidated(User $user): array
+    {
+        return $this->createQueryBuilder('qb')
+            ->andWhere('qb.user = :user')
+            ->setParameter('user', $user)
+            ->andWhere('qb.isValidated = true')
+            ->orderBy('qb.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findByLiked(User $user): array
+    {
+        return $this->createQueryBuilder('qb')
+            ->andWhere('qb.user = :user')
+            ->setParameter('user', $user)
+            ->andWhere('qb.isLiked = true')
+            ->orderBy('qb.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 
 //    public function findOneBySomeField($value): ?UserTutorial
 //    {
