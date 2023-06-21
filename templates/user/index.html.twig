@@ -16,22 +16,30 @@
 </div>
 
     <section class="llb-cards-userPage">
-        <div class="llb-card-userPage">
-            <h5 class="llb-h5-cardConnect">Mes informations personnelles</h5>
-            <a class="nav-link text-warning" href="{{ path('app_login') }}"><button class="llb-button-white-UP">Accéder</button></a>
-            <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme.png') }}">
+        <div class="llb-cardConnect">
+            <h5 class="llb-title-cards3-userPage">Vos informations personnelles</h5>
+            <a class="nav-link text-warning" href="{{ path('app_user_edit', {"id": app.user.id}) }}">
+            <button class="llb-button-white-UP">Y aller</button>
+            </a>
+            <div class="llb-img-container">
+                <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme.png') }}">
+            </div>
         </div>
 
         <div class="llb-cardConnect">
-            <h5 class="llb-h5-cardConnect">Mes tutos terminés</h5>
-            <a class="nav-link text-warning" href="{{ path('app_register') }}"><button class="llb-button-white-UP">Je m'inscris</button></a>
+            <h5 class="llb-title-cards3-userPage">Retrouvez vos tutos terminés</h5>
+            <a class="nav-link text-warning" href="{{ path('app_register') }}"><button class="llb-button-white-UP">Y aller</button></a>
+            <div class="llb-img-container">
             <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme.png') }}">
+            </div>
         </div>
 
         <div class="llb-cardConnect">
-            <h5 class="llb-h5-cardConnect">Retrouvez tous les tutos</h5>
-            <a class="nav-link text-warning" href="{{ path('app_theme_index') }}"><button class="llb-button-white-UP">Je découvre</button></a>
+            <h5 class="llb-title-cards3-userPage">Retrouvez tous nos tutos</h5>
+            <a class="nav-link text-warning" href="{{ path('app_tutorial_index')}}"><button class="llb-button-white-UP">Je découvre</button></a>
+            <div class="llb-img-container">
             <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme.png') }}">
+            </div>
         </div>
     </section>
 
@@ -45,135 +53,50 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="card-wrapper container-sm d-flex  justify-content-around">
-                    <div class="card  " style="width: 18rem;">
+                    <div class="card">
                         <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="height:25vh">
                         <div class="card-body">
                             <h5 class="card-title">Envoyer un mail</h5>
-                            <div class="logo-cards">
-                                <div class="llb-logoCard">
-                                    <p>Débutant </p>
-                                    <img src="{{ asset('build/images/icon-chart.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 4.8 </p>
-                                    <img src="{{ asset('build/images/icon-star.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 3 leçons</p>
-                                    <img src="{{ asset('build/images/icon-book.png') }}" style="height:30px; width:30px">
-                                </div>
-                            </div>
-                            <button class="llb-button-blue" style="margin-left:12.5%; margin-top:7%">Voir</button>
+                            <button class="llb-button-blue">Voir</button>
                         </div>
                     </div>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img src="{{ asset('build/images/oth-bluetooth.jpeg') }}" class="card-img-top" alt="..." style="height:25vh">
                         <div class="card-body">
                             <h5 class="card-title">Se connecter en bluetooth</h5>
-                            <div class="logo-cards">
-                                <div class="llb-logoCard">
-                                    <p>Débutant </p>
-                                    <img src="{{ asset('build/images/icon-chart.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 4.8 </p>
-                                    <img src="{{ asset('build/images/icon-star.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 3 leçons</p>
-                                    <img src="{{ asset('build/images/icon-book.png') }}" style="height:30px; width:30px">
-                                </div>
-                            </div>
-                            <button class="llb-button-blue" style="margin-left:12.5%; margin-top:7%">Voir</button>
+                            <button class="llb-button-blue">Voir</button>
                         </div>
                     </div>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img src="{{ asset('build/images/mbl-facebook.jpg') }}" class="card-img-top" alt="..." style="height:25vh">
                         <div class="card-body">
                             <h5 class="card-title">Utiliser Facebook</h5>
-                            <div class="logo-cards">
-                                <div class="llb-logoCard">
-                                    <p>Débutant </p>
-                                    <img src="{{ asset('build/images/icon-chart.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 4.8 </p>
-                                    <img src="{{ asset('build/images/icon-star.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 3 leçons</p>
-                                    <img src="{{ asset('build/images/icon-book.png') }}" style="height:30px; width:30px">
-                                </div>
-                            </div>
-                            <button class="llb-button-blue" style="margin-left:12.5%; margin-top:7%">Voir</button>
+                            <button class="llb-button-blue">Voir</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="card-wrapper container-sm d-flex   justify-content-around">
-                    <div class="card  " style="width: 18rem;">
+                    <div class="card">
                         <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="height:25vh">
                         <div class="card-body">
                             <h5 class="card-title">Envoyer un mail</h5>
-                            <div class="logo-cards">
-                                <div class="llb-logoCard">
-                                    <p>Débutant </p>
-                                    <img src="{{ asset('build/images/icon-chart.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 4.8 </p>
-                                    <img src="{{ asset('build/images/icon-star.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 3 leçons</p>
-                                    <img src="{{ asset('build/images/icon-book.png') }}" style="height:30px; width:30px">
-                                </div>
-                            </div>
-                            <button class="llb-button-blue" style="margin-left:12.5%; margin-top:7%">Voir</button>
-
+                            <button class="llb-button-blue">Voir</button>
                         </div>
                     </div>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img src="{{ asset('build/images/mbl-payment.jpeg') }}" class="card-img-top" alt="..." style="height:25vh">
                         <div class="card-body">
                             <h5 class="card-title">Payer avec son téléphone</h5>
-                            <div class="logo-cards">
-                                <div class="llb-logoCard">
-                                    <p>Débutant </p>
-                                    <img src="{{ asset('build/images/icon-chart.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 4.8 </p>
-                                    <img src="{{ asset('build/images/icon-star.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 3 leçons</p>
-                                    <img src="{{ asset('build/images/icon-book.png') }}" style="height:30px; width:30px">
-                                </div>
-                            </div>
-                            <button class="llb-button-blue" style="margin-left:12.5%; margin-top:7%">Voir</button>
+                            <button class="llb-button-blue">Voir</button>
                         </div>
                     </div>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img src="{{ asset('build/images/mbl-instagram.jpeg') }}" class="card-img-top" alt="..." style="height:25vh">
                         <div class="card-body">
                             <h5 class="card-title">Utiliser Instagram</h5>
-                            <div class="logo-cards">
-                                <div class="llb-logoCard">
-                                    <p>Débutant </p>
-                                    <img src="{{ asset('build/images/icon-chart.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 4.8 </p>
-                                    <img src="{{ asset('build/images/icon-star.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 3 leçons</p>
-                                    <img src="{{ asset('build/images/icon-book.png') }}" style="height:30px; width:30px">
-                                </div>
-                            </div>
-                            <button class="llb-button-blue" style="margin-left:12.5%; margin-top:7%">Voir</button>
+                            <button class="llb-button-blue">Voir</button>
                         </div>
                     </div>
                 </div>
@@ -198,136 +121,50 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="card-wrapper container-sm d-flex  justify-content-around">
-                    <div class="card  " style="width: 18rem;">
+                    <div class="card">
                         <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="height:25vh">
                         <div class="card-body">
                             <h5 class="card-title">Envoyer un mail</h5>
-                            <div class="logo-cards">
-                                <div class="llb-logoCard">
-                                    <p>Débutant </p>
-                                    <img src="{{ asset('build/images/icon-chart.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 4.8 </p>
-                                    <img src="{{ asset('build/images/icon-star.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 3 leçons</p>
-                                    <img src="{{ asset('build/images/icon-book.png') }}" style="height:30px; width:30px">
-                                </div>
-                            </div>
-                            <button class="llb-button-blue" style="margin-left:12.5%; margin-top:7%">Voir</button>
-
+                            <button class="llb-button-blue">Voir</button>
                         </div>
                     </div>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img src="{{ asset('build/images/oth-bluetooth.jpeg') }}" class="card-img-top" alt="..." style="height:25vh">
                         <div class="card-body">
                             <h5 class="card-title">Se connecter en bluetooth</h5>
-                            <div class="logo-cards">
-                                <div class="llb-logoCard">
-                                    <p>Débutant </p>
-                                    <img src="{{ asset('build/images/icon-chart.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 4.8 </p>
-                                    <img src="{{ asset('build/images/icon-star.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 3 leçons</p>
-                                    <img src="{{ asset('build/images/icon-book.png') }}" style="height:30px; width:30px">
-                                </div>
-                            </div>
-                            <button class="llb-button-blue" style="margin-left:12.5%; margin-top:7%">Voir</button>
-
+                            <button class="llb-button-blue">Voir</button>
                         </div>
                     </div>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img src="{{ asset('build/images/mbl-facebook.jpg') }}" class="card-img-top" alt="..." style="height:25vh">
                         <div class="card-body">
                             <h5 class="card-title">Utiliser Facebook</h5>
-                            <div class="logo-cards">
-                                <div class="llb-logoCard">
-                                    <p>Débutant </p>
-                                    <img src="{{ asset('build/images/icon-chart.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 4.8 </p>
-                                    <img src="{{ asset('build/images/icon-star.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 3 leçons</p>
-                                    <img src="{{ asset('build/images/icon-book.png') }}" style="height:30px; width:30px">
-                                </div>
-                            </div>
-                            <button class="llb-button-blue" style="margin-left:12.5%; margin-top:7%">Voir</button>
+                            <button class="llb-button-blue">Voir</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="card-wrapper container-sm d-flex   justify-content-around">
-                    <div class="card  " style="width: 18rem;">
+                    <div class="card">
                         <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="height:25vh">
                         <div class="card-body">
                             <h5 class="card-title">Envoyer un mail</h5>
-                            <div class="logo-cards">
-                                <div class="llb-logoCard">
-                                    <p>Débutant </p>
-                                    <img src="{{ asset('build/images/icon-chart.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 4.8 </p>
-                                    <img src="{{ asset('build/images/icon-star.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 3 leçons</p>
-                                    <img src="{{ asset('build/images/icon-book.png') }}" style="height:30px; width:30px">
-                                </div>
-                            </div>
-                            <button class="llb-button-blue" style="margin-left:12.5%; margin-top:7%">Voir</button>
+                            <button class="llb-button-blue">Voir</button>
                         </div>
                     </div>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img src="{{ asset('build/images/mbl-payment.jpeg') }}" class="card-img-top" alt="..." style="height:25vh">
                         <div class="card-body">
                             <h5 class="card-title">Payer avec son téléphone</h5>
-                            <div class="logo-cards">
-                                <div class="llb-logoCard">
-                                    <p>Débutant </p>
-                                    <img src="{{ asset('build/images/icon-chart.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 4.8 </p>
-                                    <img src="{{ asset('build/images/icon-star.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                    <p> 3 leçons</p>
-                                    <img src="{{ asset('build/images/icon-book.png') }}" style="height:30px; width:30px">
-                                </div>
-                            </div>
-                            <button class="llb-button-blue" style="margin-left:12.5%; margin-top:7%">Voir</button>
+                            <button class="llb-button-blue">Voir</button>
                         </div>
                     </div>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img src="{{ asset('build/images/mbl-instagram.jpeg') }}" class="card-img-top" alt="..." style="height:25vh">
                         <div class="card-body">
                             <h5 class="card-title">Utiliser Instagram</h5>
-                            <div class="logo-cards">
-                                <div class="llb-logoCard">
-                                <p>Débutant </p>
-                                    <img src="{{ asset('build/images/icon-chart.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                <p> 4.8 </p>
-                                    <img src="{{ asset('build/images/icon-star.png') }}" style="height:30px; width:30px">
-                                </div>
-                                <div class="llb-logoCard">
-                                <p> 3 leçons</p>
-                                    <img src="{{ asset('build/images/icon-book.png') }}" style="height:30px; width:30px">
-                            </div>
-                            </div>
-                            <button class="llb-button-blue" style="margin-left:12.5%; margin-top:7%">Voir</button>
+                            <button class="llb-button-blue">Voir</button>
                         </div>
                     </div>
                 </div>
@@ -346,5 +183,4 @@
     <!--         END OF FIRST SLIDER           -->
 
 </section>
-    {% include 'modules/footer.html.twig' %}
     {% endblock %}
