@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+    <div class="QuestionAndPropositions" >
+    <div class="QuestionNumber" id="question-" >
+
+
+        <div class="QuestionIndex"></div>
+        <div class="questionPrompt">{{ quiz.title }}</div>
+        <div class="lineUnderQuestion"></div>
+        <div class="propositions" >
+
+        </div>
+        <a href="{{ path('app_question_show', { 'quizTitle': quiz.title, 'questionIndex': 0 }) }}">
+        <button class="validateQuestion" id="validate" >Commmencer quiz </button>
+        </a>
+    </div>
+
+    </div>
+{% endblock %}

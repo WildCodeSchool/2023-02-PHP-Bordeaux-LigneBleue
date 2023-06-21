@@ -35,6 +35,9 @@ class Tutorial
     #[ORM\ManyToOne(inversedBy: 'tutorials')]
     private ?Theme $theme = null;
 
+    #[ORM\OneToOne(mappedBy: 'tutorial', cascade: ['persist', 'remove'])]
+    private ?Quiz $quiz = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +123,23 @@ class Tutorial
     public function setTheme(?Theme $tutorial): self
     {
         $this->theme = $tutorial;
+
+        return $this;
+    }
+
+    public function getQuiz(): ?Quiz
+    {
+        return $this->quiz;
+    }
+
+    public function setQuiz(Quiz $quiz): static
+    {
+        // set the owning side of the relation if necessary
+        if ($quiz->getTutorial() !== $this) {
+            $quiz->setTutorial($this);
+        }
+
+        $this->quiz = $quiz;
 
         return $this;
     }

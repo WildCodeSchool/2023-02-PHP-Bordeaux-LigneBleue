@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello QuizController!{% endblock %}
+
+{% block body %}
+    <div class="QuestionAndPropositions" >
+    <div class="QuestionNumber" id="question-" >
+
+        <div class="QuestionIndex">Question {{ questionIndex }} sur {{ questionCount }}</div>
+        <div class="questionPrompt">{{ question.prompt }}</div>
+        <div class="lineUnderQuestion"></div>
+        <div class="propositions" >
+            <button class="llb-button-proposition-quiz" value="{{ question.proposition1 }}" >{{ question.proposition1 }}</button>
+            <button class="llb-button-proposition-quiz" value="{{ question.proposition2 }}" >{{ question.proposition2 }}</button>
+            <button class="llb-button-proposition-quiz" value="{{ question.proposition3 }}" >{{ question.proposition3 }}</button>
+            <button class="llb-button-proposition-quiz" value="{{ question.proposition4 }}" >{{ question.proposition4 }}</button>
+        </div>
+        <button class="validateQuestion" id="validate" type="submit">Valider ma réponse</button>
+
+    </div>
+
+    </div>
+
+    <script>
+
+
+        function handleQuiz() {
+            const buttons = document.getElementsByClassName('llb-button-proposition-quiz');
+            let valueOfProposition;
+            let countRightAnswers = 0;
+            let clickCount = 0;
+            function handleClick(event) {
+                event.target.classList.add('YellowButton');
+                valueOfProposition = event.target.value;
+                for (let i = 0; i < buttons.length; i++) {
+                    buttons[i].removeEventListener('click', handleClick);
+                }
+            }
+
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].addEventListener('click', handleClick);
+            }
+
+            const validateButton = document.getElementById('validate');
+            validateButton.addEventListener('click', function() {
+                clickCount++;
+                if (clickCount === 1) {
+                if (valueOfProposition === "{{ question.answer }}") {
+                    const correctButton = Array.from(buttons).find(button => button.value === valueOfProposition);
+                    correctButton.classList.remove('YellowButton');
+                    correctButton.classList.add('green-button');
+                    validateButton.textContent = 'Exercice suivant';
+                    countRightAnswers++;
+
+                } else {
+                    for (let i = 0; i < buttons.length; i++) {
+                        if (buttons[i].getAttribute("value") !== "{{ question.answer }}") {
+                            buttons[i].classList.add("red-button");
+                            const correctButton = Array.from(buttons).find(button => button.value === valueOfProposition);
+                            correctButton.classList.remove('YellowButton');
+                            correctButton.classList.add('red-button');
+                        } else {
+                            buttons[i].classList.add("green-button");
+                        }
+                    }
+                    validateButton.textContent = 'Exercice suivant';
+
+
+                }
+
+                console.log(countRightAnswers);
+                }
+                else if (clickCount === 2) {
+                    const nextQuestionIndex = "{{ questionIndex }}";
+                    const quizTitle = "{{ quiz.title }}";
+
+                    const nextQuestionUrl = "{{ path('app_question_show', { 'quizTitle': quizTitle , 'questionIndex': '__questionIndex__' }) }}";
+                    const url = nextQuestionUrl.replace('__questionIndex__', nextQuestionIndex);
+
+                    window.location.href = url;
+                }
+            });
+
+        }
+        handleQuiz();
+    </script>
+{% endblock %}
