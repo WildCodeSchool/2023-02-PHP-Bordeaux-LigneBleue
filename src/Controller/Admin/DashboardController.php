@@ -55,7 +55,11 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Thèmes', 'fas fa-list', Theme::class);
         yield MenuItem::linkToCrud('Formations', 'fas fa-sharp fa-light fa-book', Tutorial::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-users', User::class);
-        yield MenuItem::linkToUrl('Retour au site', 'fas fa-sharp fa-light fa-arrow-left', $this->generateUrl('app_home'));
+        yield MenuItem::linkToUrl(
+            'Retour au site',
+            'fas fa-sharp fa-light fa-arrow-left',
+            $this->generateUrl('app_home')
+        );
     }
 
     public function configureActions(): Actions
