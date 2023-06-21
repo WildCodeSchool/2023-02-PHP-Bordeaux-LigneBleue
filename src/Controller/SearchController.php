@@ -15,7 +15,15 @@ class SearchController extends AbstractController
     public function search(Request $request, TutorialRepository $tutorialRepository): Response
     {
         $searchForm = $this->createFormBuilder()
-            ->add("search", TextType::class)
+            ->add("search", TextType::class, [
+                'label' => false,
+                'attr' => [
+                    'class' => 'form-control llb_navbar_search_form',
+                    'placeholder' => 'Je cherche une formation',
+                    'aria-label' => "Search",
+                    'type' => "search"
+                ],
+            ])
             ->setMethod('GET')
             ->setAction("/search")
             ->getForm();
