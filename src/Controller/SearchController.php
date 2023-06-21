@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Search;
 use App\Repository\TutorialRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -28,6 +27,7 @@ class SearchController extends AbstractController
 
             $tutorials = $tutorialRepository->searchTutorials($searchData);
             return $this->render('search/index.html.twig', [
+                'searchData' => $searchData,
                 'tutorials' => $tutorials
             ]);
         }

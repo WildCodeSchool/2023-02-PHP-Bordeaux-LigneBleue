@@ -3,9 +3,16 @@
 {% block title %}Search{% endblock %}
 
 {% block body %}
-
-    {% for tutorial in tutorials %}
-        {% include "tutorial/_card.html.twig" %}
-    {% endfor %}
+    <div class="llb-tutorial-index-container mb-5 mt-4">
+    {% if tutorials %}
+        <div class="llb-tutorial-index-card-container">
+            {% for tutorial in tutorials %}
+                {% include "/tutorial/_card.html.twig" %}
+            {% endfor %}
+        </div>
+    {% else %}
+        <h1>There are no results for {{ searchData }}</h1>
+    {% endif %}
+    </div>
 
 {% endblock %}

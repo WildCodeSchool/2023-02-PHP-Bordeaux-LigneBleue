@@ -67,8 +67,8 @@ class TutorialRepository extends ServiceEntityRepository
 
     public function searchTutorials(string $searchData): array
     {
-        return $this->createQueryBuilder('tuto')
-            ->where("tuto.title LIKE '%" . $searchData . "%'")
+        return $this->createQueryBuilder('tutorial')
+            ->where("tutorial.title LIKE '%" . $searchData . "%'")
             ->getQuery()
             ->getResult();
     }
