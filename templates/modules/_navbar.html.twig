@@ -13,13 +13,15 @@
 		<div class="collapse navbar-collapse llb-navbar-content" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
 
-			<form class="d-flex" role="search">
-				<input class="form-control llb_navbar_search_form" type="search" placeholder="Je cherche une formation" aria-label="Search">
+			<form action={{ path("app_search") }} class="d-flex" role="search">
+				<input class="form-control llb_navbar_search_form" type="search" name="q" placeholder="Je cherche une formation" aria-label="Search">
 
-				<button class="btn btn-outline-success llb_navbar_search_button" type="submit">
-					<img class="d-inline-block align-text-top" src={{ asset("build/images/Search_loupe.png")}} alt="" width="20" height="20">
-				</button>
+                    <button class="btn btn-outline-success llb_navbar_search_button" type="submit">
+                        <img class="d-inline-block align-text-top" src={{ asset("build/images/Search_loupe.png")}} alt="" width="20" height="20">
+                    </button>
 			</form>
+
+            {{ form(form) }}
 
 			<div class="llb-navbar-buttons">
 				{% if app.user %}
