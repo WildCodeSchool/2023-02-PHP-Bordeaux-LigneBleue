@@ -1,9 +1,9 @@
 .llb-filter-bar-container {
     background-color: $llb-blue;
     margin: 3%;
-    border-radius: 5rem;
-    margin-left: 30%;
-    width: 40%;
+    border-radius: 16px;
+    margin-left: 27.5%;
+    width: 45%;
     height: 4rem;
     color: white;
     display: flex;
@@ -24,6 +24,11 @@
     width: 5rem !important;
     margin-left: 10% !important;
 }
+
+.llb-filter-bar-switch>input:checked {
+    background-color: $llb-yellow;
+}
+
 
 .llb-filter-bar-switch>label {
     color: white;
