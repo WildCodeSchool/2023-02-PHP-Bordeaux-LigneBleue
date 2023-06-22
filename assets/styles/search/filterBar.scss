@@ -1,0 +1,45 @@
+.llb-filter-bar-container {
+    background-color: $llb-blue;
+    margin: 3%;
+    border-radius: 16px;
+    margin-left: 27.5%;
+    width: 45%;
+    height: 4rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.llb-filter-bar-container>div {}
+
+.llb-filter-bar-switch {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.llb-filter-bar-switch>input {
+    height: 2rem;
+    width: 5rem !important;
+    margin-left: 10% !important;
+}
+
+.llb-filter-bar-switch>input:checked {
+    background-color: $llb-yellow;
+}
+
+
+.llb-filter-bar-switch>label {
+    color: white;
+}
+
+.llb-filter-bar-dropdown>a {
+    color: $llb-blue;
+    background-color: $white;
+}
+
+.llb-filter-bar-dropdown>a:hover {
+    color: $llb-blue;
+    background-color: $llb-yellow;
+}
