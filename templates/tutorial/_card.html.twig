@@ -4,5 +4,6 @@
 		<h5 class="card-title">{{tutorial.title}}</h5>
 		<p class="card-text">{{ tutorial.objective }}</p>
 		<a href={{ path("app_tutorial_show", {"slug": tutorial.slug} )}} class="btn btn-primary">Commencer</a>
+        <a class="llb-button-yellow" href="{{ path('app_tutorial_like', {'slug': tutorial.slug}) }}">Je like</a>
     </div>
 </div>

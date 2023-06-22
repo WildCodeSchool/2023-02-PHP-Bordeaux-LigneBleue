@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Tutorial;
+use App\Entity\User;
 use App\Entity\UserTutorial;
 use App\Form\TutorialType;
 use App\Repository\TutorialRepository;
@@ -89,4 +90,32 @@ class TutorialController extends AbstractController
         return $this->redirectToRoute('app_tutorial_index', [], Response::HTTP_SEE_OTHER);
     }
 
+    #[Route('/like/{slug}', name: 'app_tutorial_like', methods: ['GET'])]
+    public function likedTutorial(Tutorial $tutorial, UserTutorialRepository $userTutorialRepository): Response
+    {
+        $user = $this->getUser();
+        if ($user == null) {
+            return $this->redirectToRoute('app_login', [], Response::HTTP_SEE_OTHER);
+        }
+
+        $utLiked = $userTutorialRepository->findByLiked($user);
+        if (in_array($tutorial, $utLiked)) {
+            if ($this->getUser()) {
+
+            } else {
+                $userTutorial = new UserTutorial();
+                $userTutorial->setUser($this->getUser());
+                $userTutorial->setTutorial($tutorial);
+                $userTutorial->setIsLiked(true);
+                $userTutorial->setIsValidated(true);
+                $utRepository->save($userTutorial, true);
+            }
+        }
+        return $this->render('user/show.html.twig', [
+            'user' => $user,
+            'utLiked' => $utLiked,
+        ]);
+    }
 }
+
+
