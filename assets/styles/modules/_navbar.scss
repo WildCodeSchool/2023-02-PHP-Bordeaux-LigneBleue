@@ -28,7 +28,8 @@
 .llb_navbar_search_form {
     margin-right: 0 !important;
     border-radius: 5px 0px 0px 5px;
-    width: 20vw !important;
+    width: 25vw !important;
+
 }
 
 .llb_navbar_search_form::placeholder {
@@ -41,6 +42,7 @@
     border-radius: 0px 5px 5px 0px;
     border-color: $llb-light-blue;
     height: 100%;
+
 }
 
 .llb_navbar_search_button:hover {
@@ -48,12 +50,27 @@
     background-color: $llb-yellow;
 }
 
-.llb_navbar_button {
-    color: white;
-    border-color: $llb-light-blue;
+.llb_navbar_search_form {
+    margin-left: 28%
 }
 
-.llb_navbar_button:hover {
+.llb_navbar_search_button {
+    margin-left: 25%
+}
+
+.llb-navbar-buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 25%;
+}
+
+.llb-navbar-button {
+    color: white;
+    border-color: white;
+}
+
+.llb-navbar-button:hover {
     color: $llb-blue;
     background-color: $llb-yellow;
     border-color: $llb-yellow;
@@ -88,7 +105,7 @@
         margin-top: 3%;
     }
 
-    .llb_navbar_button {
+    .llb-navbar-button {
         width: 100%;
     }
 
