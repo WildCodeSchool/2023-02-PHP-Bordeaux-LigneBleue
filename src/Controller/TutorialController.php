@@ -91,17 +91,16 @@ class TutorialController extends AbstractController
     }
 
     #[Route('/like/{slug}', name: 'app_tutorial_like', methods: ['GET'])]
-    public function likedTutorial(Tutorial $tutorial, UserTutorialRepository $userTutorialRepository): Response
+    public function likedTutorial(Tutorial $tutorial, UserTutorialRepository $utRepository): Response
     {
         $user = $this->getUser();
         if ($user == null) {
             return $this->redirectToRoute('app_login', [], Response::HTTP_SEE_OTHER);
         }
 
-        $utLiked = $userTutorialRepository->findByLiked($user);
+        $utLiked = $utRepository->findByLiked($user);
         if (in_array($tutorial, $utLiked)) {
             if ($this->getUser()) {
-
             } else {
                 $userTutorial = new UserTutorial();
                 $userTutorial->setUser($this->getUser());
@@ -117,5 +116,3 @@ class TutorialController extends AbstractController
         ]);
     }
 }
-
-
