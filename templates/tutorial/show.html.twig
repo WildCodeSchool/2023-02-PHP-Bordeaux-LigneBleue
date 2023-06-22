@@ -11,6 +11,12 @@
 			<div class="llb-tutorial-show-start-card-left-div">
 				<h2>{{tutorial.title}}</h2>
 				<p>{{ tutorial.objective }}</p>
+
+				<div class="llb-tutorial-show-start-card-tags-container">
+					{% for tag in tutorial.tags %}
+						{% include "tag/_badge.html.twig" %}
+					{% endfor %}
+				</div>
 			</div>
 
 			<img class="llb-tutorial-show-start-card-img" src={{ asset(picture_path ~ tutorial.picturePath) }} alt="{{ tutorial.title }}">

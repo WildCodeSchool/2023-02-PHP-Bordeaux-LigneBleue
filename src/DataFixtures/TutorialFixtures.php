@@ -25,6 +25,12 @@ class TutorialFixtures extends Fixture implements DependentFixtureInterface
     {
         $tutorialsPerTheme = 9;
 
+        $tagReferences = [
+            "tag_Débutant",
+            "tag_Intermédiaire",
+            "tag_Avancé"
+        ];
+
         for ($i = 1; $i <= 12; $i++) {
             for ($j = 0; $j < $tutorialsPerTheme; $j++) {
                 $tutorial = new Tutorial();
@@ -36,12 +42,13 @@ class TutorialFixtures extends Fixture implements DependentFixtureInterface
                 $tutorial->setIndexOrder($j + 1);
                 $tutorial->setPicturePath("build/images/Fixtures/Pictures/TestPicture.webp");
                 $tutorial->setTheme($this->getReference("theme_" . $i));
+
+                $tutorial->addTag($this->getReference($tagReferences[array_rand($tagReferences)]));
                 $slug = $this->slugger->slug($tutorialTitle);
                 $tutorial->setSlug($slug);
 
                 $this->addReference("tutorial_" . $i . $j, $tutorial);
 
-                // echo "tutorial_" . $i . $j . "\n";
 
                 $manager->persist($tutorial);
             }
@@ -52,6 +59,9 @@ class TutorialFixtures extends Fixture implements DependentFixtureInterface
 
     public function getDependencies()
     {
-        return [ThemeFixtures::class];
+        return [
+            ThemeFixtures::class,
+            TagFixtures::class
+        ];
     }
 }

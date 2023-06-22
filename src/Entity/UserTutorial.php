@@ -99,5 +99,4 @@ class UserTutorial
     {
         $this->createdAt = $createdAt;
     }
-
 }
