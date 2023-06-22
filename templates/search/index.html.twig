@@ -3,6 +3,9 @@
 {% block title %}Search{% endblock %}
 
 {% block body %}
+
+    {% include "search/filterBar.html.twig" %}
+
     <div class="llb-tutorial-index-container mb-5 mt-4">
     {% if tutorials %}
         <div class="llb-tutorial-index-card-container">
