@@ -55,7 +55,7 @@
     display:flex;
     flex-direction: row;
     justify-content: space-around;
-    margin:5% 0 10% 0;
+    width:100vw;
 }
 
 .llb-card-userPage{
@@ -74,8 +74,7 @@
     font-size:20px;
     margin-top:8%;
 }
-.llb-card-userPage,
-.llb-cardConnect {
+.llb-card-userPage, .llb-cardConnect {
     position: relative;
 }
 .llb-cardConnect .llb-button-yellow{
@@ -110,7 +109,7 @@
 }
 .llb-title-userTuto{
     color: white;
-    margin:0 0 5% 5%;
+    margin-left:3%;
     padding-top:5%;
 }
 
@@ -120,7 +119,6 @@
     justify-content: center;
     flex-direction: column;
     margin: 5%;
-    padding: 5%;
     border-radius:16px;
 }
 .card-wrapper{
