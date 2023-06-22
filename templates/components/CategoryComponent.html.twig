@@ -1,0 +1,16 @@
+<div{{attributes}}>
+	<!-- component html -->
+
+
+	<div class="dropdown show llb-filter-bar-dropdown">
+		<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Catégories
+		</a>
+
+		<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+			{% for category in this.categories %}
+				<a class="dropdown-item" href="#">{{category.categoryTitle}}</a>
+			{% endfor %}
+		</div>
+	</div>
+</div>
