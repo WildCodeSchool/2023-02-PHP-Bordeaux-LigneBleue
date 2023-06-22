@@ -6,7 +6,16 @@
 			{% include "tag/_badge.html.twig" %}
 		{% endfor %}
 		<p class="card-text">{{ tutorial.objective }}</p>
-		<a href={{ path("app_tutorial_show", {"slug": tutorial.slug} )}} class="btn btn-primary">Commencer</a>
-        <a class="llb-button-yellow" href="{{ path('app_tutorial_like', {'slug': tutorial.slug}) }}">Je like</a>
+        {% if app.user %}
+        <a href="{{ path('app_tutorial_like', {'slug': tutorial.slug}) }}">
+            <i class="bi bi-heart"></i>like
+        </a>
+        {% endif %}
+        {% if app.user is empty %}
+            <a href="{{ path('app_tutorial_like', {'slug': tutorial.slug}) }}">
+                <i class="bi bi-heart"></i>like
+            </a>
+        {% endif %}
+        <a href={{ path("app_tutorial_show", {"slug": tutorial.slug} )}} class="btn btn-primary">Commencer</a>
     </div>
 </div>

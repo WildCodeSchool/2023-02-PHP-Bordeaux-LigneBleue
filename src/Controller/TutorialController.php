@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Tutorial;
-use App\Entity\User;
 use App\Entity\UserTutorial;
 use App\Form\TutorialType;
 use App\Repository\TutorialRepository;
@@ -95,24 +94,32 @@ class TutorialController extends AbstractController
     {
         $user = $this->getUser();
         if ($user == null) {
-            return $this->redirectToRoute('app_login', [], Response::HTTP_SEE_OTHER);
+            $this->addFlash('danger', 'Vous devez être connecté pour sauvegardé une formation.');
         }
 
-        $utLiked = $utRepository->findByLiked($user);
-        if (in_array($tutorial, $utLiked)) {
-            if ($this->getUser()) {
+        $userTutorial = $utRepository->findOne($user, $tutorial);
+
+        if ($userTutorial) {
+            if (true === $userTutorial->isIsLiked()) {
+                $userTutorial->setIsLiked(false);
             } else {
-                $userTutorial = new UserTutorial();
-                $userTutorial->setUser($this->getUser());
-                $userTutorial->setTutorial($tutorial);
                 $userTutorial->setIsLiked(true);
-                $userTutorial->setIsValidated(true);
-                $utRepository->save($userTutorial, true);
             }
+        } else {
+            $userTutorial = new UserTutorial();
+            $userTutorial->setUser($this->getUser());
+            $userTutorial->setTutorial($tutorial);
+            $userTutorial->setIsLiked(true);
+            $userTutorial->setIsValidated(false);
         }
-        return $this->render('user/show.html.twig', [
+        $userTutorial->setUpdatedAt(new \DateTime('now'));
+        $utRepository->save($userTutorial, true);
+
+        $utLikedAll = $utRepository->findAllLiked($user);
+
+        return $this->redirectToRoute('app_user_show_valid', [
             'user' => $user,
-            'utLiked' => $utLiked,
-        ]);
+            'utLiked' => $utLikedAll,
+        ], Response::HTTP_SEE_OTHER);
     }
 }

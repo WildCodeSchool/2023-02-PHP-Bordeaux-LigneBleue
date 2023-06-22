@@ -1,0 +1,167 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User Page{% endblock %}
+
+{% block body %}
+    <div class="llb-welcome-userPage">
+        <div class="leftPart-userPage">
+            <h2 class="bienvenue-title">Bienvenue {{ user.firstname }}</h2>
+            <p class="welcomeText-userPage">Bienvenue dans votre espace personnel.
+                Retrouvez dans cette section vos informations personnelles ainsi que les formations terminées et celles en cours.</p>
+            <button class="llb-button-blue">Tuto Espace Perso</button>
+        </div>
+        <div class="rightPart-userPage">
+            <img class="avatar-userPage" src="{{ asset('build/images/avatar-lady1.png') }}">
+        </div>
+    </div>
+
+    <section class="llb-cards-userPage">
+        <div class="llb-cardConnect">
+            <h5 class="llb-title-cards3-userPage">Mes informations personnelles</h5>
+            <a class="nav-link text-warning" href="{{ path('app_user_edit', {"id": app.user.id}) }}">
+                <button class="llb-button-yellow" style="margin-top: -5%">Y aller</button>
+            </a>
+            <div class="llb-img-container">
+                <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme.png') }}">
+            </div>
+        </div>
+
+        <div class="llb-cardConnect">
+            <h5 class="llb-title-cards3-userPage">Mes formations terminées</h5>
+            <a class="nav-link text-warning" href="{{ path('app_register') }}"><button class="llb-button-yellow" style="margin-top: -5%">Y aller</button></a>
+            <div class="llb-img-container">
+                <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme.png') }}">
+            </div>
+        </div>
+
+        <div class="llb-cardConnect">
+            <h5 class="llb-title-cards3-userPage">Mes formations sauvegardées</h5>
+            <a class="nav-link text-warning" href="{{ path('app_theme_index') }}"><button class="llb-button-yellow" style="margin-top: -5%">Je découvre</button></a>
+            <div class="llb-img-container">
+                <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme2.png') }}">
+            </div>
+        </div>
+    </section>
+    <p>{{ dump(app.user) }}</p>
+
+    <!--         BLUE STRIP 1          -->
+    <div class="llb-background-light-blue-userPage llb-category-size d-flex align-items-center justify-content-center 100vh"></div>
+
+    <!--         FIRST SLIDER           -->
+
+    <section class="llb-tuto-userPage">
+        <div class="card-wrapper container-sm d-flex  justify-content-around">
+            {% if utLiked %}
+                {% for utLikedOne in utLiked %}
+                    <div class="card">
+                        <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="height:25vh">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ utLikedOne.tutorial.title }}</h5>
+                            <button class="llb-button-yellow">Voir</button>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% if utLiked is empty %}
+                <p class="text-white">Vous n'avez pas encore sauvegardé de formations</p>
+                <p class="text-white">Retrouvez toutes les formations en cliquant ici</p>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-----------------phone slider---------->
+    <section class="phone-slider-container">
+        <div class="customers-comments-phone">
+            <h2 style="color:white; font-size:medium; width:90vw; padding: 5% 0">MES FORMATIONS EN COURS</h2>
+            <div id="carouselExampleControls-phone" class="carousel carousel-dark slide" data-bs-ride="carousel" >
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="card-wrapper container-sm d-sm-block d-md-flex  justify-content-around">
+                            <div class="card" style="width: 60vw; height:30vh">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                    <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="width:60vw; top:0; left:0; position:absolute">
+                                    <div class="card-body" style="margin-top:40%">
+                                        <h5 class="card-title mt-4">Envoyer un mail</h5>
+                                        <button class="llb-button-blue mt-4">Voir</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card-wrapper container-sm d-sm-block d-md-flex   justify-content-around">
+                            <div class="card" style="width:60vw; height:30vh">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                    <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="width:60vw; top:0; left:0; position:absolute">
+                                    <div class="card-body" style="margin-top:40%">
+                                        <h5 class="card-title mt-4">Envoyer un mail</h5>
+                                        <button class="llb-button-blue mt-4">Voir</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card-wrapper container-sm d-sm-block d-md-flex   justify-content-around">
+                            <div class="card" style="width:60vw; height:30vh">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                    <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="width:60vw; top:0; left:0; position:absolute">
+                                    <div class="card-body" style="margin-top:40%">
+                                        <h5 class="card-title mt-4">Envoyer un mail</h5>
+                                        <button class="llb-button-blue mt-4">Voir</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 style="color:white; font-size:medium; width:90vw; padding-top: 10%; padding-bottom:5%">MES FORMATIONS SAUVEGARDÉES</h2>
+            <div id="carouselExampleControls-phone" class="carousel carousel-dark slide" data-bs-ride="carousel" >
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="card-wrapper container-sm d-sm-block d-md-flex  justify-content-around">
+                            <div class="card" style="width: 60vw; height:30vh">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                    <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="width:60vw; top:0; left:0; position:absolute">
+                                    <div class="card-body" style="margin-top:40%">
+                                        <h5 class="card-title mt-4">Envoyer un mail</h5>
+                                        <button class="llb-button-blue mt-4">Voir</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card-wrapper container-sm d-sm-block d-md-flex   justify-content-around">
+                            <div class="card" style="width:60vw; height:30vh">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                    <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="width:60vw; top:0; left:0; position:absolute">
+                                    <div class="card-body" style="margin-top:40%">
+                                        <h5 class="card-title mt-4">Envoyer un mail</h5>
+                                        <button class="llb-button-blue mt-4">Voir</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card-wrapper container-sm d-sm-block d-md-flex   justify-content-around">
+                            <div class="card" style="width:60vw; height:30vh">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                    <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="width:60vw; top:0; left:0; position:absolute">
+                                    <div class="card-body" style="margin-top:40%">
+                                        <h5 class="card-title mt-4">Envoyer un mail</h5>
+                                        <button class="llb-button-blue mt-4">Voir</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+{% endblock %}

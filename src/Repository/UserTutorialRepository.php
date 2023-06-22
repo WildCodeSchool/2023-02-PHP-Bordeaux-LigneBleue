@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Tutorial;
 use App\Entity\User;
 use App\Entity\UserTutorial;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -67,17 +68,52 @@ class UserTutorialRepository extends ServiceEntityRepository
             ;
     }
 
-    public function findByLiked(User $user): array
+    public function findAllLiked(User $user): array
     {
         return $this->createQueryBuilder('qb')
             ->andWhere('qb.user = :user')
             ->setParameter('user', $user)
-            ->andWhere('qb.isLiked = true')
-            ->orderBy('qb.id', 'ASC')
+            ->having('qb.isLiked = true')
+            ->orderBy('qb.updatedAt', 'DESC')
             ->getQuery()
             ->getResult()
             ;
     }
+    public function findOne(User $user, Tutorial $tutorial): ?UserTutorial
+    {
+        return $this->createQueryBuilder('qb')
+            ->andWhere('qb.user = :user')
+            ->setParameter('user', $user)
+            ->andWhere('qb.tutorial = :tutorial')
+            ->setParameter('tutorial', $tutorial)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
+/*    public function findOneIsParameter(User $user, Tutorial $tutorial, string $parameter): ?UserTutorial
+    {
+        if ('isLiked' === $parameter) {
+            return $this->createQueryBuilder('qb')
+                ->andWhere('qb.user = :user')
+                ->setParameter('user', $user)
+                ->andWhere('qb.tutorial = :tutorial')
+                ->setParameter('tutorial', $tutorial)
+                ->andWhere('qb.isLiked = true')
+                ->getQuery()
+                ->getOneOrNullResult()
+                ;
+        } elseif ('isValidated' === $parameter) {
+            return $this->createQueryBuilder('qb')
+                ->andWhere('qb.user = :user')
+                ->setParameter('user', $user)
+                ->andWhere('qb.tutorial = :tutorial')
+                ->setParameter('tutorial', $tutorial)
+                ->andWhere('qb.isValidated = true')
+                ->getQuery()
+                ->getOneOrNullResult()
+                ;
+        }
+    }*/
 
 //    public function findOneBySomeField($value): ?UserTutorial
 //    {

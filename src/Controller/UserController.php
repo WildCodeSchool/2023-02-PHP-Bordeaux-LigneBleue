@@ -42,12 +42,21 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}', name: '_show', methods: ['GET'])]
-    public function show(User $user, UserTutorialRepository $utRepository): Response
+    public function show(User $user): Response
     {
-        $utValidated = $utRepository->findByValidated($user);
         return $this->render('user/show.html.twig', [
             'user' => $user,
-            'utValidated' => $utValidated,
+        ]);
+    }
+
+    #[Route('/{id/formations-enregistrees}', name: '_show_valid', methods: ['GET'])]
+    public function showLikedTutorials(UserTutorialRepository $utRepository): Response
+    {
+        $user = $this->getUser();
+        $utLiked = $utRepository->findAllLiked($user);
+        return $this->render('user/show_validated.html.twig', [
+            'user' => $user,
+            'utLiked' => $utLiked,
         ]);
     }
 
