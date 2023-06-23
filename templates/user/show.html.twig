@@ -12,10 +12,16 @@
             <a href="{{ path('app_user_edit_avatar', {'id': user.id}) }}" style="text-decoration: none">
                 <button class="llb-button-blue" style="margin-top:5%">Modifier son avatar</button>
             </a>
-            </div>
-        <div class="rightPart-userPage">
-            <img src="{{ asset('build/images/' ~ user.avatar) }}" alt="Avatar" style="width:20vw; height:20vw;margin-left:40%; margin-top:10%">
         </div>
+        {% if user.avatar is not null %}
+            <img class="llb-avatarOfUser" src="{{ asset('build/images/' ~ user.avatar) }}" alt="Avatar">
+        {% else %}
+            <div style="width:20vw; height:20vw;margin-left:12%; margin-top:3%; background-color:#FFCB05;">
+                <a href="{{ path('app_user_edit_avatar', {'id': user.id}) }}">
+                    <p style="line-height: 20vw;text-align: center">Veuillez sélectionner un avatar</p>
+                </a>
+            </div>
+        {% endif %}
     </div>
 
     <section class="llb-cards-userPage">
