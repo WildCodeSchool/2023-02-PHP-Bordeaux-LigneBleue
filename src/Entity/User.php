@@ -53,9 +53,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $level = null;
 
+
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserTutorial::class)]
     private Collection $userTutorials;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $avatar = null;
     public function __construct()
     {
         $this->userTutorials = new ArrayCollection();
@@ -243,6 +246,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $userTutorial->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(?string $avatar): static
+    {
+        $this->avatar = $avatar;
 
         return $this;
     }

@@ -4,14 +4,15 @@
 
 {% block body %}
     <div class="llb-welcome-userPage">
-        <div class="leftPart-userPage">
-            <h2 class="bienvenue-title">Bienvenue {{ user.firstname }}</h2>
-            <p class="welcomeText-userPage">Bienvenue dans votre espace personnel.
+        <div class="llb-leftPart-userPage">
+            <h2 class="llb-welcome-title">Bienvenue {{ user.firstname }}</h2>
+            <p class="llb-welcomeText-userPage">Bienvenue dans votre espace personnel.
                 Retrouvez dans cette section vos informations personnelles ainsi que les formations terminées et celles en cours.</p>
             <button class="llb-button-blue">Tuto Espace Perso</button>
+            <a href="{{ path('app_user_edit_avatar', {'id': user.id}) }}" style="text-decoration: none"><button class="llb-button-blue" style="margin-top:5%">Modifier son avatar</button></a>
         </div>
         <div class="rightPart-userPage">
-            <img class="avatar-userPage" src="{{ asset('build/images/avatar-lady1.png') }}">
+            <img src="{{ asset('build/images/' ~ user.avatar) }}" alt="Avatar" style="width:20vw; height:20vw;margin-left:40%; margin-top:10%">
         </div>
     </div>
 
