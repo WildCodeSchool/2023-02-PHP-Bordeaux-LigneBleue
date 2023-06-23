@@ -1,0 +1,24 @@
+{# templates/user/edit_avatar.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Avatar{% endblock %}
+
+{% block body %}
+    <h1 class="llb-titleEditAvatar">Choisir son avatar</h1>
+    {{ form_start(form) }}
+    <section class="llb-avatar-userPage">
+    {% for choice in form.avatar.vars.choices %}
+        <div class="llb-choiceAvatar">
+            <label>
+                <img src="{{ asset('build/images/' ~ choice.value) }}" alt="{{ choice.label }}" style="width:200px; height:200px">
+                <input type="radio" name="{{ form.avatar.vars.full_name }}" value="{{ choice.value }}" {% if choice.value == form.avatar.vars.value %}checked{% endif %}>
+            </label>
+        </div>
+    {% endfor %}
+    <button class="llb-button-yellow" type="submit" style="margin-left:5%; margin-top:5%">Enregistrer</button>
+    {{ form_end(form) }}
+    </section>
+{% endblock %}
+
+

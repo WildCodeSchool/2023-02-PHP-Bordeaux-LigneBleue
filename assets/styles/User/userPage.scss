@@ -10,15 +10,15 @@
     border-radius:16px;
 }
 
-.leftPart-userPage{
+.llb-leftPart-userPage{
     margin-left:2%;
 }
-.welcomeText-userPage{
+.llb-welcomeText-userPage{
     width: 45vw;
     color:$llb-blue;
     margin-bottom: 5%;
 }
-.bienvenue-title{
+.llb-welcome-title{
     font-size:xxx-large;
     color:$llb-blue;
     width:50vw;
@@ -134,7 +134,21 @@
     flex-direction: column;
     justify-content: center;
 }
-
+/*     Choices of avatar                     */
+.llb-titleEditAvatar{
+    text-align: center;
+    color:$llb-blue;
+    margin-top:5%;
+}
+.llb-avatar-userPage {
+    background-color: $llb-blue;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 5%;
+    border-radius: 16px;
+}
 /*      Media Query        */
 
 @media screen and (max-width: 1100px) {
@@ -146,10 +160,10 @@
     .llb-button-white-UP {
         font-size:10px;
     }
-    .bienvenue-title{
+    .llb-welcome-title{
         font-size:x-large;
     }
-    .welcomeText-userPage{
+    .llb-welcomeText-userPage{
         font-size:12px;
     }
 }
@@ -159,10 +173,10 @@
         background-size:140%;
         margin-right:0;
     }
-    .welcomeText-userPage{
+    .llb-welcomeText-userPage{
         font-size:12px;
     }
-    .bienvenue-title{
+    .llb-welcome-title{
         font-size:x-large;
     }
     .avatar-userPage{
@@ -172,7 +186,7 @@
         margin-right:30%;
         margin-top:10%;
     }
-    .leftPart-userPage .llb-button-blue{
+    .llb-leftPart-userPage .llb-button-blue{
         margin-top: 15%;
     }
     .llb-cards-userPage{

@@ -4,12 +4,14 @@
         <h1 class="h3 mt-0 font-weight-normal text-center mb-5">Éditer vos informations</h1>
         <div class="w-100">
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-            <div class="llb-button-edit-profil">
-<button class="llb-button-yellow mb-4">{{ button_label|default('Save') }}</button>
-            </div>
+{{ form_widget(form) }}
+<div class="llb-button-edit-profil" style="margin-top:5%">
+    <button class="llb-button-yellow mb-4">{{ button_label|default('Save') }}</button>
+</div>
 {{ form_end(form) }}
-            {{ include('user/_delete_form.html.twig') }}
-    </div>
+<div class="llb-button-edit-profil" style="margin-top:2%">
+    {{ include('user/_delete_form.html.twig') }}
+</div>
+        </div>
     </div>
 </section>
