@@ -1,0 +1,114 @@
+.LBQuizSquare{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    background: #0C5395;
+    border-radius: 16px;
+    margin-left:10%;
+    margin-top: 5vh;
+    padding: 2%;
+
+}
+
+
+
+.LBScore{
+    height: 70vh;
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+    margin-bottom: 3%;
+
+
+}
+
+.Bravo{
+    margin: auto;
+    color: white;
+    font-size:7vw;
+}
+.Note{
+    color: white;
+    font-size: 4vw;
+    margin-bottom: 3%;
+}
+.Encouragement{
+    color: white;
+    font-size:2vw;
+    margin-bottom: 3%;
+
+}
+
+
+
+.LBComeback{
+    margin-left: 27vw;
+    width: 22vw;
+    height: 9vh;
+    left: 320px;
+    top: 353px;
+
+    background: #FFCB05;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    margin-bottom: 2.5%;
+    color: #062F55;;
+    font-weight:bolder;
+    font-size:1.5vw;
+}
+.LBStartQuestion{
+    margin-left: 27vw;
+    width: 22vw;
+    height: 9vh;
+    left: 320px;
+    top: 353px;
+
+    background: #FFCB05;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    margin-bottom: 2.5%;
+    color: #062F55;;
+    font-weight:bolder;
+    font-size:1.5vw;
+}
+
+.LB-quizTitle{
+    font-weight:bolder;
+    margin: auto;
+    color: white;
+    font-size:5vw;
+}
+
+.LBStartRightCard{
+
+    width: 40%;
+    height: 100%;
+    background: white;
+    border-radius: 16px;
+    padding: 2%;
+
+}
+.LBStartLeftCard{
+
+    width: 30%;
+    height: 100%;
+    background: white;
+    border-radius: 16px;
+    padding: 2%;
+
+}
+
+.LBStartCards{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    justify-content: space-around;
+    display: flex;
+    height: 25vh;
+}
+.LBStartText{
+    text-align: center;
+    font-weight:bolder;
+    font-size: small;
+    margin:auto;
+
+}

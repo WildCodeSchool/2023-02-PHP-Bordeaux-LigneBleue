@@ -3,10 +3,11 @@
 {% block title %}Hello QuizController!{% endblock %}
 
 {% block body %}
+
     <div class="QuestionAndPropositions" >
     <div class="QuestionNumber" id="question-" >
 
-        <div class="QuestionIndex">Question {{ questionIndex }} sur {{ questionCount }}</div>
+        <div class="QuestionIndex">Question {{ questionIndex  }} sur {{ questionCount }}</div>
         <div class="questionPrompt">{{ question.prompt }}</div>
         <div class="lineUnderQuestion"></div>
         <div class="propositions" >
@@ -16,20 +17,22 @@
             <button class="llb-button-proposition-quiz" value="{{ question.proposition4 }}" >{{ question.proposition4 }}</button>
         </div>
         <button class="validateQuestion" id="validate" type="submit">Valider ma réponse</button>
+        <meta name="csrf-token" content="{{ csrf_token }}" />
+
 
     </div>
 
     </div>
 
     <script>
-
-
-        function handleQuiz() {
+        function handleQuiz()
+        {
             const buttons = document.getElementsByClassName('llb-button-proposition-quiz');
             let valueOfProposition;
             let countRightAnswers = 0;
             let clickCount = 0;
-            function handleClick(event) {
+            function handleClick(event)
+            {
                 event.target.classList.add('YellowButton');
                 valueOfProposition = event.target.value;
                 for (let i = 0; i < buttons.length; i++) {
@@ -42,36 +45,49 @@
             }
 
             const validateButton = document.getElementById('validate');
-            validateButton.addEventListener('click', function() {
+            validateButton.addEventListener('click', function () {
                 clickCount++;
                 if (clickCount === 1) {
-                if (valueOfProposition === "{{ question.answer }}") {
-                    const correctButton = Array.from(buttons).find(button => button.value === valueOfProposition);
-                    correctButton.classList.remove('YellowButton');
-                    correctButton.classList.add('green-button');
-                    validateButton.textContent = 'Exercice suivant';
-                    countRightAnswers++;
-
-                } else {
-                    for (let i = 0; i < buttons.length; i++) {
-                        if (buttons[i].getAttribute("value") !== "{{ question.answer }}") {
-                            buttons[i].classList.add("red-button");
-                            const correctButton = Array.from(buttons).find(button => button.value === valueOfProposition);
-                            correctButton.classList.remove('YellowButton');
-                            correctButton.classList.add('red-button');
-                        } else {
-                            buttons[i].classList.add("green-button");
+                    if (valueOfProposition === "{{ question.answer }}") {
+                        const correctButton = Array.from(buttons).find(button => button.value === valueOfProposition);
+                        correctButton.classList.remove('YellowButton');
+                        correctButton.classList.add('green-button');
+                        validateButton.textContent = 'Exercice suivant';
+                        countRightAnswers++;
+                    } else {
+                        for (let i = 0; i < buttons.length; i++) {
+                            if (buttons[i].getAttribute("value") !== "{{ question.answer }}") {
+                                buttons[i].classList.add("red-button");
+                                const correctButton = Array.from(buttons).find(button => button.value === valueOfProposition);
+                                correctButton.classList.remove('YellowButton');
+                                correctButton.classList.add('red-button');
+                            } else {
+                                buttons[i].classList.add("green-button");
+                            }
                         }
+                        validateButton.textContent = 'Exercice suivant';
                     }
-                    validateButton.textContent = 'Exercice suivant';
-
-
-                }
-
-                console.log(countRightAnswers);
-                }
-                else if (clickCount === 2) {
-                    const nextQuestionIndex = "{{ questionIndex }}";
+                    console.log(countRightAnswers);
+                    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                    const url = "{{ path('app_question_show', { 'quizTitle': quizTitle , 'questionIndex': questionIndex }) }}";
+                    fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-Token': csrfToken
+                        },
+                        body: JSON.stringify({ countRightAnswers })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            // Recibe la respuesta del controlador PHP
+                            console.log(data.message);
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                } else if (clickCount === 2) {
+                    const nextQuestionIndex = "{{ questionIndex + 1 }}";
                     const quizTitle = "{{ quiz.title }}";
 
                     const nextQuestionUrl = "{{ path('app_question_show', { 'quizTitle': quizTitle , 'questionIndex': '__questionIndex__' }) }}";
@@ -83,5 +99,16 @@
 
         }
         handleQuiz();
+
     </script>
+
 {% endblock %}
+
+
+
+
+
+
+
+
+

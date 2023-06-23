@@ -18,7 +18,7 @@ class QuizFixtures extends Fixture implements DependentFixtureInterface
 
     private function loadQuizzes(ObjectManager $manager): void
     {
-        // Obtener los tutoriales
+
         $tutorials = $manager->getRepository(Tutorial::class)->findAll();
 
         foreach ($tutorials as $tutorial) {
@@ -28,7 +28,7 @@ class QuizFixtures extends Fixture implements DependentFixtureInterface
             $quiz->setTutorial($tutorial);
             $manager->persist($quiz);
 
-            // Crear preguntas para el quiz
+
             $this->createQuestions($manager, $quiz);
         }
 
