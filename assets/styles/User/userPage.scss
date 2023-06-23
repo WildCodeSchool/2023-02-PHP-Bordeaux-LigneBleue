@@ -140,17 +140,14 @@
     color:$llb-blue;
     margin-top:5%;
 }
-.llb-avatar-userPage{
-    background-color:$llb-blue;
+.llb-avatar-userPage {
+    background-color: $llb-blue;
     display: flex;
-    flex-direction:row;
-    flex-wrap:wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     margin: 5%;
-    border-radius:16px;
-}
-fieldset{
-    display: none;
+    border-radius: 16px;
 }
 /*      Media Query        */
 
