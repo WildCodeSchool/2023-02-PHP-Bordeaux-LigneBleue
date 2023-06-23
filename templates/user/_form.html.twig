@@ -3,15 +3,67 @@
     <div class="llb-form">
         <h1 class="h3 mt-0 font-weight-normal text-center mb-5">Éditer vos informations</h1>
         <div class="w-100">
-{{ form_start(form) }}
-{{ form_widget(form) }}
+{{ form_start(userType)}}
+            {{ form_row(userType.lastname, {
+                label: 'Nom*'
+            }) }}
+            {{ form_row(userType.firstname, {
+                label: 'Prénom*'
+            }) }}
+            {{ form_row(userType.gender, {
+                label: 'Genre*'
+            }) }}
+            {{ form_row(userType.birthday, {
+                label: 'Date de naissance*'
+            }) }}
+            <div
+                data-controller="places"
+                data-action="google-maps-callback@window->places#initAutocomplete"
+                data-places-country-value='["fr"]'
+            >
+                {{ form_row(userType.adress, {
+                    label: 'Adresse*', 'attr' :{
+                        'class' : 'test',
+                        'type' : "text",
+                        'data-action' : "keydown->places#preventSubmit",
+                        'data-places-target' : "address",
+                    }
+                }) }}
+                <input type="hidden" data-places-target="city" />
+                <input type="hidden" data-places-target="streetNumber" />
+                <input type="hidden" data-places-target="route" />
+                <input type="hidden" data-places-target="county" />
+                <input type="hidden" data-places-target="state" />
+                <input type="hidden" data-places-target="postalCode" />
+                <input type="hidden" data-places-target="country" />
+                <input type="hidden" data-places-target="longitude" />
+                <input type="hidden" data-places-target="latitude" />
+            </div>
+            <div id="search-results"></div>
+            {{ form_row(userType.email, {
+                label: 'Email*'
+            }) }}
+            {{ form_row(userType.password, {
+                label: 'Mot de passe*'
+            }) }}
 <div class="llb-button-edit-profil" style="margin-top:5%">
     <button class="llb-button-yellow mb-4">{{ button_label|default('Save') }}</button>
 </div>
-{{ form_end(form) }}
-<div class="llb-button-edit-profil" style="margin-top:2%">
-    {{ include('user/_delete_form.html.twig') }}
-</div>
+{{ form_end(userType) }}
+            <div class="llb-button-edit-profil" style="margin-top:2%">
+                {{ include('user/_delete_form.html.twig') }}
+            </div>
         </div>
     </div>
 </section>
+{% block javascripts %}
+    <script>
+        window.initAutocomplete = function () {
+            const event = new Event('google-maps-callback', {
+                bubbles: true,
+                cancelable: true,
+            })
+            window.dispatchEvent(event)
+        }
+    </script>
+{% endblock %}
