@@ -1,4 +1,4 @@
-.llb-theme-index-container {
+.llb-blue-container {
     color: white;
     background-color: $llb-blue;
     display: flex;
@@ -10,7 +10,7 @@
     border-radius: 16px;
 }
 
-#llb-theme-index-title {
+.llb-blue-container-title {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +19,7 @@
 
 }
 
-#llb-theme-index-title>h1 {
+.llb-blue-container-title>h1 {
     color: white !important;
     font-family: 'Baloo 2';
     font-style: normal;
@@ -30,7 +30,7 @@
     letter-spacing: -1px;
 }
 
-#llb-theme-index-title>p {
+.llb-blue-container-title>p {
     color: white !important;
     font-family: 'Baloo 2';
     font-style: normal;
@@ -41,11 +41,11 @@
     letter-spacing: 1px;
 }
 
-.llb-theme-index-card-container {
+.llb-blue-container-card-container {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .llb-theme-size {
@@ -53,12 +53,11 @@
 }
 
 @media screen and (max-width: 480px) {
-    .llb-theme-index-card-container {
-        align-items: center;
-    }
-
-    .llb-theme-index-container {
+    .llb-blue-container {
         width: 90vw;
     }
 
+    .llb-blue-container-card-container {
+        align-items: center;
+    }
 }
