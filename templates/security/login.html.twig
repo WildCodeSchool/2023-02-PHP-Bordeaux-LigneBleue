@@ -4,6 +4,12 @@
 {% endblock %}
 
 {% block body %}
+    <div class="llb-background-light-blue llb-login-size"></div>
+    <section class="llb-form-global mt-5">
+<form method="post" class="llb-form">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
 
 	{% for category, messages in app.flashes %}
 		{% for message in messages %}

@@ -47,8 +47,12 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        // For example:
-         return new RedirectResponse($this->urlGenerator->generate('app_home'));
+        $user = $token->getUser(); // Récupérer l'utilisateur connecté à partir du token
+
+        if ($user instanceof User) {
+            return new RedirectResponse($this->urlGenerator->generate('app_user_show', ['id' => $user->getId()]));
+        }
+        return new RedirectResponse($this->urlGenerator->generate('app_home'));
     }
 
     protected function getLoginUrl(Request $request): string
