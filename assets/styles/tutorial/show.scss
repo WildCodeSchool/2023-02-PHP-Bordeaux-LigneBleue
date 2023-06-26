@@ -56,15 +56,17 @@
 
 
 .llb-tutorial-show-end-card {
-    height: 15vw;
+    height: 10vw;
     background-color: $llb-blue;
     background-size: 100%;
     display: flex;
     justify-content: space-around;
-    align-items: space-around;
-    flex-direction: column;
-    padding: 5%;
+    align-items: center;
     margin-top: 2.5%;
+}
+
+.llb-tutorial-show-end-card>a {
+    text-decoration: none;
 }
 
 .llb-tutorial-show-end-card>div {

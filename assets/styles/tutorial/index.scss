@@ -46,10 +46,11 @@
 
 @media screen and (max-width: 480px) {
     .llb-welcome-userPage {
-        height:800px;
+        height: 800px;
     }
-    .llb-cardConnect{
-        display:flex;
-        flex-direction:column;
+
+    .llb-cardConnect {
+        display: flex;
+        flex-direction: column;
     }
 }
