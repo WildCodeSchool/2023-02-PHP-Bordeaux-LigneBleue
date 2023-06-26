@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 60vw;
+    width: 80vw;
     margin: 20px auto 0 auto;
     padding: 5%;
     border-radius: 16px;
@@ -16,6 +16,7 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
+
 }
 
 #llb-theme-index-title>h1 {
@@ -55,8 +56,9 @@
     .llb-theme-index-card-container {
         align-items: center;
     }
+
     .llb-theme-index-container {
         width: 90vw;
     }
 
-    }
+}

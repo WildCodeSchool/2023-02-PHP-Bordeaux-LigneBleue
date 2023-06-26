@@ -28,12 +28,11 @@ body {
 .llb-button-yellow {
     background-color: $llb-yellow;
     color: $llb-dark-blue;
-    height: 48px;
-    width: 186px;
+
     border-radius: 6px;
 }
 
-.llb-button-red{
+.llb-button-red {
     background-color: #FF5F4E;
     color: white;
     height: 48px;
@@ -47,13 +46,15 @@ body {
     height: 48px;
     width: 186px;
     border-radius: 6px;
-    border-color:$llb-blue;
+    border-color: $llb-blue;
 }
+
 .llb-cards-formation {
     height: 464px;
     width: 339px;
     border-radius: 12px;
 }
+
 .llb-align-center {
     margin-left: auto;
     margin-right: auto;

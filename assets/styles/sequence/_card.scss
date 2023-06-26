@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     flex-direction: row;
+    align-items: center;
     padding: 0;
     padding-right: 2.5%;
     padding-left: 2.5%;
@@ -9,7 +10,8 @@
 }
 
 .llb-sequence-card>img {
-    width: 20%;
+    max-width: 20vw;
+    max-height: 20vh;
 }
 
 .llb-sequence-card>div {

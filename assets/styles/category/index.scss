@@ -6,7 +6,7 @@
     margin: 20px auto 0 auto;
     padding: 5%;
     border-radius: 16px;
-    height:auto;
+    height: auto;
 }
 
 #llb-category-index-title {
@@ -43,7 +43,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .llb-category-size {
@@ -59,7 +59,8 @@
         justify-content: center;
         align-items: center;
     }
+
     .llb-category-index-container {
         width: 85vw;
     }
-    }
+}
