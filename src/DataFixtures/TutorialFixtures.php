@@ -40,7 +40,7 @@ class TutorialFixtures extends Fixture implements DependentFixtureInterface
                 $tutorial->setObjective($this->faker->sentence());
                 $tutorial->setIsPublished(true);
                 $tutorial->setIndexOrder($j + 1);
-                $tutorial->setPicturePath("build/images/Fixtures/Pictures/TestPicture.webp");
+                $tutorial->setPicturePath("cmp-webcam.png");
                 $tutorial->setTheme($this->getReference("theme_" . $i));
 
                 $tutorial->addTag($this->getReference($tagReferences[array_rand($tagReferences)]));

@@ -23,6 +23,7 @@ class UserController extends AbstractController
             'controller_name' => 'UserController',
         ]);
     }
+    
     #[Route('/{id}/edit', name: '_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $user, UserRepository $userRepository): Response
     {

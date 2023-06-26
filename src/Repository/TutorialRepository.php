@@ -4,8 +4,8 @@ namespace App\Repository;
 
 use App\Entity\Tutorial;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\EntityManager;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\QueryBuilder;
 
 /**
  * @extends ServiceEntityRepository<Tutorial>
@@ -17,7 +17,7 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class TutorialRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(ManagerRegistry $registry,)
     {
         parent::__construct($registry, Tutorial::class);
     }
@@ -40,36 +40,66 @@ class TutorialRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Tutorial[] Returns an array of Tutorial objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('t')
-//            ->andWhere('t.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('t.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    //    /**
+    //     * @return Tutorial[] Returns an array of Tutorial objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('t')
+    //            ->andWhere('t.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('t.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
 
-//    public function findOneBySomeField($value): ?Tutorial
-//    {
-//        return $this->createQueryBuilder('t')
-//            ->andWhere('t.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    //    public function findOneBySomeField($value): ?Tutorial
+    //    {
+    //        return $this->createQueryBuilder('t')
+    //            ->andWhere('t.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
 
-    public function searchTutorials(string $searchData): array
+    public function searchTutorials(string $userInput, ?array $filters): array
     {
-        return $this->createQueryBuilder('tutorial')
-            ->where("tutorial.title LIKE '%" . $searchData . "%'")
-            ->getQuery()
-            ->getResult();
+        $qb = $this->createQueryBuilder('tutorial')
+            ->where("tutorial.title LIKE :userInput")
+            ->setParameter("userInput", "%" . $userInput . "%")
+            ->leftJoin("tutorial.theme", "theme");
+
+
+        if (isset($filters)) {
+            foreach ($filters as $filterType => $filterKey) {
+                $qb = $this->addFilter($qb, $filterType, $filterKey);
+            }
+        }
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function addFilter(QueryBuilder $qb, string $filterType, string $filterKey): QueryBuilder
+    {
+        if ($filterType == "category") {
+            $qb
+                ->innerJoin("theme.category", "category", 'WITH', "category.id = theme.category")
+                ->andWhere("category.id = " . $filterKey);
+        };
+
+        if ($filterType == "theme") {
+            $qb->andWhere("theme.id = " . $filterKey);
+        };
+
+        if ($filterType == "tag") {
+            $qb
+                ->leftJoin("tutorial.tags", "tags")
+                ->andWhere("tags.id = " . $filterKey);
+        };
+
+        return $qb;
     }
 }

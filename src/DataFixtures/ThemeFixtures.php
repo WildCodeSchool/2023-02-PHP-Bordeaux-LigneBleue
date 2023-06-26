@@ -26,9 +26,9 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
         $themesAmount = 12;
 
         $iconsPath = [
-            "IconTestComputer.png",
-            "IconTestPhone.png",
-            "IconTestPrinter.png",
+            "IconComputer.png",
+            "IconPhone.png",
+            "IconPrinter.png",
         ];
 
         for ($i = 1; $i <= $themesAmount; $i++) {
@@ -36,7 +36,7 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
             $themeTitle = $this->faker->words(2, true);
             $theme->setTitle($themeTitle);
             $theme->setIndexOrder($i + 1);
-            $theme->setIconPath("build/images/Fixtures/CardIcons/" . $iconsPath[array_rand($iconsPath)]);
+            $theme->setIconPath($iconsPath[array_rand($iconsPath)]);
             $slug = $this->slugger->slug($themeTitle);
             $theme->setSlug($slug);
 

@@ -3,14 +3,17 @@
 		<label class="form-check-label" for="flexSwitchCheckDefault">Commencé:</label>
 		<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
 	</div>
+	
 	<div class="form-check form-switch llb-filter-bar-switch">
 		<label class="form-check-label" for="flexSwitchCheckDefault">Terminé:</label>
 		<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
 	</div>
 
-
 	{{ component('CategoryComponent') }}
 	{{ component('ThemeComponent') }}
 	{{ component('TagComponent') }}
-
+	
+	<a href={{ path("app_search_reset_filters")}}>
+		<button type="button" class="btn btn-outline-light">Reset</button>
+	</a>
 </div>

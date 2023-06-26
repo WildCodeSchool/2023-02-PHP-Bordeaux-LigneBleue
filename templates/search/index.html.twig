@@ -1,21 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Search{% endblock %}
+{% block title %}Search
+{% endblock %}
 
 {% block body %}
-
-    {% include "search/filterBar.html.twig" %}
-
-    <div class="llb-tutorial-index-container mb-5 mt-4">
-    {% if tutorials %}
-        <div class="llb-tutorial-index-card-container">
-            {% for tutorial in tutorials %}
-                {% include "/tutorial/_card.html.twig" %}
-            {% endfor %}
-        </div>
-    {% else %}
-        <h1>There are no results for {{ searchData }}</h1>
-    {% endif %}
-    </div>
-
+	{% include "search/filterBar.html.twig" %}
+	<div class="llb-tutorial-index-container mb-5 mt-4">
+		{% if tutorials is defined and tutorials is not empty  %}
+			<div class="llb-tutorial-index-card-container">
+				{% for tutorial in tutorials %}
+					{% include "/tutorial/_card.html.twig" %}
+				{% endfor %}
+			</div>
+		{% else %}
+			{% if userInput is defined %}
+				<h1>Aucun résultats pour: "{{ userInput }}"</h1>
+			{% else %}
+				<h1>Utilisez la barre de recherche pour trouver une formation.</h1>
+			{% endif %}
+		{% endif %}
+	</div>
 {% endblock %}

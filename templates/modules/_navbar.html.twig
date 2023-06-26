@@ -2,7 +2,7 @@
 	<div class="container-fluid">
 
 		<a class="navbar-brand" href="/">
-			<img class="d-inline-block align-text-top" src={{ asset("build/images/LLB_Logo.png")}} alt="" width="30" height="30">
+			<img class="d-inline-block align-text-top" src={{ asset(icons_path ~ "LLB_Logo.png")}} alt="" width="30" height="30">
 			La Ligne Bleue
 		</a>
 
@@ -11,7 +11,7 @@
 		</button>
 
 		{{ render(controller(
-			'App\\Controller\\SearchController::search'
+			'App\\Controller\\SearchController::renderSearchForm'
 		)) }}
 
 		<div class="llb-navbar-buttons-container">
@@ -20,7 +20,7 @@
 			</a>
 			{% if app.user %}
 				<a class="nav-link text-warning" href="{{ path('app_user_show', {"id": app.user.id}) }}">
-					<button class="btn btn-outline-success me-2 llb-navbar-button" type="button">Espace Personnel</button>
+					<button class="btn btn-outline-success me-2 llb-navbar-button" type="button">Profil</button>
 				</a>
 				<a class="nav-link text-warning" href="/logout">
 					<button class="btn btn-outline-success me-2 llb-navbar-button" type="button">Déconnexion</button>

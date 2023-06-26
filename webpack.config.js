@@ -15,6 +15,7 @@ Encore
     // .setManifestKeyPrefix('build/')
     .copyFiles({
         from: './assets/images',
+        // from: './assets/images',
 
         // optional target path, relative to the output dir
         // to: 'images/[path][name].[ext]',
@@ -69,15 +70,15 @@ Encore
     // uncomment if you use TypeScript
     // .enableTypeScriptLoader()
 
-// uncomment if you use React
-// .enableReactPreset()
+    // uncomment if you use React
+    // .enableReactPreset()
 
-// uncomment to get integrity="..." attributes on your script & link tags
-// requires WebpackEncoreBundle 1.4 or higher
-// .enableIntegrityHashes(Encore.isProduction())
+    // uncomment to get integrity="..." attributes on your script & link tags
+    // requires WebpackEncoreBundle 1.4 or higher
+    // .enableIntegrityHashes(Encore.isProduction())
 
-// uncomment if you're having problems with a jQuery plugin
-// .autoProvidejQuery()
+    // uncomment if you're having problems with a jQuery plugin
+    // .autoProvidejQuery()
 
     // enables Sass/SCSS support
     .enableSassLoader();

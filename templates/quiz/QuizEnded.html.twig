@@ -1,24 +1,30 @@
 {% extends 'base.html.twig' %}
 
 
-
 {% block body %}
-    <div class="LBQuizSquare" >
-        {% if countCorrectAnswers >= questionCount/2 %}
-            <div class="LBScore">
-                <div class="Bravo">Quiz terminé! </div>
-                <div class="Note"> Votre score: {{ countCorrectAnswers }}/{{ questionCount }}</div>
-                <div class="Encouragement">Bravo vous êtes maintenaint un peu plus proche du monde numérique , continuez ainsi.</div>
-            </div>
-        {% else %}
-            <div class="LBScore">
-                <div class="Bravo">Quiz terminé!</div>
-                <div class="Note"> Votre score: {{ countCorrectAnswers }}/{{ questionCount }}</div>
-                <div class="Encouragement">N'hesitez pas à revoir le tuto et retentez votre chance  </div>
-            </div>
-        {% endif %}
-            <a href="{{ path('app_category_index') }}">
-                <button class="LBComeback" id="validate" >Retour a L'accueil </button>
-            </a>
-    </div>
+	<div class="LBQuizSquare">
+		{% if countCorrectAnswers >= questionCount/2 %}
+			<div class="LBScore">
+				<div class="Bravo">Quiz terminé!
+				</div>
+				<div class="Note">
+					Votre score:
+					{{ countCorrectAnswers }}/{{ questionCount }}</div>
+				<div class="Encouragement">Bravo vous êtes maintenaint un peu plus proche du monde numérique , continuez ainsi.</div>
+			</div>
+		{% else %}
+			<div class="LBScore">
+				<div class="Bravo">Quiz terminé!</div>
+				<div class="Note">
+					Votre score:
+					{{ countCorrectAnswers }}/{{ questionCount }}</div>
+				<div class="Encouragement">N'hesitez pas à revoir le tuto et retentez votre chance
+				</div>
+			</div>
+		{% endif %}
+		<a href={{ path('app_user_show', {"id": app.user.id} ) }}>
+			<button class="LBComeback" id="validate">Retour au Profil
+			</button>
+		</a>
+	</div>
 {% endblock %}

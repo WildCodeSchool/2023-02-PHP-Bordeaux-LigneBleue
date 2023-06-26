@@ -1,54 +1,65 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Connexion{% endblock %}
+{% block title %}Connexion
+{% endblock %}
 
 {% block body %}
-    <div class="llb-background-light-blue llb-login-size"></div>
-    <section class="llb-form-global">
-<form method="post" class="llb-form">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
+	{% for category, messages in app.flashes %}
+		{% for message in messages %}
+			<div class="alert alert-{{ category }}">
+				{{ message }}
+			</div>
+		{% endfor %}
+	{% endfor %}
 
-    <h1 class="h3 mt-0 font-weight-normal text-center">Connectez vous à votre compte</h1>
-    <label for="inputEmail" class="mb-1 w-100">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mb-3" autocomplete="email" required autofocus>
-    <label for="inputPassword" class="mb-1 w-100">Mot de passe</label>
-    <input type="password" name="password" id="inputPassword" class="form-control mb-4" autocomplete="current-password" required>
+	<div class="llb-background-light-blue llb-login-size"></div>
+	<section class="llb-form-global">
+		<form method="post" class="llb-form">
+			{% if error %}
+				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+			{% endif %}
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+			{% if app.user %}
+				<div class="mb-3">
+					You are logged in as
+					{{ app.user.userIdentifier }},
+					<a href="{{ path('app_logout') }}">Logout</a>
+				</div>
+			{% endif %}
 
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Se souvenir de moi
-            </label>
-        </div>
+			<h1 class="h3 mt-0 font-weight-normal text-center">Connectez vous à votre compte</h1>
+			<label for="inputEmail" class="mb-1 w-100">Email</label>
+			<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mb-3" autocomplete="email" required autofocus>
+			<label for="inputPassword" class="mb-1 w-100">Mot de passe</label>
+			<input type="password" name="password" id="inputPassword" class="form-control mb-4" autocomplete="current-password" required>
 
-    <button class="llb-button-yellow mb-4" type="submit">
-        Je me connecte
-    </button>
-</form>
-    <div class="llb-under-connexion">
-        <div class="d-flex flex-column justify-content-center align-items-center">
-            <p class="text-center mb-0">Vous avez oublié votre mot de passe ?</p>
-            <a class="mb-2" href="{{ path('app_forgot_password_request') }}">Cliquez ici</a>
-        </div>
-        <div class="d-flex flex-column justify-content-center align-items-center">
-            <p class="text-center mb-0">Vous n'avez pas encore de compte ?</p>
-            <a href="{{ path('app_register') }}">Cliquez ici</a>
-        </div>
-    </div>
-        <img src="{{ asset('build/images/logo-card-femme.png') }}" class="image-card-trio" alt="logo-card-femme">
-    </section>
-    <div class="d-flex justify-content-center align-items-center">
-        <a class="llb-button-yellow mb-5 mt-2 text-decoration-none text-center w-auto align-middle" href="{{ path('cross_page') }}">Cliquez ici pour revenir en arrière</a>
-    </div>
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+			<div class="checkbox mb-3">
+				<label>
+					<input type="checkbox" name="_remember_me">
+					Se souvenir de moi
+				</label>
+			</div>
+
+			<button class="llb-button-yellow mb-4" type="submit">
+				Je me connecte
+			</button>
+		</form>
+		<div class="llb-under-connexion">
+			<div class="d-flex flex-column justify-content-center align-items-center">
+				<p class="text-center mb-0">Vous avez oublié votre mot de passe ?</p>
+				<a class="mb-2" href="{{ path('app_forgot_password_request') }}">Cliquez ici</a>
+			</div>
+			<div class="d-flex flex-column justify-content-center align-items-center">
+				<p class="text-center mb-0">Vous n'avez pas encore de compte ?</p>
+				<a href="{{ path('app_register') }}">Cliquez ici</a>
+			</div>
+		</div>
+		<img src="{{ asset('build/images/logo-card-femme.png') }}" class="image-card-trio" alt="logo-card-femme">
+	</section>
+	<div class="d-flex justify-content-center align-items-center">
+		<a class="llb-button-yellow mb-5 mt-2 text-decoration-none text-center w-auto align-middle" href="{{ path('cross_page') }}">Cliquez ici pour revenir en arrière</a>
+	</div>
 {% endblock %}
