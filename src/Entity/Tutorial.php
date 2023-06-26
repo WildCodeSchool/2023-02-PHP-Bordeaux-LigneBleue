@@ -43,6 +43,9 @@ class Tutorial
     #[ORM\OneToMany(mappedBy: 'tutorial', targetEntity: Sequence::class)]
     private Collection $sequences;
 
+    #[ORM\OneToOne(mappedBy: 'tutorial', cascade: ['persist', 'remove'])]
+    private ?Quiz $quiz = null;
+
     #[ORM\OneToMany(mappedBy: 'tutorial', targetEntity: UserTutorial::class)]
     private Collection $userTutorials;
 
@@ -231,6 +234,20 @@ class Tutorial
             }
         }
 
+        return $this;
+    }
+
+    public function getQuiz(): ?Quiz
+    {
+        return $this->quiz;
+    }
+    public function setQuiz(Quiz $quiz): static
+    {
+        // set the owning side of the relation if necessary
+        if ($quiz->getTutorial() !== $this) {
+            $quiz->setTutorial($this);
+        }
+        $this->quiz = $quiz;
         return $this;
     }
 }

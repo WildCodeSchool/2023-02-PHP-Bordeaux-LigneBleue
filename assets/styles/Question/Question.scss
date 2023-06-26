@@ -1,0 +1,144 @@
+.QuestionAndPropositions{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+    background: #0C5395;
+    border-radius: 16px;
+    margin-left:10%;
+    padding: 2%;
+
+}
+
+.QuestionIndex{
+    color: #FFCB05;
+    font-size: 1.5vw;
+    font-weight: bolder;
+
+}
+
+.QuestionNumber{
+
+
+
+}
+
+.questionPrompt{
+    color: white;
+    font-size:3vw ;
+    font-weight: bolder;
+    text-align: center;
+    margin-bottom: 3%;
+
+}
+.llb-button-proposition-quiz {
+    width: 368px;
+    height: 9vh;
+    left: 320px;
+    top: 353px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    margin-bottom: 2.5%;
+    color: #0C5395;
+    font-weight:bolder;
+    font-size:1.5vw;
+
+}
+
+
+
+.propositions{
+
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 3%;
+
+
+
+}
+
+.lineUnderQuestion{
+    width: 85%;
+    border: solid 1px white;
+    margin-bottom: 5%;
+
+}
+
+.validateQuestion{
+    margin-left: 27vw;
+    width: 22vw;
+    height: 9vh;
+    left: 320px;
+    top: 353px;
+
+    background: #FFCB05;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    margin-bottom: 2.5%;
+    color: #062F55;;
+    font-weight:bolder;
+    font-size:1.5vw;
+}
+
+.green-button{
+    width: 368px;
+    height: 9vh;
+    left: 320px;
+    top: 353px;
+
+    background: #91E4A2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    margin-bottom: 2.5%;
+    color: #0C5395;
+    font-weight:bolder;
+    font-size:1.5vw;
+
+}
+.red-button{
+    width: 368px;
+    height: 9vh;
+    left: 320px;
+    top: 353px;
+
+    background: #F47474;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    margin-bottom: 2.5%;
+    color: #0C5395;
+    font-weight:bolder;
+    font-size:1.5vw;
+
+}
+
+.YellowButton{
+    width: 368px;
+    height: 9vh;
+    left: 320px;
+    top: 353px;
+
+    background:#FFCB05 ;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    margin-bottom: 2.5%;
+    color: #0C5395;
+    font-weight:bolder;
+    font-size:1.5vw;
+
+}
+
+.divNextQuestion{
+    width:5%;
+
+}
+.questionsArrow{
+    display: flex;
+    flex-direction: row;
+
+}

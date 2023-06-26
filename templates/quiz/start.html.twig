@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+    <div class="LBQuizSquare" >
+        <div class="LB-quizTitle">{{ quiz.title }}</div>
+        <div class="LBStartCards">
+            <div class="LBStartRightCard"><div class="LBStartText">Que le jeu commence ! Ce quiz vous permettra de mettre en pratique ce que vous avez appris lors du précédent tutoriel sur l'inversion numérique. Bonne chance !</div></div>
+            <div class="LBStartLeftCard"><div class="LBStartText">Lancer la vidéo</div></div>
+        </div>
+
+
+        <a href="{{ path('app_question_show', { 'quizTitle': quiz.title, 'questionIndex': 1 }) }}">
+        <button class="LBStartQuestion">Commmencer quiz </button>
+        </a>
+
+    </div>
+
+    </div>
+{% endblock %}
