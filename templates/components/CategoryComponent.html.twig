@@ -9,7 +9,7 @@
 
 		<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 			{% for category in this.categories %}
-				<a class="dropdown-item" href={{ path("app_search_filter_category", {"category": category.id} )}}>{{category.categoryTitle}}</a>
+				<a class="dropdown-item" href={{ path("app_search_addFilter", {"filterRaw": "category_" ~ category.id} )}}>{{category.categoryTitle}}</a>
 			{% endfor %}
 		</div>
 	</div>

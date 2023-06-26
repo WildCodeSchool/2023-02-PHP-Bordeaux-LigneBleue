@@ -2,10 +2,10 @@
 
 namespace App\Repository;
 
-use App\Entity\Theme;
 use App\Entity\Tutorial;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\QueryBuilder;
 
 /**
  * @extends ServiceEntityRepository<Tutorial>
@@ -65,79 +65,41 @@ class TutorialRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    public function searchTutorials(string $searchData): array
+    public function searchTutorials(string $userInput, ?array $filters): array
     {
-        return $this->createQueryBuilder('tutorial')
-            ->where("tutorial.title LIKE '%" . $searchData . "%'")
-            ->getQuery()
-            ->getResult();
+        $qb = $this->createQueryBuilder('tutorial')
+            ->where("tutorial.title LIKE :userInput")
+            ->setParameter("userInput", "%" . $userInput . "%")
+            ->leftJoin("tutorial.theme", "theme");
+
+
+        if (isset($filters)) {
+            foreach ($filters as $filterType => $filterKey) {
+                $qb = $this->addFilter($qb, $filterType, $filterKey);
+            }
+        }
+
+        return $qb->getQuery()->getResult();
     }
 
-    public function filterByCategory(string $searchData, int $categoryID): array
+    public function addFilter(QueryBuilder $qb, string $filterType, string $filterKey): QueryBuilder
     {
-        $qb = $this->createQueryBuilder("tutorial")
-            ->leftJoin("tutorial.theme", "theme")
-            ->innerJoin("theme.category", "category", 'WITH', "category.id = theme.category")
-            ->andWhere("tutorial.title LIKE :searchData")
-            ->setParameter("searchData", "%" . $searchData . "%")
-            ->andWhere("theme.id = " . $categoryID);
+        if ($filterType == "category") {
+            $qb
+                ->innerJoin("theme.category", "category", 'WITH', "category.id = theme.category")
+                ->andWhere("category.id = " . $filterKey);
+        };
 
-        return $qb->getQuery()->execute();
+        if ($filterType == "theme") {
+            $qb->andWhere("theme.id = " . $filterKey);
+        };
+
+        if ($filterType == "tag") {
+            $qb
+                ->leftJoin("tutorial.tags", "tags")
+                ->andWhere("tags.id = " . $filterKey);
+        };
+
+        return $qb;
     }
-
-    public function filterByTheme(string $searchData, int $themeID): array
-    {
-        $qb = $this->createQueryBuilder("tutorial")
-            ->leftJoin("tutorial.theme", "theme")
-            ->andWhere("tutorial.title LIKE :searchData")
-            ->setParameter("searchData", "%" . $searchData . "%")
-            ->andWhere("theme.id = " . $themeID);
-
-        return $qb->getQuery()->execute();
-    }
-
-
-    public function filterByTag(string $searchData, int $tagsID): array
-    {
-        $qb = $this->createQueryBuilder("tutorial")
-            ->leftJoin("tutorial.tags", "tags")
-            ->andWhere("tutorial.title LIKE '%" . $searchData . "%'")
-            ->andWhere("tags.id = " . $tagsID);
-
-        return $qb->getQuery()->execute();
-    }
-
-
-
-    // WIP
-    // public function filterBy(string $searchData, ?int $categoryID, ?int $themeID, ?array $tagIDs)
-    // {
-    //     $qb = $this->createQueryBuilder("tutorial")
-    //         ->where("tutorial.title LIKE '%vol%'");
-
-    //     if ($categoryID) {
-    //         $qb
-    //             ->innerJoin(Category::class, "category", 'WITH', "category = tutorial.theme.category")
-    //             ->andWhere("category.id = " . $categoryID);
-    //     }
-
-    //     if ($themeID) {
-    //         $qb
-    //             ->innerJoin("tutorial.theme", "theme", 'WITH', "theme = tutorial.theme")
-    //             ->andWhere("theme.id = " . $themeID);
-    //     }
-
-    //     if ($tagIDs) {
-    //         $qb->innerJoin("tutorial.tags", "tags", 'WITH', "tags.id = tutorial.tags");
-
-    //         foreach ($tagIDs as $tagID) {
-    //             $qb->andWhere("tags.id = " . $tagID);
-    //         }
-    //     }
-
-    //     // dd($qb->getQuery());
-    //     dd($qb->getQuery()->execute());
-
-    //     // return $qb->getQuery()->execute();
-    // }
 }
