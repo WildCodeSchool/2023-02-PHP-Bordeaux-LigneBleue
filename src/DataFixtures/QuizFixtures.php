@@ -28,7 +28,6 @@ class QuizFixtures extends Fixture implements DependentFixtureInterface
             $quiz->setTutorial($tutorial);
             $manager->persist($quiz);
 
-
             $this->createQuestions($manager, $quiz);
         }
 
@@ -54,8 +53,6 @@ class QuizFixtures extends Fixture implements DependentFixtureInterface
                 'proposition4' => '5',
                 'answer' => '5',
             ],
-
-
         ];
 
         foreach ($questionsData as $questionData) {

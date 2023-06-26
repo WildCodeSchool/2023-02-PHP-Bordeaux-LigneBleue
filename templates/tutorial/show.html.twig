@@ -4,7 +4,6 @@
 {% endblock %}
 
 {% block body %}
-
 	<div class="llb-tutorial-show">
 
 		<div class="llb-tutorial-show-start-card">
@@ -33,7 +32,10 @@
 				<h1>Je teste mes connaissances</h1>
 				<h5>je sais pas ce que je dois mettre ici</h5>
 			</div>
-			<button class="llb-button-yellow">Je commence le quiz</button>
+			<a href={{ path("app_quiz_start", {"quizTitle": tutorial.quiz.title} )}}>
+				<button class="llb-button-yellow">Je commence le quiz</button>
+			</a>
+
 		</div>
 	</div>
 {% endblock %}
