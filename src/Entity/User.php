@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -11,7 +13,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+#[UniqueEntity(fields: ['email'], message: 'Il y a déjà un compte associé à cet email.')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     use TimestampableEntity;
@@ -51,6 +53,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $level = null;
 
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserTutorial::class)]
+    private Collection $userTutorials;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $avatar = null;
+    public function __construct()
+    {
+        $this->userTutorials = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,7 +88,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->email;
+        return (string)$this->email;
     }
 
     /**
@@ -145,6 +158,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    public function getFullname(): ?string
+    {
+        return $this->firstname . ' ' . $this->lastname;
+    }
+
     public function getBirthday(): ?\DateTimeInterface
     {
         return $this->birthday;
@@ -189,6 +207,57 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setLevel(int $level): self
     {
         $this->level = $level;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, UserTutorial>
+     */
+    public function getUserTutorials(): Collection
+    {
+        return $this->userTutorials;
+    }
+
+    /*    public function addUserTutorial(UserTutorial $userTutorial): static
+        {
+            if (!$this->userTutorials->contains($userTutorial)) {
+                $this->userTutorials->add($userTutorial);
+                $userTutorial->setUser($this);
+            }
+
+            return $this;
+        }*/
+
+    public function addUserTutorial(Tutorial $tutorial): static
+    {
+        if (!$this->userTutorials->contains($tutorial)) {
+            $this->userTutorials->add($tutorial);
+        }
+
+        return $this;
+    }
+
+    public function removeUserTutorial(UserTutorial $userTutorial): static
+    {
+        if ($this->userTutorials->removeElement($userTutorial)) {
+            // set the owning side to null (unless already changed)
+            if ($userTutorial->getUser() === $this) {
+                $userTutorial->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(?string $avatar): static
+    {
+        $this->avatar = $avatar;
 
         return $this;
     }

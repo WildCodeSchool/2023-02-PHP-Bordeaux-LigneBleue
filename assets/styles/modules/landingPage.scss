@@ -1,178 +1,194 @@
 /*CSS LANDING PAGE*/
-.llb-body-landingPage{
-    overflow: hidden;
+
+.llb-homepage-global {
+    justify-content: space-between;
+    height: 100vh;
 }
+
 /*      LEFT PART LANDING PAGE*/
-.leftPart-landingPage{
-    color:$llb-blue;
-    margin: 10% 0 0 5%;
-}
 .llb-titleLandingPage{
-    font-size: xxx-large;
+    font-family: 'Slicker', sans-serif;
 }
 .llb-teaserText{
-    padding:2% 0;
-    max-width:500px;
+    width:60%;
+}
+.leftPart-landingPage {
+    position: absolute;
+    top: 30vh;
+    left: 5vw;
+}
+.leftPart-landingPage h1 {
+    font-size: 3rem;
+}
+.leftPart-landingPage h2 {
+    margin: 2vh 0 4vh 0;
 }
 /*      END OF LEFT PART LANDING PAGE*/
 
-
 /*      RIGHT PART LANDING PAGE*/
+.llb-blue-rect {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 36vw;
+    height: 100vh;
+    background: $llb-blue;
+}
 .llb-blue-oval1{
     position: absolute;
-    width: 122vw;
-    height: 122vw;
-    left: 46vw;
-    top: -60vw;
-    border-radius:59vw;
+    right: 0;
+    bottom: 30vh;
+    width: 50vw;
+    height: 50vw;
+    border-radius:25vw;
     background: $llb-blue;
 }
 .llb-blue-oval2{
     position: absolute;
+    right: 22vw;
+    bottom: 0;
     width: 28vw;
     height: 28vw;
-    left: 43vw;
-    top: 27vw;
     border-radius:14vw;
     background: $llb-blue;
 }
-
-/*      IMAGE LANDING PAGE      */
-.rightPart-landingPage .img-landingPage{
-    width:28vw;
-    height:21vw;
-    position:absolute;
-    left: 860px;
-    top: 180.76px;
-    border-radius: 2%;
+.llb-blue-oval3 {
+    position: absolute;
+    right: 25vw;
+    bottom: 30vh;
+    width: 28vw;
+    height: 28vw;
+    border-radius:14vw;
+    background: $llb-blue;
 }
-.llb-responsiv-landingPage .img-landingPage{
-    border-radius: 40%;
-    width:28vw;
+.img-landingPage{
     height:21vw;
+    border-radius: 2%;
+    position: absolute;
+    right: 15vw;
+    top: 25vh;
 }
 .llb-ovalShapeYellow1{
     position: absolute;
-    width: 308.69px;
-    height: 550.24px;
-    left: 820px;
-    top: 100px;
+    width: 17vw;
+    height: 65vh;
+    right: 22vw;
+    top: 17vh;
     border: 2px solid #DBAD36;
     border-radius:70%;
     transform: rotate(-15deg);
 }
 .llb-ovalShapeYellow2{
     position: absolute;
-    width: 322.64px;
-    height: 418.56px;
-    left: 952.87px;
-    top: 126px;
+    width: 18vw;
+    height: 55vh;
+    right: 12vw;
+    top: 15vh;
     border: 2px solid #DBAD36;
-    border-radius:80%;
-    transform: rotate(-8deg);
+    border-radius:70%;
+    transform: rotate(-10deg);
 }
-
-.llb-blocVerbsLandingPage1{
-    background-color:$llb-grey;
+.llb-blocVerbsLandingPage{
+    background-color:white;
     text-align: center;
+    width: auto;
+    height: auto;
+    padding: 2vh;
+    border-radius: 6%;
+}
+.llb-Verbs1{
     position: absolute;
-    width: 130px;
-    height: 30px;
-    left: 980px;
-    top: 145px;
-    border-radius: 2%;
+    right: 25vw;
+    top: 19vh
 }
-.llb-blocVerbsLandingPage2{
-    background-color:$llb-grey;
-    text-align: center;
+.llb-Verbs2{
     position: absolute;
-    width: 130px;
-    height: 30px;
-    left: 1182.73px;
-    top: 390.18px;
-    border-radius: 2%;
+    right: 10vw;
+    top: 48vh
 }
-.llb-blocVerbsLandingPage3{
-    background-color:$llb-grey;
-    text-align: center;
+.llb-Verbs3{
     position: absolute;
-    width: 130px;
-    height: 30px;
-    left: 834px;
-    top: 440px;
-    border-radius: 2%;
+    right: 30vw;
+    top: 60vh
 }
-
-/*             test             */
-
-.llb-oval3{
-    display:none;
-}
-.llb-oval4{
-    display:none;
-}
-.llb-oval5{
-    display:none;
-}
-.llb-oval6{
-    display:none;
-}
-.img-responsive-landingPage{
-    display:none;
-}
-.top-responsive-landingPage{
+.img-landingPage-Responsive {
     display: none;
 }
-
 /*      END OF RIGHT PART LANDING PAGE*/
+
 /*      MEDIA QUERY     */
 @media screen and (max-width: 480px) {
-    .llb-body-landingPage{
-        overflow:visible;
+    .llb-homepage-global {
+        flex-direction: column-reverse;
+        justify-content: right;
+        height: auto;
     }
-
-   .llb-blue-oval1{
-       display: none;
-   }
-    .llb-blue-oval2{
-        display:none;
+    .leftPart-landingPage {
+        position: unset;
+        width: 85vw;
+        height: 48vh;
+        margin: 0 auto 0 auto;
     }
-    .rightPart-landingPage .img-landingPage{
-        display:none;
+    .rightPart-landingPage {
+        height: 45vh;
+    }
+    .llb-blue-oval1, .llb-blue-oval3, .llb-blue-oval2 {
+        display: none;
+    }
+    .llb-blue-rect {
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 50vh;
+    }
+    .img-landingPage{
+        display: none;
+    }
+    .img-landingPage-Responsive {
+        display: flex;
+        width: 80vw;
+        position: absolute;
+        top: 7vh;
+        left: 10vw;
     }
     .llb-ovalShapeYellow1{
-        display:none;
+        position: absolute;
+        width: 42vw;
+        height: 42vh;
+        left: 10vw;
+        top: 3vh;
+        border: 2px solid #DBAD36;
+        border-radius:70%;
+        transform: rotate(-20deg);
     }
     .llb-ovalShapeYellow2{
-        display:none;
+        position: absolute;
+        width: 50vw;
+        height: 40vh;
+        right: 7vw;
+        top: 5vh;
+        border: 2px solid #DBAD36;
+        border-radius:70%;
+        transform: rotate(15deg);
     }
-    .llb-blocVerbsLandingPage1{
-        display:none;
+    .llb-blocVerbsLandingPage{
+        padding: 1vh 1.5vh 1vh 1.5vh;
     }
-    .llb-blocVerbsLandingPage2{
-        display:none;
+    .llb-Verbs1{
+        position: absolute;
+        left: 22vw;
+        right: unset;
+        top: 3vh
     }
-    .llb-blocVerbsLandingPage3{
-        display:none;
+    .llb-Verbs2{
+        position: absolute;
+        right: 3vw;
+        top: 37vh
     }
-    .leftPart-landingPage{
-        padding-top: 100%;
-    }
-    .top-responsive-landingPage{
-        display:block;
-        background: $llb-blue;
-        width:100vw;
-        height:50%;
-        top:0;
-        position:absolute;
-    }
-    .img-responsive-landingPage{
-        display:block;
-        top:0;
-        position:absolute;
-        width:100vw;
-    }
-    .leftPart-landingPage .llb-button-blue{
-        margin-bottom: 5%;
+    .llb-Verbs3{
+        position: absolute;
+        right: unset;
+        left: 3vw;
+        top: 30vh
     }
 }
