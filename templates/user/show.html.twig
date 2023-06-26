@@ -8,10 +8,14 @@
             <h2 class="llb-welcome-title">Bienvenue {{ user.firstname|capitalize }}</h2>
             <p class="llb-welcomeText-userPage">Bienvenue dans votre espace personnel.
                 Retrouvez dans cette section vos informations personnelles ainsi que les formations terminées et celles en cours.</p>
-            <button class="llb-button-blue">Tuto Espace Perso</button>
-            <a href="{{ path('app_user_edit_avatar', {'id': user.id}) }}" style="text-decoration: none">
-                <button class="llb-button-blue" style="margin-top:5%">Modifier son avatar</button>
+            <div class="llb-buttonEdit-Tuto">
+                <a href="{{ path('app_user_edit_avatar', {'id': user.id}) }}" style="text-decoration: none">
+            <button class="llb-button-blue" style="margin-top:-2%">Tuto Espace Perso</button>
             </a>
+                <a href="{{ path('app_user_edit_avatar', {'id': user.id}) }}" style="text-decoration: none">
+                <button class="llb-button-blue">Modifier son avatar</button>
+            </a>
+            </div>
         </div>
         {% if user.avatar is not null %}
             <img class="llb-avatarOfUser" src="{{ asset('build/images/' ~ user.avatar) }}" alt="Avatar">
@@ -209,7 +213,7 @@
                                 <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="width:60vw; top:0; left:0; position:absolute">
                                 <div class="card-body" style="margin-top:40%">
                                     <h5 class="card-title mt-4">Envoyer un mail</h5>
-                                    <button class="llb-button-blue mt-4">Voir</button>
+                                    <button class="llb-button-blue">Voir</button>
                                 </div>
                             </div>
                         </div>
@@ -222,7 +226,7 @@
                                 <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="width:60vw; top:0; left:0; position:absolute">
                                 <div class="card-body" style="margin-top:40%">
                                     <h5 class="card-title mt-4">Envoyer un mail</h5>
-                                    <button class="llb-button-blue mt-4">Voir</button>
+                                    <button class="llb-button-blue">Voir</button>
                                 </div>
                             </div>
                         </div>
@@ -235,7 +239,7 @@
                                 <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="width:60vw; top:0; left:0; position:absolute">
                                 <div class="card-body" style="margin-top:40%">
                                     <h5 class="card-title mt-4">Envoyer un mail</h5>
-                                    <button class="llb-button-blue mt-4">Voir</button>
+                                    <button class="llb-button-blue">Voir</button>
                                 </div>
                             </div>
                         </div>
@@ -254,7 +258,7 @@
                                 <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="width:60vw; top:0; left:0; position:absolute">
                                 <div class="card-body" style="margin-top:40%">
                                     <h5 class="card-title mt-4">Envoyer un mail</h5>
-                                    <button class="llb-button-blue mt-4">Voir</button>
+                                    <button class="llb-button-blue">Voir</button>
                                 </div>
                             </div>
                         </div>
@@ -267,7 +271,7 @@
                                 <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="width:60vw; top:0; left:0; position:absolute">
                                 <div class="card-body" style="margin-top:40%">
                                     <h5 class="card-title mt-4">Envoyer un mail</h5>
-                                    <button class="llb-button-blue mt-4">Voir</button>
+                                    <button class="llb-button-blue">Voir</button>
                                 </div>
                             </div>
                         </div>
@@ -280,7 +284,7 @@
                                 <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="width:60vw; top:0; left:0; position:absolute">
                                 <div class="card-body" style="margin-top:40%">
                                     <h5 class="card-title mt-4">Envoyer un mail</h5>
-                                    <button class="llb-button-blue mt-4">Voir</button>
+                                    <button class="llb-button-blue">Voir</button>
                                 </div>
                             </div>
                         </div>
