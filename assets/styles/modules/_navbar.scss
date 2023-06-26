@@ -128,3 +128,31 @@
         display: inline
     }
 }
+/*          NAVBAR LANDING PAGE             */
+.llb-navbar-homePage{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width:100vw;
+    z-index: 100;
+}
+.llb-register-homePage{
+    display:flex;
+    flex-direction:row;
+}
+.llb-buttonRegister-homePage{
+    background-color: #ffe482;
+    color:#0C5395;
+    height: 3vw;
+    width: 9vw;
+    border-radius: 6px;
+    margin:10%;
+}
+.llb-buttonRegister-homePage:hover {
+    background-color: $llb-yellow;
+}
+.navbar-brand{
+    display:flex;
+    align-items: center;
+}

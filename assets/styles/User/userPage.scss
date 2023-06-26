@@ -151,6 +151,7 @@
     text-align: center;
     color:$llb-blue;
     margin-top:5%;
+    font-family: 'Slicker', sans-serif;;
 }
 .llb-avatar-userPage {
     background-color: $llb-blue;
@@ -159,7 +160,12 @@
     flex-wrap: wrap;
     justify-content: center;
     margin: 5%;
+    padding:3% 0;
     border-radius: 16px;
+}
+
+.llb-avatar-userPage fieldset{
+    display:none !important;
 }
 
 /*      Media Query        */
@@ -182,7 +188,7 @@
 }
 @media screen and (max-width: 480px) {
     .llb-welcome-userPage{
-        height:80vw;
+        height:90vw;
         background-size:140%;
         margin-right:0;
         margin-bottom: -15%;
