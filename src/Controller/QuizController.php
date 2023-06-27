@@ -32,8 +32,13 @@ class QuizController extends AbstractController
     }
 
     #[Route('/{quizTitle}', name: 'app_quiz_start', methods: ['GET'])]
-    public function start(string $quizTitle): Response
+    public function start(Request $request, string $quizTitle): Response
     {
+        if (!$this->getUser()) {
+            $this->addFlash("Error", "Connectez-vous ou inscrivez-vous pour pouvoir acceder au quiz");
+            return $this->redirectToRoute("app_login");
+        }
+
         $encodedQuizTitle = urldecode($quizTitle);
         $quiz = $this->entityManager->getRepository(Quiz::class)->findOneBy(['title' => $encodedQuizTitle]);
 

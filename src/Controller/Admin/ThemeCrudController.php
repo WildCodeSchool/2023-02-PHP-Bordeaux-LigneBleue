@@ -30,7 +30,8 @@ class ThemeCrudController extends AbstractCrudController
         yield ImageField::new('iconPath', 'Icône')
             ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]')
             ->setBasePath('uploads/icones')
-            ->setUploadDir('public/uploads/icones');
+            ->setUploadDir('public/');
+        // ->setUploadDir('public/uploads/icones');
         yield AssociationField::new('category', 'Catégorie');
         yield AssociationField::new('tutorials', 'Formation(s)')
             ->hideWhenCreating();

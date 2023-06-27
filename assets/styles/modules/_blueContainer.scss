@@ -1,23 +1,26 @@
-.llb-tutorial-index-container {
+.llb-blue-container {
     color: white;
     background-color: $llb-blue;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin: 5%;
+    width: 80vw;
+    margin: 20px auto 0 auto;
     padding: 5%;
     border-radius: 16px;
 }
 
-#llb-tutorial-index-title {
+.llb-blue-container-title {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
+
 }
 
-#llb-tutorial-index-title>h1 {
+.llb-blue-container-title>h1 {
+    color: white !important;
     font-family: 'Baloo 2';
     font-style: normal;
     font-weight: 700;
@@ -27,7 +30,8 @@
     letter-spacing: -1px;
 }
 
-#llb-tutorial-index-title>p {
+.llb-blue-container-title>p {
+    color: white !important;
     font-family: 'Baloo 2';
     font-style: normal;
     font-weight: 400;
@@ -37,19 +41,23 @@
     letter-spacing: 1px;
 }
 
-.llb-tutorial-index-card-container {
+.llb-blue-container-card-container {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
+}
+
+.llb-theme-size {
+    height: 150%;
 }
 
 @media screen and (max-width: 480px) {
-    .llb-welcome-userPage {
-        height:800px;
+    .llb-blue-container {
+        width: 90vw;
     }
-    .llb-cardConnect{
-        display:flex;
-        flex-direction:column;
+
+    .llb-blue-container-card-container {
+        align-items: center;
     }
 }
