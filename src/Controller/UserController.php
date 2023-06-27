@@ -23,6 +23,7 @@ class UserController extends AbstractController
             'controller_name' => 'UserController',
         ]);
     }
+
     #[Route('/{id}/edit', name: '_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $user, UserRepository $userRepository): Response
     {
@@ -32,7 +33,11 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $userRepository->save($user, true);
 
-            return $this->redirectToRoute('app_user_show', ['user' => $user, 'id' => $user->getId()], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute(
+                'app_user_show',
+                ['user' => $user, 'id' => $user->getId()],
+                Response::HTTP_SEE_OTHER
+            );
         }
 
         return $this->renderForm('user/edit.html.twig', [
@@ -54,7 +59,7 @@ class UserController extends AbstractController
     public function delete(Request $request, User $user, UserRepository $userRepository): Response
     {
         $session = new Session();
-        $session -> invalidate();
+        $session->invalidate();
 
         if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
             $userRepository->remove($user, true);

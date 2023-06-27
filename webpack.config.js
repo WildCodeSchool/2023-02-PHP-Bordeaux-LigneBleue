@@ -15,6 +15,7 @@ Encore
     // .setManifestKeyPrefix('build/')
     .copyFiles({
         from: './assets/images',
+        // from: './assets/images',
 
         // optional target path, relative to the output dir
         // to: 'images/[path][name].[ext]',
@@ -79,7 +80,7 @@ Encore
 // uncomment if you're having problems with a jQuery plugin
 // .autoProvidejQuery()
 
-    // enables Sass/SCSS support
+// enables Sass/SCSS support
     .enableSassLoader();
 const fullConfig = Encore.getWebpackConfig();
 fullConfig.devServer = {

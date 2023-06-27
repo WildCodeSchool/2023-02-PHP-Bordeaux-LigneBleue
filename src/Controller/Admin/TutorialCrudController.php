@@ -32,7 +32,8 @@ class TutorialCrudController extends AbstractCrudController
         yield ImageField::new('picturePath', 'Photo')
             ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]')
             ->setBasePath('uploads/images')
-            ->setUploadDir('public/uploads/images');
+            ->setUploadDir('public/');
+        // ->setUploadDir('public/uploads/images');
         yield AssociationField::new('theme', 'Thème');
         yield BooleanField::new('isPublished', 'Publié');
     }
