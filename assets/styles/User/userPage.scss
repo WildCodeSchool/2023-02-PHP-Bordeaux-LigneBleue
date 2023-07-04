@@ -226,10 +226,11 @@
         display:block;
     }
 }
+
 @media screen and (max-width: 480px) {
     .llb-welcome-userPage {
-        height: 90vw;
-        background-size: 140%;
+        height: 55vh;
+        background-size: 150%;
         margin-right: 0;
         margin-bottom: -15%;
     }
@@ -268,7 +269,6 @@
     }
     .llb-cardConnect .llb-button-yellow {
         position: relative;
-        top: 150%;
         width: 40vw;
         height: 10vw;
         font-size: 12px;
@@ -298,6 +298,12 @@
     .card-body .llb-button-blue {
         margin-top: -3%;
         height: 10vw;
+    }
+}
+@media screen and (max-width: 400px) {
+    .llb-welcome-userPage {
+        height: 60vh;
+        background-size: 170%;
     }
 }
 

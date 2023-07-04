@@ -4,12 +4,16 @@
 {% endblock %}
 
 {% block body %}
-	{# read and display just one flash message type #}
-	{% for message in app.flashes('notice') %}
-		<div class="flash-notice">
-			{{ message }}
-		</div>
-	{% endfor %}
+{# read and display just one flash message type #}
+{% for message in app.flashes('notice') %}
+    <div class="flash-notice">
+        {{ message }}
+    </div>
+{% endfor %}
+    <div class="llb-linear-landingPage">
+    <img src="{{ asset('build/images/responsive-home.jpg') }}" style="width: 100%; height: 100%; position: absolute">
+        <div class="llb-background-landingPage"></div>
+    </div>
 
 	<section class="llb-homepage-global d-flex">
 		<section class="leftPart-landingPage">
@@ -17,15 +21,14 @@
 			<h2 class="llb-subtitleLandingPage">Contre l’exclusion numérique</h2>
 			<p class="llb-teaserText">Apprenez facilement grâce à notre plate-forme de cours en ligne sur le numérique.</p>
 
-			{% if app.user %}
-				<a class="nav-link text-warning" href={{ path('app_user_show', {'id': app.user.id} ) }}>
-				{% else %}
-					<a class="nav-link text-warning" href="{{ path('cross_page') }}">
-					{% endif %}
-					<button class="llb-button-blue mb-3">Cliquez Ici</button>
-				</a>
-			</section>
+            {% if app.user %}
+            <a class="nav-link text-warning" href={{ path('app_user_show', {'id': app.user.id} ) }}>
+            {% else %}
+                <a class="nav-link text-warning" href="{{ path('cross_page') }}">
+            {% endif %}
+                    <button class="llb-button-blue mb-3">Cliquez Ici</button></a></a>
 
+			</section>
 			<section class="rightPart-landingPage">
 				<div class="llb-blue-rect"></div>
 				<div class="llb-blue-oval1"></div>
