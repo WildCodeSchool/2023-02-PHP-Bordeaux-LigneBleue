@@ -16,6 +16,7 @@
 }
 .llb-teaserText{
     width:60%;
+    margin-bottom:5%;
 }
 .leftPart-landingPage {
     position: absolute;
@@ -151,7 +152,6 @@
         align-items: center;
         position: relative;
         margin-top: -55%;
-        margin-left:-30px;
     }
     .llb-background-landingPage {
         display: block;
@@ -168,8 +168,23 @@
         position: relative;
     }
 }
+
     @media screen and (max-width: 1070px) {
         .llb-subtitleLandingPage {
             font-size: x-large;
         }
     }
+
+@media screen and (max-width: 800px) {
+    .llb-titleLandingPage{
+        font-size: 18px;
+        margin-left:-5%;
+    }
+    .llb-subtitleLandingPage {
+        font-size: 20px;
+    }
+    .llb-teaserText{
+        font-size:12px;
+    }
+}
+
