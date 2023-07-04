@@ -48,7 +48,7 @@
 
     <!--         FIRST SLIDER           -->
     <section class="llb-tuto-userPage">
-        <div class="card-wrapper container-sm d-flex  justify-content-around">
+        <div class="card-wrapper container-sm d-flex flex-wrap p-2">
             {% if utLiked %}
                 {% for utLikedOne in utLiked %}
                     <div class="llb-liked-card">
@@ -59,8 +59,9 @@
                             {% for tag in utLikedOne.tutorial.tags %}
                                 {% include "tag/_badge.html.twig" %}
                             {% endfor %}
-                            <a href="{{ path('app_tutorial_like', {'slug': utLikedOne.tutorial.slug}) }}">
-                                <i class="bi bi-heart-fill" style="font-size: 1.5rem; color:$llb-blue;"></i></a>
+                               <a href="{{ path('app_tutorial_like', {'slug': utLikedOne.tutorial.slug})}}" id="wishlist" onclick="addToWishlist(event)">
+                                   <i class="bi bi-heart-fill" style="font-size: 1.5rem; color:$llb-blue;"></i>
+                               </a>
                            </div>
                             <button class="llb-button-yellow llb-align-center">Commencer</button>
                         </div>

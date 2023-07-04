@@ -91,8 +91,12 @@ class TutorialController extends AbstractController
     }
 
     #[Route('/like/{slug}', name: 'app_tutorial_like', methods: ['GET'])]
-    public function likedTutorial(Request $request, Tutorial $tutorial, UserTutorialRepository $utRepository, UserRepository $userRepository): Response
-    {
+    public function likedTutorial(
+        Request $request,
+        Tutorial $tutorial,
+        UserTutorialRepository $utRepository,
+        UserRepository $userRepository
+    ): Response {
         $user = $this->getUser();
         if ($user == null) {
             $this->addFlash('danger', 'Vous devez être connecté pour sauvegarder une formation.');
@@ -103,9 +107,11 @@ class TutorialController extends AbstractController
         if ($userTutorial) {
             if (true === $userTutorial->isIsLiked()) {
                 $userTutorial->setIsLiked(false);
+                // pas obligatoire je pense
                 $user->addUserTutorial($userTutorial);
             } else {
                 $userTutorial->setIsLiked(true);
+                // pas obligatoire je pense
                 $user->addUserTutorial($userTutorial);
             }
         } else {
