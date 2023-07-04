@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Category;
+use App\Entity\Tag;
 use App\Entity\Theme;
 use App\Entity\Tutorial;
 use App\Entity\User;
@@ -55,6 +56,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Thèmes', 'fas fa-list', Theme::class);
         yield MenuItem::linkToCrud('Formations', 'fas fa-sharp fa-light fa-book', Tutorial::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-users', User::class);
+        yield MenuItem::linkToCrud('Tags', 'fas fa-tag', Tag::class);
         yield MenuItem::linkToUrl(
             'Retour au site',
             'fas fa-sharp fa-light fa-arrow-left',
