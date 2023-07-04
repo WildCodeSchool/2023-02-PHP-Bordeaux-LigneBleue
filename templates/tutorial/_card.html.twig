@@ -1,21 +1,22 @@
 <div class="card">
-	<img class="card-img-top" src={{ asset(picture_path ~ tutorial.picturePath) }} alt="{{ tutorial.title }}">
-	<div class="card-body">
+	<img class="card-img-top" src="{{ asset(picture_path ~ tutorial.picturePath) }}" alt="{{ tutorial.title }}">
+	<div class="card-body llb-card-body">
 		<h5 class="card-title">{{tutorial.title}}</h5>
-		{% for tag in tutorial.tags %}
-			{% include "tag/_badge.html.twig" %}
-		{% endfor %}
-		<p class="card-text">{{ tutorial.objective }}</p>
-        {% if app.user %}
-        <a href="{{ path('app_tutorial_like', {'slug': tutorial.slug}) }}">
-            <i class="bi bi-heart"></i>like
-        </a>
-        {% endif %}
-        {% if app.user is empty %}
+        <div class="d-flex align-items-start justify-content-center">
+            {% for tag in tutorial.tags %}
+                {% include "tag/_badge.html.twig" %}
+            {% endfor %}
+            {% if app.user %}
+                <a href="{{ path('app_tutorial_like', {'slug': tutorial.slug}) }}" id="wishlist">
+                    <i class="bi {{ app.user.isInUserTutorialLiked(tutorial.title) ? 'bi-heart-fill' : 'bi-heart' }}" style="font-size: 1.5rem; color:$llb-blue;"></i></a>
+            {% endif %}
+            {% if app.user is empty %}
             <a href="{{ path('app_tutorial_like', {'slug': tutorial.slug}) }}">
-                <i class="bi bi-heart"></i>like
-            </a>
-        {% endif %}
-        <a href={{ path("app_tutorial_show", {"slug": tutorial.slug} )}} class="btn btn-primary">Commencer</a>
+                <i class="bi bi-heart" style="font-size: 2rem; color: #FFCB05;"></i></a>
+            {% endif %}
+        </div>
+        <a href="{{ path("app_tutorial_show", {"slug": tutorial.slug} )}}" class="llb-button-yellow text-decoration-none w-100">Commencer</a>
     </div>
 </div>
+
+

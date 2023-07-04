@@ -6,6 +6,7 @@ use App\Entity\Tutorial;
 use App\Entity\UserTutorial;
 use App\Form\TutorialType;
 use App\Repository\TutorialRepository;
+use App\Repository\UserRepository;
 use App\Repository\UserTutorialRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -90,11 +91,11 @@ class TutorialController extends AbstractController
     }
 
     #[Route('/like/{slug}', name: 'app_tutorial_like', methods: ['GET'])]
-    public function likedTutorial(Tutorial $tutorial, UserTutorialRepository $utRepository): Response
+    public function likedTutorial(Request $request, Tutorial $tutorial, UserTutorialRepository $utRepository, UserRepository $userRepository): Response
     {
         $user = $this->getUser();
         if ($user == null) {
-            $this->addFlash('danger', 'Vous devez être connecté pour sauvegardé une formation.');
+            $this->addFlash('danger', 'Vous devez être connecté pour sauvegarder une formation.');
         }
 
         $userTutorial = $utRepository->findOne($user, $tutorial);
@@ -102,8 +103,10 @@ class TutorialController extends AbstractController
         if ($userTutorial) {
             if (true === $userTutorial->isIsLiked()) {
                 $userTutorial->setIsLiked(false);
+                $user->addUserTutorial($userTutorial);
             } else {
                 $userTutorial->setIsLiked(true);
+                $user->addUserTutorial($userTutorial);
             }
         } else {
             $userTutorial = new UserTutorial();
@@ -111,15 +114,15 @@ class TutorialController extends AbstractController
             $userTutorial->setTutorial($tutorial);
             $userTutorial->setIsLiked(true);
             $userTutorial->setIsValidated(false);
+            $user->addUserTutorial($userTutorial);
         }
         $userTutorial->setUpdatedAt(new \DateTime('now'));
         $utRepository->save($userTutorial, true);
+        $userRepository->save($user, true);
 
-        $utLikedAll = $utRepository->findAllLiked($user);
-
-        return $this->redirectToRoute('app_user_show_valid', [
-            'user' => $user,
-            'utLiked' => $utLikedAll,
-        ], Response::HTTP_SEE_OTHER);
+        /*        return $this->json([
+                    'isLiked' => $this->getUser()->isInUserTutorialLiked($tutorial)
+                ]);*/
+        return $this->redirect($request->server->get('HTTP_REFERER'));
     }
 }

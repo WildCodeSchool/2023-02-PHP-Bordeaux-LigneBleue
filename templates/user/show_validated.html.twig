@@ -42,22 +42,27 @@
             </div>
         </div>
     </section>
-    <p>{{ dump(app.user) }}</p>
 
     <!--         BLUE STRIP 1          -->
     <div class="llb-background-light-blue-userPage llb-category-size d-flex align-items-center justify-content-center 100vh"></div>
 
     <!--         FIRST SLIDER           -->
-
     <section class="llb-tuto-userPage">
         <div class="card-wrapper container-sm d-flex  justify-content-around">
             {% if utLiked %}
                 {% for utLikedOne in utLiked %}
-                    <div class="card">
-                        <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="height:25vh">
+                    <div class="llb-liked-card">
+                        <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top position-relative" alt="..." style="height:25vh">
                         <div class="card-body">
-                            <h5 class="card-title">{{ utLikedOne.tutorial.title }}</h5>
-                            <button class="llb-button-yellow">Voir</button>
+                            <h5 class="card-title mb-3 mt-3">{{ utLikedOne.tutorial.title }}</h5>
+                           <div class="d-flex align-items-start justify-content-center">
+                            {% for tag in utLikedOne.tutorial.tags %}
+                                {% include "tag/_badge.html.twig" %}
+                            {% endfor %}
+                            <a href="{{ path('app_tutorial_like', {'slug': utLikedOne.tutorial.slug}) }}">
+                                <i class="bi bi-heart-fill" style="font-size: 1.5rem; color:$llb-blue;"></i></a>
+                           </div>
+                            <button class="llb-button-yellow llb-align-center">Commencer</button>
                         </div>
                     </div>
                 {% endfor %}

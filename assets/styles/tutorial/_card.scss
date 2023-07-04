@@ -9,6 +9,7 @@
     border: 1px solid #D1E8D8;
     border-radius: 12px;
     box-shadow: 0px 4px 12px rgba(16, 59, 25, 0.0798517);
+    position: relative;
 }
 
 .card:hover{
@@ -23,4 +24,27 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: stretch;
+    width: 90%;
 }
+
+.llb-liked-card {
+    width: 22%;
+    margin: 1%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1%;
+    border: 1px solid #D1E8D8;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(16, 59, 25, 0.0798517);
+    position: relative;
+}
+
+.llb-liked-card:hover{
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1);
+    transition: 0.5s ease-in-out;
+}
+

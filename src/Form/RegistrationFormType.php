@@ -45,15 +45,13 @@ class RegistrationFormType extends AbstractType
                     'Non binaire' => 'non binaire'
                 ]
             ])
-            ->add('birthday')
             ->add('birthday', DateType::class, [
                 'placeholder' => [
                     'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour',
                 ],
                 'format' => 'dd MMMM yyyy',
-                'years' => range(1950,2023),
-
-            ])
+                'years' => range(1950, 2023),
+                ])
             ->add('adress', TextType::class)
             ->add('email')
             ->add('agreeTerms', CheckboxType::class, [
