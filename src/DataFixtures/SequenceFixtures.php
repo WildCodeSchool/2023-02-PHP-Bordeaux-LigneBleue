@@ -34,7 +34,7 @@ class SequenceFixtures extends Fixture implements DependentFixtureInterface
                     $sequence->setContent($this->faker->paragraph(30));
                     $sequence->setExercice(false);
                     $sequence->setIndexOrder($k);
-                    $sequence->setPicturePath("build/images/mbl-sms.jpg");
+                    $sequence->setPicturePath("mbl-sms.jpg");
                     $sequence->setTutorial($this->getReference("tutorial_" . $i . $j));
 
                     $manager->persist($sequence);

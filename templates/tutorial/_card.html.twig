@@ -1,22 +1,18 @@
-<div class="card">
-	<img class="card-img-top" src="{{ asset(picture_path ~ tutorial.picturePath) }}" alt="{{ tutorial.title }}">
-	<div class="card-body llb-card-body">
-		<h5 class="card-title mt-2 mb-2">{{tutorial.title}}</h5>
-        <div class="d-flex align-items-start justify-content-center">
-            {% for tag in tutorial.tags %}
-                {% include "tag/_badge.html.twig" %}
-            {% endfor %}
-            {% if app.user %}
-                <a href="{{ path('app_tutorial_like', {'slug': tutorial.slug}) }}" id="wishlist" onclick="addToWishlist(event)">
-                    <i class="bi {{ app.user.isInUserTutorialLiked(tutorial.title) ? 'bi-heart-fill' : 'bi-heart' }}" style="font-size: 1.5rem; color:$llb-blue;"></i>
-                </a>
-            {% endif %}
-{#            {% if app.user is empty %}
-            <a href="{{ path('app_tutorial_like', {'slug': tutorial.slug}) }}">
-                <i class="bi bi-heart" style="font-size: 2rem; color: #FFCB05;"></i></a>
-            {% endif %}#}
-        </div>
-        <a href="{{ path("app_tutorial_show", {"slug": tutorial.slug} )}}" class="llb-button-yellow text-decoration-none w-100">Commencer</a>
+<div class="card llb-tutorial-card">
+    <img class="card-img-top" src={{ asset(upload_path ~ tutorial.picturePath) }} alt={{ upload_path ~ tutorial.picturePath }}>
+    <div class="card-body llb-tutorial-card-body">
+        <h6>{{ tutorial.theme.category.categoryTitle }} - {{ tutorial.theme.title }}</h6>
+        <h3>{{tutorial.title}}</h3>
+        {% for tag in tutorial.tags %}
+            {% include "tag/_badge.html.twig" %}
+        {% endfor %}
+        {% if app.user %}
+            <a href="{{ path('app_tutorial_like', {'slug': tutorial.slug}) }}" id="wishlist" onclick="addToWishlist(event)">
+                <i class="bi {{ app.user.isInUserTutorialLiked(tutorial.title) ? 'bi-heart-fill' : 'bi-heart' }}" style="font-size: 1.5rem; color:$llb-blue;"></i>
+            </a>
+        {% endif %}
+        <p class="card-text">{{ tutorial.objective }}</p>
+        <a href="{{ path("app_tutorial_show", {"slug": tutorial.slug} )}}" class="btn btn-primary llb-button-yellow llb-tutorial-card-button">Commencer</a>
     </div>
 </div>
 

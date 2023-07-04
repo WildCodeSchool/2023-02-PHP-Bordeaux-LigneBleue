@@ -21,12 +21,6 @@
     position: relative;
 }
 
-.llb-cardConnect .llb-button-yellow{
-    position: absolute;
-    top: 35%;
-    left: 10%;
-}
-
 .llb-h5-cardConnect{
     position: absolute;
     top: 10%;
@@ -39,6 +33,17 @@
     position: absolute;
     bottom: 0;
     right: 0;
+}
+
+.llb-button-yellowCross{
+    background-color: #FFCB05;
+    color: #062F55;
+    height: 3vw;
+    width: 13vw;
+    border-radius: 6px;
+    margin-top:30%;
+    margin-left:5%;
+    padding-top: 0.5vw;
 }
 
 /*      MEDIA QUERY     */

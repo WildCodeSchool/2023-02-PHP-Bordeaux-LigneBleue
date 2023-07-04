@@ -10,16 +10,19 @@
     border-radius:16px;
 }
 
-.leftPart-userPage{
+.llb-leftPart-userPage{
     margin-left:2%;
+    display:flex;
+    flex-direction:column;
 }
-.welcomeText-userPage{
+.llb-welcomeText-userPage{
     width: 45vw;
     color:$llb-blue;
     margin-bottom: 5%;
 }
-.bienvenue-title{
+.llb-welcome-title{
     font-size:xxx-large;
+    font-family: 'Slicker', sans-serif;
     color:$llb-blue;
     width:50vw;
     margin-top:5%
@@ -29,7 +32,9 @@
     height:20vw;
     margin-left:25%;
 }
-
+.llb-leftPart-userPage .llb-button-blue{
+    width:40vw;
+}
 .llb-button-white-UP{
     background-color: white;
     color: $llb-blue;
@@ -39,6 +44,16 @@
     border-color:$llb-blue;
     margin-left:5%;
     margin-top:5%;
+}
+.llb-avatarOfUser{
+    width:20vw;
+    height:20vw;
+    margin-left:10%;
+    margin-top:2%;
+}
+.llb-buttonEdit-Tuto .llb-button-blue{
+    margin-top:2%;
+    margin-bottom:2%;
 }
 /*       BLUE STRIP                      */
 .llb-background-light-blue-userPage {
@@ -112,6 +127,7 @@
     color: white;
     margin-left:3%;
     padding-top:5%;
+    font-family: 'Slicker', sans-serif;
 }
 
 .llb-tuto-userPage{
@@ -134,62 +150,128 @@
     flex-direction: column;
     justify-content: center;
 }
+/*     Choices of avatar                     */
+.llb-titleEditAvatar{
+    text-align: center;
+    color:$llb-blue;
+    margin-top:5%;
+    font-family: 'Slicker', sans-serif;;
+}
+.llb-avatar-userPage {
+    background-color: $llb-blue;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 5%;
+    padding:3% 0;
+    border-radius: 16px;
+}
+
+.llb-avatar-userPage fieldset{
+    display:none !important;
+}
+.card-body .llb-button-blue{
+    margin-top:10%;
+}
 
 /*      Media Query        */
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1150px) {
     .llb-button-white-UP {
         font-size:10px;
+    }
+    .llb-buttonEdit-Tuto{
+        display:flex;
+        flex-direction:row;
+        align-items: center;
+    }
+    .llb-buttonEdit-Tuto .llb-button-blue{
+        max-width:20vw;
+        max-height: 10vw;
+    }
+    .llb-buttonEdit-Tuto a{
+        margin-right: 5%;
+    }
+    a .llb-button-blue{
+        font-size:12px;
     }
 }
 @media screen and (max-width: 900px) {
     .llb-button-white-UP {
         font-size:10px;
     }
-    .bienvenue-title{
+    .llb-welcome-title{
         font-size:x-large;
     }
-    .welcomeText-userPage{
+    .llb-welcomeText-userPage{
         font-size:12px;
+    }
+    .llb-cardConnect .llb-button-yellow{
+        width: 20vw;
+        height:15%;
+    }
+    .llb-cardConnect a .llb-button-yellow{
+        font-size:14px;
+    }
+    .llb-title-cards3-userPage{
+        font-size:16px;
     }
 }
+@media screen and (max-width: 780px) {
+    .llb-tuto-userPage{
+        display:none;
+    }
+    .phone-slider-container{
+        display:block;
+    }
+}
+
 @media screen and (max-width: 480px) {
-    .llb-welcome-userPage{
-        height:60vw;
-        background-size:140%;
-        margin-right:0;
+    .llb-welcome-userPage {
+        height: 55vh;
+        background-size: 150%;
+        margin-right: 0;
+        margin-bottom: -15%;
     }
-    .welcomeText-userPage{
-        font-size:12px;
+    .llb-welcomeText-userPage {
+        font-size: 12px;
     }
-    .bienvenue-title{
-        font-size:x-large;
+    .llb-welcome-title {
+        font-size: x-large;
     }
-    .avatar-userPage{
-        width:40vw;
-        height:40vw;
-        margin-left:0;
-        margin-right:30%;
-        margin-top:10%;
+    .llb-buttonEdit-Tuto {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5%;
     }
-    .leftPart-userPage .llb-button-blue{
+    .llb-buttonEdit-Tuto .llb-button-blue {
+        max-width: 40vw;
+    }
+    .avatar-userPage {
+        width: 40vw;
+        height: 40vw;
+        margin-left: 0;
+        margin-right: 30%;
+        margin-top: 10%;
+    }
+    .llb-leftPart-userPage .llb-button-blue {
         margin-top: 15%;
     }
-    .llb-cards-userPage{
+    .llb-cards-userPage {
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
-    .llb-cardConnect{
-        height:40vw;
-        width:80vw;
+    .llb-cardConnect {
+        height: 40vw;
+        width: 80vw;
     }
-    .llb-cardConnect .llb-button-yellow{
-        position:relative;
-        top:150%;
-        width:40vw;
-        height:10vw;
-        font-size:12px;
+    .llb-cardConnect .llb-button-yellow {
+        position: relative;
+        width: 40vw;
+        height: 10vw;
+        font-size: 12px;
     }
 
     .llb-tutorial-index-card-container {
@@ -199,12 +281,29 @@
         justify-content: center;
         align-items: center;
     }
-    .phone-slider-container{
-        display:block;
+    .llb-avatarOfUser {
+        width: 45vw;
+        height: 55vw;
+        margin-left: -5%;
     }
-    .llb-tuto-userPage{
-        display:none;
+    .llb-leftPart-userPage .llb-button-blue {
+        width: 40vw;
+        margin-top: -2%;
+        height: 10%;
+        font-size: 10px;
+    }
+    .llb-cards-userPage {
+        margin-top: -25%;
+    }
+    .card-body .llb-button-blue {
+        margin-top: -3%;
+        height: 10vw;
     }
 }
-
+@media screen and (max-width: 400px) {
+    .llb-welcome-userPage {
+        height: 60vh;
+        background-size: 170%;
+    }
+}
 

@@ -3,6 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Category;
+use App\Entity\Question;
+use App\Entity\Quiz;
+use App\Entity\Sequence;
+use App\Entity\Tag;
 use App\Entity\Theme;
 use App\Entity\Tutorial;
 use App\Entity\User;
@@ -26,9 +30,9 @@ class DashboardController extends AbstractDashboardController
     {
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
-         $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
+        $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
 
-         return $this->redirect($adminUrlGenerator->setController(CategoryCrudController::class)->generateUrl());
+        return $this->redirect($adminUrlGenerator->setController(CategoryCrudController::class)->generateUrl());
 
         // Option 2. You can make your dashboard redirect to different pages depending on the user
         //
@@ -51,9 +55,13 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Catégories', 'fas fa-folder', Category::class);
-        yield MenuItem::linkToCrud('Thèmes', 'fas fa-list', Theme::class);
-        yield MenuItem::linkToCrud('Formations', 'fas fa-sharp fa-light fa-book', Tutorial::class);
+        yield MenuItem::linkToCrud('Catégories', 'fas fa-1', Category::class);
+        yield MenuItem::linkToCrud('Thèmes', 'fas fa-2', Theme::class);
+        yield MenuItem::linkToCrud('Formations', 'fas fa-3', Tutorial::class);
+        yield MenuItem::linkToCrud('Tags', 'fas fa-tag', Tag::class);
+        yield MenuItem::linkToCrud('Sequences', 'fas fa-sharp fa-light fa-book', Sequence::class);
+        yield MenuItem::linkToCrud('Quiz', 'fas fa-medal', Quiz::class);
+        yield MenuItem::linkToCrud('Questions', 'fas fa-question', Question::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-users', User::class);
         yield MenuItem::linkToUrl(
             'Retour au site',
@@ -72,14 +80,14 @@ class DashboardController extends AbstractDashboardController
     {
         return parent::configureUserMenu($user)
             ->setMenuItems([
-                MenuItem::linkToUrl('Voir mon profil', 'fas fa-user', $this->generateUrl('app_user')),
+                // MenuItem::linkToUrl('Voir mon profil', 'fas fa-user', $this->generateUrl('app_user')),
                 MenuItem::linkToLogout('Me déconnecter', 'fas fa-arrow-right-from-bracket')
-        ]);
+            ]);
     }
 
     public function configureAssets(): Assets
     {
         return parent::configureAssets()
-        ->addWebpackEncoreEntry('admin');
+            ->addWebpackEncoreEntry('admin');
     }
 }

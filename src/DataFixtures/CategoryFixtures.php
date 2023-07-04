@@ -17,9 +17,9 @@ class CategoryFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $categories = [
-            $this->creatCategoryObject("Smartphone", 1, "IconTestPhone.png"),
-            $this->creatCategoryObject("Ordinateur", 1, "IconTestComputer.png"),
-            $this->creatCategoryObject("Autres", 1, "IconTestPrinter.png")
+            $this->creatCategoryObject("Smartphone", 1, "IconPhone.png"),
+            $this->creatCategoryObject("Ordinateur", 1, "IconComputer.png"),
+            $this->creatCategoryObject("Autres", 1, "IconPrinter.png")
         ];
 
         foreach ($categories as $category) {
@@ -34,7 +34,7 @@ class CategoryFixtures extends Fixture
 
         $category->setCategoryTitle($categoryName);
         $category->setCategoryIndexOrder($indexOrder + 1);
-        $category->setCategoryIconPath("build/images/Fixtures/CardIcons/" . $iconPath);
+        $category->setCategoryIconPath($iconPath);
         $slug = $this->slugger->slug($categoryName);
         $category->setSlug($slug);
 
