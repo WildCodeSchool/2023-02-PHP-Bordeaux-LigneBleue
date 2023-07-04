@@ -26,9 +26,9 @@ const application = Application.start()
 application.register('places', PlacesAutocomplete)
 
 // wishlist ajax
-// document.getElementById('wishlist').addEventListener('click', addToWishlist);
+document.getElementById('wishlist').addEventListener('click', addToWishlist);
 
-/*function addToWishlist(e)
+function addToWishlist(e)
 {
   e.preventDefault();
 
@@ -56,4 +56,4 @@ application.register('places', PlacesAutocomplete)
   } catch (err) {
     console.error(err);
   }
-}*/
+}

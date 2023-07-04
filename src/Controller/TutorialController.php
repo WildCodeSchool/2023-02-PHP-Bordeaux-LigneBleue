@@ -120,9 +120,9 @@ class TutorialController extends AbstractController
         $utRepository->save($userTutorial, true);
         $userRepository->save($user, true);
 
-        /*        return $this->json([
+        return $this->json([
                     'isLiked' => $this->getUser()->isInUserTutorialLiked($tutorial)
-                ]);*/
-        return $this->redirect($request->server->get('HTTP_REFERER'));
+                ]);
+//        return $this->redirect($request->server->get('HTTP_REFERER'));
     }
 }
