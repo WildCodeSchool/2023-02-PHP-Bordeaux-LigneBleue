@@ -2,49 +2,39 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Tutorial;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use App\Entity\Sequence;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 
-class TutorialCrudController extends AbstractCrudController
+class SequenceCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Tutorial::class;
+        return Sequence::class;
     }
 
     public function configureFields(string $pageName): iterable
     {
         yield TextField::new('title', 'Titre');
-        yield SlugField::new('slug', 'Slug')
-            ->hideOnIndex()
-            ->setTargetFieldName('title')
-            ->setUnlockConfirmationMessage('Il est conseillé de laisser ce champs en remplissage automatique.');
-        yield TextareaField::new('objective', 'Objectif');
+        yield TextareaField::new('content', 'Contenu');
+        yield IntegerField::new('exercice', 'Exercice');
         yield IntegerField::new('indexOrder', 'Ordre');
         yield ImageField::new('picturePath', 'Photo')
             ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]')
             ->setBasePath('uploads/images')
             ->setUploadDir('public/');
         // ->setUploadDir('public/uploads/images');
-        yield AssociationField::new('theme', 'Thème');
-        yield AssociationField::new('tags', 'Tag(s)');
-        yield AssociationField::new('sequences', 'Séquence(s)');
-        yield AssociationField::new('quiz', 'Quiz');
-        yield BooleanField::new('isPublished', 'Publié');
+        yield AssociationField::new('tutorial', 'Formation');
     }
 
     public function configureCrud(Crud $crud): Crud
     {
         return parent::configureCrud($crud)
-            ->setPageTitle('index', 'Formations');
+            ->setPageTitle('index', 'Séquences');
     }
 }
