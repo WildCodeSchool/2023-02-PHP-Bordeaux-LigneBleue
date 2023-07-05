@@ -23,10 +23,13 @@ class UserTutorial
     private ?Tutorial $tutorial = null;
 
     #[ORM\Column]
-    private ?bool $isValidated = null;
+    private ?bool $isValidated = false;
 
     #[ORM\Column]
-    private ?bool $isLiked = null;
+    private ?bool $isLiked = false;
+
+    #[ORM\Column]
+    private ?bool $isStarted = false;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $createdAt = null;
@@ -34,6 +37,17 @@ class UserTutorial
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updatedAt = null;
 
+    /**
+     * @param bool|null $isValidated
+     * @param bool|null $isLiked
+     * @param bool|null $isStarted
+     */
+    public function __construct(?bool $isStarted, ?bool $isLiked, ?bool $isValidated)
+    {
+        $this->isStarted = $isStarted;
+        $this->isValidated = $isValidated;
+        $this->isLiked = $isLiked;
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -117,5 +131,21 @@ class UserTutorial
     public function setUpdatedAt(?\DateTimeInterface $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getIsStarted(): ?bool
+    {
+        return $this->isStarted;
+    }
+
+    /**
+     * @param bool|null $isStarted
+     */
+    public function setIsStarted(?bool $isStarted): void
+    {
+        $this->isStarted = $isStarted;
     }
 }

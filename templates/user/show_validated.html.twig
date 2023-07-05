@@ -3,7 +3,7 @@
 {% block title %}User Page{% endblock %}
 
 {% block body %}
-    <div class="llb-welcome-userPage">
+{#    <div class="llb-welcome-userPage">
         <div class="llb-leftPart-userPage">
             <h2 class="llb-welcome-title">Bienvenue {{ user.firstname|capitalize }}</h2>
             <p class="llb-welcomeText-userPage">Bienvenue dans votre espace personnel.
@@ -57,7 +57,7 @@
             </div>
         </div>
 
-    </section>
+    </section>#}
 
     <!--         BLUE STRIP 1          -->
     <div class="llb-background-light-blue-userPage llb-category-size d-flex align-items-center justify-content-center 100vh"></div>
@@ -81,7 +81,7 @@
                                 {% include "tag/_badge.html.twig" %}
                             {% endfor %}
                             </div>
-                            <button class="llb-button-yellow llb-align-center">Commencer</button>
+                            <a href="{{ path("app_tutorial_show", {"slug": utLikedOne.tutorial.slug} )}}" class="btn btn-primary llb-button-yellow llb-tutorial-card-button">Commencer</a>
                         </div>
                     </div>
                 {% endfor %}
