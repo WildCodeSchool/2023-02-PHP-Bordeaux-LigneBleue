@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\UserTutorial;
 use App\Repository\QuizRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -70,12 +71,7 @@ class QuizController extends AbstractController
         $questionCount = count($questions);
         $quizResults = $request->getSession()->get('quiz_results', []);
 
-        if ($request->isMethod('POST')) {
-            $requestData = json_decode($request->getContent(), true);
-            $countRightAnswers = $requestData['countRightAnswers'];
-            $quizResults[$quizTitle][$questionIndex] = $countRightAnswers;
-            $request->getSession()->set('quiz_results', $quizResults);
-        }
+        $this->saveQuizResult($request, $quizTitle, $questionIndex, $quizResults);
 
         if ($questionIndex === $questionCount + 1) {
             $countCorrectAnswers = 0;
@@ -84,6 +80,18 @@ class QuizController extends AbstractController
                     $countCorrectAnswers++;
                 }
             }
+            $user = $this->getUser();
+            $tutorial = $quiz->getTutorial();
+            $userTutorial = $this->entityManager->getRepository(UserTutorial::class)->findOneBy([
+                'user' => $user,
+                'tutorial' => $tutorial
+            ]);
+            if ($userTutorial && $questionCount === $countCorrectAnswers) {
+                $userTutorial->setIsValidated(true);
+                $this->entityManager->persist($userTutorial);
+                $this->entityManager->flush();
+            }
+
 
             return $this->render('quiz/QuizEnded.html.twig', [
                 'quiz' => $quiz,
@@ -92,6 +100,7 @@ class QuizController extends AbstractController
                 'countCorrectAnswers' => $countCorrectAnswers,
             ]);
         }
+
 
         if ($questionIndex < 0 || $questionIndex > $questionCount) {
             throw $this->createNotFoundException('Question not found');
@@ -108,5 +117,15 @@ class QuizController extends AbstractController
             'quizTitle' => $encodedQuizTitle,
             'csrf_token' => $csrfToken,
         ]);
+    }
+
+    public function saveQuizResult(Request $request, string $quizTitle, ?int $questionIndex, array $quizResults): void
+    {
+        if ($request->isMethod('POST')) {
+            $requestData = json_decode($request->getContent(), true);
+            $countRightAnswers = $requestData['countRightAnswers'];
+            $quizResults[$quizTitle][$questionIndex] = $countRightAnswers;
+            $request->getSession()->set('quiz_results', $quizResults);
+        }
     }
 }
