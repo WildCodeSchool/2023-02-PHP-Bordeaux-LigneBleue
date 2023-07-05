@@ -219,22 +219,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->userTutorials;
     }
 
-/*    public function addUserTutorial(UserTutorial $userTutorial): static
+    public function addUserTutorial(UserTutorial $userTutorial): static
     {
         if (!$this->userTutorials->contains($userTutorial)) {
             $this->userTutorials->add($userTutorial);
-            $userTutorial->setUser($this);
         }
-
-        return $this;
-    }*/
-
-    public function addUserTutorial(Tutorial $tutorial): static
-    {
-        if (!$this->userTutorials->contains($tutorial)) {
-            $this->userTutorials->add($tutorial);
-        }
-
         return $this;
     }
 
@@ -248,6 +237,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         return $this;
+    }
+
+    public function isInUserTutorialLiked(string $tutorialTitle): bool
+    {
+        $userTutorials = $this->getUserTutorials();
+/*        if (!$userTutorials) {
+            return false;
+        }*/
+        foreach ($userTutorials as $userTutorial) {
+            if (true === $userTutorial->isIsLiked() && $tutorialTitle === $userTutorial->getTutorial()->getTitle()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public function getAvatar(): ?string

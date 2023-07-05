@@ -1,0 +1,8 @@
+{% for userTutorial in app.user.userTutorials %}
+    {% if userTutorial.tutorial.title is same as(tutorial.title) %}
+        <i class="bi {{ userTutorial.isLiked ? 'bi-heart-fill' : 'bi-heart' }}" style="font-size: 1.2rem; color:$llb-blue;"></i></a>
+    {% endif %}
+{% endfor %}
+        {% endif %}
+
+                <i class="bi {{ app.user.isInUserTutorialLiked(tutorial.title) ? 'bi-heart-fill' : 'bi-heart' }}" style="font-size: 1.2rem; color:$llb-blue;"></i></a>

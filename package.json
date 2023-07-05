@@ -29,6 +29,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "bootstrap-icons": "^1.10.5",
         "stimulus": "^3.2.1",
         "stimulus-places-autocomplete": "^0.5.0",
         "watch": "^0.13.0"

@@ -6,6 +6,7 @@ use App\Entity\Tutorial;
 use App\Entity\UserTutorial;
 use App\Form\TutorialType;
 use App\Repository\TutorialRepository;
+use App\Repository\UserRepository;
 use App\Repository\UserTutorialRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -46,17 +47,15 @@ class TutorialController extends AbstractController
     }
 
     #[Route('/{slug}', name: 'app_tutorial_show', methods: ['GET'])]
-    public function show(
-        Tutorial $tutorial,
-        UserTutorialRepository $userTutoRepository
-    ): Response {
+    public function show(Tutorial $tutorial, UserTutorialRepository $utRepository): Response
+    {
         if ($this->getUser()) {
             $userTutorial = new UserTutorial();
             $userTutorial->setUser($this->getUser());
             $userTutorial->setTutorial($tutorial);
             $userTutorial->setIsLiked(false);
-            $userTutorial->setIsValidated(false);
-            $userTutoRepository->save($userTutorial, true);
+            $userTutorial->setIsValidated(true);
+            $utRepository->save($userTutorial, true);
         }
         return $this->render('tutorial/show.html.twig', [
             'tutorial' => $tutorial,
@@ -89,5 +88,47 @@ class TutorialController extends AbstractController
         }
 
         return $this->redirectToRoute('app_tutorial_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/like/{slug}', name: 'app_tutorial_like', methods: ['GET'])]
+    public function likedTutorial(
+        Request $request,
+        Tutorial $tutorial,
+        UserTutorialRepository $utRepository,
+        UserRepository $userRepository
+    ): Response {
+        $user = $this->getUser();
+        if ($user == null) {
+            $this->addFlash('danger', 'Vous devez être connecté pour sauvegarder une formation.');
+        }
+
+        $userTutorial = $utRepository->findOne($user, $tutorial);
+
+        if ($userTutorial) {
+            if (true === $userTutorial->isIsLiked()) {
+                $userTutorial->setIsLiked(false);
+                // pas obligatoire je pense
+                $user->addUserTutorial($userTutorial);
+            } else {
+                $userTutorial->setIsLiked(true);
+                // pas obligatoire je pense
+                $user->addUserTutorial($userTutorial);
+            }
+        } else {
+            $userTutorial = new UserTutorial();
+            $userTutorial->setUser($this->getUser());
+            $userTutorial->setTutorial($tutorial);
+            $userTutorial->setIsLiked(true);
+            $userTutorial->setIsValidated(false);
+            $user->addUserTutorial($userTutorial);
+        }
+        $userTutorial->setUpdatedAt(new \DateTime('now'));
+        $utRepository->save($userTutorial, true);
+        $userRepository->save($user, true);
+
+        return $this->json([
+                    'isLiked' => $this->getUser()->isInUserTutorialLiked($tutorial)
+                ]);
+//        return $this->redirect($request->server->get('HTTP_REFERER'));
     }
 }
