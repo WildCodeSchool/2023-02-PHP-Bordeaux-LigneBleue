@@ -4,43 +4,59 @@
 
 {% block body %}
     <div class="llb-welcome-userPage">
-        <div class="leftPart-userPage">
-            <h2 class="bienvenue-title">Bienvenue {{ user.firstname }}</h2>
-            <p class="welcomeText-userPage">Bienvenue dans votre espace personnel.
+        <div class="llb-leftPart-userPage">
+            <h2 class="llb-welcome-title">Bienvenue {{ user.firstname|capitalize }}</h2>
+            <p class="llb-welcomeText-userPage">Bienvenue dans votre espace personnel.
                 Retrouvez dans cette section vos informations personnelles ainsi que les formations terminées et celles en cours.</p>
-            <button class="llb-button-blue">Tuto Espace Perso</button>
+            <div class="llb-buttonEdit-Tuto">
+                <a href="{{ path('app_user_edit_avatar', {'id': user.id}) }}" style="text-decoration: none">
+                    <button class="llb-button-blue" style="margin-top:-2%">Tuto Espace Perso</button>
+                </a>
+                <a href="{{ path('app_user_edit_avatar', {'id': user.id}) }}" style="text-decoration: none">
+                    <button class="llb-button-blue">Modifier son avatar</button>
+                </a>
+            </div>
         </div>
-        <div class="rightPart-userPage">
-            <img class="avatar-userPage" src="{{ asset('build/images/avatar-lady1.png') }}">
-        </div>
+        {% if user.avatar is not null %}
+            <img class="llb-avatarOfUser" src="{{ asset('build/images/' ~ user.avatar) }}" alt="Avatar">
+        {% else %}
+            <div style="width:20vw; height:20vw;margin-left:12%; margin-top:3%; background-color:#FFCB05;">
+                <a href="{{ path('app_user_edit_avatar', {'id': user.id}) }}">
+                    <p style="line-height: 20vw;text-align: center">Veuillez sélectionner un avatar</p>
+                </a>
+            </div>
+        {% endif %}
     </div>
 
     <section class="llb-cards-userPage">
-        <div class="llb-cardConnect">
+        <div class="llb-cardConnect d-flex flex-column p-4">
             <h5 class="llb-title-cards3-userPage">Mes informations personnelles</h5>
             <a class="nav-link text-warning" href="{{ path('app_user_edit', {"id": app.user.id}) }}">
-                <button class="llb-button-yellow" style="margin-top: -5%">Y aller</button>
+                <button class="llb-button-yellow">Y aller</button>
             </a>
             <div class="llb-img-container">
                 <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme.png') }}">
             </div>
         </div>
 
-        <div class="llb-cardConnect">
+        <div class="llb-cardConnect d-flex flex-column p-4">
+            <h5 class="llb-title-cards3-userPage">Mes formations sauvegardées</h5>
+            <a class="nav-link text-warning" href="{{ path('app_user_show_valid') }}">
+                <button class="llb-button-yellow">Je découvre</button></a>
+            <div class="llb-img-container">
+                <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme2.png') }}">
+            </div>
+        </div>
+
+        <div class="llb-cardConnect d-flex flex-column p-4">
             <h5 class="llb-title-cards3-userPage">Mes formations terminées</h5>
-            <a class="nav-link text-warning" href="{{ path('app_register') }}"><button class="llb-button-yellow" style="margin-top: -5%">Y aller</button></a>
+            <a class="nav-link text-warning" href="{{ path('app_register') }}">
+                <button class="llb-button-yellow">Y aller</button></a>
             <div class="llb-img-container">
                 <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme.png') }}">
             </div>
         </div>
 
-        <div class="llb-cardConnect">
-            <h5 class="llb-title-cards3-userPage">Mes formations sauvegardées</h5>
-            <a class="nav-link text-warning" href="{{ path('app_theme_index') }}"><button class="llb-button-yellow" style="margin-top: -5%">Je découvre</button></a>
-            <div class="llb-img-container">
-                <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme2.png') }}">
-            </div>
-        </div>
     </section>
 
     <!--         BLUE STRIP 1          -->
@@ -53,24 +69,28 @@
                 {% for utLikedOne in utLiked %}
                     <div class="llb-liked-card">
                         <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top position-relative" alt="..." style="height:25vh">
-                        <div class="card-body">
+                        <div class="card-body w-100">
+                            <div class="d-flex align-items-center justify-content-center w-100">
                             <h5 class="card-title mb-3 mt-3">{{ utLikedOne.tutorial.title }}</h5>
-                           <div class="d-flex align-items-start justify-content-center">
+                            <a href="{{ path('app_tutorial_like', {'slug': utLikedOne.tutorial.slug})}}" id="wishlist" onclick="addToWishlist(event)">
+                                <i class="bi bi-heart-fill" style="font-size: 1.5rem; color:$llb-blue;"></i>
+                            </a>
+                            </div>
+                            <div class="d-flex justify-content-center">
                             {% for tag in utLikedOne.tutorial.tags %}
                                 {% include "tag/_badge.html.twig" %}
                             {% endfor %}
-                               <a href="{{ path('app_tutorial_like', {'slug': utLikedOne.tutorial.slug})}}" id="wishlist" onclick="addToWishlist(event)">
-                                   <i class="bi bi-heart-fill" style="font-size: 1.5rem; color:$llb-blue;"></i>
-                               </a>
-                           </div>
+                            </div>
                             <button class="llb-button-yellow llb-align-center">Commencer</button>
                         </div>
                     </div>
                 {% endfor %}
             {% endif %}
             {% if utLiked is empty %}
-                <p class="text-white">Vous n'avez pas encore sauvegardé de formations</p>
-                <p class="text-white">Retrouvez toutes les formations en cliquant ici</p>
+                <div class="d-flex flex-column justify-content-center align-items-center w-100">
+                    <h3 class="text-white">Vous n'avez pas encore sauvegardé de formation.</h3>
+                    <h3 class="text-white">Retrouvez toutes les formations en cliquant <a class="text-white" href="{{ path('app_category_index') }}">ici</a></h3>
+                </div>
             {% endif %}
         </div>
     </section>

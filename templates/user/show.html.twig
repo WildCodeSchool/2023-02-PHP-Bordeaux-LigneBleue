@@ -29,27 +29,29 @@
     </div>
 
     <section class="llb-cards-userPage">
-        <div class="llb-cardConnect">
+        <div class="llb-cardConnect d-flex flex-column p-4">
             <h5 class="llb-title-cards3-userPage">Mes informations personnelles</h5>
             <a class="nav-link text-warning" href="{{ path('app_user_edit', {"id": app.user.id}) }}">
-                <button class="llb-button-yellow" style="margin-top: 10%; margin-left: 5%">Y aller</button>
+                <button class="llb-button-yellow">Y aller</button>
             </a>
             <div class="llb-img-container">
                 <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme.png') }}">
             </div>
         </div>
 
-        <div class="llb-cardConnect">
+        <div class="llb-cardConnect d-flex flex-column p-4">
             <h5 class="llb-title-cards3-userPage">Mes formations sauvegardées</h5>
-            <a class="nav-link text-warning" href="{{ path('app_user_show_valid') }}"><button class="llb-button-yellow" style="margin-top: -5%">Je découvre</button></a>
+            <a class="nav-link text-warning" href="{{ path('app_user_show_valid') }}">
+                <button class="llb-button-yellow">Je découvre</button></a>
             <div class="llb-img-container">
                 <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme2.png') }}">
             </div>
         </div>
 
-        <div class="llb-cardConnect">
+        <div class="llb-cardConnect d-flex flex-column p-4">
             <h5 class="llb-title-cards3-userPage">Mes formations terminées</h5>
-            <a class="nav-link text-warning" href="{{ path('app_register') }}"><button class="llb-button-yellow" style="margin-top: 10%; margin-left: 5%">Y aller</button></a>
+            <a class="nav-link text-warning" href="{{ path('app_register') }}">
+                <button class="llb-button-yellow">Y aller</button></a>
             <div class="llb-img-container">
                 <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme.png') }}">
             </div>
