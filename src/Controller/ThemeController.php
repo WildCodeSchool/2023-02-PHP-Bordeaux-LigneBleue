@@ -44,7 +44,7 @@ class ThemeController extends AbstractController
     }
 
     #[Route('/{slug}', name: 'app_theme_show', methods: ['GET'])]
-    public function show(Theme $theme): Response
+    public function show(Theme $theme, Request $request): Response
     {
         return $this->render('theme/show.html.twig', [
             'theme' => $theme,

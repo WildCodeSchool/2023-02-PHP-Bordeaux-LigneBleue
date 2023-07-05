@@ -31,6 +31,9 @@ class UserTutorial
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $createdAt = null;
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $updatedAt = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -98,5 +101,21 @@ class UserTutorial
     public function setCreatedAt(?\DateTimeInterface $createdAt): void
     {
         $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return \DateTimeInterface|null
+     */
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTimeInterface|null $updatedAt
+     */
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
     }
 }
