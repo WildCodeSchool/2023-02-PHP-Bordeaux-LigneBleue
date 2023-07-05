@@ -7,8 +7,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 48px;
-    width: 186px;
 }
 
 .llb-button-yellow {
@@ -33,6 +31,14 @@
     border-color: transparent;
 }
 
+.llb-button-red {
+    background-color: #FF5F4E;
+    color: white;
+    padding: 2vh;
+    border-radius: 6px;
+
+}
+
 .llb-button-red:hover {
     background-color: #FF1501;
 }
@@ -42,6 +48,7 @@
     color: $llb-blue;
     padding: 2vh;
     border-radius: 6px;
-    height: 48px;
-    width: 186px;
+    border-color: $llb-blue;
 }
+
+

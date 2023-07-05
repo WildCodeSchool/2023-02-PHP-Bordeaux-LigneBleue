@@ -56,8 +56,8 @@
                 <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme.png') }}">
             </div>
         </div>
-
     </section>
+
 
     <!--         BLUE STRIP 1          -->
     <div class="llb-background-light-blue-userPage llb-category-size d-flex align-items-center justify-content-center 100vh"></div>
@@ -73,7 +73,7 @@
                             <div class="d-flex align-items-center justify-content-center w-100">
                             <h5 class="card-title mb-3 mt-3">{{ utLikedOne.tutorial.title }}</h5>
                             <a href="{{ path('app_tutorial_like', {'slug': utLikedOne.tutorial.slug})}}" id="wishlist" onclick="addToWishlist(event)">
-                                <i class="bi bi-heart-fill" style="font-size: 1.5rem; color:$llb-blue;"></i>
+                                <i class="bi bi-heart-fill" style="font-size: 1.5rem; color:#0C5395"></i>
                             </a>
                             </div>
                             <div class="d-flex justify-content-center">
@@ -82,6 +82,7 @@
                             {% endfor %}
                             </div>
                             <button class="llb-button-yellow llb-align-center">Commencer</button>
+                            <a href="{{ path("app_tutorial_show", {"slug": utLikedOne.tutorial.slug} )}}" class="btn btn-primary llb-button-yellow llb-tutorial-card-button">Commencer</a>
                         </div>
                     </div>
                 {% endfor %}

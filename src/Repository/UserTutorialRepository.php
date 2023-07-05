@@ -41,35 +41,20 @@ class UserTutorialRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return UserTutorial[] Returns an array of UserTutorial objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('u')
-//            ->andWhere('u.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('u.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
-
     /**
      * @return UserTutorial[] Returns an array of UserTutorial objects
      */
-/*    public function findByValidated($value): array
-    {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('u.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }*/
+    /*    public function findByValidated($value): array
+        {
+            return $this->createQueryBuilder('u')
+                ->andWhere('u.exampleField = :val')
+                ->setParameter('val', $value)
+                ->orderBy('u.id', 'ASC')
+                ->setMaxResults(10)
+                ->getQuery()
+                ->getResult()
+            ;
+        }*/
 
     public function findByValidated(User $user): array
     {
@@ -105,30 +90,30 @@ class UserTutorialRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
             ;
     }
-/*    public function findOneIsParameter(User $user, Tutorial $tutorial, string $parameter): ?UserTutorial
-    {
-        if ('isLiked' === $parameter) {
-            return $this->createQueryBuilder('qb')
-                ->andWhere('qb.user = :user')
-                ->setParameter('user', $user)
-                ->andWhere('qb.tutorial = :tutorial')
-                ->setParameter('tutorial', $tutorial)
-                ->andWhere('qb.isLiked = true')
-                ->getQuery()
-                ->getOneOrNullResult()
-                ;
-        } elseif ('isValidated' === $parameter) {
-            return $this->createQueryBuilder('qb')
-                ->andWhere('qb.user = :user')
-                ->setParameter('user', $user)
-                ->andWhere('qb.tutorial = :tutorial')
-                ->setParameter('tutorial', $tutorial)
-                ->andWhere('qb.isValidated = true')
-                ->getQuery()
-                ->getOneOrNullResult()
-                ;
-        }
-    }*/
+    /*    public function findOneIsParameter(User $user, Tutorial $tutorial, string $parameter): ?UserTutorial
+        {
+            if ('isLiked' === $parameter) {
+                return $this->createQueryBuilder('qb')
+                    ->andWhere('qb.user = :user')
+                    ->setParameter('user', $user)
+                    ->andWhere('qb.tutorial = :tutorial')
+                    ->setParameter('tutorial', $tutorial)
+                    ->andWhere('qb.isLiked = true')
+                    ->getQuery()
+                    ->getOneOrNullResult()
+                    ;
+            } elseif ('isValidated' === $parameter) {
+                return $this->createQueryBuilder('qb')
+                    ->andWhere('qb.user = :user')
+                    ->setParameter('user', $user)
+                    ->andWhere('qb.tutorial = :tutorial')
+                    ->setParameter('tutorial', $tutorial)
+                    ->andWhere('qb.isValidated = true')
+                    ->getQuery()
+                    ->getOneOrNullResult()
+                    ;
+            }
+        }*/
 
 //    public function findOneBySomeField($value): ?UserTutorial
 //    {

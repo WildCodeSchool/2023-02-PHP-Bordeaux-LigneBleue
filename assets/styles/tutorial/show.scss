@@ -13,6 +13,7 @@
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 2.5%;
+    border-radius: 6px;
 }
 
 .llb-tutorial-show-start-card-tags-container {
@@ -46,14 +47,14 @@
 }
 
 .llb-tutorial-show-sequences-container {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: stretch;
     flex-direction: column;
     margin: 0;
     width: 100%;
+    transition-duration: 2s;
 }
-
 
 .llb-tutorial-show-end-card {
     height: 10vw;
@@ -63,6 +64,8 @@
     justify-content: space-around;
     align-items: center;
     margin-top: 2.5%;
+    border-radius: 6px;
+    width: 100%;
 }
 
 .llb-tutorial-show-end-card>a {
