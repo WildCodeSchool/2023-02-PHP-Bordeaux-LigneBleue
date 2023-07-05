@@ -1,17 +1,12 @@
 .llb-navbar {
     background-color: $llb-blue;
-    z-index: 100;
-}
-
-.llb-container-fluid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .llb-navbar-brand {
     color: white;
     font-family: 'Slicker', sans-serif;
+    display: flex;
+    align-items: center;
 }
 
 .navbar-brand:hover {
@@ -26,8 +21,6 @@
 .llb-navbar-search-container {
     margin-right: 1%;
 }
-
-
 
 .llb_navbar_search_form {
     border-radius: 5px 0px 0px 5px;
@@ -86,6 +79,37 @@
     display: none;
 }
 
+
+
+/*          NAVBAR LANDING PAGE             */
+.llb-navbar-homePage {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    z-index: 100;
+}
+
+.llb-register-homePage {
+    display: flex;
+    flex-direction: row;
+}
+
+.llb-buttonRegister-homePage {
+    background-color: #ffe482;
+    color: #0C5395;
+    height: 3vw;
+    width: 9vw;
+    border-radius: 6px;
+    margin: 10%;
+}
+
+.llb-buttonRegister-homePage:hover {
+    background-color: $llb-yellow;
+}
+
+
 @media screen and (max-width: 480px) {
     .llb-navbar-content {
         display: flex;
@@ -133,37 +157,4 @@
     #llb-navbar-contact {
         display: inline
     }
-}
-
-/*          NAVBAR LANDING PAGE             */
-.llb-navbar-homePage {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100vw;
-    z-index: 100;
-}
-
-.llb-register-homePage {
-    display: flex;
-    flex-direction: row;
-}
-
-.llb-buttonRegister-homePage {
-    background-color: #ffe482;
-    color: #0C5395;
-    height: 3vw;
-    width: 9vw;
-    border-radius: 6px;
-    margin: 10%;
-}
-
-.llb-buttonRegister-homePage:hover {
-    background-color: $llb-yellow;
-}
-
-.navbar-brand {
-    display: flex;
-    align-items: center;
 }
