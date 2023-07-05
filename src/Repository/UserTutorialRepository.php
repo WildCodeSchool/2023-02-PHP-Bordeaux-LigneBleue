@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\User;
 use App\Entity\UserTutorial;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -38,6 +39,7 @@ class UserTutorialRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
 
 //    /**
 //     * @return UserTutorial[] Returns an array of UserTutorial objects

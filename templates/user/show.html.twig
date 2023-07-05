@@ -41,7 +41,7 @@
 
         <div class="llb-cardConnect">
             <h5 class="llb-title-cards3-userPage">Mes formations terminées</h5>
-            <a class="nav-link text-warning" href="{{ path('app_register') }}"><button class="llb-button-yellow" style="margin-top: 10%; margin-left: 5%">Y aller</button></a>
+            <a class="nav-link text-warning" href="{{ path('app_user_tutorial_completed', {'id': app.user.id}) }}"><button class="llb-button-yellow" style="margin-top: 10%; margin-left: 5%">Y aller</button></a>
             <div class="llb-img-container">
                 <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme.png') }}">
             </div>
@@ -58,8 +58,6 @@
 
     <!--         BLUE STRIP 1          -->
     <div class="llb-background-light-blue-userPage llb-category-size d-flex align-items-center justify-content-center 100vh"></div>
-
-
     <!--         FIRST SLIDER           -->
 
     <section class="llb-tuto-userPage">
@@ -292,7 +290,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     </section>
 {% endblock %}

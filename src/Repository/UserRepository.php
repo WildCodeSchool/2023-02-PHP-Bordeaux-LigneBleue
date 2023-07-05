@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\User;
+use App\Entity\UserTutorial;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
@@ -54,6 +55,19 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $user->setPassword($newHashedPassword);
 
         $this->save($user, true);
+    }
+
+    public function findUserTutorialsIsValidated(User $user): array
+    {
+        return $this->createQueryBuilder('u')
+            ->select('ut')
+            ->from(UserTutorial::class, 'ut')
+            ->where('ut.user = :user')
+            ->andWhere('ut.isValidated = :isValidated')
+            ->setParameter('user', $user)
+            ->setParameter('isValidated', true)
+            ->getQuery()
+            ->getResult();
     }
 
 //    /**

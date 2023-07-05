@@ -90,4 +90,15 @@ class UserController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    #[Route('/{id}/tutorial_completed', name: '_tutorial_completed')]
+    public function tutorialCompleted(User $user, UserRepository $userRepository): Response
+    {
+        $userTutorials = $userRepository->findUserTutorialsIsValidated($user);
+
+        return $this->render('user/tuto_completed.html.twig', [
+            'user' => $user,
+            'userTutorials' => $userTutorials,
+        ]);
+    }
 }
