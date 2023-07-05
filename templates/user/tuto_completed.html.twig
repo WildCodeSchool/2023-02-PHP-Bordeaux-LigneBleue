@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La Ligne Bleue
+{% endblock %}
+
+{% block body %}
+    {% if userTutorials is empty %}
+    <h2>Vous n'avez pas encore de formation terminée !</h2>
+    {% endif %}
+{% if userTutorials is not empty %}
+    <h2>Formations terminées :</h2>
+    <ul>
+        {% for userTutorial in userTutorials %}
+            <ul>
+                <li>Title: {{ userTutorial.tutorial.title }}</li>
+                <li>Objective: {{ userTutorial.tutorial.objective }}</li>
+            </ul>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}

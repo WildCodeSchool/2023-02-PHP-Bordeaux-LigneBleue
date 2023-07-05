@@ -41,6 +41,23 @@ class UserTutorialRepository extends ServiceEntityRepository
         }
     }
 
+
+
+//    /**
+//     * @return UserTutorial[] Returns an array of UserTutorial objects
+//     */
+//    public function findByExampleField($value): array
+//    {
+//        return $this->createQueryBuilder('u')
+//            ->andWhere('u.exampleField = :val')
+//            ->setParameter('val', $value)
+//            ->orderBy('u.id', 'ASC')
+//            ->setMaxResults(10)
+//            ->getQuery()
+//            ->getResult()
+//        ;
+//    }
+
     /**
      * @return UserTutorial[] Returns an array of UserTutorial objects
      */
@@ -114,6 +131,7 @@ class UserTutorialRepository extends ServiceEntityRepository
                 ;
         }
     }*/
+
 
 //    public function findOneBySomeField($value): ?UserTutorial
 //    {
