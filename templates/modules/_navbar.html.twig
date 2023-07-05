@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg llb-navbar">
-	<div class="container-fluid">
+	<div class="container-fluid llb-container-fluid">
 
-		<a class="navbar-brand" href="/">
+		<a class="navbar-brand llb-navbar-brand" href="/">
 			<img class="d-inline-block align-text-top" src={{ asset(icons_path ~ "LLB_Logo_White.png")}} alt="" width="30" height="30">
 			La Ligne Bleue
 		</a>
@@ -16,26 +16,26 @@
 
 		<div class="llb-navbar-buttons-container">
 			<a href={{ path("app_category_index") }}>
-				<button class="btn btn-outline-success me-2 llb-navbar-button" type="button">Formations</button>
+				<button class="btn me-2 llb-navbar-button" type="button">Formations</button>
 			</a>
 			{% if app.user %}
 				<a class="nav-link text-warning" href="{{ path('app_user_show', {"id": app.user.id}) }}">
-					<button class="btn btn-outline-success me-2 llb-navbar-button" type="button">Profil</button>
+					<button class="btn btn-outline-light me-2 llb-navbar-button" type="button">Profil</button>
 				</a>
 				<a class="nav-link text-warning" href="/logout">
-					<button class="btn btn-outline-success me-2 llb-navbar-button" type="button">Déconnexion</button>
+					<button class="btn btn-outline-light me-2 llb-navbar-button" type="button">Déconnexion</button>
 				</a>
 			{% else %}
 				<a href={{ path("app_register") }}>
-					<button class="btn btn-outline-success me-2 llb-navbar-button" type="button">Inscription</button>
+					<button class="btn btn-outline-light me-2 llb-navbar-button" type="button">Inscription</button>
 				</a>
 
 				<a href={{ path("app_login") }}>
-					<button class="btn btn-outline-success me-2 llb-navbar-button" type="button">Connexion</button>
+					<button class="btn btn-outline-light me-2 llb-navbar-button" type="button">Connexion</button>
 				</a>
 			{% endif %}
 			<a href="">
-				<button class="btn btn-outline-success me-2 llb-navbar-button" id="llb-navbar-contact" type="button">Contactez-nous</button>
+				<button class="btn btn-outline-light me-2 llb-navbar-button" id="llb-navbar-contact" type="button">Contactez-nous</button>
 			</a>
 		</div>
 	</div>
