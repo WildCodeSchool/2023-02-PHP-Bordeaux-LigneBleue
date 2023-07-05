@@ -4,8 +4,9 @@
 {% endblock %}
 
 {% block body %}
+<div class="llb-blue-container" style="margin-top:3%">
     {% if userTutorials is empty %}
-    <h2>Vous n'avez pas encore de formation terminée !</h2>
+    <h2 style="text-align: center">Vous n'avez pas encore de formation terminée !</h2>
     {% endif %}
 {% if userTutorials is not empty %}
     <h2>Formations terminées :</h2>
@@ -18,4 +19,5 @@
         {% endfor %}
     </ul>
 {% endif %}
+</div>
 {% endblock %}

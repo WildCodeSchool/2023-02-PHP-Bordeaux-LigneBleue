@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Tutorial;
 use App\Entity\User;
 use App\Form\AvatarChoiceType;
 use App\Form\UserType;
+use App\Repository\TutorialRepository;
 use App\Repository\UserRepository;
+use App\Repository\UserTutorialRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -48,10 +51,23 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}', name: '_show', methods: ['GET'])]
-    public function show(User $user): Response
+    public function show(User $user, Tutorial $tutorial): Response
     {
+        $user = $this->getUser();
         return $this->render('user/show.html.twig', [
             'user' => $user,
+            'tutorial' => $tutorial
+        ]);
+    }
+
+    #[Route('/{id/formations-enregistrees}', name: '_show_valid', methods: ['GET'])]
+    public function showLikedTutorials(UserTutorialRepository $utRepository): Response
+    {
+        $user = $this->getUser();
+        $utLiked = $utRepository->findAllLiked($user);
+        return $this->render('user/show_validated.html.twig', [
+            'user' => $user,
+            'utLiked' => $utLiked,
         ]);
     }
 
@@ -92,13 +108,14 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}/tutorial_completed', name: '_tutorial_completed')]
-    public function tutorialCompleted(User $user, UserRepository $userRepository): Response
+    public function tutorialCompleted(User $user, UserRepository $userRepository, Tutorial $tutorial): Response
     {
         $userTutorials = $userRepository->findUserTutorialsIsValidated($user);
 
         return $this->render('user/tuto_completed.html.twig', [
             'user' => $user,
             'userTutorials' => $userTutorials,
+            'tutorial' => $tutorial,
         ]);
     }
 }

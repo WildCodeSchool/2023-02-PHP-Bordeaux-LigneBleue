@@ -22,10 +22,12 @@
 }
 
 .llb-h5-cardConnect{
-    position: absolute;
-    top: 10%;
-    left: 10%;
     color:$llb-blue;
+}
+
+.llb-card-crossPage button {
+    position: absolute;
+    top: 30%;
 }
 
 .llb-img-cardsCrossPage{

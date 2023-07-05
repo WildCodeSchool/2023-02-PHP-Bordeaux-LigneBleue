@@ -3,10 +3,12 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Tutorial;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
@@ -35,6 +37,9 @@ class TutorialCrudController extends AbstractCrudController
             ->setUploadDir('public/');
         // ->setUploadDir('public/uploads/images');
         yield AssociationField::new('theme', 'Thème');
+        yield AssociationField::new('tags', 'Tag(s)');
+        yield AssociationField::new('sequences', 'Séquence(s)');
+        yield AssociationField::new('quiz', 'Quiz');
         yield BooleanField::new('isPublished', 'Publié');
     }
 

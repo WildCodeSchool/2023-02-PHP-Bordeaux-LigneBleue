@@ -20,15 +20,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 48px;
-    width: 186px;
+    text-decoration: none;
+    padding-left  : 2vw;
+    padding-right: 2vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
 }
 
 .llb-button-yellow:hover {
     color: $llb-blue;
     background-color: $llb-yellow;
     border-color: transparent;
-
 }
 
 .llb-button-red:hover {

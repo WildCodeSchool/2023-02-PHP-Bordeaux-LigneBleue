@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page Contact{% endblock %}
+
+{% block body %}
+
+    <div class="llb-background-light-blue llb-register-size"></div>
+    <div class="llb-form">
+    <section class="llb-form-global">
+        <h1 class="h3 mt-0 font-weight-normal text-center">Contactez-nous</h1>
+        <p>*Champs obligatoires</p>
+        <div class="w-100">
+
+            {{ form_start(formulaireContact) }}
+                {{ form_row(formulaireContact.email, {
+                    label: 'Email*'
+                }) }}
+
+                {{ form_row(formulaireContact.message, {
+                    label: 'Message*'
+                 }) }}
+
+                {{ form_row(formulaireContact.agreeTerms) }}
+
+                <div class="w-100 d-flex align-items-center justify-content-center">
+                    {{ form_row(formulaireContact.envoyer) }}
+                </div>
+            {{ form_end(formulaireContact) }}
+
+        </div>
+    </section>
+
+        <div class="d-flex justify-content-center align-items-center">
+            <a class="llb-button-yellow mb-5 mt-2 text-decoration-none text-center w-auto align-middle" href="{{ path('app_home') }}">Cliquez ici pour revenir en arrière</a>
+        </div>
+    </div>
+
+{% endblock %}

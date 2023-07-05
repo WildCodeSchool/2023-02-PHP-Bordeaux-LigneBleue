@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Repository\UserTutorialRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -10,10 +12,9 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class SecurityController extends AbstractController
 {
     #[Route(path: '/login', name: 'app_login')]
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    public function login(AuthenticationUtils $authenticationUtils, Request $request, UserTutorialRepository $utRepository): Response
     {
         if ($this->getUser()) {
-            $this->addFlash('success', 'Bienvenue sur votre espace personnel ' . $this->getUser()->getFirstname() . ' ' . $this->getUser()->getLastname());
             return $this->redirectToRoute('app_home');
         }
 
