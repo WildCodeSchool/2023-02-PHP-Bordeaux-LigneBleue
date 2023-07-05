@@ -1,5 +1,14 @@
 .request-email {
-    width: 80%;
+    width: 50%;
+}
+
+.llb-category-index-container {
+    background-color: $llb-blue;
+    width: 80vw;
+    padding: 2%;
+    border-radius: 6px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media screen and (max-width: 480px) {
@@ -9,4 +18,9 @@
     .llb-responsive-w-100 {
         width: 100%;
     }
-}
+    .llb-category-index-container {
+        width: 90vw;
+        padding: 5%;
+    }
+
+    }
