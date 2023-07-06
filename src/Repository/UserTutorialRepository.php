@@ -90,6 +90,19 @@ class UserTutorialRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
             ;
     }
+
+    public function findThreeLastStarted(User $user): array
+    {
+        return $this->createQueryBuilder('qb')
+            ->andWhere('qb.user = :user')
+            ->setParameter('user', $user)
+            ->having('qb.isStarted = true')
+            ->orderBy('qb.updatedAt', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
     /*    public function findOneIsParameter(User $user, Tutorial $tutorial, string $parameter): ?UserTutorial
         {
             if ('isLiked' === $parameter) {

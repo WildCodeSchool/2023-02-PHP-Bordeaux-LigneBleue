@@ -10,13 +10,11 @@
     {% endif %}
 {% if userTutorials is not empty %}
     <h2>Formations terminées :</h2>
-    <ul>
-        {% for userTutorial in userTutorials %}
-            <ul>
-                <li>Title: {{ userTutorial.tutorial.title }}</li>
-                <li>Objective: {{ userTutorial.tutorial.objective }}</li>
-            </ul>
-        {% endfor %}
+        <div class="llb-tutoCardIsStarted">
+            {% for tuto in utLiked %}
+                {% include "tutorial/_card.html.twig" %}
+            {% endfor %}
+        </div>
     </ul>
 {% endif %}
 </div>

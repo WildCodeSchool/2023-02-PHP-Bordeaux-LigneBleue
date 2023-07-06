@@ -8,15 +8,19 @@
     <h1 class="llb-titleEditAvatar">Choisir son avatar</h1>
     {{ form_start(form) }}
     <section class="llb-avatar-userPage">
+        <div style="display:flex; flex-direction:row; flex-wrap:wrap;justify-content: space-around">
     {% for choice in form.avatar.vars.choices %}
-        <div class="llb-choiceAvatar">
+        <div class="llb-choiceAvatar" style="margin:2rem">
             <label>
-                <img src="{{ asset('build/images/' ~ choice.value) }}" alt="{{ choice.label }}" style="width:200px; height:200px">
+                <img src="{{ asset('build/images/' ~ choice.value) }}" alt="{{ choice.label }}" style="width:180px; height:180px">
                 <input type="radio" name="{{ form.avatar.vars.full_name }}" value="{{ choice.value }}" {% if choice.value == form.avatar.vars.value %}checked{% endif %}>
             </label>
         </div>
     {% endfor %}
-    <button class="llb-button-yellow" type="submit" style="margin-left:5%; margin-top:5%">Enregistrer</button>
+        </div>
+        <div style="display:flex; justify-content: center">
+    <button class="llb-button-yellow" type="submit">Enregistrer</button>
+        </div>
     {{ form_end(form) }}
     </section>
 {% endblock %}
