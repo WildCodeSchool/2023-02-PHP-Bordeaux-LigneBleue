@@ -18,7 +18,7 @@
             </div>
         </div>
         {% if user.avatar is not null %}
-            <img class="llb-avatarOfUser" src="{{ asset('build/images/' ~ user.avatar) }}" alt="Avatar">
+            <img class="llb-avatarOfUser" src="{{ asset('build/images/' ~ user.avatar) }}" alt="Avatar" style="margin-left:2%">
         {% else %}
             <div style="width:20vw; height:20vw;margin-top:3%; background-color:#FFCB05;">
                 <a href="{{ path('app_user_edit_avatar', {'id': user.id}) }}">
@@ -71,98 +71,4 @@
     </div>
     <!--         BLUE STRIP 1          -->
     <div class="llb-background-light-blue-userPage llb-category-size d-flex align-items-center justify-content-center 100vh"></div>
-
-    <!-----------------phone slider---------->
-    <section class="phone-slider-container">
-    <div class="customers-comments-phone">
-        <h2 style="color:white; font-size:medium; width:90vw; padding: 5% 0">MES FORMATIONS EN COURS</h2>
-        <div id="carouselExampleControls-phone" class="carousel carousel-dark slide" data-bs-ride="carousel" >
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="card-wrapper container-sm d-sm-block d-md-flex  justify-content-around">
-                        <div class="card" style="width: 60vw; height:30vh">
-                            <div class="card-body d-flex flex-column align-items-center">
-                                <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="width:60vw; top:0; left:0; position:absolute">
-                                <div class="card-body" style="margin-top:40%">
-                                    <h5 class="card-title mt-4">Envoyer un mail</h5>
-                                    <button class="llb-button-blue">Voir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card-wrapper container-sm d-sm-block d-md-flex   justify-content-around">
-                        <div class="card" style="width:60vw; height:30vh">
-                            <div class="card-body d-flex flex-column align-items-center">
-                                <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="width:60vw; top:0; left:0; position:absolute">
-                                <div class="card-body" style="margin-top:40%">
-                                    <h5 class="card-title mt-4">Envoyer un mail</h5>
-                                    <button class="llb-button-blue">Voir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card-wrapper container-sm d-sm-block d-md-flex   justify-content-around">
-                        <div class="card" style="width:60vw; height:30vh">
-                            <div class="card-body d-flex flex-column align-items-center">
-                                <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="width:60vw; top:0; left:0; position:absolute">
-                                <div class="card-body" style="margin-top:40%">
-                                    <h5 class="card-title mt-4">Envoyer un mail</h5>
-                                    <button class="llb-button-blue">Voir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <h2 style="color:white; font-size:medium; width:90vw; padding-top: 10%; padding-bottom:5%">MES FORMATIONS SAUVEGARDÉES</h2>
-        <div id="carouselExampleControls-phone" class="carousel carousel-dark slide" data-bs-ride="carousel" >
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="card-wrapper container-sm d-sm-block d-md-flex  justify-content-around">
-                        <div class="card" style="width: 60vw; height:30vh">
-                            <div class="card-body d-flex flex-column align-items-center">
-                                <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="width:60vw; top:0; left:0; position:absolute">
-                                <div class="card-body" style="margin-top:40%">
-                                    <h5 class="card-title mt-4">Envoyer un mail</h5>
-                                    <button class="llb-button-blue">Voir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card-wrapper container-sm d-sm-block d-md-flex   justify-content-around">
-                        <div class="card" style="width:60vw; height:30vh">
-                            <div class="card-body d-flex flex-column align-items-center">
-                                <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="width:60vw; top:0; left:0; position:absolute">
-                                <div class="card-body" style="margin-top:40%">
-                                    <h5 class="card-title mt-4">Envoyer un mail</h5>
-                                    <button class="llb-button-blue">Voir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card-wrapper container-sm d-sm-block d-md-flex   justify-content-around">
-                        <div class="card" style="width:60vw; height:30vh">
-                            <div class="card-body d-flex flex-column align-items-center">
-                                <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top" alt="..." style="width:60vw; top:0; left:0; position:absolute">
-                                <div class="card-body" style="margin-top:40%">
-                                    <h5 class="card-title mt-4">Envoyer un mail</h5>
-                                    <button class="llb-button-blue">Voir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    </section>
 {% endblock %}
