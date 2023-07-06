@@ -3,9 +3,11 @@
 namespace App\Form;
 
 use App\Entity\User;
+use EasyCorp\Bundle\EasyAdminBundle\Field\HiddenField;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -28,13 +30,15 @@ class UserType extends AbstractType
                 'years' => range(1900, 2023),])
             ->add('adress')
             ->add('email')
-            ->add('password', PasswordType::class, [
+            ->add('password', HiddenType::class);
+/*            ->add('password', PasswordType::class, [
                 'mapped' => true,
+                'required' => false,
                 'attr' => [
                     'autocomplete' => 'new-password',
                     'placeholder' => '********',
                 ],
-            ]);
+            ])*/
     }
 
     public function configureOptions(OptionsResolver $resolver): void
