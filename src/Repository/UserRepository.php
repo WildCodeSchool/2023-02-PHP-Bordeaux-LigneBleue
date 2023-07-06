@@ -85,13 +85,17 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?User
-//    {
-//        return $this->createQueryBuilder('u')
-//            ->andWhere('u.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function findByAge(int $valueMin, int $valueMax): array
+    {
+        $dateMin = date('Y-m-d', strtotime('-' . $valueMin . ' year'));
+        $dateMax = date('Y-m-d', strtotime('-' . $valueMax . ' year'));
+
+        return $this->createQueryBuilder('u')
+            ->Where('u.birthday BETWEEN :valMax AND :valMin')
+            ->setParameter('valMin', $dateMin)
+            ->setParameter('valMax', $dateMax)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

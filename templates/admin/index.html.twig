@@ -1,0 +1,23 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+{#{% extends 'base.html.twig' %}#}
+
+
+
+{% block main %}
+    <div class="d-flex flex-wrap llb-w-80">
+        <div class="d-flex flex-column justify-content-between align-items-center w-50 h-100">
+            <h2>Répartition des utilisateurs par genre</h2>
+            {{ render_chart(chart1, {'class': 'chart1'}) }}
+        </div>
+        <div class="d-flex flex-column justify-content-between align-items-center w-50 h-100">
+            <h2>Répartition des utilisateurs par âge</h2>
+            {{ render_chart(chart2, {'class': 'chart1'}) }}
+        </div>
+    </div>
+    <div class="d-flex flex-wrap llb-w-80 mt-5">
+        <div class="d-flex flex-column justify-content-between align-items-center w-50 h-100">
+            <h2>Répartition des thèmes en fonction des likes</h2>
+            {{ render_chart(chart3, {'class': 'chart1'}) }}
+        </div>
+    </div>
+{% endblock %}
