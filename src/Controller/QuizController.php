@@ -10,12 +10,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Quiz;
+use App\Service\QuizService;
 use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 #[Route('/quiz')]
 class QuizController extends AbstractController
 {
     private EntityManagerInterface $entityManager;
+
 
     public function __construct(EntityManagerInterface $entityManager)
     {
@@ -58,7 +60,8 @@ class QuizController extends AbstractController
         Request $request,
         string $quizTitle,
         ?int $questionIndex,
-        CsrfTokenManagerInterface $csrfTokenManager
+        QuizService $quizService,
+        CsrfTokenManagerInterface $csrfTokenManager,
     ): Response {
         $encodedQuizTitle = urldecode($quizTitle);
         $quiz = $this->entityManager->getRepository(Quiz::class)->findOneBy(['title' => $encodedQuizTitle]);
@@ -71,8 +74,7 @@ class QuizController extends AbstractController
         $questionCount = count($questions);
         $quizResults = $request->getSession()->get('quiz_results', []);
 
-        $this->saveQuizResult($request, $quizTitle, $questionIndex, $quizResults);
-
+        $quizService->saveQuizResult($request, $quizTitle, $questionIndex, $quizResults);
         if ($questionIndex === $questionCount + 1) {
             $countCorrectAnswers = 0;
             foreach ($quizResults[$quizTitle] as $result) {
@@ -102,12 +104,11 @@ class QuizController extends AbstractController
         }
 
 
-        if ($questionIndex < 0 || $questionIndex > $questionCount) {
-            throw $this->createNotFoundException('Question not found');
-        }
+
 
         $question = $questions[$questionIndex - 1];
         $csrfToken = $csrfTokenManager->getToken('csrf-token')->getValue();
+
 
         return $this->render('quiz/question.html.twig', [
             'quiz' => $quiz,
@@ -115,17 +116,7 @@ class QuizController extends AbstractController
             'questionIndex' => $questionIndex,
             'questionCount' => $questionCount,
             'quizTitle' => $encodedQuizTitle,
-            'csrf_token' => $csrfToken,
+            'csrf_token' => $csrfToken
         ]);
-    }
-
-    public function saveQuizResult(Request $request, string $quizTitle, ?int $questionIndex, array $quizResults): void
-    {
-        if ($request->isMethod('POST')) {
-            $requestData = json_decode($request->getContent(), true);
-            $countRightAnswers = $requestData['countRightAnswers'];
-            $quizResults[$quizTitle][$questionIndex] = $countRightAnswers;
-            $request->getSession()->set('quiz_results', $quizResults);
-        }
     }
 }
