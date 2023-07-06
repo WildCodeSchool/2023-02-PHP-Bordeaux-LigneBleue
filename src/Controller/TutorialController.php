@@ -139,9 +139,9 @@ class TutorialController extends AbstractController
             $user->addUserTutorial($userTutorial);
             ;
         }
-            $userTutorial->setUpdatedAt(new \DateTime('now'));
-            $utRepository->save($userTutorial, true);
-            $userRepository->save($user, true);
+        $userTutorial->setUpdatedAt(new \DateTime('now'));
+        $utRepository->save($userTutorial, true);
+        $userRepository->save($user, true);
 
         return $this->json([
             'isStarted' => true,

@@ -88,7 +88,7 @@
     height: 10vw;
 }
 .llb-title-cards3-userPage{
-    font-size:20px;
+    font-size:1.12rem;
 }
 .llb-card-userPage, .llb-cardConnect {
     position: relative;
@@ -112,48 +112,25 @@
     align-content:center;
     align-items:center;
 }
-
-/*          Caroussel Formations        */
-.phone-slider-container{
-    display:none;
+/*             Blue container           */
+.llb-blue-container-userShow {
+    color: white;
     background-color: $llb-blue;
     width: 80vw;
-    margin-left:10vw;
+    margin: 20px auto 0 auto;
     padding: 5%;
     border-radius: 16px;
 }
-.card-title{
-    text-align:center;
-}
-.llb-title-userTuto{
-    color: white;
-    margin-left:3%;
-    padding-top:5%;
-    font-family: 'Slicker', sans-serif;
-}
-
-.llb-tuto-userPage{
-    background-color:$llb-blue;
-    display: flex;
-    width: 80vw;
-    min-height: 40vh;
-    justify-content: center;
-    flex-direction: column;
-    margin: 5% auto 5% auto;
-    border-radius:16px;
-}
-.card-wrapper{
-}
-.logo-cards{
+.llb-tutoCardIsStarted{
     display:flex;
     flex-direction:row;
-    justify-content:space-around;
+    justify-content:space-between;
 }
-.card-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.llb-title-tutoIsStarted{
+    margin-bottom:5%;
+    font-family: 'Baloo 2';
 }
+
 /*     Choices of avatar                     */
 .llb-titleEditAvatar{
     text-align: center;
@@ -163,13 +140,11 @@
 }
 .llb-avatar-userPage {
     background-color: $llb-blue;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
     margin: 5%;
     padding:3% 0;
     border-radius: 16px;
+    display:flex;
+    flex-direction:column;
 }
 
 .llb-avatar-userPage fieldset{
@@ -178,6 +153,7 @@
 .card-body .llb-button-blue{
     margin-top:10%;
 }
+
 
 /*      Media Query        */
 

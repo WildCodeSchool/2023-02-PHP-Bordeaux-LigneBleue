@@ -51,11 +51,11 @@
 		{% endif %}
 
 		{% if app.request.attributes.get('_route') is same as('app_search') %}
-			<div class="llb-blue-container-card-container">
-				{% for tutorial in tutorials %}
-					{% include "tutorial/_card.html.twig" %}
-				{% endfor %}
-			</div>
+                <div class="llb-blue-container-card-container">
+                    {% for tutorial in tutorials %}
+                        {% include "tutorial/_card.html.twig" %}
+                    {% endfor %}
+                </div>
 		{% endif %}
 
 	</div>
