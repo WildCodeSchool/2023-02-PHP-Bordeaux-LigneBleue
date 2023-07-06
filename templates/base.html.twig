@@ -60,12 +60,15 @@
                         // Then update the icon
                         .then(data => {
                             const wishlistIcon = wishlistLink.firstElementChild;
+                            console.log(wishlistIcon);
                             if (data.isLiked) {
-                                wishlistIcon.classList.remove("bi-heart"); // Remove the .bi-heart (empty heart) from classes in <i> element
-                                wishlistIcon.classList.add("bi-heart-fill"); // Add the .bi-heart-fill (full heart) from classes in <i> element
+                                wishlistIcon.style.fill = '#0C5395';
+                                // wishlistIcon.classList.remove("bi-heart"); // Remove the .bi-heart (empty heart) from classes in <i> element
+                                // wishlistIcon.classList.add("bi-heart-fill"); // Add the .bi-heart-fill (full heart) from classes in <i> element
                             } else {
-                                wishlistIcon.classList.remove("bi-heart-fill"); // Remove the .bi-heart-fill (full heart) from classes in <i> element
-                                wishlistIcon.classList.add("bi-heart"); // Add the .bi-heart (empty heart) from classes in <i> element
+                                wishlistIcon.style.fill = '#dddddd';
+                                // wishlistIcon.classList.remove("bi-heart-fill"); // Remove the .bi-heart-fill (full heart) from classes in <i> element
+                                // wishlistIcon.classList.add("bi-heart"); // Add the .bi-heart (empty heart) from classes in <i> element
                             }
                         });
                 } catch (err) {
