@@ -13,12 +13,12 @@
             <button class="llb-button-blue" style="margin-top:-2%">Tuto Espace Perso</button>
             </a>
                 <a href="{{ path('app_user_edit_avatar', {'id': user.id}) }}" style="text-decoration: none">
-                <button class="llb-button-blue">Modifier son avatar</button>
+                <button class="llb-button-blue" style="margin-top:-2%">Modifier son avatar</button>
             </a>
             </div>
         </div>
         {% if user.avatar is not null %}
-            <img class="llb-avatarOfUser" src="{{ asset('build/images/' ~ user.avatar) }}" alt="Avatar" style="margin-left:2%">
+            <img class="llb-avatarOfUser" src="{{ asset('build/images/' ~ user.avatar) }}" alt="Avatar">
         {% else %}
             <div style="width:20vw; height:20vw;margin-top:3%; background-color:#FFCB05;">
                 <a href="{{ path('app_user_edit_avatar', {'id': user.id}) }}">

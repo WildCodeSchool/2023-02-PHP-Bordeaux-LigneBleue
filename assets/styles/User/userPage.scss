@@ -49,12 +49,20 @@
 .llb-avatarOfUser{
     width:20vw;
     height:20vw;
-    margin-left:10%;
     margin-top:2%;
 }
 .llb-buttonEdit-Tuto .llb-button-blue{
     margin-top:2%;
     margin-bottom:2%;
+}
+/*          Edit profil                            */
+
+.llb-button-edit-profil{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content:center;
+    align-items:center;
 }
 /*       BLUE STRIP                      */
 .llb-background-light-blue-userPage {
@@ -103,15 +111,7 @@
     bottom: 0;
     right: 0;
 }
-/*          Edit profil                            */
 
-.llb-button-edit-profil{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-content:center;
-    align-items:center;
-}
 /*             Blue container           */
 .llb-blue-container-userShow {
     color: white;
@@ -128,7 +128,7 @@
 }
 .llb-title-tutoIsStarted{
     margin-bottom:5%;
-    font-family: 'Baloo 2';
+    font-family: 'Slicker', sans-serif;
 }
 
 /*     Choices of avatar                     */
@@ -155,9 +155,9 @@
 }
 
 
-/*      Media Query        */
+/*      TABLETTE        */
 
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 1100px) {
     .llb-button-white-UP {
         font-size:10px;
     }
@@ -176,57 +176,41 @@
     a .llb-button-blue{
         font-size:12px;
     }
-}
-@media screen and (max-width: 900px) {
-    .llb-button-white-UP {
-        font-size:10px;
-    }
     .llb-welcome-title{
         font-size:x-large;
     }
-    .llb-welcomeText-userPage{
-        font-size:12px;
-    }
     .llb-cardConnect .llb-button-yellow{
-        width: 20vw;
-        height:15%;
+        width:55%;
+        height:5vh;
     }
     .llb-cardConnect a .llb-button-yellow{
         font-size:14px;
+        width:55%;
     }
     .llb-title-cards3-userPage{
         font-size:16px;
     }
 }
-@media screen and (max-width: 780px) {
-    .llb-tuto-userPage{
-        display:none;
-    }
-    .llb-display-small {
-        display: flex;
-    }
-    .phone-slider-container{
-        display:block;
-    }
-    .llb-liked-card {
-        width: 90%;
-        margin: 5% auto;
-        padding: 2%;
-    }
-}
 
-@media screen and (max-width: 480px) {
+
+/*          PHONE            */
+@media screen and (max-width: 700px) {
     .llb-welcome-userPage {
-        height: 55vh;
-        background-size: 150%;
-        margin-right: 0;
-        margin-bottom: -15%;
+        height: 70vh;
+        background-size: 180vh;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 18vh;
+        margin-left: 10%;
     }
     .llb-welcomeText-userPage {
-        font-size: 12px;
+        font-size: 13px;
+        margin-bottom:5%;
     }
     .llb-welcome-title {
-        font-size: x-large;
+        font-size: xx-large;
     }
     .llb-buttonEdit-Tuto {
         display: flex;
@@ -235,13 +219,6 @@
     }
     .llb-buttonEdit-Tuto .llb-button-blue {
         max-width: 40vw;
-    }
-    .avatar-userPage {
-        width: 40vw;
-        height: 40vw;
-        margin-left: 0;
-        margin-right: 30%;
-        margin-top: 10%;
     }
     .llb-leftPart-userPage .llb-button-blue {
         margin-top: 15%;
@@ -269,11 +246,6 @@
         justify-content: center;
         align-items: center;
     }
-    .llb-avatarOfUser {
-        width: 45vw;
-        height: 55vw;
-        margin-left: -5%;
-    }
     .llb-leftPart-userPage .llb-button-blue {
         width: 40vw;
         margin-top: -2%;
@@ -287,15 +259,22 @@
         margin-top: -3%;
         height: 10vw;
     }
-    .llb-img-cardsUserPage{
+    .llb-img-cardsUserPage {
         height: 10vh;
     }
-
+    .llb-tutoCardIsStarted{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+        margin-left:0;
     }
-@media screen and (max-width: 400px) {
-    .llb-welcome-userPage {
-        height: 60vh;
-        background-size: 170%;
+    .llb-blue-container-userShow div{
+        width:70vw;
+        margin-bottom:3vh;
+        margin-top:4vh;
+    }
+    .llb-title-tutoIsStarted{
+        font-size:22px;
     }
 }
-
