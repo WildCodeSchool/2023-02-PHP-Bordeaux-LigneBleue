@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\FilterFormType;
+use App\Form\SearchBarType;
 use App\Repository\TutorialRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -26,7 +27,7 @@ class SearchController extends AbstractController
         }
 
         $filters = $session->get("filters");
-        $tutorials = $tutorialRepository->searchTutorials($userInput, $filters);
+        $tutorials = $tutorialRepository->searchTutorials($userInput, $filters, null);
 
         return $this->render('search/index.html.twig', [
             'userInput' => $userInput,
@@ -38,21 +39,7 @@ class SearchController extends AbstractController
     #[Route('/search/form', name: 'app_search_form')]
     public function renderSearchForm(Request $request): Response
     {
-        $searchForm = $this->createFormBuilder()
-            ->add("search", TextType::class, [
-                'label' => false,
-                'csrf_protection' => false,
-                'attr' => [
-                    'class' => 'form-control llb_navbar_search_form',
-                    'placeholder' => 'Je cherche une formation',
-                    'aria-label' => "Search",
-                    'type' => "search"
-                ],
-            ])
-            ->setMethod('GET')
-            ->setAction("/search/form")
-            ->getForm();
-
+        $searchForm = $this->createForm(SearchBarType::class);
         $searchForm->handleRequest($request);
 
         if ($searchForm->isSubmitted() && $searchForm->isValid()) {
@@ -66,9 +53,7 @@ class SearchController extends AbstractController
             return $this->redirectToRoute("app_search");
         }
 
-        return $this->render('search/_form.html.twig', [
-            'searchForm' => $searchForm
-        ]);
+        return $this->render("components/SearchBar.html.twig");
     }
 
     #[Route("/search/ResetFilters", name: "app_search_reset_filters")]
@@ -95,21 +80,13 @@ class SearchController extends AbstractController
     }
 
     #[Route("/search/test", name: "app_search_type")]
-    public function test(Request $request): Response
+    public function test(): Response
     {
-        $filterForm = $this->createForm(FilterFormType::class);
+        // $searchForm = $this->createForm(SearchBarType::class);
 
-        $filterForm->handleRequest($request);
-
-        if ($filterForm->isSubmitted()) {
-            dd($filterForm->getData());
-        }
-
-        return $this->render(
-            "search/test.html.twig",
-            [
-                "filterForm" => $filterForm
-            ]
-        );
+        return $this->render("search/test.html.twig", [
+            // "form" => $searchForm,
+            // "test" => "heeey"
+        ]);
     }
 }
