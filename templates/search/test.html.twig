@@ -1,0 +1,52 @@
+<div class="llb-filter-bar-container">
+
+	<div class="form-check form-switch llb-filter-bar-switch">
+		{{ form_widget(filterForm.Complete)}}
+		{{ form_label(filterForm.Complete) }}
+	</div>
+
+	<div class="form-check form-switch llb-filter-bar-switch">
+		{{ form_widget(filterForm.Favoris)}}
+		{{ form_label(filterForm.Favoris) }}
+	</div>
+
+	<div class="dropdown show llb-filter-bar-dropdown">
+		<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			{{ field_label(filterForm.Category) }}
+		</a>
+
+		<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+			{% for label, value in field_choices(filterForm.Category) %}
+				<a class="dropdown-item" href={{ path("app_search_addFilter", {"filterRaw": "category_" ~ value} )}}>{{ label }}</a>
+			{% endfor %}
+		</div>
+	</div>
+
+	<div class="dropdown show llb-filter-bar-dropdown">
+		<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			{{ field_label(filterForm.Theme) }}
+		</a>
+
+		<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+			{% for label, value in field_choices(filterForm.Theme) %}
+				<a class="dropdown-item" href={{ path("app_search_addFilter", {"filterRaw": "theme_" ~ value} )}}>{{ label }}</a>
+			{% endfor %}
+		</div>
+	</div>
+
+	<div class="dropdown show llb-filter-bar-dropdown">
+		<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			{{ field_label(filterForm.Tag) }}
+		</a>
+
+		<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+			{% for label, value in field_choices(filterForm.Tag) %}
+				<a class="dropdown-item" href={{ path("app_search_addFilter", {"filterRaw": "tag_" ~ value} )}}>{{ label }}</a>
+			{% endfor %}
+		</div>
+	</div>
+
+	<a href={{ path("app_search_reset_filters")}}>
+		<button type="button" class="btn btn-outline-light">Reset</button>
+	</a>
+</div>

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\FilterFormType;
 use App\Repository\TutorialRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -18,6 +19,7 @@ class SearchController extends AbstractController
     ): Response {
         $session = $request->getSession();
         $userInput = $session->get("userInput");
+        $filterForm = $this->createForm(FilterFormType::class);
 
         if (!$userInput) {
             return $this->render('search/index.html.twig');
@@ -29,6 +31,7 @@ class SearchController extends AbstractController
         return $this->render('search/index.html.twig', [
             'userInput' => $userInput,
             'tutorials' => $tutorials,
+            "filterForm" => $filterForm
         ]);
     }
 
@@ -82,11 +85,31 @@ class SearchController extends AbstractController
     public function addFilter(Request $request, string $filterRaw): Response
     {
         $filterArray = explode("_", $filterRaw);
+
         $session = $request->getSession();
         $filters = $session->get("filters");
         $filters[$filterArray[0]] = $filterArray[1];
         $session->set("filters", $filters);
 
         return $this->redirectToRoute("app_search");
+    }
+
+    #[Route("/search/test", name: "app_search_type")]
+    public function test(Request $request): Response
+    {
+        $filterForm = $this->createForm(FilterFormType::class);
+
+        $filterForm->handleRequest($request);
+
+        if ($filterForm->isSubmitted()) {
+            dd($filterForm->getData());
+        }
+
+        return $this->render(
+            "search/test.html.twig",
+            [
+                "filterForm" => $filterForm
+            ]
+        );
     }
 }
