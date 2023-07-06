@@ -78,15 +78,4 @@ class SearchController extends AbstractController
 
         return $this->redirectToRoute("app_search");
     }
-
-    #[Route("/search/test", name: "app_search_type")]
-    public function test(): Response
-    {
-        // $searchForm = $this->createForm(SearchBarType::class);
-
-        return $this->render("search/test.html.twig", [
-            // "form" => $searchForm,
-            // "test" => "heeey"
-        ]);
-    }
 }
