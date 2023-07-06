@@ -34,9 +34,12 @@
 .llb-button-red {
     background-color: #FF5F4E;
     color: white;
-    padding: 2vh;
     border-radius: 6px;
-
+    border: solid 1px #FF1501;
+    padding-left  : 2vw;
+    padding-right: 2vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
 }
 
 .llb-button-red:hover {

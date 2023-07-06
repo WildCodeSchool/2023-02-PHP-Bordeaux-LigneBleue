@@ -202,8 +202,16 @@
     .llb-tuto-userPage{
         display:none;
     }
+    .llb-display-small {
+        display: flex;
+    }
     .phone-slider-container{
         display:block;
+    }
+    .llb-liked-card {
+        width: 90%;
+        margin: 5% auto;
+        padding: 2%;
     }
 }
 
@@ -279,7 +287,11 @@
         margin-top: -3%;
         height: 10vw;
     }
-}
+    .llb-img-cardsUserPage{
+        height: 10vh;
+    }
+
+    }
 @media screen and (max-width: 400px) {
     .llb-welcome-userPage {
         height: 60vh;
