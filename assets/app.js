@@ -15,6 +15,8 @@ const $ = require('jquery');
 // the bootstrap module doesn't export/return anything
 require('bootstrap');
 
+import './script/tuto.js'
+
 // start the Stimulus application
 import './bootstrap';
 
