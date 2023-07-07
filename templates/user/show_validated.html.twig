@@ -36,12 +36,12 @@
     <section class="llb-tuto-userPage llb-display-small">
         <div class=" llb-background-blue mt-5">
             <h1 class="llb-title-tutoIsStarted text-white text-center">Mes formations sauvegardées</h1>
-            <div class="card-wrapper container-sm d-flex flex-wrap p-2">
+            <div class="card-wrapper container-sm d-flex flex-wrap p-2 justify-content-center">
             {% if utLiked %}
                 {% for utLikedOne in utLiked %}
                     <div class="llb-liked-card">
                         <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top position-relative rounded-top" alt="..." style="height:25vh">
-                        <div class="card-body w-100">
+                        <div class="card-body d-flex flex-column justify-content-between w-100">
                             <div class="d-flex align-items-center justify-content-center w-100">
                             <h5 class="card-title mb-3 mt-3">{{ utLikedOne.tutorial.title }}</h5>
                             <a href="{{ path('app_tutorial_like', {'slug': utLikedOne.tutorial.slug})}}" id="wishlist" onclick="addToWishlist(event)">
