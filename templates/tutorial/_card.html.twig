@@ -3,14 +3,18 @@
     <div class="card-body llb-tutorial-card-body">
         <h6>{{ tutorial.theme.category.categoryTitle }} - {{ tutorial.theme.title }}</h6>
         <h3>{{tutorial.title}}</h3>
-        {% for tag in tutorial.tags %}
-            {% include "tag/_badge.html.twig" %}
-        {% endfor %}
-        {% if app.user %}
-            <a href="{{ path('app_tutorial_like', {'slug': tutorial.slug}) }}" id="wishlist" onclick="addToWishlist(event)">
-                <i class="bi {{ app.user.isInUserTutorialLiked(tutorial.title) ? 'bi-heart-fill' : 'bi-heart' }}" style="font-size: 1.5rem; color:$llb-blue;"></i>
-            </a>
-        {% endif %}
+        <div class="d-flex justify-content-center mt-2 mb-3">
+            {% for tag in tutorial.tags %}
+                {% include "tag/_badge.html.twig" %}
+            {% endfor %}
+            {% if app.user %}
+                <a href="{{ path('app_tutorial_like', {'slug': tutorial.slug}) }}" style="margin-left: 4%;" id="wishlist" onclick="addToWishlist(event)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.5vw" height="1.5w" fill="{{ app.user.isInUserTutorialLiked(tutorial.title) ? '#0C5395' : '#dddddd' }}" class="bi bi-heart" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                    </svg>
+                </a>
+            {% endif %}
+        </div>
         <p class="card-text">{{ tutorial.objective }}</p>
         <a href="{{ path("app_tutorial_show", {"slug": tutorial.slug} )}}" class="btn btn-primary llb-button-yellow llb-tutorial-card-button">Commencer</a>
     </div>

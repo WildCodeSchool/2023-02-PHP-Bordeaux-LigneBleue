@@ -28,13 +28,13 @@
 					<button class="btn me-2 llb-navbar-button" type="button">Inscription</button>
 				</a>
 
-				<a href={{ path("app_login") }}>
-					<button class="btn me-2 llb-navbar-button" type="button">Connexion</button>
-				</a>
-			{% endif %}
-			<a href="">
-				<button class="btn me-2 llb-navbar-button" id="llb-navbar-contact" type="button">Contactez-nous</button>
-			</a>
-		</div>
-	</div>
+                <a href={{ path("app_login") }}>
+                    <button class="btn btn-outline-success me-2 llb-navbar-button" type="button">Connexion</button>
+                </a>
+            {% endif %}
+            <a href="{{ path("admin") }}">
+                <button class="btn btn-outline-success me-2 llb-navbar-button" id="llb-navbar-contact" type="button">Contactez-nous</button>
+            </a>
+        </div>
+    </div>
 </nav>

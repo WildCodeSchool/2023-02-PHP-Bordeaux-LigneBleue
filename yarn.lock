@@ -1174,6 +1174,11 @@
 "@symfony/ux-live-component@file:vendor/symfony/ux-live-component/assets":
   version "1.0.0"
   resolved "file:vendor/symfony/ux-live-component/assets"
+
+"@symfony/webpack-encore@^4.0.0":
+  version "4.1.1"
+  resolved "https://registry.npmjs.org/@symfony/webpack-encore/-/webpack-encore-4.1.1.tgz"
+  integrity sha512-uZRXej1prTvYG/QJWR/DzKcZtBKEXDkGtK9qlQtO43ip8t8NIZmM+w8qeb4eiS7aoULWmpG7GpQOLWPhsccUDA==
   dependencies:
     morphdom "^2.6.1"
 
