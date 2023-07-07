@@ -130,8 +130,8 @@ class DashboardController extends AbstractDashboardController
         $chartSmartphoneLiked = $this->chartService->createChartCategory('Smartphone', 'isLiked', 'green');
         $chartOrdinateurLiked = $this->chartService->createChartCategory('Ordinateur', 'isLiked', 'red');
         $chartAutresLiked = $this->chartService->createChartCategory('Autres', 'isLiked', 'blue');
-        $chartSmartphoneStarted = $this->chartService->createChartCategory('Smartphone', 'isStarted', 'green');
-        $chartOrdinateurStarted = $this->chartService->createChartCategory('Ordinateur', 'isStarted', 'red');
+        $chartSmartphoneStart = $this->chartService->createChartCategory('Smartphone', 'isStarted', 'green');
+        $chartOrdinateurStart = $this->chartService->createChartCategory('Ordinateur', 'isStarted', 'red');
         $chartAutresStarted = $this->chartService->createChartCategory('Autres', 'isStarted', 'blue');
 
         return [
@@ -140,8 +140,8 @@ class DashboardController extends AbstractDashboardController
             'chartSmartphoneLiked' => $chartSmartphoneLiked,
             'chartOrdinateurLiked' => $chartOrdinateurLiked,
             'chartAutresLiked' => $chartAutresLiked,
-            'chartSmartphoneStarted' => $chartSmartphoneStarted,
-            'chartOrdinateurStarted' => $chartOrdinateurStarted,
+            'chartSmartphoneStarted' => $chartSmartphoneStart,
+            'chartOrdinateurStarted' => $chartOrdinateurStart,
             'chartAutresStarted' => $chartAutresStarted,
         ];
     }
