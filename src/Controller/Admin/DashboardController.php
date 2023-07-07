@@ -10,11 +10,7 @@ use App\Entity\Tag;
 use App\Entity\Theme;
 use App\Entity\Tutorial;
 use App\Entity\User;
-use App\Repository\CategoryRepository;
-use App\Repository\ThemeRepository;
-use App\Repository\TutorialRepository;
-use App\Repository\UserRepository;
-use App\Repository\UserTutorialRepository;
+use App\Service\ChartService;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
@@ -27,31 +23,18 @@ use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
 use Symfony\UX\Chartjs\Model\Chart;
 
 class DashboardController extends AbstractDashboardController
 {
-    private ChartBuilderInterface $chartBuilder;
-    private UserRepository $userRepository;
-    private CategoryRepository $categoryRepository;
-    private ThemeRepository $themeRepository;
-    private UserTutorialRepository $userTutorialRepository;
+    private ChartService $chartService;
 
     /**
-     * @param ChartBuilderInterface $chartBuilder
-     * @param UserRepository $userRepository
-     * @param CategoryRepository $categoryRepository
-     * @param ThemeRepository $themeRepository
-     * @param UserTutorialRepository $userTutorialRepository
+     * @param ChartService $chartService
      */
-    public function __construct(ChartBuilderInterface $chartBuilder, UserRepository $userRepository, CategoryRepository $categoryRepository, ThemeRepository $themeRepository, UserTutorialRepository $userTutorialRepository)
+    public function __construct(ChartService $chartService)
     {
-        $this->chartBuilder = $chartBuilder;
-        $this->userRepository = $userRepository;
-        $this->categoryRepository = $categoryRepository;
-        $this->themeRepository = $themeRepository;
-        $this->userTutorialRepository = $userTutorialRepository;
+        $this->chartService = $chartService;
     }
 
     #[Route('/admin', name: 'admin')]
@@ -61,14 +44,19 @@ class DashboardController extends AbstractDashboardController
 
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
-        $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
+//        $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
 
 //        return $this->redirect($adminUrlGenerator->setController(CategoryCrudController::class)->generateUrl());
         return $this->render('admin/index.html.twig', [
-            'chart1' => $charts['chart1'],
-            'chart2' => $charts['chart2'],
-            'chart3' => $charts['chart3'],
-            ]);
+            'chartGender' => $charts['chartGender'],
+            'chartAge' => $charts['chartAge'],
+            'chartSmartphoneLiked' => $charts['chartSmartphoneLiked'],
+            'chartOrdinateurLiked' => $charts['chartOrdinateurLiked'],
+            'chartAutresLiked' => $charts['chartAutresLiked'],
+            'chartSmartphoneStarted' => $charts['chartSmartphoneStarted'],
+            'chartOrdinateurStarted' => $charts['chartOrdinateurStarted'],
+            'chartAutresStarted' => $charts['chartAutresStarted'],
+        ]);
 
 
         // Option 2. You can make your dashboard redirect to different pages depending on the user
@@ -93,11 +81,11 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-/*        yield MenuItem::linkToUrl(
-            'Statistiques',
-            "fa-sharp fa-solid fa-chart-simple",
-            $this->generateUrl('app_chart')
-        );*/
+        /*        yield MenuItem::linkToUrl(
+                    'Statistiques',
+                    "fa-sharp fa-solid fa-chart-simple",
+                    $this->generateUrl('app_chart')
+                );*/
         yield MenuItem::linkToCrud('Catégories', 'fas fa-1', Category::class);
         yield MenuItem::linkToCrud('Thèmes', 'fas fa-2', Theme::class);
         yield MenuItem::linkToCrud('Formations', 'fas fa-3', Tutorial::class);
@@ -106,7 +94,11 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Quiz', 'fas fa-medal', Quiz::class);
         yield MenuItem::linkToCrud('Questions', 'fas fa-question', Question::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-users', User::class);
-        yield MenuItem::linkToUrl('Retour au site', 'fas fa-sharp fa-light fa-arrow-left', $this->generateUrl('app_home'));
+        yield MenuItem::linkToUrl(
+            'Retour au site',
+            'fas fa-sharp fa-light fa-arrow-left',
+            $this->generateUrl('app_home')
+        );
     }
 
     public function configureActions(): Actions
@@ -130,84 +122,27 @@ class DashboardController extends AbstractDashboardController
             ->addWebpackEncoreEntry('admin');
     }
 
-    #[Route('/chart', name: 'app_chart')]
     public function createCharts(): array
     {
-        $chart1 = $this->chartBuilder->createChart(Chart::TYPE_DOUGHNUT);
+        $chartGender = $this->chartService->createChartGender();
+        $chartAge = $this->chartService->createChartAge();
+//        $chartSmartphoneLiked = $this->chartService->createChartCategoryTwoTypes('Smartphone');
+        $chartSmartphoneLiked = $this->chartService->createChartCategory('Smartphone', 'isLiked', 'green');
+        $chartOrdinateurLiked = $this->chartService->createChartCategory('Ordinateur', 'isLiked', 'red');
+        $chartAutresLiked = $this->chartService->createChartCategory('Autres', 'isLiked', 'blue');
+        $chartSmartphoneStarted = $this->chartService->createChartCategory('Smartphone', 'isStarted', 'green');
+        $chartOrdinateurStarted = $this->chartService->createChartCategory('Ordinateur', 'isStarted', 'red');
+        $chartAutresStarted = $this->chartService->createChartCategory('Autres', 'isStarted', 'blue');
 
-        $sumHomme = count($this->userRepository->findBy(['gender' => 'homme',]));
-        $sumFemme = count($this->userRepository->findBy(['gender' => 'femme',]));
-        $sumNB = count($this->userRepository->findBy(['gender' => 'non-binaire',]));
-
-        $chart1->setData([
-            'labels' => ['Homme', 'Femme', 'Non binaire'],
-            'datasets' => [
-                [
-                    'backgroundColor' => ['#0C5395', '#6e0c37', '#457a4d'],
-                    'data' => [$sumHomme, $sumFemme, $sumNB],
-                ],
-            ],
-        ]);
-
-        $chart2 = $this->chartBuilder->createChart(Chart::TYPE_BAR);
-
-        $firstAgeSection = count($this->userRepository->findByAge(0, 25));
-        $secondAgeSection = count($this->userRepository->findByAge(25, 45));
-        $thirdAgeSection = count($this->userRepository->findByAge(45, 60));
-        $fourthAgeSection = count($this->userRepository->findByAge(60, 200));
-
-        $chart2->setData([
-            'labels' => ['0-25 ans', '25-45 ans', '45-60 ans', '60 ans et plus'],
-            'datasets' => [
-                [
-                    'indexAxis' => 'y',
-                    'backgroundColor' => ['#1a7cd9', '#135ea4', '#0b3d6c', '#072949'],
-                    'hoverBackgroundColor' => ['#FFCB05'],
-                    'data' => [$firstAgeSection, $secondAgeSection, $thirdAgeSection, $fourthAgeSection],
-                ],
-            ],
-        ]);
-
-        $chart3 = $this->chartBuilder->createChart(Chart::TYPE_BAR);
-
-        $catSmartphone = $this->categoryRepository->findOneBy(['categoryTitle' => 'Smartphone',]);
-        $smartphoneThemes = $this->themeRepository->findBy(['category' => $catSmartphone]);
-        $smartphoneThemesTitles = [];
-        foreach ($smartphoneThemes as $smartphoneTheme) {
-            $smartphoneThemesTitles[] = $smartphoneTheme->getTitle();
-        }
-
-        $tutorialLiked = $this->userTutorialRepository->findBy(['isLiked' => true]);
-
-        $dataTutorialLiked = [];
-        foreach ($tutorialLiked as $tutorial) {
-            if (!isset($dataTutorialLiked[$tutorial->getTutorial()->getTheme()->getTitle()])) {
-                $dataTutorialLiked[$tutorial->getTutorial()->getTheme()->getTitle()] = 1;
-            } else {
-                $dataTutorialLiked[$tutorial->getTutorial()->getTheme()->getTitle()] += 1;
-            }
-        }
-
-        $dataGlobal = [];
-        foreach ($smartphoneThemesTitles as $smartphoneThemesTitle) {
-            if (array_key_exists($smartphoneThemesTitle, $dataTutorialLiked)) {
-                $dataGlobal[] = $dataTutorialLiked[$smartphoneThemesTitle];
-            } else {
-                $dataGlobal[] = 0;
-            }
-        }
-
-//        dd($dataGlobal);
-
-        $chart3->setData([
-            'labels' => [$smartphoneThemesTitles],
-            'datasets' => [
-                [
-                    'data' => [$dataGlobal],
-                ],
-            ],
-        ]);
-
-        return ['chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3];
+        return [
+            'chartGender' => $chartGender,
+            'chartAge' => $chartAge,
+            'chartSmartphoneLiked' => $chartSmartphoneLiked,
+            'chartOrdinateurLiked' => $chartOrdinateurLiked,
+            'chartAutresLiked' => $chartAutresLiked,
+            'chartSmartphoneStarted' => $chartSmartphoneStarted,
+            'chartOrdinateurStarted' => $chartOrdinateurStarted,
+            'chartAutresStarted' => $chartAutresStarted,
+        ];
     }
 }
