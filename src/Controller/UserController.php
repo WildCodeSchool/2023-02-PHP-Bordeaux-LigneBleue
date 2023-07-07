@@ -122,14 +122,13 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}/tutorial_completed', name: '_tutorial_completed')]
-    public function tutorialCompleted(User $user, UserRepository $userRepository, Tutorial $tutorial): Response
+    public function tutorialCompleted(User $user, UserRepository $userRepository): Response
     {
         $userTutorials = $userRepository->findUserTutorialsIsValidated($user);
 
         return $this->render('user/tuto_completed.html.twig', [
             'user' => $user,
             'userTutorials' => $userTutorials,
-            'tutorial' => $tutorial,
         ]);
     }
 }
