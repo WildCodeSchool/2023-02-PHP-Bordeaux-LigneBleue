@@ -127,22 +127,22 @@ class TutorialController extends AbstractController
     ): Response {
 
         $user = $this->getUser();
-        $userTutorial = $utRepository->findOne($user, $tutorial);
-        if ($userTutorial) {
-            if (false === $userTutorial->getIsStarted()) {
-                $userTutorial->setIsStarted(true);
+        if ($user) {
+            $userTutorial = $utRepository->findOne($user, $tutorial);
+            if ($userTutorial) {
+                if (false === $userTutorial->getIsStarted()) {
+                    $userTutorial->setIsStarted(true);
+                }
+            } else {
+                $userTutorial = new UserTutorial(true, false, false);
+                $userTutorial->setUser($this->getUser());
+                $userTutorial->setTutorial($tutorial);
+                $user->addUserTutorial($userTutorial);
             }
-        } else {
-            $userTutorial = new UserTutorial(true, false, false);
-            $userTutorial->setUser($this->getUser());
-            $userTutorial->setTutorial($tutorial);
-            $user->addUserTutorial($userTutorial);
-            ;
+            $userTutorial->setUpdatedAt(new \DateTime('now'));
+            $utRepository->save($userTutorial, true);
+            $userRepository->save($user, true);
         }
-        $userTutorial->setUpdatedAt(new \DateTime('now'));
-        $utRepository->save($userTutorial, true);
-        $userRepository->save($user, true);
-
         return $this->json([
             'isStarted' => true,
         ]);

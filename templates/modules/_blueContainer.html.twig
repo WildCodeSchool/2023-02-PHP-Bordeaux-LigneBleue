@@ -1,12 +1,12 @@
 {# REFACTOR THIS BITCH PLZ #}
-
-<div class="llb-blue-container" style="margin-top:3%">
+<div class="llb-blue-container">
+    <div id="swup">
     {% if app.request.attributes.get('_route') is same as('app_category_index') %}
         <div class="llb-blue-container-title">
             <h1>Trouvez votre formation</h1>
-            <p>Choisissez une catégorie parmi les suivantes :</p>
+            <h2 class="mt-2 mb-2">Choisissez une catégorie :</h2>
         </div>
-        <div class="llb-blue-container-card-container">
+        <div class="llb-blue-container-card-container mt-4">
             {% for category in categories %}
                 {% include "/category/_card.html.twig" %}
             {% endfor %}
@@ -17,12 +17,17 @@
         <div class="llb-blue-container-title">
             <h1>Catégorie :
                 {{ category.categoryTitle }}</h1>
-            <p>Choisissez un thème :</p>
+            <h2 class="mt-2 mb-2">Choisissez un thème :</h2>
         </div>
-        <div class="llb-blue-container-card-container">
+        <div class="llb-blue-container-card-container mt-4">
             {% for theme in category.themes %}
                 {% include "/theme/_card.html.twig" %}
             {% endfor %}
+            <div class="d-flex justify-content-center w-100 mt-4">
+                <a class="llb-backButton" href={{ path('app_category_index')}}>
+                    <button class="llb-button-blue" type="button">Retour à l'ensemble des catégories</button>
+                </a>
+            </div>
         </div>
     {% endif %}
 
@@ -37,11 +42,16 @@
                 {% include "tutorial/_card.html.twig" %}
             {% endfor %}
         </div>
+        <div class="d-flex justify-content-center w-100 mt-4">
+            <a class="llb-backButton" href={{ path("app_category_show", {"slug": theme.category.slug})}}>
+                <button class="llb-button-blue" type="button">Retour aux thèmes de la catégorie {{ theme.category.slug }}</button>
+            </a>
+        </div>
     {% endif %}
 
     {% if app.request.attributes.get('_route') is same as('app_tutorial_index') %}
         <div class="llb-blue-container-title">
-            <h1>Toutes les Formations :</h1>
+            <h1>Toutes les formations :</h1>
         </div>
         <div class="llb-blue-container-card-container">
             {% for tutorial in tutorials %}
@@ -57,5 +67,5 @@
             {% endfor %}
         </div>
     {% endif %}
-
+    </div>
 </div>

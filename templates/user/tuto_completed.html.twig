@@ -4,9 +4,43 @@
 {% endblock %}
 
 {% block body %}
+    <section class="llb-cards-userPage">
+        <div class="llb-cardConnect d-flex flex-column p-4">
+            <h5 class="llb-title-cards3-userPage">Mes informations personnelles</h5>
+            <a class="nav-link text-warning" href="{{ path('app_user_edit', {"id": app.user.id}) }}">
+                <button class="llb-button-yellow" style="margin-top: 10%; margin-left: 5%; width:60%">Voir</button>
+            </a>
+            <div class="llb-img-container">
+                <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme.png') }}">
+            </div>
+        </div>
+
+        <div class="llb-cardConnect d-flex flex-column p-4">
+            <h5 class="llb-title-cards3-userPage">Mes formations sauvegardées</h5>
+            <a class="nav-link text-warning" href="{{ path('app_user_show_valid') }}">
+                <button class="llb-button-yellow" style="margin-top: 10%; margin-left: 5%; width:60%">Voir</button>
+            </a>
+            <div class="llb-img-container">
+                <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme2.png') }}">
+            </div>
+        </div>
+
+        <div class="llb-cardConnect d-flex flex-column p-4" style="background-color: #D6E3E7">
+            <h5 class="llb-title-cards3-userPage">Mes formations terminées</h5>
+            <div class="llb-img-container">
+                <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme.png') }}">
+            </div>
+        </div>
+    </section>
+
 <div class="llb-blue-container" style="margin-top:3%">
+    <h1 class="llb-title-tutoIsStarted text-white text-center">Mes formations terminées</h1>
     {% if userTutorials is empty %}
-    <h2 style="text-align: center">Vous n'avez pas encore de formation terminée !</h2>
+        <div class="d-flex flex-column justify-content-center align-items-center w-100">
+            <h3 class="text-white">Vous n'avez pas encore terminé de formation.</h3>
+            <h3 class="text-white">Retrouvez toutes les formations en cliquant <a class="text-white" href="{{ path('app_category_index') }}">ici</a></h3>
+        </div>
+{#    <h2 style="text-align: center">Vous n'avez pas terminé de formation !</h2>#}
     {% endif %}
 {% if userTutorials is not empty %}
     <h2>Formations terminées :</h2>
@@ -18,4 +52,9 @@
     </ul>
 {% endif %}
 </div>
+    <div class="d-flex justify-content-center w-100 mt-4">
+        <a class="llb-backButton" href={{ path('app_user_show', {"id": app.user.id})}}>
+            <button class="llb-button-blue" type="button">Retour au profil</button>
+        </a>
+    </div>
 {% endblock %}

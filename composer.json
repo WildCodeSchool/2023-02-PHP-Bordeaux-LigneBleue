@@ -45,6 +45,7 @@
         "symfony/twig-bundle": "6.2.*",
         "symfony/ux-autocomplete": "^2.9",
         "symfony/ux-chartjs": "^2.9",
+        "symfony/ux-swup": "^2.10",
         "symfony/ux-twig-component": "^2.9",
         "symfony/validator": "6.2.*",
         "symfony/web-link": "6.2.*",
