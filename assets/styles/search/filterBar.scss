@@ -1,10 +1,10 @@
 .llb-filter-bar-container {
     background-color: $llb-blue;
-    margin: 3%;
+    margin: 3% auto;
     border-radius: 16px;
-    margin-left: 27.5%;
-    width: 45%;
+    padding: 2%;
     height: 4rem;
+    max-width: 60vw;
     color: white;
     display: flex;
     align-items: center;

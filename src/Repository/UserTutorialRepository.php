@@ -98,7 +98,7 @@ class UserTutorialRepository extends ServiceEntityRepository
             ->setParameter('user', $user)
             ->having('qb.isStarted = true')
             ->orderBy('qb.updatedAt', 'DESC')
-            ->setMaxResults(3)
+            ->setMaxResults(4)
             ->getQuery()
             ->getResult()
             ;

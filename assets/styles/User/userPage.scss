@@ -1,14 +1,23 @@
 .llb-welcome-userPage{
     width:80vw;
-    height:25vw;
+    //height:25vw;
     margin: 5% auto 5% auto;
     background-image: url("../../images/welcome-user.jpeg");
     background-size:100%;
     background-repeat: no-repeat;
-    padding-left: 2.5vw;
+    padding: 2.5vw;
     display: flex;
     flex-direction: row;
     border-radius:16px;
+}
+
+.llb-background-blue {
+    width: 80vw;
+    padding: 2%;
+    border-radius: 16px;
+    background-color: $llb-blue;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .llb-leftPart-userPage{
@@ -124,7 +133,7 @@
 .llb-tutoCardIsStarted{
     display:flex;
     flex-direction:row;
-    justify-content:space-between;
+    justify-content:center;
 }
 .llb-title-tutoIsStarted{
     margin-bottom:5%;
