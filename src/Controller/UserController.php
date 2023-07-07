@@ -51,20 +51,27 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}', name: '_show', methods: ['GET'])]
-    public function show(User $user, UserTutorialRepository $utRepository, Tutorial $tutorial): Response
-    {
-/*        if ($this->getUser()) {
-            if (in_array('ROLE_SUPER_ADMIN', $this->getUser()->getRoles())) {
-                return $this->redirectToRoute('admin');
-            }*/
+    public function show(
+        User $user,
+        UserTutorialRepository $utRepository,
+        TutorialRepository $tutorialRepository,
+    ): Response {
+        $user = $this->getUser();
+        $utStarted = $utRepository->findThreeLastStarted($user);
+        $allUserTutorials = $utRepository->findAllByUser($user);
+        $allTutorials = $tutorialRepository->findAll();
+        $allTutorialsLessUT = array_diff($allTutorials, $allUserTutorials);
+        $randomKeys = array_rand($allTutorialsLessUT, 3);
+        $associatedTutorials = [];
+        for ($i = 0; $i < 3; $i++) {
+            $associatedTutorials[] = $allTutorialsLessUT[$randomKeys[$i]];
+        }
 
-            $user = $this->getUser();
-            $utStarted = $utRepository->findThreeLastStarted($user);
-            return $this->render('user/show.html.twig', [
-                'user' => $user,
-                'utStarted' => $utStarted,
-                'tutorial' => $tutorial
-            ]);
+        return $this->render('user/show.html.twig', [
+            'user' => $user,
+            'utStarted' => $utStarted,
+            'associatedTutorials' => $associatedTutorials,
+        ]);
     }
 
     #[Route('/{id/formations-enregistrees}', name: '_show_valid', methods: ['GET'])]
