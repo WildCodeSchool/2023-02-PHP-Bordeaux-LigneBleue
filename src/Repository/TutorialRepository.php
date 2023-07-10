@@ -65,12 +65,16 @@ class TutorialRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    public function searchTutorials(string $userInput, ?array $filters): array
+    public function searchTutorials(string $userInput, ?array $filters, ?int $limit): array
     {
         $qb = $this->createQueryBuilder('tutorial')
             ->where("tutorial.title LIKE :userInput")
             ->setParameter("userInput", "%" . $userInput . "%")
             ->leftJoin("tutorial.theme", "theme");
+
+        if (isset($limit) && !empty($limit)) {
+            $qb->setMaxResults($limit);
+        }
 
 
         if (isset($filters)) {

@@ -1,34 +1,32 @@
 <nav class="navbar navbar-expand-lg llb-navbar">
-    <div class="container-fluid">
+	<div class="container-fluid">
 
-        <a class="navbar-brand llb-navbar-brand" href="/">
-            <img class="d-inline-block align-text-top" src={{ asset(icons_path ~ "LLB_Logo_White.png")}} alt="" width="30" height="30">
-            La Ligne Bleue
-        </a>
+		<a class="navbar-brand llb-navbar-brand" href="/">
+			<img class="d-inline-block align-text-top" src={{ asset(icons_path ~ "LLB_Logo_White.png")}} alt="" width="30" height="30">
+			La Ligne Bleue
+		</a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-        {{ render(controller(
-            'App\\Controller\\SearchController::renderSearchForm'
-        )) }}
+		{{ component("SearchBar") }}
 
-        <div class="llb-navbar-buttons-container">
-            <a href={{ path("app_category_index") }}>
-                <button class="btn btn-outline-success me-2 llb-navbar-button" type="button">Formations</button>
-            </a>
-            {% if app.user %}
-                <a class="nav-link text-warning" href="{{ path('app_user_show', {"id": app.user.id}) }}">
-                    <button class="btn btn-outline-success me-2 llb-navbar-button" type="button">Profil</button>
-                </a>
-                <a class="nav-link text-warning" href="/logout">
-                    <button class="btn btn-outline-success me-2 llb-navbar-button" type="button">Déconnexion</button>
-                </a>
-            {% else %}
-                <a href={{ path("app_register") }}>
-                    <button class="btn btn-outline-success me-2 llb-navbar-button" type="button">Inscription</button>
-                </a>
+		<div class="llb-navbar-buttons-container">
+			<a href={{ path("app_category_index") }}>
+				<button class="btn me-2 llb-navbar-button" type="button">Formations</button>
+			</a>
+			{% if app.user %}
+				<a class="nav-link text-warning" href="{{ path('app_user_show', {"id": app.user.id}) }}">
+					<button class="btn btn-outline-success me-2 llb-navbar-button" type="button">Profil</button>
+				</a>
+				<a class="nav-link text-warning" href="/logout">
+					<button class="btn me-2 llb-navbar-button" type="button">Déconnexion</button>
+				</a>
+			{% else %}
+				<a href={{ path("app_register") }}>
+					<button class="btn me-2 llb-navbar-button" type="button">Inscription</button>
+				</a>
 
                 <a href={{ path("app_login") }}>
                     <button class="btn btn-outline-success me-2 llb-navbar-button" type="button">Connexion</button>

@@ -15,27 +15,27 @@ class ChartService
     private UserRepository $userRepository;
     private CategoryRepository $categoryRepository;
     private ThemeRepository $themeRepository;
-    private UserTutorialRepository $userTutorialRepository;
+    private UserTutorialRepository $userTutorialRepo;
 
     /**
      * @param ChartBuilderInterface $chartBuilder
      * @param UserRepository $userRepository
      * @param CategoryRepository $categoryRepository
      * @param ThemeRepository $themeRepository
-     * @param UserTutorialRepository $userTutorialRepository
+     * @param UserTutorialRepository $userTutorialRepo
      */
     public function __construct(
         ChartBuilderInterface $chartBuilder,
         UserRepository $userRepository,
         CategoryRepository $categoryRepository,
         ThemeRepository $themeRepository,
-        UserTutorialRepository $userTutorialRepository
+        UserTutorialRepository $userTutorialRepo
     ) {
         $this->chartBuilder = $chartBuilder;
         $this->userRepository = $userRepository;
         $this->categoryRepository = $categoryRepository;
         $this->themeRepository = $themeRepository;
-        $this->userTutorialRepository = $userTutorialRepository;
+        $this->userTutorialRepo = $userTutorialRepo;
     }
     public function createChartGender(): Chart
     {
@@ -104,7 +104,7 @@ class ChartService
             $categoryThemesTitles[] = $categoryTheme->getTitle();
         }
 
-        $tutorialLiked = $this->userTutorialRepository->findBy([$type => true]);
+        $tutorialLiked = $this->userTutorialRepo->findBy([$type => true]);
 
         $dataTutorialLiked = [];
         foreach ($tutorialLiked as $tutorial) {
