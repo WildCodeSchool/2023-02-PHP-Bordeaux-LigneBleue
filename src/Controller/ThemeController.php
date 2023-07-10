@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Theme;
 use App\Form\ThemeType;
 use App\Repository\ThemeRepository;
+use App\Repository\UserTutorialRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -44,10 +45,18 @@ class ThemeController extends AbstractController
     }
 
     #[Route('/{slug}', name: 'app_theme_show', methods: ['GET'])]
-    public function show(Theme $theme, Request $request): Response
+    public function show(Theme $theme, Request $request, UserTutorialRepository $userTutorialRepository): Response
     {
+        $tutorials = $theme->getTutorials();
+        $userTutorials = [];
+        foreach ($tutorials as $tutorial) {
+            $userTutorial = $userTutorialRepository->findOneBy(['tutorial' => $tutorial]);
+            $userTutorials[$tutorial->getId()] = $userTutorial;
+        }
+
         return $this->render('theme/show.html.twig', [
             'theme' => $theme,
+            'userTutorials' => $userTutorials
         ]);
     }
 
