@@ -25,19 +25,20 @@
     </div>
 
     <script>
-        function handleQuiz()
-        {
+        function handleQuiz() {
             const buttons = document.getElementsByClassName('llb-button-proposition-quiz');
             let valueOfProposition;
+            let selectedButton;
             let countRightAnswers = 0;
             let clickCount = 0;
-            function handleClick(event)
-            {
-                event.target.classList.add('YellowButton');
-                valueOfProposition = event.target.value;
-                for (let i = 0; i < buttons.length; i++) {
-                    buttons[i].removeEventListener('click', handleClick);
+
+            function handleClick(event) {
+                if (selectedButton) {
+                    selectedButton.classList.remove('YellowButton');
                 }
+                event.target.classList.add('YellowButton');
+                selectedButton = event.target;
+                valueOfProposition = event.target.value;
             }
 
             for (let i = 0; i < buttons.length; i++) {
@@ -49,22 +50,20 @@
                 clickCount++;
                 if (clickCount === 1) {
                     if (valueOfProposition === "{{ question.answer }}") {
-                        const correctButton = Array.from(buttons).find(button => button.value === valueOfProposition);
-                        correctButton.classList.remove('YellowButton');
-                        correctButton.classList.add('green-button');
+                        selectedButton.classList.remove('YellowButton');
+                        selectedButton.classList.add('green-button');
                         validateButton.textContent = 'Exercice suivant';
                         countRightAnswers++;
                     } else {
                         for (let i = 0; i < buttons.length; i++) {
                             if (buttons[i].getAttribute("value") !== "{{ question.answer }}") {
                                 buttons[i].classList.add("red-button");
-                                const correctButton = Array.from(buttons).find(button => button.value === valueOfProposition);
-                                correctButton.classList.remove('YellowButton');
-                                correctButton.classList.add('red-button');
                             } else {
                                 buttons[i].classList.add("green-button");
                             }
                         }
+                        selectedButton.classList.remove('YellowButton');
+                        selectedButton.classList.add('red-button');
                         validateButton.textContent = 'Exercice suivant';
                     }
                     console.log(countRightAnswers);
@@ -96,9 +95,10 @@
                     window.location.href = url;
                 }
             });
-
         }
+
         handleQuiz();
+
 
     </script>
 {% endblock %}
