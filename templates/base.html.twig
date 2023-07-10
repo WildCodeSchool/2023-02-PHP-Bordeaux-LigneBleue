@@ -5,8 +5,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="icon" type="image/png" href="{{ asset('build/images/favicon.png') }}"/>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0VALOkkyok0cB-7WO23wZuyuE8QrzEEc&libraries=places&callback=initAutocomplete" async="" defer=""></script>
-		<title>
-			{% block title %}Projet 3 Name
+        <script src="https://unpkg.com/@swup/preload-plugin@2"></script>
+        <title>
+			{% block title %}
+                La Ligne Bleue
 			{% endblock %}
 		</title>
 		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
@@ -31,7 +33,7 @@
 
 	<!---------END OF FONTS-------->
 	</head>
-	<body>
+	<body {{ stimulus_controller('symfony/ux-swup/swup') }}>
 		{# read and display just one flash message type #}
 		{% for message in app.flashes('notice') %}
 			<div class="flash-notice">
@@ -98,7 +100,12 @@
                             console.log(data);
                             const sequenceContainer = document.getElementById('sequenceContainer');
                             if (data.isStarted) {
-                                sequenceContainer.style.display = 'flex';
+                                // sequenceContainer.style.display = 'flex';
+                                // sequenceContainer.style.opacity = '1';
+                                sequenceContainer.classList.add("llb-show-display");
+                                setTimeout(function () {
+                                    sequenceContainer.classList.add("llb-show-opacity");
+                                }, 20);
                             }
                         });
                 } catch (err) {

@@ -13,17 +13,15 @@
 
             {{ form_start(formulaireContact) }}
                 {{ form_row(formulaireContact.email, {
-                    label: 'Email*'
+                    label: 'Email*',
                 }) }}
 
                 {{ form_row(formulaireContact.message, {
-                    label: 'Message*'
+                    label: 'Message*',
                  }) }}
 
-                {{ form_row(formulaireContact.agreeTerms) }}
-
-                <div class="w-100 d-flex align-items-center justify-content-center">
-                    {{ form_row(formulaireContact.envoyer) }}
+                <div class="w-100 d-flex align-items-center justify-content-center " style="margin-top: 30px">
+                    {{ form_row(formulaireContact.envoyer , { 'attr': {'class': 'llb-button-yellow'} }) }}
                 </div>
             {{ form_end(formulaireContact) }}
 

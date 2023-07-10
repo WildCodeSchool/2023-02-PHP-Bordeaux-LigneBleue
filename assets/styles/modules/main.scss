@@ -1,0 +1,39 @@
+.llb-userpage-size
+{
+    top: 90%;
+    height: 100%;
+}
+.llb-background-light-blue {
+    background-color: $llb-light-blue;
+    position: absolute;
+    width: 100%;
+    bottom: 30%;
+    z-index: -50;
+}
+
+.llb-login-size {
+    height: 50%;
+    top: 30%;
+}
+
+.llb-register-size {
+    height: 100%;
+    top: 30%;
+    bottom: 0;
+}
+
+.llb-category-size {
+    height: 80%;
+    top: 50%;
+    bottom: 0;
+}
+
+.llb-50-size {
+    height: 50%;
+    top: 50%;
+    bottom: 0;
+}
+
+.transition-fade {
+    transition: 0.2s;
+}

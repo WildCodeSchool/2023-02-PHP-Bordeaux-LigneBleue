@@ -1,18 +1,16 @@
 //start coding by removing this file and adding yours ;)
 @import "~bootstrap/scss/bootstrap";
-@import "modules/main";
 @import "modules/variables";
-
+@import "modules/main";
 @import "modules/form";
 @import "modules/buton";
 @import "modules/landingPage";
 @import "modules/crossPage";
 @import "modules/_navbar.scss";
 @import "modules/footer.scss";
-
+@import "modules/blueContainer.scss";
 
 @import "category/_card.scss";
-
 
 @import "theme/_card.scss";
 
@@ -32,5 +30,3 @@
 @import 'search/filterBar.scss';
 @import 'Question/Question.scss';
 @import 'Quiz/Quiz.scss';
-
-@import "modules/blueContainer.scss";

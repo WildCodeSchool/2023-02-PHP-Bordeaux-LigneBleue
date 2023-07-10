@@ -18,15 +18,6 @@ class ContactType extends AbstractType
             ->add('email')
             ->add('message', TextareaType::class)
             ->add('envoyer', SubmitType::class)
-            ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
-                'label' => "Conditions d'utilisation",
-                'constraints' => [
-                    new IsTrue([
-                        'message' => "Vous devez acceptez les conditions d'utilisation.",
-                    ]),
-                ],
-            ])
         ;
     }
 

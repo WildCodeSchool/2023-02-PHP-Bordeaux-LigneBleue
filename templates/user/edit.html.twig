@@ -4,4 +4,9 @@
 
 {% block body %}
     {{ include('user/_form.html.twig') }}
+    <div class="d-flex justify-content-center w-100 mt-4">
+        <a class="llb-backButton" href={{ path('app_user_show', {"id": app.user.id})}}>
+            <button class="llb-button-blue" type="button">Retour au profil</button>
+        </a>
+    </div>
 {% endblock %}

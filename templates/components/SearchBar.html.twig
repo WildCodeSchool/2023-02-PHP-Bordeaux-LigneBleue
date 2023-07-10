@@ -1,0 +1,18 @@
+<div{{attributes}}>
+	{{ form_start(form, {'attr': {'class' : 'd-flex llb-navbar-search-container', role : "search"}}) }}
+	{{ form_widget(form) }}
+
+	<button class="btn btn-outline-light llb_navbar_search_button" type="submit">
+		<img src={{ asset(icons_path ~ "Search_loupe.png") }} alt="search" width="20" height="20">
+	</button>
+
+	{{ form_end(form) }}
+
+	<ul class="llb-search-form-suggestion-container">
+		{% for tutorial in this.tutorials %}
+			<li>
+				<a href={{ path('app_tutorial_show', {"slug": tutorial.slug} ) }}>{{ tutorial.title }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+</div>
