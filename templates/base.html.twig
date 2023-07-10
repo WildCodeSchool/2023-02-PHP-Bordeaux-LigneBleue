@@ -11,14 +11,14 @@
 		</title>
 		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
 		{% block stylesheets %}
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/css/shepherd.css"/>
+
 			{{ encore_entry_link_tags('app') }}
 		{% endblock %}
 
 
 		{% block javascripts %}
 			{{ encore_entry_script_tags('app') }}
-            <script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
+
 		{% endblock %}
 
 		<!---------FONTS------->
@@ -63,12 +63,15 @@
                         // Then update the icon
                         .then(data => {
                             const wishlistIcon = wishlistLink.firstElementChild;
+                            console.log(wishlistIcon);
                             if (data.isLiked) {
-                                wishlistIcon.classList.remove("bi-heart"); // Remove the .bi-heart (empty heart) from classes in <i> element
-                                wishlistIcon.classList.add("bi-heart-fill"); // Add the .bi-heart-fill (full heart) from classes in <i> element
+                                wishlistIcon.style.fill = '#0C5395';
+                                // wishlistIcon.classList.remove("bi-heart"); // Remove the .bi-heart (empty heart) from classes in <i> element
+                                // wishlistIcon.classList.add("bi-heart-fill"); // Add the .bi-heart-fill (full heart) from classes in <i> element
                             } else {
-                                wishlistIcon.classList.remove("bi-heart-fill"); // Remove the .bi-heart-fill (full heart) from classes in <i> element
-                                wishlistIcon.classList.add("bi-heart"); // Add the .bi-heart (empty heart) from classes in <i> element
+                                wishlistIcon.style.fill = '#dddddd';
+                                // wishlistIcon.classList.remove("bi-heart-fill"); // Remove the .bi-heart-fill (full heart) from classes in <i> element
+                                // wishlistIcon.classList.add("bi-heart"); // Add the .bi-heart (empty heart) from classes in <i> element
                             }
                         });
                 } catch (err) {
@@ -76,7 +79,6 @@
                     console.error(err);
                 }
             }
-
             // wishlist ajax
 
             function startSequence(e)

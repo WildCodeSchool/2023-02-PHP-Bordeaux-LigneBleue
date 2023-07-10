@@ -3,7 +3,7 @@
 
 {% block body %}
 	<div class="LBQuizSquare">
-		{% if countCorrectAnswers >= questionCount/2 %}
+		{% if countCorrectAnswers ==  questionCount %}
 			<div class="LBScore">
 				<div class="Bravo">Quiz terminé!
 				</div>
@@ -27,4 +27,6 @@
 			</button>
 		</a>
 	</div>
+
+
 {% endblock %}

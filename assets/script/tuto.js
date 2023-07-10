@@ -1,6 +1,7 @@
+// eslint-disable-next-line no-undef
 const tour = new Shepherd.Tour({
     defaultStepOptions: {
-        scrollTo: false, //autorise scroll sur la fenetre
+        scrollTo: true, //autorise scroll sur la fenetre
         showCancelLink: true,
         cancelIcon: { //
             enabled: true
@@ -21,16 +22,17 @@ tour.addStep({
         },
     ],
 });
-
 tour.addStep({
     id: 'step2',
     attachTo: {
-        element: '.llb-welcome-userPage',
-        on: 'bottom',
+        element: '.navbar-brand',
+        on: 'top',
     },
+    modalOverlayOpeningRadius: 16,
+    modalOverlayOpeningPadding: 14,
     canClickTarget: false,
-    title: 'Avatar et Tuto',
-    text: 'Dans cette première partie vous pourrez rejouer ce tuto si besoin ainsi que changer votre avatar.',
+    title: 'Logo',
+    text: 'Cliquez ici pour rejoindre la toute première page du site.',
     buttons: [
         {
             action() {
@@ -45,16 +47,15 @@ tour.addStep({
         },
     ],
 });
-
 tour.addStep({
     id: 'step3',
     attachTo: {
-        element: '.llb-cards-userPage',
-        on: 'bottom',
+        element: '.llb-navbar-search-container',
+        on: 'top',
     },
     canClickTarget: false,
-    title: 'Faire une estimation',
-    text: 'Cet onglet vous envoie vers la page destinée à l\'estimation d\'un téléphone.',
+    title: 'Barre de recherche',
+    text: 'Vous pouvez rechercher toutes nos formations en fonction de leurs noms, thèmes ou tags.',
     buttons: [
         {
             action() {
@@ -72,60 +73,59 @@ tour.addStep({
 tour.addStep({
     id: 'step4',
     attachTo: {
-        element: '.es-sidebar-faq',
-        on: 'bottom',
-    },
-    canClickTarget: false,
-    title: 'Foire aux questions',
-    text: 'Cet onglet vous envoie vers les questions fréquemment posées, vous y trouverez certainement vos réponses !',
-    buttons: [
-        {
-            action() {
-                return this.back();
-            },
-            classes: 'shepherd-button-secondary',
-            text: 'Retour arrière'
-        },
-        {
-            text: 'Suivant',
-            action: tour.next,
-        },
-    ],
-});
-
-tour.addStep({
-    id: 'step5',
-    attachTo: {
-        element: '.es-sidebar-contact',
-        on: 'bottom',
-    },
-    canClickTarget: false,
-    title: 'Contact',
-    text: 'Cet onglet vous envoie vers la page pour contacter un administrateur, si vous avez des questions ou des suggestions.',
-    buttons: [
-        {
-            action() {
-                return this.back();
-            },
-            classes: 'shepherd-button-secondary',
-            text: 'Retour arrière'
-        },
-        {
-            text: 'Suivant',
-            action: tour.next,
-        },
-    ],
-});
-
-tour.addStep({
-    id: 'step6',
-    attachTo: {
-        element: '.es-sidebar-logout',
+        element: '#llb-btn-profil-navbar',
         on: 'top',
     },
     canClickTarget: false,
-    title: 'Se déconnecter',
-    text: 'Ce bouton sert à vous déconnecter de l\'application, cliquez dessus quand vous avez fini de vous en servir.',
+    title: 'Profil',
+    text: 'Cliquez ici pour rejoindre votre espace personnel à tout moment.',
+    buttons: [
+        {
+            action() {
+                return this.back();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Retour arrière'
+        },
+        {
+            text: 'Suivant',
+            action: tour.next,
+        },
+    ],
+});
+tour.addStep({
+    id: 'step5',
+    attachTo: {
+        element: '#llb-btn-forma-navbar',
+        on: 'top',
+    },
+    canClickTarget: false,
+    title: 'Formations',
+    text: 'Cliquez ici pour retrouvez toutes nos formations.',
+    buttons: [
+        {
+            action() {
+                return this.back();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Retour arrière'
+        },
+        {
+            text: 'Suivant',
+            action: tour.next,
+        },
+    ],
+});
+tour.addStep({
+    id: 'step6',
+    attachTo: {
+        element: '.llb-welcome-userPage',
+        on: 'bottom',
+    },
+    modalOverlayOpeningRadius: 16,
+    canClickTarget: false,
+    title: 'Avatar et Tuto',
+    text: 'Dans cette partie du profil vous pouvez rejouer ce tuto si nécessaire mais aussi modifier votre avatar.',
     buttons: [
         {
             action() {
@@ -143,9 +143,131 @@ tour.addStep({
 
 tour.addStep({
     id: 'step7',
+    attachTo: {
+        element: '#llb-infoUserCard',
+        on: 'bottom',
+    },
+    modalOverlayOpeningRadius: 16,
+    canClickTarget: false,
+    title: 'Informations personnelles',
+    text: 'Ici vous pouvez consulter vos informations personnelles et les modifier si besoin.',
+    buttons: [
+        {
+            action() {
+                return this.back();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Retour arrière'
+        },
+        {
+            text: 'Suivant',
+            action: tour.next,
+        },
+    ],
+});
+tour.addStep({
+    id: 'step8',
+    attachTo: {
+        element: '#llb-tutoIsSavedUserCard',
+        on: 'bottom',
+    },
+    modalOverlayOpeningRadius: 16,
+    canClickTarget: false,
+    title: 'Mes formations sauvegardées',
+    text: 'Retrouvez ici toutes les formations que vous avez liké précédemment  !',
+    buttons: [
+        {
+            action() {
+                return this.back();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Retour arrière'
+        },
+        {
+            text: 'Suivant',
+            action: tour.next,
+        },
+    ],
+});
+
+tour.addStep({
+    id: 'step9',
+    attachTo: {
+        element: '#llb-tutoIsFinishedUserCard',
+        on: 'bottom',
+    },
+    modalOverlayOpeningRadius: 16,
+    canClickTarget: false,
+    title: 'Mes formations terminées',
+    text: 'Retrouvez l\' historique de toutes les formations déja réusssies.',
+    buttons: [
+        {
+            action() {
+                return this.back();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Retour arrière'
+        },
+        {
+            text: 'Suivant',
+            action: tour.next,
+        },
+    ],
+});
+
+tour.addStep({
+    id: 'step10',
+    attachTo: {
+        element: '.llb-blue-container-userShow',
+        on: 'top',
+    },
+    modalOverlayOpeningRadius: 16,
+    canClickTarget: false,
+    title: 'Mes formations en cours',
+    text: 'Dans cette partie de votre espace personnel vous pouvez retrouver les dernières formations que vous avez commencées mais pas terminées.',
+    buttons: [
+        {
+            action() {
+                return this.back();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Retour arrière'
+        },
+        {
+            text: 'Suivant',
+            action: tour.next,
+        },
+    ],
+});
+tour.addStep({
+    id: 'step11',
+    attachTo: {
+        element: '.footer-basic',
+        on: 'top',
+    },
+    modalOverlayOpeningRadius: 16,
+    canClickTarget: false,
+    title: 'Mentions Légales',
+    text: 'En bas de page vous retrouverez toutes les mentions légales inhérentes à la Ligne Bleue',
+    buttons: [
+        {
+            action() {
+                return this.back();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Retour arrière'
+        },
+        {
+            text: 'Suivant',
+            action: tour.next,
+        },
+    ],
+});
+tour.addStep({
+    id: 'step12',
 
     title: 'En route !',
-    text: 'Et voilà ! vous savez désormais comment utiliser cette aplication. Vous pouvez rejouer ce tutoriel à tout moment en cliquant sur le bouton associé dans l\'onglet de la Foire aux Questions. Bonne navigation !',
+    text: 'Et voilà on vous à tout dit. À vous de jouer et n\'hésitez à nous contacter si vous avez besoin de plus d\'aide. Bonne navigation !',
     buttons: [
         {
             action() {
@@ -157,10 +279,18 @@ tour.addStep({
         {
             text: 'Fermer',
             action() {
-                dismissTour();
                 return this.hide();
             }
         },
     ],
+    scrollTo: 'top',
 });
-tour.start();
+if (!localStorage.getItem('shepherd-tour')) {
+    tour.start();
+    localStorage.setItem('shepherd-tour', 'yes');
+}
+
+let buttonRestart = document.querySelector('.restartButton')
+buttonRestart.addEventListener('click', () => {
+    tour.start()
+})

@@ -4,18 +4,18 @@
 {% endblock %}
 
 {% block body %}
+<div class="llb-blue-container" style="margin-top:3%">
     {% if userTutorials is empty %}
-    <h2>Vous n'avez pas encore de formation terminée !</h2>
+    <h2 style="text-align: center">Vous n'avez pas encore de formation terminée !</h2>
     {% endif %}
 {% if userTutorials is not empty %}
     <h2>Formations terminées :</h2>
-    <ul>
-        {% for userTutorial in userTutorials %}
-            <ul>
-                <li>Title: {{ userTutorial.tutorial.title }}</li>
-                <li>Objective: {{ userTutorial.tutorial.objective }}</li>
-            </ul>
-        {% endfor %}
+        <div class="llb-tutoCardIsStarted">
+            {% for tuto in utLiked %}
+                {% include "tutorial/_card.html.twig" %}
+            {% endfor %}
+        </div>
     </ul>
 {% endif %}
+</div>
 {% endblock %}
