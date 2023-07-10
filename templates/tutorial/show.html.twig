@@ -22,7 +22,7 @@
 				</div>
 				<p>{{ tutorial.objective }}</p>
 
-                <a class="llb-button-blue text-decoration-none" href="{{ path("app_tutorial_start", {"slug": tutorial.slug} )}}" id="sequenceButton" onclick="startSequence(event)">Je commence le tuto</a>
+                <a data-no-swup class="llb-button-blue text-decoration-none" href="{{ path("app_tutorial_start", {"slug": tutorial.slug} )}}" id="sequenceButton" onclick="startSequence(event)">Je commence le tuto</a>
 			</div>
 
 			<img class="llb-tutorial-show-start-card-img" src={{ asset(upload_path ~ tutorial.picturePath) }} alt="{{ tutorial.title }}">

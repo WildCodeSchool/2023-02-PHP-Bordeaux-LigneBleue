@@ -25,18 +25,11 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
     {
         $themesAmount = 12;
 
-        $iconsPath = [
-            "IconComputer.png",
-            "IconPhone.png",
-            "IconPrinter.png",
-        ];
-
         for ($i = 1; $i <= $themesAmount; $i++) {
             $theme = new Theme();
             $themeTitle = $this->faker->words(2, true);
             $theme->setTitle($themeTitle);
             $theme->setIndexOrder($i + 1);
-            $theme->setIconPath($iconsPath[array_rand($iconsPath)]);
             $slug = $this->slugger->slug($themeTitle);
             $theme->setSlug($slug);
 
@@ -44,10 +37,13 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
 
             if ($i < 4) {
                 $theme->setCategory($this->getReference("category_Smartphone"));
+                $theme->setIconPath("IconPhone.png");
             } elseif ($i > 8) {
                 $theme->setCategory($this->getReference("category_Ordinateur"));
+                $theme->setIconPath("IconComputer.png");
             } else {
                 $theme->setCategory($this->getReference("category_Autres"));
+                $theme->setIconPath("IconPrinter.png");
             }
 
             $this->addReference("theme_" . $i, $theme);

@@ -2,7 +2,6 @@
     margin: 5vw;
     margin-top: 0;
     padding: 5vw;
-
 }
 
 .llb-tutorial-show-start-card {
@@ -39,7 +38,7 @@
 .llb-tutorial-show-start-card-left-div>p {
     width: 100%;
     color: $llb-blue;
-    margin-bottom: 5%;
+    margin: 5% 0;
 }
 
 .llb-tutorial-show-start-card-img {
@@ -48,11 +47,21 @@
 
 .llb-tutorial-show-sequences-container {
     display: none;
+    opacity: 0;
+    margin: 0;
+    width: 100%;
+    transition-duration: 2s;
+}
+
+.llb-show-display {
+    display: flex;
     align-items: center;
     justify-content: stretch;
     flex-direction: column;
-    margin: 0;
-    width: 100%;
+}
+
+.llb-show-opacity {
+    opacity: 1;
     transition-duration: 2s;
 }
 

@@ -1,6 +1,6 @@
 .llb-tutorial-card {
     width: 30%;
-    margin: 1%;
+    margin: 1% 1% 2.5% 1%;
     background-color: white;
     display: flex;
     align-items: center;
@@ -25,7 +25,6 @@
     font-weight: bolder;
     color: $llb-blue;
 }
-
 
 .llb-tutorial-card-body {
     display: flex;
