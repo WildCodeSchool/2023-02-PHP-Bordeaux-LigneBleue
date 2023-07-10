@@ -50,7 +50,7 @@ tour.addStep({
 tour.addStep({
     id: 'step3',
     attachTo: {
-        element: '.llb-navbar-search-container',
+        element: '#js-searchBox',
         on: 'top',
     },
     canClickTarget: false,
@@ -73,12 +73,12 @@ tour.addStep({
 tour.addStep({
     id: 'step4',
     attachTo: {
-        element: '#llb-btn-profil-navbar',
+        element: '#js-tuto-navbar',
         on: 'top',
     },
     canClickTarget: false,
-    title: 'Profil',
-    text: 'Cliquez ici pour rejoindre votre espace personnel à tout moment.',
+    title: 'Formations',
+    text: 'Cliquez ici pour retrouvez toutes nos formations.',
     buttons: [
         {
             action() {
@@ -93,15 +93,16 @@ tour.addStep({
         },
     ],
 });
+
 tour.addStep({
     id: 'step5',
     attachTo: {
-        element: '#llb-btn-forma-navbar',
+        element: '#js-profil-navbar',
         on: 'top',
     },
     canClickTarget: false,
-    title: 'Formations',
-    text: 'Cliquez ici pour retrouvez toutes nos formations.',
+    title: 'Profil',
+    text: 'Cliquez ici pour rejoindre votre espace personnel à tout moment.',
     buttons: [
         {
             action() {
@@ -265,6 +266,13 @@ tour.addStep({
 });
 tour.addStep({
     id: 'step12',
+    scrollToHandler: function () {
+        window.scrollTo({
+            top: 0, // Position en haut de la page
+            behavior: 'smooth'
+        });
+    },
+    // Au
 
     title: 'En route !',
     text: 'Et voilà on vous à tout dit. À vous de jouer et n\'hésitez à nous contacter si vous avez besoin de plus d\'aide. Bonne navigation !',
@@ -283,7 +291,6 @@ tour.addStep({
             }
         },
     ],
-    scrollTo: 'top',
 });
 if (!localStorage.getItem('shepherd-tour')) {
     tour.start();
