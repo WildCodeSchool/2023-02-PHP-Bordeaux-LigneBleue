@@ -79,6 +79,15 @@ class UserTutorialRepository extends ServiceEntityRepository
             ->getResult()
             ;
     }
+    public function findAllByUser(User $user): array
+    {
+        return $this->createQueryBuilder('qb')
+            ->andWhere('qb.user = :user')
+            ->setParameter('user', $user)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
     public function findOne(User $user, Tutorial $tutorial): ?UserTutorial
     {
         return $this->createQueryBuilder('qb')

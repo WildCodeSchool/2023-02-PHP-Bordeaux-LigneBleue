@@ -48,6 +48,11 @@ class UserTutorial
         $this->isValidated = $isValidated;
         $this->isLiked = $isLiked;
     }
+    public function __toString(): string
+    {
+        return $this->tutorial->getTitle();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

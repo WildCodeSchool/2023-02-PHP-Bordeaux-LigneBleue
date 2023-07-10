@@ -3,11 +3,16 @@
     color: white;
     padding: 2vh;
     border-radius: 6px;
-    border: white;
+    border: solid 1px white;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+.llb-button-blue:hover {
+    background-color: $llb-dark-blue;
+}
+
 
 .llb-button-yellow {
     background-color: $llb-light-yellow;
@@ -53,5 +58,3 @@
     border-radius: 6px;
     border-color: $llb-blue;
 }
-
-

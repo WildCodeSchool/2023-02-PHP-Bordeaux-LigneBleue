@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use App\Entity\User;
 
 #[Route('/tutorial')]
 class TutorialController extends AbstractController
@@ -127,22 +128,22 @@ class TutorialController extends AbstractController
     ): Response {
 
         $user = $this->getUser();
-        $userTutorial = $utRepository->findOne($user, $tutorial);
-        if ($userTutorial) {
-            if (false === $userTutorial->getIsStarted()) {
-                $userTutorial->setIsStarted(true);
+        if ($user) {
+            $userTutorial = $utRepository->findOne($user, $tutorial);
+            if ($userTutorial) {
+                if (false === $userTutorial->getIsStarted()) {
+                    $userTutorial->setIsStarted(true);
+                }
+            } else {
+                $userTutorial = new UserTutorial(true, false, false);
+                $userTutorial->setUser($this->getUser());
+                $userTutorial->setTutorial($tutorial);
+                $user->addUserTutorial($userTutorial);
             }
-        } else {
-            $userTutorial = new UserTutorial(true, false, false);
-            $userTutorial->setUser($this->getUser());
-            $userTutorial->setTutorial($tutorial);
-            $user->addUserTutorial($userTutorial);
-            ;
+            $userTutorial->setUpdatedAt(new \DateTime('now'));
+            $utRepository->save($userTutorial, true);
+            $userRepository->save($user, true);
         }
-        $userTutorial->setUpdatedAt(new \DateTime('now'));
-        $utRepository->save($userTutorial, true);
-        $userRepository->save($user, true);
-
         return $this->json([
             'isStarted' => true,
         ]);

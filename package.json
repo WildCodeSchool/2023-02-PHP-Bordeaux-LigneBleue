@@ -1,14 +1,18 @@
 {
     "devDependencies": {
         "@babel/core": "^7.17.0",
-        "@babel/plugin-proposal-class-properties": "^7.18.6",
         "@babel/preset-env": "^7.16.0",
         "@hotwired/stimulus": "^3.0.0",
         "@popperjs/core": "^2.11.8",
+        "@swup/debug-plugin": "^1.0||^2.0||^3.0",
+        "@swup/fade-theme": "^1.0",
+        "@swup/forms-plugin": "^1.0||^2.0",
+        "@swup/slide-theme": "^1.0",
         "@symfony/stimulus-bridge": "^3.2.0",
         "@symfony/ux-autocomplete": "file:vendor/symfony/ux-autocomplete/assets",
         "@symfony/ux-chartjs": "file:vendor/symfony/ux-chartjs/assets",
         "@symfony/ux-live-component": "file:vendor/symfony/ux-live-component/assets",
+        "@symfony/ux-swup": "file:vendor/symfony/ux-swup/assets",
         "@symfony/webpack-encore": "^4.0.0",
         "bootstrap": "^5.3.0",
         "chart.js": "^3.4.1",
@@ -19,6 +23,7 @@
         "regenerator-runtime": "^0.13.9",
         "sass": "^1.56.0",
         "sass-loader": "^13.1.0",
+        "swup": "^2.0||^3.0",
         "tom-select": "^2.2.2",
         "webpack": "^5.74.0",
         "webpack-cli": "^4.10.0",
@@ -36,6 +41,7 @@
         "bootstrap-icons": "^1.10.5",
         "stimulus": "^3.2.1",
         "stimulus-places-autocomplete": "^0.5.0",
+        "stimulus-scroll-reveal": "^3.2.0",
         "watch": "^0.13.0"
     }
 }
