@@ -1,12 +1,25 @@
+.shepherd-button-secondary {
+    background-color: $llb-yellow !important;
+}
+
+.shepherd-header{
+    background-color: $llb-yellow !important;
+}
+.shepherd-modal-overlay #step12  {
+    display: none;
+}
+/**/
 .llb-welcome-userPage{
     width:80vw;
     //height:25vw;
     margin: 5% auto 5% auto;
     background-image: url("../../images/welcome-user.jpeg");
+    background-color: red;
     background-size:100%;
     background-repeat: no-repeat;
     padding: 2.5vw;
     display: flex;
+    overflow: hidden;
     flex-direction: row;
     border-radius:16px;
 }

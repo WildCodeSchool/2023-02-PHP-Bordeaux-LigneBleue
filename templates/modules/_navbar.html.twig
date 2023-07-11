@@ -14,11 +14,11 @@
 
 		<div class="llb-navbar-buttons-container">
 			<a href={{ path("app_category_index") }}>
-				<button class="btn me-2 llb-navbar-button" type="button">Formations</button>
+				<button class="btn me-2 llb-navbar-button" type="button" id="js-tuto-navbar">Formations</button>
 			</a>
 			{% if app.user %}
 				<a class="nav-link text-warning" href="{{ path('app_user_show', {"id": app.user.id}) }}">
-					<button class="btn btn-outline-success me-2 llb-navbar-button" type="button">Profil</button>
+					<button class="btn btn-outline-success me-2 llb-navbar-button" type="button" id="js-profil-navbar">Profil</button>
 				</a>
 				<a class="nav-link text-warning" href="/logout">
 					<button class="btn me-2 llb-navbar-button" type="button">Déconnexion</button>
@@ -27,7 +27,6 @@
 				<a href={{ path("app_register") }}>
 					<button class="btn me-2 llb-navbar-button" type="button">Inscription</button>
 				</a>
-
                 <a href={{ path("app_login") }}>
                     <button class="btn btn-outline-success me-2 llb-navbar-button" type="button">Connexion</button>
                 </a>

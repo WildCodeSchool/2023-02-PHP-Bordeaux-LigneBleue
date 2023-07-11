@@ -8,6 +8,7 @@ use App\Form\TutorialType;
 use App\Repository\TutorialRepository;
 use App\Repository\UserRepository;
 use App\Repository\UserTutorialRepository;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -90,6 +91,7 @@ class TutorialController extends AbstractController
         UserRepository $userRepository
     ): Response {
 
+        /** @var User $user */
         $user = $this->getUser();
 
         if ($user == null) {
@@ -111,7 +113,7 @@ class TutorialController extends AbstractController
             $user->addUserTutorial($userTutorial);
         }
 
-        $userTutorial->setUpdatedAt(new \DateTime('now'));
+        $userTutorial->setUpdatedAt(new DateTime('now'));
         $utRepository->save($userTutorial, true);
         $userRepository->save($user, true);
 
@@ -140,7 +142,7 @@ class TutorialController extends AbstractController
                 $userTutorial->setTutorial($tutorial);
                 $user->addUserTutorial($userTutorial);
             }
-            $userTutorial->setUpdatedAt(new \DateTime('now'));
+            $userTutorial->setUpdatedAt(new DateTime('now'));
             $utRepository->save($userTutorial, true);
             $userRepository->save($user, true);
         }
