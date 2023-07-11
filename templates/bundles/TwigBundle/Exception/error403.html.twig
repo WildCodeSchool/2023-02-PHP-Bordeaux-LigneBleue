@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% block title %}Page 501{% endblock %}
+{% block CDN %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js"></script>
+{% endblock %}
+{% block body %}
+    <section class="page_404" style="margin-left:15%">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 ">
+                    <div class="col-sm-10 col-sm-offset-1  text-center">
+                        <div class="four_zero_four_bg">
+                            <h1 class="text-center ">403</h1>
+
+
+                        </div>
+
+                        <div class="contant_box_404">
+                            <h3 class="h2">
+                                Interdit
+                            </h3>
+
+                            <p>Accès interdit. Vous n'êtes pas autorisé à accéder à cette page. Veuillez vérifier vos permissions ou contacter l'administrateur du site pour obtenir les autorisations nécessaires.</p>
+
+                            <a href="{{ path('cross_page') }}" style="text-decoration: none">
+                                <button class="llb-button-blue">Retour à l'accueil</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
