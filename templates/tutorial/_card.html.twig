@@ -1,14 +1,13 @@
 <div class="card llb-tutorial-card">
-    {% if app.request.attributes.get('_route') == 'app_theme_show' %}
     {% set userTutorial = userTutorials[tutorial.id] %}
     {% if userTutorial is not null %}
         {% if  userTutorial.isValidated %}
-            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" font-size="4vw" style="fill: #FFCB05; transform: translateY(-2.5vw) translateX(10.5vw); background-color: white; border-radius: 50%;">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" font-size="4em" style="fill: #FFCB05; transform: translateY(-2.5vw) translateX(10.5vw); background-color: white; border-radius: 50%; z-index:2; position: absolute ">
                 <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/>
             </svg>
         {% endif %}
     {% endif %}
-    {% endif %}
+
 
     <img class="card-img-top rounded-top" src={{ asset(upload_path ~ tutorial.picturePath) }} alt={{ upload_path ~ tutorial.picturePath }}>
     <div class="card-body llb-tutorial-card-body">
