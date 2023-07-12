@@ -27,35 +27,15 @@ use Symfony\UX\Chartjs\Model\Chart;
 
 class DashboardController extends AbstractDashboardController
 {
-    private ChartService $chartService;
-
-    /**
-     * @param ChartService $chartService
-     */
-    public function __construct(ChartService $chartService)
-    {
-        $this->chartService = $chartService;
-    }
-
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-        $charts = $this->createCharts();
-
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
 //        $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
 
 //        return $this->redirect($adminUrlGenerator->setController(CategoryCrudController::class)->generateUrl());
         return $this->render('admin/index.html.twig', [
-            'chartGender' => $charts['chartGender'],
-            'chartAge' => $charts['chartAge'],
-            'chartSmartphoneLiked' => $charts['chartSmartphoneLiked'],
-            'chartOrdinateurLiked' => $charts['chartOrdinateurLiked'],
-            'chartAutresLiked' => $charts['chartAutresLiked'],
-            'chartSmartphoneStarted' => $charts['chartSmartphoneStarted'],
-            'chartOrdinateurStarted' => $charts['chartOrdinateurStarted'],
-            'chartAutresStarted' => $charts['chartAutresStarted'],
         ]);
 
 
@@ -81,11 +61,6 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        /*        yield MenuItem::linkToUrl(
-                    'Statistiques',
-                    "fa-sharp fa-solid fa-chart-simple",
-                    $this->generateUrl('app_chart')
-                );*/
         yield MenuItem::linkToCrud('Catégories', 'fas fa-1', Category::class);
         yield MenuItem::linkToCrud('Thèmes', 'fas fa-2', Theme::class);
         yield MenuItem::linkToCrud('Formations', 'fas fa-3', Tutorial::class);
@@ -99,6 +74,7 @@ class DashboardController extends AbstractDashboardController
             'fas fa-sharp fa-light fa-arrow-left',
             $this->generateUrl('app_home')
         );
+        yield MenuItem::linkToUrl('Statistiques', 'fas fa-chart-simple', $this->generateUrl('app_chart'));
     }
 
     public function configureActions(): Actions
@@ -120,29 +96,5 @@ class DashboardController extends AbstractDashboardController
     {
         return parent::configureAssets()
             ->addWebpackEncoreEntry('admin');
-    }
-
-    public function createCharts(): array
-    {
-        $chartGender = $this->chartService->createChartGender();
-        $chartAge = $this->chartService->createChartAge();
-//        $chartSmartphoneLiked = $this->chartService->createChartCategoryTwoTypes('Smartphone');
-        $chartSmartphoneLiked = $this->chartService->createChartCategory('Smartphone', 'isLiked', 'green');
-        $chartOrdinateurLiked = $this->chartService->createChartCategory('Ordinateur', 'isLiked', 'red');
-        $chartAutresLiked = $this->chartService->createChartCategory('Autres', 'isLiked', 'blue');
-        $chartSmartphoneStart = $this->chartService->createChartCategory('Smartphone', 'isStarted', 'green');
-        $chartOrdinateurStart = $this->chartService->createChartCategory('Ordinateur', 'isStarted', 'red');
-        $chartAutresStarted = $this->chartService->createChartCategory('Autres', 'isStarted', 'blue');
-
-        return [
-            'chartGender' => $chartGender,
-            'chartAge' => $chartAge,
-            'chartSmartphoneLiked' => $chartSmartphoneLiked,
-            'chartOrdinateurLiked' => $chartOrdinateurLiked,
-            'chartAutresLiked' => $chartAutresLiked,
-            'chartSmartphoneStarted' => $chartSmartphoneStart,
-            'chartOrdinateurStarted' => $chartOrdinateurStart,
-            'chartAutresStarted' => $chartAutresStarted,
-        ];
     }
 }

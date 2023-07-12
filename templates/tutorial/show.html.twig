@@ -8,18 +8,24 @@
 
 		<div class="llb-tutorial-show-start-card">
 			<div class="llb-tutorial-show-start-card-left-div">
-				<h6>
-					{{ tutorial.theme.category.categoryTitle }}
-					-
-					{{ tutorial.theme.title }}
-				</h6>
-				<h2>{{tutorial.title}}</h2>
-
-				<div class="llb-tutorial-show-start-card-tags-container">
-					{% for tag in tutorial.tags %}
-						{% include "tag/_badge.html.twig" %}
-					{% endfor %}
-				</div>
+                <div>
+                    <h2>{{tutorial.title}}</h2>
+                    <div class="llb-tutorial-show-start-card-tags-container mt-3">
+                        {% for tag in tutorial.tags %}
+                            {% include "tag/_badge.html.twig" %}
+                        {% endfor %}
+                        <a class="llb-tag-badge d-flex align-items-center mb-0 llb-mlr" href="">
+                            <span class="badge rounded-pill">
+                        {{ tutorial.theme.category.categoryTitle }}
+                            </span>
+                        </a>
+                        <a class="llb-tag-badge d-flex align-items-center mb-0" href="">
+                            <span class="badge rounded-pill">
+                        {{ tutorial.theme.title }}
+                            </span>
+                        </a>
+                    </div>
+                </div>
 				<p>{{ tutorial.objective }}</p>
 
                 <a data-no-swup class="llb-button-blue text-decoration-none" href="{{ path("app_tutorial_start", {"slug": tutorial.slug} )}}" id="sequenceButton" onclick="startSequence(event)">Je commence le tuto</a>
