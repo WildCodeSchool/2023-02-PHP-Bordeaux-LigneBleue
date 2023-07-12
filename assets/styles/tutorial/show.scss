@@ -87,7 +87,9 @@
 
 @media screen and (max-width: 480px) {
     .llb-tutorial-show-start-card {
-        height: 20vh;
+        height: 50vh;
+        flex-direction: column-reverse;
+        color: white;
     }
 
     .llb-tutorial-show-start-card-left-div>h2 {
