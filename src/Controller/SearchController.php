@@ -17,7 +17,7 @@ class SearchController extends AbstractController
     public function search(
         Request $request,
         TutorialRepository $tutorialRepository,
-        UserTutorialRepository $userTutorialRepo,
+        UserTutorialRepository $utRepository,
     ): Response {
 
         $session = $request->getSession();
@@ -28,9 +28,8 @@ class SearchController extends AbstractController
 
         $tutorialsForUserTuto = $tutorialRepository->findAll();
         $userTutorials = [];
-
-        foreach ($tutorialsForUserTuto as $tutorial) {
-            $userTutorial = $userTutorialRepo->findOneBy(['tutorial' => $tutorial]);
+        foreach ($tutorials as $tutorial) {
+            $userTutorial = $utRepository->findOneBy(['tutorial' => $tutorial]);
             $userTutorials[$tutorial->getId()] = $userTutorial;
         }
 
