@@ -162,6 +162,7 @@
     border-color: $llb-yellow;
     background-color: $llb-yellow;
 }
+
 //////////////////////////////////////////////////////////////////
 
 
@@ -182,23 +183,26 @@
 
 
 @media screen and (max-width: 480px) {
-    .llb-navbar-content {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        min-width: 90vw;
+    .llb_navbar_search_form {
+        min-width: 80vw;
+
     }
 
-    .llb_navbar_search_form {
-        width: 74vw !important;
-        margin-left: 1%;
+    .llb-navbar-search-container {
+        min-width: 80vw;
     }
 
     .llb-navbar-buttons {
         display: flex;
         align-items: stretch;
         flex-direction: column;
-        width: 100%;
+        min-width: 100%;
+    }
+
+    .llb-navbar-collapse {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
     }
 
     .llb-navbar-buttons>a,
@@ -207,14 +211,17 @@
     }
 
     .llb-navbar-button {
-        width: 100%;
+        min-width: 100%;
     }
-
-
 
     #llb-navbar-contact {
         display: inline
     }
+
+
+
+
+
 
     /*          NAVBAR LANDING PAGE             */
     .llb-navbar-homePage {
