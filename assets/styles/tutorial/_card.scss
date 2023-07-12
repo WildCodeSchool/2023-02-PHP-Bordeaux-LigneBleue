@@ -12,6 +12,33 @@
     position: relative;
 }
 
+.llb-bg-sequence {
+    border: solid 3px $llb-yellow;
+}
+
+.triangle-code{
+    position: absolute;
+    top: -2.5vw;
+    left: -2.5vw;
+    display : inline-block;
+    height : 0;
+    width : 0;
+    border-top : 7.5vw solid $llb-yellow;
+    border-right : 7.5vw solid transparent;
+}
+
+.llb-rotate {
+    position: absolute;
+    top: -5vw;
+    left: -2.5vw;
+    transform: rotate(-45deg);
+    width: 10vw;
+    text-align: center;
+    color: $llb-dark-blue;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
 .llb-tutorial-card:hover {
     -ms-transform: scale(1.1);
     /* IE 9 */

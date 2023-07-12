@@ -14,12 +14,12 @@
                         {% for tag in tutorial.tags %}
                             {% include "tag/_badge.html.twig" %}
                         {% endfor %}
-                        <a class="llb-tag-badge d-flex align-items-center mb-0 llb-mlr" href="">
+                        <a class="llb-tag-badge d-flex align-items-center mb-0 llb-mlr text-decoration-none" href="">
                             <span class="badge rounded-pill">
                         {{ tutorial.theme.category.categoryTitle }}
                             </span>
                         </a>
-                        <a class="llb-tag-badge d-flex align-items-center mb-0" href="">
+                        <a class="llb-tag-badge d-flex align-items-center mb-0 text-decoration-none" href="">
                             <span class="badge rounded-pill">
                         {{ tutorial.theme.title }}
                             </span>
@@ -34,7 +34,7 @@
 			<img class="llb-tutorial-show-start-card-img" src={{ asset(upload_path ~ tutorial.picturePath) }} alt="{{ tutorial.title }}">
 		</div>
 
-        <div class="llb-tutorial-show-sequences-container" id="sequenceContainer">
+        <div class="llb-tutorial-show-sequences-container position-relative" id="sequenceContainer">
             {% for sequence in tutorial.sequences %}
                 {% include "sequence/_card.html.twig" %}
             {% endfor %}
