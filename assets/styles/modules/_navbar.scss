@@ -1,8 +1,8 @@
 .llb-navbar {
     background-color: $llb-blue;
-    z-index: 100;
 }
 
+//////////////////// LOGO + TITLE //////////////////////
 .llb-navbar-brand {
     color: white;
     font-family: 'Slicker', sans-serif;
@@ -15,24 +15,115 @@
 }
 
 .llb-navbar-brand>img {
-    margin-left: 1%;
-    margin-right: 3%;
+    margin: 0 5% 0 1%;
 }
 
+//////////////////////////////////////////////////////////
+
+/////////////////// BURGER ///////////////////////////////
+.llb-navbar-toggler {
+    border-color: white
+}
+
+.llb-navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.llb-navbar-toggler:focus,
+.llb-navbar-toggler:active,
+.llb-navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+////////////////////////////////////////////////////////////
+
+///////////////////// BUTTONS /////////////////////////////////////
+.llb-navbar-buttons-container {
+    margin: 0 0 0 25%
+}
+
+.llb-navbar-button {
+    color: white;
+    border-color: white;
+}
+
+.llb-navbar-button:hover {
+    color: $llb-blue;
+    background-color: $llb-yellow;
+    border-color: $llb-yellow;
+}
+
+#llb-navbar-contact {
+    display: none;
+}
+
+/////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////// SEARCH BAR //////////////////////////
 .llb-navbar-search-container {
-    margin: 0 1% 0 0;
+    margin: 0 0 0 20%;
 }
-
 
 .llb-navbar-search-container>div>div {
     margin: 0 !important;
 }
 
 .llb_navbar_search_form {
-    // margin-right: 0 !important;
     border-radius: 5px 0px 0px 5px;
     width: 25vw !important;
     margin: 0 0 0 15vw !important;
+    min-height: 3vh;
+}
+
+.llb_navbar_search_form:focus {
+    height: 4vh;
+}
+
+.llb_navbar_search_form::placeholder:focus {
+    display: none;
 }
 
 .llb_navbar_search_form::placeholder {
@@ -40,6 +131,10 @@
     opacity: 0.8;
     font-weight: bold;
     padding: 0 1vw 0 0;
+    border-radius: 0px 5px 5px 0px;
+    border-color: $llb-light-blue;
+    height: 100%;
+    margin: 0;
 }
 
 .llb-search-form-suggestion-container {
@@ -59,14 +154,6 @@
     color: $llb-blue;
 }
 
-
-.llb_navbar_search_form::placeholder {
-    border-radius: 0px 5px 5px 0px;
-    border-color: $llb-light-blue;
-    height: 100%;
-    margin: 0;
-}
-
 .llb_navbar_search_button {
     border-radius: 0 5px 5px 0;
 }
@@ -75,28 +162,24 @@
     border-color: $llb-yellow;
     background-color: $llb-yellow;
 }
+//////////////////////////////////////////////////////////////////
 
-.llb-navbar-buttons-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 25%;
-}
 
-.llb-navbar-button {
-    color: white;
-    border-color: white;
-}
 
-.llb-navbar-button:hover {
-    color: $llb-blue;
-    background-color: $llb-yellow;
-    border-color: $llb-yellow;
-}
 
-#llb-navbar-contact {
-    display: none;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media screen and (max-width: 480px) {
     .llb-navbar-content {
@@ -127,20 +210,7 @@
         width: 100%;
     }
 
-    .navbar-toggler {
-        border-color: white
-    }
 
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-    }
-
-    .navbar-toggler:focus,
-    .navbar-toggler:active,
-    .navbar-toggler-icon:focus {
-        outline: none;
-        box-shadow: none;
-    }
 
     #llb-navbar-contact {
         display: inline

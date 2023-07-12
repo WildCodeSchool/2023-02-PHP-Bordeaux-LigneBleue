@@ -15,9 +15,17 @@ const $ = require('jquery');
 // the bootstrap module doesn't export/return anything
 require('bootstrap');
 
-import './script/tuto.js'
+// or you can include specific pieces
+// require('bootstrap/js/dist/tooltip');
+// require('bootstrap/js/dist/popover');
 
-import './script/error.js'
+$(document).ready(function () {
+    $('[data-toggle="popover"]').popover();
+});
+
+import './script/tuto.js';
+
+// import './script/error.js';
 
 // start the Stimulus application
 import './bootstrap';
