@@ -1,50 +1,6 @@
 {% extends '@EasyAdmin/page/content.html.twig' %}
 {#{% extends 'base.html.twig' %}#}
 
-
-
 {% block main %}
-    <div class="d-flex flex-wrap llb-w-80">
-        <div class="d-flex flex-column justify-content-between align-items-center w-50 h-100">
-            <h2>Répartition des utilisateurs par genre</h2>
-            {{ render_chart(chartGender, {'class': 'chart1'}) }}
-        </div>
-        <div class="d-flex flex-column justify-content-between align-items-center w-50 h-100">
-            <h2>Répartition des utilisateurs par âge</h2>
-            {{ render_chart(chartAge, {'class': 'chart1'}) }}
-        </div>
-    </div>
-
-    <div class="d-flex flex-wrap llb-w-80 mt-5">
-        <div class="d-flex flex-column justify-content-between align-items-center w-50 h-100">
-            <h2>Répartition des thèmes en fonction des formations likés</h2>
-            {{ render_chart(chartSmartphoneLiked, {'class': 'chart1'}) }}
-        </div>
-        <div class="d-flex flex-column justify-content-between align-items-center w-50 h-100">
-            <h2>Répartition des thèmes en fonction des formations commencées</h2>
-            {{ render_chart(chartSmartphoneStarted, {'class': 'chart1'}) }}
-        </div>
-    </div>
-
-    <div class="d-flex flex-wrap llb-w-80 mt-5">
-        <div class="d-flex flex-column justify-content-between align-items-center w-50 h-100">
-            <h2>Répartition des thèmes en fonction des formations likés</h2>
-            {{ render_chart(chartOrdinateurLiked, {'class': 'chart1'}) }}
-        </div>
-        <div class="d-flex flex-column justify-content-between align-items-center w-50 h-100">
-            <h2>Répartition des thèmes en fonction des formations commencées</h2>
-            {{ render_chart(chartOrdinateurStarted, {'class': 'chart1'}) }}
-        </div>
-    </div>
-
-    <div class="d-flex flex-wrap llb-w-80 mt-5">
-        <div class="d-flex flex-column justify-content-between align-items-center w-50 h-100">
-            <h2>Répartition des thèmes en fonction des formations likés</h2>
-            {{ render_chart(chartAutresLiked, {'class': 'chart1'}) }}
-        </div>
-        <div class="d-flex flex-column justify-content-between align-items-center w-50 h-100">
-            <h2>Répartition des thèmes en fonction des formations commencées</h2>
-            {{ render_chart(chartAutresStarted, {'class': 'chart1'}) }}
-        </div>
-    </div>
+test
 {% endblock %}

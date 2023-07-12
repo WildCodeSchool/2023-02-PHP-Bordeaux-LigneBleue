@@ -22,9 +22,10 @@ class QuizCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         yield TextField::new('title', 'Titre');
-        yield IntegerField::new('questionsAmount', 'Nombre de questions');
-        yield AssociationField::new('tutorial', 'Formation');
-        yield AssociationField::new('questions', 'Question')
+        yield IntegerField::new('questionsAmount', 'Nombre de questions')
+            ->hideOnForm();
+        yield AssociationField::new('tutorial', 'Formation associée');
+        yield AssociationField::new('questions', 'Questions')
             ->setFormTypeOptions([
                 'multiple' => true,
                 'by_reference' => false,

@@ -17,15 +17,12 @@
 			{{ encore_entry_link_tags('app') }}
 		{% endblock %}
 
-
-		{% block javascripts %}
-			{{ encore_entry_script_tags('app') }}
-
-		{% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
 
 		<!---------FONTS------->
 		<link href="https://fonts.cdnfonts.com/css/slicker" rel="stylesheet">
-
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link
@@ -46,73 +43,9 @@
 
 		{% include 'modules/footer.html.twig' %}
 
-        <script>
-            // wishlist ajax
+        <script src="/script/wishlist.js"></script>
+        <script src="/script/startSequence.js"></script>
+        <script src="/script/tuto.js"></script>
 
-            function addToWishlist(e)
-            {
-                e.preventDefault();
-                const wishlistLink = e.currentTarget;
-                const link = wishlistLink.href;
-
-                // Send an HTTP request with fetch to the URI defined in the href
-                try {
-                    fetch(link)
-
-                        // Extract the JSON from the response
-                        .then(res => res.json())
-
-                        // Then update the icon
-                        .then(data => {
-                            const wishlistIcon = wishlistLink.firstElementChild;
-                            console.log(wishlistIcon);
-                            if (data.isLiked) {
-                                wishlistIcon.style.fill = '#0C5395';
-                                // wishlistIcon.classList.remove("bi-heart"); // Remove the .bi-heart (empty heart) from classes in <i> element
-                                // wishlistIcon.classList.add("bi-heart-fill"); // Add the .bi-heart-fill (full heart) from classes in <i> element
-                            } else {
-                                wishlistIcon.style.fill = '#dddddd';
-                                // wishlistIcon.classList.remove("bi-heart-fill"); // Remove the .bi-heart-fill (full heart) from classes in <i> element
-                                // wishlistIcon.classList.add("bi-heart"); // Add the .bi-heart (empty heart) from classes in <i> element
-                            }
-                        });
-                } catch (err) {
-                    // eslint-disable-next-line no-console
-                    console.error(err);
-                }
-            }
-            // wishlist ajax
-
-            function startSequence(e)
-            {
-                e.preventDefault();
-                const wishlistLink = e.currentTarget;
-                const link = wishlistLink.href;
-
-                // Send an HTTP request with fetch to the URI defined in the href
-                try {
-                    fetch(link)
-                        // Extract the JSON from the response
-                        .then(res => res.json())
-
-                        // Then update the icon
-                        .then(data => {
-                            console.log(data);
-                            const sequenceContainer = document.getElementById('sequenceContainer');
-                            if (data.isStarted) {
-                                // sequenceContainer.style.display = 'flex';
-                                // sequenceContainer.style.opacity = '1';
-                                sequenceContainer.classList.add("llb-show-display");
-                                setTimeout(function () {
-                                    sequenceContainer.classList.add("llb-show-opacity");
-                                }, 20);
-                            }
-                        });
-                } catch (err) {
-                    // eslint-disable-next-line no-console
-                    console.error(err);
-                }
-            }
-        </script>
 	</body>
 </html>
