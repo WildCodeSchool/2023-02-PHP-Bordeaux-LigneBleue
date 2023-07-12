@@ -15,8 +15,7 @@
 
     {% if app.request.attributes.get('_route') is same as('app_category_show') %}
         <div class="llb-blue-container-title">
-            <h1>Catégorie :
-                {{ category.categoryTitle }}</h1>
+            <h1>{{ category.categoryTitle }}</h1>
             <h2 class="mt-2 mb-2">Choisissez un thème :</h2>
         </div>
         <div class="llb-blue-container-card-container mt-4">
@@ -33,8 +32,7 @@
 
     {% if app.request.attributes.get('_route') is same as('app_theme_show') %}
         <div class="llb-blue-container-title">
-            <h1>Thème :
-                {{theme.title}}</h1>
+            <h1>{{theme.title}}</h1>
             <p>Choisissez votre formation :</p>
         </div>
         <div class="llb-blue-container-card-container">

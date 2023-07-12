@@ -13,6 +13,7 @@
     justify-content: space-between;
     margin-bottom: 2.5%;
     border-radius: 6px;
+    padding: 3%;
 }
 
 .llb-tutorial-show-start-card-tags-container {
@@ -21,9 +22,8 @@
 }
 
 .llb-tutorial-show-start-card-left-div {
-    margin-left: 10%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
     flex-direction: column;
 }
@@ -31,18 +31,15 @@
 .llb-tutorial-show-start-card-left-div>h2 {
     font-size: xxx-large;
     color: $llb-blue;
-    // width: 10vw;
-    margin-top: 5%
 }
 
 .llb-tutorial-show-start-card-left-div>p {
     width: 100%;
     color: $llb-blue;
-    margin: 5% 0;
 }
 
 .llb-tutorial-show-start-card-img {
-    padding: 5%;
+    border-radius: 6px;
 }
 
 .llb-tutorial-show-sequences-container {
@@ -83,6 +80,11 @@
 
 .llb-tutorial-show-end-card>div {
     color: white;
+}
+
+.llb-mlr {
+    margin-left: 4%;
+    margin-right: 4%;
 }
 
 @media screen and (max-width: 480px) {
