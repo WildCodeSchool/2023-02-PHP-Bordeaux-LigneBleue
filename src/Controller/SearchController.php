@@ -2,9 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Theme;
+use App\Entity\User;
 use App\Form\FilterFormType;
 use App\Form\SearchBarType;
 use App\Repository\TutorialRepository;
+use App\Repository\UserRepository;
+use App\Repository\UserTutorialRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,8 +20,10 @@ class SearchController extends AbstractController
     #[Route("/search", name: "app_search")]
     public function search(
         Request $request,
-        TutorialRepository $tutorialRepository
+        TutorialRepository $tutorialRepository,
+        UserTutorialRepository $userTutorialRepository,
     ): Response {
+
         $session = $request->getSession();
         $userInput = $session->get("userInput");
         $filterForm = $this->createForm(FilterFormType::class);
@@ -25,14 +31,22 @@ class SearchController extends AbstractController
         if (!$userInput) {
             return $this->render('search/index.html.twig');
         }
-
         $filters = $session->get("filters");
         $tutorials = $tutorialRepository->searchTutorials($userInput, $filters, null);
+
+        $tutorials = $tutorialRepository->findAll();
+        $userTutorials = [];
+        foreach ($tutorials as $tutorial) {
+            $userTutorial = $userTutorialRepository->findOneBy(['tutorial' => $tutorial]);
+            $userTutorials[$tutorial->getId()] = $userTutorial;
+        }
+
 
         return $this->render('search/index.html.twig', [
             'userInput' => $userInput,
             'tutorials' => $tutorials,
-            "filterForm" => $filterForm
+            "filterForm" => $filterForm,
+            'userTutorials' => $userTutorials
         ]);
     }
 
