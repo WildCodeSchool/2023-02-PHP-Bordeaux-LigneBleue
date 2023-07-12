@@ -12,12 +12,16 @@
 
     <img class="card-img-top rounded-top" src={{ asset(upload_path ~ tutorial.picturePath) }} alt={{ upload_path ~ tutorial.picturePath }}>
     <div class="card-body llb-tutorial-card-body">
-        <h6>{{ tutorial.theme.category.categoryTitle }} - {{ tutorial.theme.title }}</h6>
         <h3>{{tutorial.title}}</h3>
         <div class="d-flex justify-content-center mt-2 mb-3">
             {% for tag in tutorial.tags %}
                 {% include "tag/_badge.html.twig" %}
             {% endfor %}
+            <a class="llb-tag-badge d-flex align-items-center mb-0" href="">
+                <span class="badge rounded-pill">
+                    {{ tutorial.theme.category.categoryTitle }}
+                </span>
+            </a>
             {% if app.user %}
                 <a data-no-swup href="{{ path('app_tutorial_like', {'slug': tutorial.slug}) }}" style="margin-left: 4%;" id="wishlist" onclick="addToWishlist(event)">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1.5vw" height="1.5w" fill="{{ app.user.isInUserTutorialLiked(tutorial.title) ? '#0C5395' : '#dddddd' }}" class="bi bi-heart" viewBox="0 0 16 16">

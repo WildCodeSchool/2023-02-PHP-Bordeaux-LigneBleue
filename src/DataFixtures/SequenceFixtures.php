@@ -29,8 +29,7 @@ class SequenceFixtures extends Fixture implements DependentFixtureInterface
             for ($j = 0; $j < 9; $j++) {
                 for ($k = 1; $k <= $sequencesPerTutorial; $k++) {
                     $sequence = new Sequence();
-
-                    $sequence->setTitle($this->faker->words(3, true));
+                    $sequence->setTitle('tuto' . $i . $j . "_sequence" . $k);
                     $sequence->setContent($this->faker->paragraph(30));
                     $sequence->setExercice(false);
                     $sequence->setIndexOrder($k);
