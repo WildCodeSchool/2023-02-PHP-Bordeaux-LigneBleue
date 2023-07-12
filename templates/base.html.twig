@@ -5,10 +5,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="icon" type="image/png" href="{{ asset('build/images/favicon.png') }}"/>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0VALOkkyok0cB-7WO23wZuyuE8QrzEEc&libraries=places&callback=initAutocomplete" async="" defer=""></script>
-        <script src="https://unpkg.com/@swup/preload-plugin@2"></script>
-        <title>
+		<script src="https://unpkg.com/@swup/preload-plugin@2"></script>
+		<title>
 			{% block title %}
-                La Ligne Bleue
+				La Ligne Bleue
 			{% endblock %}
 		</title>
 		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
@@ -33,7 +33,8 @@
 
 	<!---------END OF FONTS-------->
 	</head>
-	<body {{ stimulus_controller('symfony/ux-swup/swup') }}>
+	<body
+		{{ stimulus_controller('symfony/ux-swup/swup') }}>
 		{# read and display just one flash message type #}
 		{% for message in app.flashes('notice') %}
 			<div class="flash-notice">
@@ -46,73 +47,66 @@
 
 		{% include 'modules/footer.html.twig' %}
 
-        <script>
-            // wishlist ajax
+		<script>
+			// wishlist ajax
 
-            function addToWishlist(e)
-            {
-                e.preventDefault();
-                const wishlistLink = e.currentTarget;
-                const link = wishlistLink.href;
+function addToWishlist(e) {
+e.preventDefault();
+const wishlistLink = e.currentTarget;
+const link = wishlistLink.href;
 
-                // Send an HTTP request with fetch to the URI defined in the href
-                try {
-                    fetch(link)
+// Send an HTTP request with fetch to the URI defined in the href
+try {
+fetch(link)
 
-                        // Extract the JSON from the response
-                        .then(res => res.json())
+// Extract the JSON from the response.then(res => res.json())
 
-                        // Then update the icon
-                        .then(data => {
-                            const wishlistIcon = wishlistLink.firstElementChild;
-                            console.log(wishlistIcon);
-                            if (data.isLiked) {
-                                wishlistIcon.style.fill = '#0C5395';
-                                // wishlistIcon.classList.remove("bi-heart"); // Remove the .bi-heart (empty heart) from classes in <i> element
-                                // wishlistIcon.classList.add("bi-heart-fill"); // Add the .bi-heart-fill (full heart) from classes in <i> element
-                            } else {
-                                wishlistIcon.style.fill = '#dddddd';
-                                // wishlistIcon.classList.remove("bi-heart-fill"); // Remove the .bi-heart-fill (full heart) from classes in <i> element
-                                // wishlistIcon.classList.add("bi-heart"); // Add the .bi-heart (empty heart) from classes in <i> element
-                            }
-                        });
-                } catch (err) {
-                    // eslint-disable-next-line no-console
-                    console.error(err);
-                }
-            }
-            // wishlist ajax
+// Then update the icon.then(data => {
+const wishlistIcon = wishlistLink.firstElementChild;
+console.log(wishlistIcon);
+if (data.isLiked) {
+wishlistIcon.style.fill = '#0C5395';
+// wishlistIcon.classList.remove("bi-heart"); // Remove the .bi-heart (empty heart) from classes in <i> element
+// wishlistIcon.classList.add("bi-heart-fill"); // Add the .bi-heart-fill (full heart) from classes in <i> element
+} else {
+wishlistIcon.style.fill = '#dddddd';
+// wishlistIcon.classList.remove("bi-heart-fill"); // Remove the .bi-heart-fill (full heart) from classes in <i> element
+// wishlistIcon.classList.add("bi-heart"); // Add the .bi-heart (empty heart) from classes in <i> element
+}
+});
+} catch (err) { // eslint-disable-next-line no-console
+console.error(err);
+}
+}
+// wishlist ajax
 
-            function startSequence(e)
-            {
-                e.preventDefault();
-                const wishlistLink = e.currentTarget;
-                const link = wishlistLink.href;
+function startSequence(e) {
+e.preventDefault();
+const wishlistLink = e.currentTarget;
+const link = wishlistLink.href;
 
-                // Send an HTTP request with fetch to the URI defined in the href
-                try {
-                    fetch(link)
-                        // Extract the JSON from the response
-                        .then(res => res.json())
+// Send an HTTP request with fetch to the URI defined in the href
+try {
+fetch(link)
+// Extract the JSON from the response.then(res => res.json())
 
-                        // Then update the icon
-                        .then(data => {
-                            console.log(data);
-                            const sequenceContainer = document.getElementById('sequenceContainer');
-                            if (data.isStarted) {
-                                // sequenceContainer.style.display = 'flex';
-                                // sequenceContainer.style.opacity = '1';
-                                sequenceContainer.classList.add("llb-show-display");
-                                setTimeout(function () {
-                                    sequenceContainer.classList.add("llb-show-opacity");
-                                }, 20);
-                            }
-                        });
-                } catch (err) {
-                    // eslint-disable-next-line no-console
-                    console.error(err);
-                }
-            }
-        </script>
+// Then update the icon.then(data => {
+console.log(data);
+const sequenceContainer = document.getElementById('sequenceContainer');
+if (data.isStarted) {
+// sequenceContainer.style.display = 'flex';
+// sequenceContainer.style.opacity = '1';
+sequenceContainer.classList.add("llb-show-display");
+setTimeout(function () {
+sequenceContainer.classList.add("llb-show-opacity");
+}, 20);
+}
+});
+} catch (err) { // eslint-disable-next-line no-console
+console.error(err);
+}
+}
+
+		</script>
 	</body>
 </html>
