@@ -17,8 +17,6 @@ require('bootstrap');
 
 import './script/tuto.js'
 
-import './script/error.js'
-
 // start the Stimulus application
 import './bootstrap';
 
