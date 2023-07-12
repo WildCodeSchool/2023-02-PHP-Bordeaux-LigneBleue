@@ -26,7 +26,6 @@ class SearchController extends AbstractController
 
         $tutorials = $tutorialRepository->searchTutorials($userInput, $filters, null);
 
-        $tutorialsForUserTuto = $tutorialRepository->findAll();
         $userTutorials = [];
         foreach ($tutorials as $tutorial) {
             $userTutorial = $utRepository->findOneBy(['tutorial' => $tutorial]);
