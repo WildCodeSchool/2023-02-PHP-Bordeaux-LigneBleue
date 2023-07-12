@@ -67,6 +67,7 @@ class UserController extends AbstractController
             $associatedTutorials[] = $allTutorialsLessUT[$randomKeys[$i]];
         }
 
+
         return $this->render('user/show.html.twig', [
             'user' => $user,
             'utStarted' => $utStarted,
