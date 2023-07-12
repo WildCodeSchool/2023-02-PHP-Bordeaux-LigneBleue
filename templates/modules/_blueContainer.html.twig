@@ -1,71 +1,72 @@
 {# REFACTOR THIS BITCH PLZ #}
 <div class="llb-blue-container">
-    <div id="swup">
-    {% if app.request.attributes.get('_route') is same as('app_category_index') %}
-        <div class="llb-blue-container-title">
-            <h1>Trouvez votre formation</h1>
-            <h2 class="mt-2 mb-2">Choisissez une catégorie :</h2>
-        </div>
-        <div class="llb-blue-container-card-container mt-4">
-            {% for category in categories %}
-                {% include "/category/_card.html.twig" %}
-            {% endfor %}
-        </div>
-    {% endif %}
+	<div id="swup">
+		{% if app.request.attributes.get('_route') is same as('app_category_index') %}
+			<div class="llb-blue-container-title">
+				<h1>Trouvez votre formation</h1>
+				<h2 class="mt-2 mb-2">Choisissez une catégorie :</h2>
+			</div>
+			<div class="llb-blue-container-card-container mt-4">
+				{% for category in categories %}
+					{% include "/category/_card.html.twig" %}
+				{% endfor %}
+			</div>
+		{% endif %}
 
-    {% if app.request.attributes.get('_route') is same as('app_category_show') %}
-        <div class="llb-blue-container-title">
-            <h1>Catégorie :
-                {{ category.categoryTitle }}</h1>
-            <h2 class="mt-2 mb-2">Choisissez un thème :</h2>
-        </div>
-        <div class="llb-blue-container-card-container mt-4">
-            {% for theme in category.themes %}
-                {% include "/theme/_card.html.twig" %}
-            {% endfor %}
-            <div class="d-flex justify-content-center w-100 mt-4">
-                <a class="llb-backButton" href={{ path('app_category_index')}}>
-                    <button class="llb-button-blue" type="button">Retour à l'ensemble des catégories</button>
-                </a>
-            </div>
-        </div>
-    {% endif %}
+		{% if app.request.attributes.get('_route') is same as('app_category_show') %}
+			<div class="llb-blue-container-title">
+				<h1>Catégorie :
+					{{ category.categoryTitle }}</h1>
+				<h2 class="mt-2 mb-2">Choisissez un thème :</h2>
+			</div>
+			<div class="llb-blue-container-card-container mt-4">
+				{% for theme in category.themes %}
+					{% include "/theme/_card.html.twig" %}
+				{% endfor %}
+				<div class="d-flex justify-content-center w-100 mt-4">
+					<a class="llb-backButton" href={{ path('app_category_index')}}>
+						<button class="llb-button-blue" type="button">Retour à l'ensemble des catégories</button>
+					</a>
+				</div>
+			</div>
+		{% endif %}
 
-    {% if app.request.attributes.get('_route') is same as('app_theme_show') %}
-        <div class="llb-blue-container-title">
-            <h1>Thème :
-                {{theme.title}}</h1>
-            <p>Choisissez votre formation :</p>
-        </div>
-        <div class="llb-blue-container-card-container">
-            {% for tutorial in theme.tutorials %}
-                {% include "tutorial/_card.html.twig" %}
-            {% endfor %}
-        </div>
-        <div class="d-flex justify-content-center w-100 mt-4">
-            <a class="llb-backButton" href={{ path("app_category_show", {"slug": theme.category.slug})}}>
-                <button class="llb-button-blue" type="button">Retour aux thèmes de la catégorie {{ theme.category.slug }}</button>
-            </a>
-        </div>
-    {% endif %}
+		{% if app.request.attributes.get('_route') is same as('app_theme_show') %}
+			<div class="llb-blue-container-title">
+				<h1>Thème :
+					{{theme.title}}</h1>
+				<p>Choisissez votre formation :</p>
+			</div>
+			<div class="llb-blue-container-card-container">
+				{% for tutorial in theme.tutorials %}
+					{% include "tutorial/_card.html.twig" %}
+				{% endfor %}
+			</div>
+			<div class="d-flex justify-content-center w-100 mt-4">
+				<a class="llb-backButton" href={{ path("app_category_show", {"slug": theme.category.slug} )}}>
+					<button class="llb-button-blue" type="button">Retour aux thèmes de la catégorie
+						{{ theme.category.slug }}</button>
+				</a>
+			</div>
+		{% endif %}
 
-    {% if app.request.attributes.get('_route') is same as('app_tutorial_index') %}
-        <div class="llb-blue-container-title">
-            <h1>Toutes les formations :</h1>
-        </div>
-        <div class="llb-blue-container-card-container">
-            {% for tutorial in tutorials %}
-                {% include "tutorial/_card.html.twig" %}
-            {% endfor %}
-        </div>
-    {% endif %}
+		{% if app.request.attributes.get('_route') is same as('app_tutorial_index') %}
+			<div class="llb-blue-container-title">
+				<h1>Toutes les formations :</h1>
+			</div>
+			<div class="llb-blue-container-card-container">
+				{% for tutorial in tutorials %}
+					{% include "tutorial/_card.html.twig" %}
+				{% endfor %}
+			</div>
+		{% endif %}
 
-    {% if app.request.attributes.get('_route') is same as('app_search') %}
-        <div class="llb-blue-container-card-container">
-            {% for tutorial in tutorials %}
-                {% include "tutorial/_card.html.twig" %}
-            {% endfor %}
-        </div>
-    {% endif %}
-    </div>
+		{% if app.request.attributes.get('_route') is same as('app_search') %}
+			<div class="llb-blue-container-card-container">
+				{% for tutorial in tutorials %}
+					{% include "tutorial/_card.html.twig" %}
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
 </div>

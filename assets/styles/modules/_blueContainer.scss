@@ -54,9 +54,12 @@
 @media screen and (max-width: 480px) {
     .llb-blue-container {
         width: 90vw;
+
     }
 
     .llb-blue-container-card-container {
         align-items: center;
+        flex-wrap: wrap;
+        flex-direction: column;
     }
 }
