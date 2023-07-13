@@ -16,7 +16,7 @@
 				{% include "tag/_badge.html.twig" %}
 			{% endfor %}
 
-			<a class="llb-tag-badge d-flex align-items-center mb-0" href={{ path("app_search_addFilter", {'filterRaw': "category_" ~ tutorial.theme.category.id} )}}>
+			<a class="llb-tag-badge d-flex align-items-center mb-0 text-decoration-none" href={{ path("app_search_addFilter", {'filterRaw': "category_" ~ tutorial.theme.category.id} )}}>
 				<span class="badge rounded-pill">
 					{{ tutorial.theme.category.categoryTitle }}
 				</span>
@@ -30,8 +30,6 @@
 				</a>
 			{% endif %}
 		</div>
-
-
 		<p class="card-text">{{ tutorial.objective }}</p>
 		<a href="{{ path("app_tutorial_show", {"slug": tutorial.slug} )}}" class="btn btn-primary llb-button-yellow llb-tutorial-card-button">Commencer</a>
 	</div>

@@ -1,11 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tutorial
+{% block title %}{{ tutorial.title }}
 {% endblock %}
 
 {% block body %}
 	<div class="llb-tutorial-show">
-
 		<div class="llb-tutorial-show-start-card">
 			<div class="llb-tutorial-show-start-card-left-div">
                 <div>
@@ -32,12 +31,12 @@
 						{% for tag in tutorial.tags %}
 							{% include "tag/_badge.html.twig" %}
 						{% endfor %}
-						<a class="llb-tag-badge d-flex align-items-center mb-0 llb-mlr" href={{ path("app_search_filterAll", {'filterRaw': "category_" ~ tutorial.theme.category.id} )}}>
+						<a class="llb-tag-badge d-flex align-items-center mb-0 llb-mlr text-decoration-none" href={{ path("app_search_filterAll", {'filterRaw': "category_" ~ tutorial.theme.category.id} )}}>
 							<span class="badge rounded-pill">
 								{{ tutorial.theme.category.categoryTitle }}
 							</span>
 						</a>
-						<a class="llb-tag-badge d-flex align-items-center mb-0" href={{ path("app_search_filterAll", {'filterRaw': "theme_" ~ tutorial.theme.id} )}}>
+						<a class="llb-tag-badge d-flex align-items-center mb-0 text-decoration-none" href={{ path("app_search_filterAll", {'filterRaw': "theme_" ~ tutorial.theme.id} )}}>
 							<span class="badge rounded-pill">
 								{{ tutorial.theme.title }}
 							</span>
