@@ -12,9 +12,20 @@
     bottom: 2px;
     right: 2px;
 }
+.image-card-trio-contact {
+    height: 8vw;
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+}
+
+
 
 @media screen and (max-width: 480px) {
     .image-card-trio {
         height: 15vh;
+    }
+    .image-card-trio-contact {
+        height: 13vh;
     }
 }
