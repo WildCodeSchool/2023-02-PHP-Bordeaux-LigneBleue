@@ -8,18 +8,18 @@
     <h1 class="llb-titleEditAvatar">Choisir son avatar</h1>
     {{ form_start(form) }}
     <section class="llb-avatar-userPage">
-        <div style="display:flex; flex-direction:row; flex-wrap:wrap;justify-content: space-around">
+        <div style="display:flex; flex-direction:row; flex-wrap:wrap;margin-left:10%">
     {% for choice in form.avatar.vars.choices %}
-        <div class="llb-choiceAvatar" style="margin:2rem">
+        <div class="llb-choiceAvatar" style="width:25%; margin-top:5%">
             <label>
-                <img src="{{ asset('build/images/' ~ choice.value) }}" alt="{{ choice.label }}" style="width:180px; height:180px">
-                <input type="radio" name="{{ form.avatar.vars.full_name }}" value="{{ choice.value }}" {% if choice.value == form.avatar.vars.value %}checked{% endif %}>
+                <img src="{{ asset('build/images/' ~ choice.value) }}" alt="{{ choice.label }}" style="width:180px; height:180px; cursor: pointer">
+                <input type="radio" name="{{ form.avatar.vars.full_name }}" value="{{ choice.value }}" style="display:none" {% if choice.value == form.avatar.vars.value %}checked{% endif %}>
             </label>
         </div>
     {% endfor %}
         </div>
         <div style="display:flex; justify-content: center">
-    <button class="llb-button-yellow" type="submit">Enregistrer</button>
+    <button class="llb-button-yellow" type="submit" style="margin-top:5%">Enregistrer</button>
         </div>
     {{ form_end(form) }}
     </section>

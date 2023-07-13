@@ -219,7 +219,7 @@ tour.addStep({
 tour.addStep({
     id: 'step10',
     attachTo: {
-        element: '.llb-blue-container-userShow',
+        element: '.llb-title-tutoIsStarted',
         on: 'top',
     },
     modalOverlayOpeningRadius: 16,
@@ -243,6 +243,30 @@ tour.addStep({
 tour.addStep({
     id: 'step11',
     attachTo: {
+        element: '#llb-title-tutoIsLiked',
+        on: 'top',
+    },
+    modalOverlayOpeningRadius: 16,
+    canClickTarget: false,
+    title: 'Suggestions',
+    text: 'Ici nous vous proposons des formations que vous n\'avez pas encore commencées.',
+    buttons: [
+        {
+            action() {
+                return this.back();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Retour arrière'
+        },
+        {
+            text: 'Suivant',
+            action: tour.next,
+        },
+    ],
+});
+tour.addStep({
+    id: 'step12',
+    attachTo: {
         element: '.footer-basic',
         on: 'top',
     },
@@ -264,8 +288,9 @@ tour.addStep({
         },
     ],
 });
+
 tour.addStep({
-    id: 'step12',
+    id: 'step13',
     scrollToHandler: function () {
         window.scrollTo({
             top: 0, // Position en haut de la page
