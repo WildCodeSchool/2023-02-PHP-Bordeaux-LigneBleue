@@ -10,6 +10,18 @@
     border-radius: 16px;
 }
 
+.llb-blue-container-search {
+    color: white;
+    background-color: $llb-blue;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80vw;
+    margin: 3% auto 0 auto;
+    padding: 2% 5%;
+    border-radius: 16px;
+}
+
 .llb-blue-container-title {
     display: flex;
     justify-content: center;

@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Sequence;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
@@ -22,7 +23,7 @@ class SequenceCrudController extends AbstractCrudController
     {
         yield TextField::new('title', 'Titre');
         yield TextareaField::new('content', 'Contenu');
-        yield IntegerField::new('exercice', 'Exercice');
+        yield BooleanField::new('exercice', 'Est un exercice');
         yield IntegerField::new('indexOrder', 'Ordre');
         yield ImageField::new('picturePath', 'Photo')
             ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]')
