@@ -7,6 +7,24 @@
 	<div class="llb-tutorial-show">
 		<div class="llb-tutorial-show-start-card">
 			<div class="llb-tutorial-show-start-card-left-div">
+                <div>
+                    <h2>{{tutorial.title}}</h2>
+                    <div class="llb-tutorial-show-start-card-tags-container mt-3">
+                        {% for tag in tutorial.tags %}
+                            {% include "tag/_badge.html.twig" %}
+                        {% endfor %}
+                        <a class="llb-tag-badge d-flex align-items-center mb-0 llb-mlr text-decoration-none" href="">
+                            <span class="badge rounded-pill">
+                        {{ tutorial.theme.category.categoryTitle }}
+                            </span>
+                        </a>
+						<a class="llb-tag-badge d-flex align-items-center mb-0" href={{ path("app_search_filterAll", {'filterRaw': "theme_" ~ tutorial.theme.id} )}}>
+                            <span class="badge rounded-pill">
+                        {{ tutorial.theme.title }}
+                            </span>
+                        </a>
+                    </div>
+                </div>
 				<div>
 					<h2>{{tutorial.title}}</h2>
 					<div class="llb-tutorial-show-start-card-tags-container mt-3">
