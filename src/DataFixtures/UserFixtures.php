@@ -18,13 +18,15 @@ class UserFixtures extends Fixture
     }
     public function load(ObjectManager $manager): void
     {
+        $gender = ['homme' => 'homme', 'femme' => 'femme', 'non-binaire' => 'non-binaire'];
+
         $faker = Factory::create('fr_FR');
         $userSuperAdmin = new User();
         $userSuperAdmin->setLevel(1);
         $userSuperAdmin->setFirstname($faker->firstName);
         $userSuperAdmin->setLastname($faker->lastName);
         $userSuperAdmin->setBirthday($faker->dateTimeBetween('-50 years', '-18 years'));
-        $userSuperAdmin->setGender('man');
+        $userSuperAdmin->setGender('femme');
         $userSuperAdmin->setAdress($faker->address);
         $userSuperAdmin->setEmail($faker->email);
         $userSuperAdmin->setPassword($this->passwordHasher->hashPassword($userSuperAdmin, 'admin'));
@@ -38,7 +40,7 @@ class UserFixtures extends Fixture
             $user->setLastname($faker->lastName);
             $user->setLevel(1);
             $user->setBirthday($faker->dateTimeBetween('-50 years', '-18 years'));
-            $user->setGender('man');
+            $user->setGender(array_rand($gender));
             $user->setAdress($faker->address);
             $user->setEmail($faker->email);
             $user->setPassword($this->passwordHasher->hashPassword($user, 'test'));

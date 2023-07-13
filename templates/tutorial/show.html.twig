@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tutorial
+{% block title %}{{ tutorial.title }}
 {% endblock %}
 
 {% block body %}
@@ -32,8 +32,6 @@
 
 			<img class="llb-tutorial-show-start-card-img" src={{ asset(upload_path ~ tutorial.picturePath) }} alt="{{ tutorial.title }}">
 		</div>
-
-<<<<<<< HEAD
         <div class="llb-tutorial-show-sequences-container position-relative" id="sequenceContainer">
             {% for sequence in tutorial.sequences %}
                 {% include "sequence/_card.html.twig" %}
@@ -47,20 +45,5 @@
                 </a>
             </div>
         </div>
-=======
-		<div class="llb-tutorial-show-sequences-container" id="sequenceContainer">
-			{% for sequence in tutorial.sequences %}
-				{% include "sequence/_card.html.twig" %}
-			{% endfor %}
-			<div class="llb-tutorial-show-end-card">
-				<div>
-					<h1>Je teste mes connaissances !</h1>
-				</div>
-				<a href={{ path("app_quiz_start", {"quizTitle": tutorial.quiz.title} )}}>
-					<button class="llb-button-yellow">Je commence le quiz</button>
-				</a>
-			</div>
-		</div>
->>>>>>> f2df1591e1e283f8f00c83b1d3ef85b5aea28423
 	</div>
 {% endblock %}
