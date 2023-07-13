@@ -4,9 +4,11 @@
 }
 
 .llb-chart-row1 {
-    height: 50vh;
+    height: 100%;
 }
 
 .chart1 {
-    height: 20vh;
+    height: 50vh !important;
+    width: auto !important;
+    max-width: 40vw !important;
 }
