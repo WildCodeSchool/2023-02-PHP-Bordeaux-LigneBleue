@@ -150,4 +150,10 @@ class TutorialController extends AbstractController
             'isStarted' => true,
         ]);
     }
+
+//    public function createFilterTag()
+//    {
+//        pour créer un filtre en fonction du tag cliqué
+//return $this->redirectToRoute('app_search');
+//    }
 }

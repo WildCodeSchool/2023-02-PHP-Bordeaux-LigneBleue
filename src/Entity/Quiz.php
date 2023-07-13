@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+use function Amp\Iterator\toArray;
+
 #[ORM\Entity(repositoryClass: QuizRepository::class)]
 class Quiz
 {
@@ -57,12 +59,12 @@ class Quiz
 
     public function getQuestionsAmount(): ?int
     {
-        return $this->questionsAmount;
+        return count($this->getQuestions()->toArray());
     }
 
     public function setQuestionsAmount(?int $questionsAmount): static
     {
-        $this->questionsAmount = $questionsAmount;
+        $this->questionsAmount = count($this->getQuestions()->toArray());
 
         return $this;
     }

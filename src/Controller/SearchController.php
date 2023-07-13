@@ -5,8 +5,8 @@ namespace App\Controller;
 use App\Form\FilterFormType;
 use App\Form\SearchBarType;
 use App\Repository\TutorialRepository;
+use App\Repository\UserTutorialRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,23 +16,29 @@ class SearchController extends AbstractController
     #[Route("/search", name: "app_search")]
     public function search(
         Request $request,
-        TutorialRepository $tutorialRepository
+        TutorialRepository $tutorialRepository,
+        UserTutorialRepository $utRepository,
     ): Response {
+
         $session = $request->getSession();
         $userInput = $session->get("userInput");
-        $filterForm = $this->createForm(FilterFormType::class);
+        $filters = $session->get("filters");
 
-        if (!$userInput) {
-            return $this->render('search/index.html.twig');
+        $tutorials = $tutorialRepository->searchTutorials($userInput, $filters, null);
+
+        $userTutorials = [];
+        foreach ($tutorials as $tutorial) {
+            $userTutorial = $utRepository->findOneBy(['tutorial' => $tutorial]);
+            $userTutorials[$tutorial->getId()] = $userTutorial;
         }
 
-        $filters = $session->get("filters");
-        $tutorials = $tutorialRepository->searchTutorials($userInput, $filters, null);
+        $filterForm = $this->createForm(FilterFormType::class);
 
         return $this->render('search/index.html.twig', [
             'userInput' => $userInput,
             'tutorials' => $tutorials,
-            "filterForm" => $filterForm
+            "filterForm" => $filterForm,
+            'userTutorials' => $userTutorials
         ]);
     }
 
@@ -47,8 +53,8 @@ class SearchController extends AbstractController
             $session->remove("userInput");
             $session->remove("filters");
 
-            $searchData = $searchForm->getData()["search"];
-            $session->set("userInput", $searchData);
+            $userInput = $searchForm->getData()["search"];
+            $session->set("userInput", $userInput);
 
             return $this->redirectToRoute("app_search");
         }
@@ -69,6 +75,7 @@ class SearchController extends AbstractController
     #[Route("/search/addFilter/{filterRaw}", name: "app_search_addFilter")]
     public function addFilter(Request $request, string $filterRaw): Response
     {
+
         $filterArray = explode("_", $filterRaw);
 
         $session = $request->getSession();
@@ -77,5 +84,16 @@ class SearchController extends AbstractController
         $session->set("filters", $filters);
 
         return $this->redirectToRoute("app_search");
+    }
+
+
+    #[Route("/search/filterAll/{filterRaw}", name: "app_search_filterAll")]
+    public function filterAll(Request $request, string $filterRaw): Response
+    {
+        $session = $request->getSession();
+        $session->remove('userInput');
+        $session->remove('filters');
+
+        return $this->redirectToRoute('app_search_addFilter', ['filterRaw' => $filterRaw]);
     }
 }

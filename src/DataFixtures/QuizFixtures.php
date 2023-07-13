@@ -24,7 +24,7 @@ class QuizFixtures extends Fixture implements DependentFixtureInterface
         foreach ($tutorials as $tutorial) {
             $quiz = new Quiz();
             $quiz->setTitle('Quiz ' . $tutorial->getId());
-            $quiz->setQuestionsAmount(3);
+//            $quiz->setQuestionsAmount(3);
             $quiz->setTutorial($tutorial);
             $manager->persist($quiz);
 

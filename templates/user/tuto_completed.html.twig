@@ -21,14 +21,14 @@
                 <button class="llb-button-yellow" style="margin-top: 10%; margin-left: 5%; width:60%">Voir</button>
             </a>
             <div class="llb-img-container">
-                <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme2.png') }}">
+                <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-homme.png') }}">
             </div>
         </div>
 
         <div class="llb-cardConnect d-flex flex-column p-4" style="background-color: #D6E3E7">
             <h5 class="llb-title-cards3-userPage">Mes formations terminées</h5>
             <div class="llb-img-container">
-                <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme.png') }}">
+                <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme2.png') }}">
             </div>
         </div>
     </section>
@@ -46,6 +46,13 @@
             {% if userTutorials %}
                     {% for tutorial in userTutorials %}
                         <div class="llb-liked-card">
+                            {% if tutorial is not null %}
+                                {% if  tutorial.isValidated %}
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="0.9em" viewBox="0 0 512 512" font-size="4em" style="fill: #FFCB05; transform: translateY(-2.5vw) translateX(8vw); background-color: white; border-radius: 50%; z-index:2; position: absolute ">
+                                        <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/>
+                                    </svg>
+                                {% endif %}
+                            {% endif %}
                             <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top position-relative rounded-top" alt="..." style="height:25vh">
                             <div class="card-body d-flex flex-column justify-content-between w-100">
                                 <div class="d-flex align-items-center justify-content-center w-100">
