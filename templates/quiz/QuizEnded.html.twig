@@ -4,7 +4,7 @@
 {% block body %}
     <div class="confetti-container" style="position: relative;">
     <canvas class="confetti" id="canvas" style="position: absolute; top: 0; left: 0; pointer-events: none; "></canvas>
-	<div class="LBQuizSquare">
+	<div class="LBQuizSquare " id="swup">
 		{% if countCorrectAnswers ==  questionCount %}
 			<div class="LBScore">
 				<div class="Bravo">Quiz terminé!
@@ -31,7 +31,7 @@
 	</div>
     </div>
 
-
+   {% if countCorrectAnswers ==  questionCount %}
     <script>
         //-----------Var Inits--------------
         canvas = document.getElementById("canvas");
@@ -148,5 +148,6 @@
 
 
     </script>
+    {% endif %}
 
 {% endblock %}

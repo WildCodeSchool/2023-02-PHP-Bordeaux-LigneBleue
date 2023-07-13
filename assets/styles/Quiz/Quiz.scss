@@ -1,12 +1,13 @@
 .LBQuizSquare{
     display: flex;
     flex-direction: column;
-    width: 80vw;
-    height: 80vh;
+    width: 78vw;
+    height: 78vh;
     background: #0C5395;
     border-radius: 16px;
-    margin: 8% auto 0 auto;
+    margin: 3% auto 0 auto;
     padding: 2%;
+    border: 10px solid #FFCB05;
 }
 
 .LBScore{
