@@ -20,5 +20,16 @@ const $ = require('jquery');
 // the bootstrap module doesn't export/return anything
 require('bootstrap');
 
+
+import './script/tuto.js'
+
+
+import './bootstrap';
+
+
+import { Application } from 'stimulus'
+import PlacesAutocomplete from 'stimulus-places-autocomplete'
+
+
 const application = Application.start()
 application.register('places', PlacesAutocomplete)

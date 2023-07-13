@@ -11,7 +11,7 @@
 	<ul class="llb-search-form-suggestion-container">
 		{% for tutorial in this.tutorials %}
 			<li>
-				<a href={{ path('app_tutorial_show', {"slug": tutorial.slug} ) }}>{{ tutorial.title }}</a>
+				<a class="text-decoration-none" href={{ path('app_tutorial_show', {"slug": tutorial.slug} ) }}>{{ tutorial.title }}</a>
 			</li>
 		{% endfor %}
 	</ul>
