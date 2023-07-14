@@ -4,6 +4,10 @@
     padding: 5vw;
 }
 
+.llb-font-title {
+    font-family: 'Slicker', sans-serif;
+}
+
 .llb-tutorial-show-start-card {
     height: 25vw;
     background-image: url("../../images/welcome-user.jpeg");
@@ -26,6 +30,7 @@
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: column;
+    width: 55%;
 }
 
 .llb-tutorial-show-start-card-left-div>h2 {
