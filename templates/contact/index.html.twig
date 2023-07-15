@@ -1,23 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Page Contact{% endblock %}
+{% block title %}Contactez-nous{% endblock %}
 
 {% block body %}
 
-    <div class="llb-background-light-blue llb-register-size"></div>
-    <div class="llb-form">
-    <section class="llb-form-global">
+    <div class="llb-background-light-blue llb-contact-size"></div>
+
+        <section class="llb-form-global mt-5">
         <h1 class="h3 mt-0 font-weight-normal text-center">Contactez-nous</h1>
         <p>*Champs obligatoires</p>
-        <div class="w-100">
+        <div class="w-100 mt-5 ">
 
             {{ form_start(formulaireContact) }}
                 {{ form_row(formulaireContact.email, {
                     label: 'Email*',
                 }) }}
+                {{ form_row(formulaireContact.name,{
+                    label: 'Nom et Prénom*',
+                    attr: {rows:1}
+                }) }}
+                {{ form_row(formulaireContact.objet, {
+                    label: 'Objet*',
+                    attr: {rows:2}
+                }) }}
 
                 {{ form_row(formulaireContact.message, {
                     label: 'Message*',
+                    attr: { rows: 7  }
                  }) }}
 
                 <div class="w-100 d-flex align-items-center justify-content-center " style="margin-top: 30px">
@@ -25,12 +34,9 @@
                 </div>
             {{ form_end(formulaireContact) }}
 
+
+            <img src="{{ asset('build/images/femme-assise.png') }}" class="image-card-trio-contact" alt="logo-card-femme">
         </div>
     </section>
-
-        <div class="d-flex justify-content-center align-items-center">
-            <a class="llb-button-yellow mb-5 mt-2 text-decoration-none text-center w-auto align-middle" href="{{ path('app_home') }}">Cliquez ici pour revenir en arrière</a>
-        </div>
-    </div>
-
+    
 {% endblock %}

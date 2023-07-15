@@ -21,23 +21,31 @@ class ContactController extends AbstractController
             $data = $form->getData();
             $address = $data['email'];
             $message = $data['message'];
+            $objet = $data['objet'];
+            $name = $data['name'];
+
+
 
             $email = (new Email())
                 ->from($address)
                 ->to('admin@admin.com')
-                ->subject('Demande de contact')
+                ->subject($objet)
                 ->text($message)
                 ->html('<div style="font-family: Arial, sans-serif; background-color: #f1f1f1; padding: 20px;">
                             <div style="background-color: #fff; padding: 20px; border-radius: 5px;">
-                                <p style="font-size: 18px; margin-bottom: 20px;">' . $message . '</p>
+                                <p style="font-size: 18px;">Objet: ' . $objet . '</p>
+                                <p style="font-size: 14px; margin-bottom: 20px; color: #777;">' . $message . '</p>
                                 <p style="font-size: 14px; color: #777;">Coordialement,</p>
-                                <p style="font-size: 14px; color: #777;">' . $address . '</p>
+                                <p style="font-size: 14px; color: #777;">' . $name . '.' .  '</p>
                             </div>
                          </div>');
+
                 $mailer->send($email);
         }
+
         return $this->render('contact/index.html.twig', [
-            'formulaireContact' => $form
+            'formulaireContact' => $form,
+
         ]);
     }
 }

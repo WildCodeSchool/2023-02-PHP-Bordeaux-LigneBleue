@@ -32,11 +32,10 @@ class DashboardController extends AbstractDashboardController
     {
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
-//        $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
+        $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
 
-//        return $this->redirect($adminUrlGenerator->setController(CategoryCrudController::class)->generateUrl());
-        return $this->render('admin/index.html.twig', [
-        ]);
+        return $this->redirect($adminUrlGenerator->setController(CategoryCrudController::class)->generateUrl());
+//        return $this->render('admin/index.html.twig', []);
 
 
         // Option 2. You can make your dashboard redirect to different pages depending on the user
@@ -70,7 +69,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Questions', 'fas fa-question', Question::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-users', User::class);
         yield MenuItem::linkToUrl(
-            'Retour au site',
+            'Accès au site',
             'fas fa-sharp fa-light fa-arrow-left',
             $this->generateUrl('app_home')
         );
