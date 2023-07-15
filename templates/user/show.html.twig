@@ -82,7 +82,12 @@
                                 {% for tag in tutorial.tutorial.tags %}
                                     {% include "tag/_badge.html.twig" %}
                                 {% endfor %}
-                                <a data-no-swup href="{{ path('app_tutorial_like', {'slug': tutorial.tutorial.slug}) }}" style="margin-left: 4%;" id="wishlist" onclick="addToWishlist(event)">
+                                <a class="llb-tag-badge d-flex align-items-center mb-0 text-decoration-none" style="margin-left: 2%;" href={{ path("app_search_filterAll", {'filterRaw': "category_" ~ tutorial.tutorial.theme.category.id} )}}>
+							<span class="badge rounded-pill">
+								{{ tutorial.tutorial.theme.category.categoryTitle }}
+							</span>
+                                </a>
+                                <a data-no-swup href="{{ path('app_tutorial_like', {'slug': tutorial.tutorial.slug}) }}" style="margin-left: 2%;" id="wishlist" onclick="addToWishlist(event)">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="1.5vw" height="1.5w" fill="{{ app.user.isInUserTutorialLiked(tutorial.tutorial.title) ? '#0C5395' : '#dddddd' }}" class="bi bi-heart" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                                     </svg>
@@ -90,7 +95,8 @@
                             </div>
                             <a href="{{ path("app_tutorial_show", {"slug": tutorial.tutorial.slug} )}}" class="btn btn-primary llb-button-yellow llb-tutorial-card-button">Commencer</a>
                         </div>
-                    </div>                {% endfor %}
+                    </div>
+                {% endfor %}
             {% endif %}
             {% if utStarted is empty %}
                 <div class="d-flex flex-column justify-content-center align-items-center w-100">
@@ -99,7 +105,7 @@
                 </div>
             {% endif %}
         </div>
-        <h1 class="llb-title-tutoIsStarted text-center mt-5">Vous pourriez avoir envie d'essayer :</h1>
+        <h1 class="llb-title-tutoIsStarted text-center mt-5" id="llb-title-tutoIsLiked">Vous pourriez avoir envie d'essayer :</h1>
         <div class="llb-tutoCardIsStarted">
             {% for tutorial in associatedTutorials %}
                 <div class="llb-liked-card started-like">
@@ -112,7 +118,12 @@
                             {% for tag in tutorial.tags %}
                                 {% include "tag/_badge.html.twig" %}
                             {% endfor %}
-                            <a data-no-swup href="{{ path('app_tutorial_like', {'slug': tutorial.slug}) }}" style="margin-left: 4%;" id="wishlist" onclick="addToWishlist(event)">
+                            <a class="llb-tag-badge d-flex align-items-center mb-0 text-decoration-none" style="margin-left: 2%;" href={{ path("app_search_filterAll", {'filterRaw': "category_" ~ tutorial.theme.category.id} )}}>
+							<span class="badge rounded-pill">
+								{{ tutorial.theme.category.categoryTitle }}
+							</span>
+                            </a>
+                            <a data-no-swup href="{{ path('app_tutorial_like', {'slug': tutorial.slug}) }}" style="margin-left: 2%;" id="wishlist" onclick="addToWishlist(event)">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5vw" height="1.5w" fill="{{ app.user.isInUserTutorialLiked(tutorial.title) ? '#0C5395' : '#dddddd' }}" class="bi bi-heart" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                                 </svg>

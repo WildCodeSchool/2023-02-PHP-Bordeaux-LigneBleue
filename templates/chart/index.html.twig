@@ -3,47 +3,54 @@
 {% block title %}Statistiques{% endblock %}
 
 {% block body %}
-    <div class="d-flex flex-wrap">
-        <div class="d-flex flex-column justify-content-between align-items-center w-50 h-100">
-            <h2>Répartition des utilisateurs par genre</h2>
-            {{ render_chart(chartGender, {'class': 'chart1'}) }}
+    <div class="llb-chart-container">
+        <div class="d-flex justify-content-end w-100 mt-3 mb-4">
+            <a class="llb-backButton" href={{ path('admin')}}>
+                <button class="llb-button-blue" type="button">Retour au dashboard</button>
+            </a>
         </div>
-        <div class="d-flex flex-column justify-content-between align-items-center w-50 h-100">
-            <h2>Répartition des utilisateurs par âge</h2>
-            {{ render_chart(chartAge, {'class': 'chart1'}) }}
+        <div class="d-flex flex-wrap llb-chart-row1">
+            <div class="d-flex flex-column justify-content-between align-items-center w-50">
+                <h2>Répartition des utilisateurs par genre</h2>
+                {{ render_chart(chartGender, {'class': 'chart1'}) }}
+            </div>
+            <div class="d-flex flex-column justify-content-between align-items-center w-50">
+                <h2>Répartition des utilisateurs par âge</h2>
+                {{ render_chart(chartAge, {'class': 'chart1'}) }}
+            </div>
         </div>
-    </div>
 
-    <div class="d-flex flex-wrap mt-5">
-        <div class="d-flex flex-column justify-content-between align-items-center w-50">
-            <h2>Répartition des thèmes en fonction des formations likés</h2>
-            {{ render_chart(chartSmartphoneLiked, {'class': 'chart1'}) }}
+        <div class="d-flex flex-wrap mt-5">
+            <div class="d-flex flex-column justify-content-between align-items-center w-50">
+                <h2>Répartition des thèmes en fonction des formations likés</h2>
+                {{ render_chart(chartSmartphoneLiked, {'class': 'chart1'}) }}
+            </div>
+            <div class="d-flex flex-column justify-content-between align-items-center w-50">
+                <h2>Répartition des thèmes en fonction des formations commencées</h2>
+                {{ render_chart(chartSmartphoneStarted, {'class': 'chart1'}) }}
+            </div>
         </div>
-        <div class="d-flex flex-column justify-content-between align-items-center w-50">
-            <h2>Répartition des thèmes en fonction des formations commencées</h2>
-            {{ render_chart(chartSmartphoneStarted, {'class': 'chart1'}) }}
-        </div>
-    </div>
 
-    <div class="d-flex flex-wrap mt-5">
-        <div class="d-flex flex-column justify-content-between align-items-center w-50">
-            <h2>Répartition des thèmes en fonction des formations likés</h2>
-            {{ render_chart(chartOrdinateurLiked, {'class': 'chart1'}) }}
+        <div class="d-flex flex-wrap mt-5">
+            <div class="d-flex flex-column justify-content-between align-items-center w-50">
+                <h2>Répartition des thèmes en fonction des formations likés</h2>
+                {{ render_chart(chartOrdinateurLiked, {'class': 'chart1'}) }}
+            </div>
+            <div class="d-flex flex-column justify-content-between align-items-center w-50">
+                <h2>Répartition des thèmes en fonction des formations commencées</h2>
+                {{ render_chart(chartOrdinateurStarted, {'class': 'chart1'}) }}
+            </div>
         </div>
-        <div class="d-flex flex-column justify-content-between align-items-center w-50">
-            <h2>Répartition des thèmes en fonction des formations commencées</h2>
-            {{ render_chart(chartOrdinateurStarted, {'class': 'chart1'}) }}
-        </div>
-    </div>
 
-    <div class="d-flex flex-wrap mt-5">
-        <div class="d-flex flex-column justify-content-between align-items-center w-50">
-            <h2>Répartition des thèmes en fonction des formations likés</h2>
-            {{ render_chart(chartAutresLiked, {'class': 'chart1'}) }}
-        </div>
-        <div class="d-flex flex-column justify-content-between align-items-center w-50">
-            <h2>Répartition des thèmes en fonction des formations commencées</h2>
-            {{ render_chart(chartAutresStarted, {'class': 'chart1'}) }}
+        <div class="d-flex flex-wrap mt-5">
+            <div class="d-flex flex-column justify-content-between align-items-center w-50">
+                <h2>Répartition des thèmes en fonction des formations likés</h2>
+                {{ render_chart(chartAutresLiked, {'class': 'chart1'}) }}
+            </div>
+            <div class="d-flex flex-column justify-content-between align-items-center w-50">
+                <h2>Répartition des thèmes en fonction des formations commencées</h2>
+                {{ render_chart(chartAutresStarted, {'class': 'chart1'}) }}
+            </div>
         </div>
     </div>
 {% endblock %}
