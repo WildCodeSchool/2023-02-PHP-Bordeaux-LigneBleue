@@ -33,7 +33,7 @@
     {% if app.request.attributes.get('_route') is same as('app_theme_show') %}
         <div class="llb-blue-container-title">
             <h1>{{theme.title}}</h1>
-            <p>Choisissez votre formation :</p>
+            {# <p>Choisissez votre formation :</p> #}
         </div>
         <div class="llb-blue-container-card-container">
             {% for tutorial in theme.tutorials %}
