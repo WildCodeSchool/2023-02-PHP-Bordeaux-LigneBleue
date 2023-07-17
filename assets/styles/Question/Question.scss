@@ -17,11 +17,6 @@
 
 }
 
-.QuestionNumber{
-
-
-
-}
 
 .questionPrompt{
     color: white;
@@ -140,5 +135,55 @@
 .questionsArrow{
     display: flex;
     flex-direction: row;
+
+}
+
+
+@media screen and (max-width: 480px) {
+
+    .llb-button-proposition-quiz {
+        width: 55vw;
+        height: 16vh;
+        left: 320px;
+        top: 353px;
+        font-size:4vw;
+        margin-top: 7%;
+        margin-bottom: 3%;
+    }
+    .validateQuestion{
+        margin-left: 10.5vw;
+        margin-bottom: 5%;
+        width: 65vw;
+        height: 9vh;
+        left: 320px;
+        top: 353px;
+        font-size:5vw ;
+        margin-top: 5%;
+    }
+    .questionPrompt{
+        font-size:7vw ;
+        font-weight: bolder;
+        margin-bottom: 3%;
+        margin-top:3%;
+
+    }
+    .QuestionIndex{
+        font-size: 5vw;
+        font-weight: bolder;
+
+    }
+    .llb-button-yellow{
+        width: 65vw;
+        height: 9vh;
+        left: 320px;
+        top: 353px;
+        font-size:7vw;
+        background:#FFCB05 ;
+        margin:8% 8% 8% 8% ;
+    }
+
+
+
+
 
 }

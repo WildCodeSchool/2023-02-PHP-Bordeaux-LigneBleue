@@ -4,7 +4,7 @@
 {% block body %}
     <div class="confetti-container" style="position: relative;">
     <canvas class="confetti" id="canvas" style="position: absolute; top: 0; left: 0; pointer-events: none; "></canvas>
-	<div class="LBQuizSquare " id="swup">
+	<div class="LBQuizSquareEnd " id="swup">
 		{% if countCorrectAnswers ==  questionCount %}
 			<div class="LBScore">
 				<div class="Bravo">Quiz terminé!
@@ -24,10 +24,10 @@
 				</div>
 			</div>
 		{% endif %}
-		<a href={{ path('app_user_show', {"id": app.user.id} ) }}>
-			<button class="LBComeback" id="validate">Retour au Profil
-			</button>
-		</a>
+
+        <a href="{{ path('app_tutorial_show',{'slug':quiz.tutorial.slug})}}">
+            <button class="LBComeback" id="validate">Retour au Tuto</button>
+        </a>
 	</div>
     </div>
 
