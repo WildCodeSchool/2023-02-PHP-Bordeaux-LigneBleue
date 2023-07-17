@@ -1,9 +1,9 @@
-<div{{attributes}} id="js-searchBox">
-	{{ form_start(form, {'attr': {'class' : 'd-flex llb-navbar-search-container', role : "search"}}) }}
-	{{ form_widget(form) }}
+<div class="llb-container-form d-flex" id="js-searchBox">
+	{{ form_start(form, {'attr': {'class' : 'd-flex llb-search-form'}}) }}
+	{{ form_widget(form.search, {'attr': {'class' : 'form-control mr-sm-2 llb_navbar_search_form js-searchform', role : "search"}}) }}
 
 	<button class="btn btn-outline-light llb_navbar_search_button" type="submit">
-		<img src={{ asset(icons_path ~ "Search_loupe.png") }} alt="search" width="20" height="20">
+		<img src={{ asset(icons_path ~ "Search_loupe.png") }} alt="search">
 	</button>
 
 	{{ form_end(form) }}
@@ -11,7 +11,7 @@
 	<ul class="llb-search-form-suggestion-container">
 		{% for tutorial in this.tutorials %}
 			<li>
-				<a href={{ path('app_tutorial_show', {"slug": tutorial.slug} ) }}>{{ tutorial.title }}</a>
+				<a class="text-decoration-none" href={{ path('app_tutorial_show', {"slug": tutorial.slug} ) }}>{{ tutorial.title }}</a>
 			</li>
 		{% endfor %}
 	</ul>

@@ -1,13 +1,18 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ quiz.tutorial.slug }}{% endblock %}
+
 {% block body %}
-    <div class="LBQuizSquare" >
-        <h1 class="LB-quizTitle">Quiz : {{ quiz.tutorial.slug }}</h1>
-        <div class="w-75 mt-5 mb-5 llb-align-center text-center">
-            <h3 class="text-white">Que le jeu commence ! Ce quiz vous permettra de mettre en pratique ce que vous avez appris lors du précédent tutoriel. Bonne chance !</h3>
-        </div>
-        <a class="text-decoration-none w-100" href="{{ path('app_question_show', { 'quizTitle': quiz.title, 'questionIndex': 1 }) }}">
-            <button class="llb-button-yellow llb-align-center">Commencer</button>
-        </a>
-    </div>
+
+    {% include "/quiz/container.html.twig" %}
+
+    {#    <div class="LBQuizSquare" >#}
+{#        <h1 class="LB-quizTitle">Quiz : {{ quiz.tutorial.slug }}</h1>#}
+{#        <div class="w-75 mt-5 mb-5 llb-align-center text-center">#}
+{#            <h3 class="text-white">Que le jeu commence ! Ce quiz vous permettra de mettre en pratique ce que vous avez appris lors du précédent tutoriel. Bonne chance !</h3>#}
+{#        </div>#}
+{#        <a class="text-decoration-none w-100" href="{{ path('app_question_show', { 'quizTitle': quiz.title, 'questionIndex': 1 }) }}">#}
+{#            <button class="llb-button-yellow llb-align-center">Commencer</button>#}
+{#        </a>#}
+{#    </div>#}
 {% endblock %}

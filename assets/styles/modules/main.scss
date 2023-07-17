@@ -1,8 +1,8 @@
-.llb-userpage-size
-{
+.llb-userpage-size {
     top: 90%;
     height: 100%;
 }
+
 .llb-background-light-blue {
     background-color: $llb-light-blue;
     position: absolute;
@@ -13,12 +13,17 @@
 
 .llb-login-size {
     height: 50%;
-    top: 30%;
+    top: 40%;
 }
 
 .llb-register-size {
     height: 100%;
-    top: 30%;
+    top: 40%;
+    bottom: 0;
+}
+.llb-contact-size {
+    height:70%;
+    top: 40%;
     bottom: 0;
 }
 
@@ -32,6 +37,11 @@
     height: 50%;
     top: 50%;
     bottom: 0;
+}
+
+.llb-quiz-size {
+    top: 20%;
+    bottom: 10%;
 }
 
 .transition-fade {

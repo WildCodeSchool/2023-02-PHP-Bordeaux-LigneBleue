@@ -5,7 +5,19 @@
     justify-content: center;
     flex-direction: column;
     width: 80vw;
-    margin: 8% auto 0 auto;
+    margin: 3% auto 0 auto;
+    padding: 2% 5%;
+    border-radius: 16px;
+}
+
+.llb-blue-container-search {
+    color: white;
+    background-color: $llb-blue;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80vw;
+    margin: 3% auto 0 auto;
     padding: 2% 5%;
     border-radius: 16px;
 }
@@ -16,18 +28,16 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
-
 }
 
 .llb-blue-container-title>h1 {
     color: white !important;
-    font-family: 'Baloo 2';
+    font-family: 'Slicker', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 56px;
     line-height: 64px;
     text-align: center;
-    letter-spacing: -1px;
 }
 
 .llb-blue-container-title>h2 {

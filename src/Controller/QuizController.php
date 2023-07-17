@@ -33,12 +33,48 @@ class QuizController extends AbstractController
             'quizzes' => $quizzes,
         ]);
     }
+    #[Route('/{quizTitle}/fin', name: 'app_quiz_end', methods: ['GET', 'POST'])]
+    public function endQuiz(
+        Request $request,
+        string $quizTitle,
+    ): Response {
+        $encodedQuizTitle = urldecode($quizTitle);
+        $quiz = $this->entityManager->getRepository(Quiz::class)->findOneBy(['title' => $encodedQuizTitle]);
+        $quizResults = $request->getSession()->get('quiz_results', []);
+        $questions = $quiz->getQuestions();
+        $questionCount = count($questions);
+        $countCorrectAnswers = 0;
+
+        foreach ($quizResults[$quizTitle] as $result) {
+            if ($result) {
+                $countCorrectAnswers++;
+            }
+        }
+        $user = $this->getUser();
+        $tutorial = $quiz->getTutorial();
+        $userTutorial = $this->entityManager->getRepository(UserTutorial::class)->findOneBy([
+            'user' => $user,
+            'tutorial' => $tutorial
+        ]);
+        if ($userTutorial && $questionCount === $countCorrectAnswers) {
+            $userTutorial->setIsValidated(true);
+            $this->entityManager->persist($userTutorial);
+            $this->entityManager->flush();
+        }
+
+        return $this->render('quiz/QuizEnded.html.twig', [
+            'quiz' => $quiz,
+            'quizResults' => $quizResults,
+            'questionCount' => $questionCount,
+            'countCorrectAnswers' => $countCorrectAnswers,
+        ]);
+    }
 
     #[Route('/{quizTitle}', name: 'app_quiz_start', methods: ['GET'])]
     public function start(Request $request, string $quizTitle): Response
     {
         if (!$this->getUser()) {
-            $this->addFlash("Error", "Connectez-vous ou inscrivez-vous pour pouvoir acceder au quiz");
+            $this->addFlash("Error", "Connectez-vous ou inscrivez-vous pour pouvoir accéder au quiz");
             return $this->redirectToRoute("app_login");
         }
 
@@ -76,39 +112,11 @@ class QuizController extends AbstractController
 
         $quizService->saveQuizResult($request, $quizTitle, $questionIndex, $quizResults);
         if ($questionIndex === $questionCount + 1) {
-            $countCorrectAnswers = 0;
-            foreach ($quizResults[$quizTitle] as $result) {
-                if ($result) {
-                    $countCorrectAnswers++;
-                }
-            }
-            $user = $this->getUser();
-            $tutorial = $quiz->getTutorial();
-            $userTutorial = $this->entityManager->getRepository(UserTutorial::class)->findOneBy([
-                'user' => $user,
-                'tutorial' => $tutorial
-            ]);
-            if ($userTutorial && $questionCount === $countCorrectAnswers) {
-                $userTutorial->setIsValidated(true);
-                $this->entityManager->persist($userTutorial);
-                $this->entityManager->flush();
-            }
-
-
-            return $this->render('quiz/QuizEnded.html.twig', [
-                'quiz' => $quiz,
-                'quizResults' => $quizResults,
-                'questionCount' => $questionCount,
-                'countCorrectAnswers' => $countCorrectAnswers,
-            ]);
+            return $this->redirectToRoute('app_quiz_end', ['quizTitle' => $quizTitle]);
         }
-
-
-
 
         $question = $questions[$questionIndex - 1];
         $csrfToken = $csrfTokenManager->getToken('csrf-token')->getValue();
-
 
         return $this->render('quiz/question.html.twig', [
             'quiz' => $quiz,

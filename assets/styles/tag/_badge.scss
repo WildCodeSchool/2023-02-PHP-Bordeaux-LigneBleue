@@ -1,10 +1,10 @@
-.llb-tag-badge {
-    margin-right: 2%;
-}
 
 .llb-tag-badge>span {
     background-color: $llb-blue;
     font-size: 0.8rem;
     padding: 6px 8px 6px 8px;
+}
 
+.llb-tag-badge>span:hover {
+    background-color: $llb-dark-blue;
 }
