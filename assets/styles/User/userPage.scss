@@ -23,6 +23,9 @@
     flex-direction: row;
     border-radius:16px;
 }
+.llb-welcome-userPage .mt-4{
+    margin-top: 0!important;
+}
 
 .llb-background-blue {
     width: 80vw;
@@ -73,18 +76,23 @@
     height:20vw;
     margin-top:2%;
 }
-.llb-buttonEdit-Tuto .llb-button-blue{
-    margin-top:2%;
-    margin-bottom:2%;
+.llb-avatarIsNull{
+    width:20vw;
+    height:20vw;
+    margin-top:3%;
+    background-color:#FFCB05;
 }
-/*          Edit profil                            */
-
-.llb-button-edit-profil{
+.llb-avatarIsNull p{
+    line-height: 20vw;
+    text-align: center;
+}
+.llb-buttonEdit-Tuto{
     display:flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-content:center;
-    align-items:center;
+    flex-direction:column;
+    justify-content: center;
+}
+.llb-buttonEdit-Tuto .llb-button-blue{
+    width:20vw;
 }
 /*       BLUE STRIP                      */
 .llb-background-light-blue-userPage {
@@ -168,14 +176,22 @@
     display:flex;
     flex-direction:column;
 }
-
+.llb-avatarContainer{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    margin-left:10%;
+}
 .llb-avatar-userPage fieldset{
     display:none !important;
 }
 .card-body .llb-button-blue{
     margin-top:10%;
 }
-
+.llb-choiceAvatar{
+    width:25%;
+    margin-top:5%;
+}
 
 /*      TABLETTE        */
 
@@ -183,23 +199,9 @@
     .llb-button-white-UP {
         font-size:10px;
     }
-    .llb-buttonEdit-Tuto{
-        display:flex;
-        flex-direction:row;
-        align-items: center;
-    }
-    .llb-buttonEdit-Tuto .llb-button-blue{
-        max-width:20vw;
-        max-height: 10vw;
-    }
-    .llb-buttonEdit-Tuto a{
-        margin-right: 5%;
-    }
-    a .llb-button-blue{
-        font-size:12px;
-    }
     .llb-welcome-title{
         font-size:x-large;
+        width:35vw
     }
     .llb-cardConnect .llb-button-yellow{
         width:55%;
@@ -217,8 +219,11 @@
 
 /*          PHONE            */
 @media screen and (max-width: 700px) {
+    .llb-avatarIsNull{
+        display:none
+    }
     .llb-welcome-userPage {
-        height: 70vh;
+        height: 120%;
         background-size: 180vh;
         display: flex;
         flex-direction: column-reverse;
@@ -229,21 +234,11 @@
     }
     .llb-welcomeText-userPage {
         font-size: 13px;
-        margin-bottom:5%;
+        margin-bottom: 5%;
+        width:80%;
     }
     .llb-welcome-title {
         font-size: xx-large;
-    }
-    .llb-buttonEdit-Tuto {
-        display: flex;
-        flex-direction: column;
-        margin-top: 5%;
-    }
-    .llb-buttonEdit-Tuto .llb-button-blue {
-        max-width: 40vw;
-    }
-    .llb-leftPart-userPage .llb-button-blue {
-        margin-top: 15%;
     }
     .llb-cards-userPage {
         display: flex;
@@ -260,7 +255,6 @@
         height: 10vw;
         font-size: 12px;
     }
-
     .llb-tutorial-index-card-container {
         display: flex;
         flex-wrap: wrap;
@@ -268,11 +262,12 @@
         justify-content: center;
         align-items: center;
     }
+    .llb-leftPart-userPage{
+        align-items: center;
+    }
     .llb-leftPart-userPage .llb-button-blue {
         width: 40vw;
-        margin-top: -2%;
-        height: 10%;
-        font-size: 10px;
+        font-size: 12px;
     }
     .llb-cards-userPage {
         margin-top: -25%;
@@ -284,19 +279,31 @@
     .llb-img-cardsUserPage {
         height: 10vh;
     }
-    .llb-tutoCardIsStarted{
-        display:flex;
+    .llb-tutoCardIsStarted {
+        display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
+        margin-left: 0;
+    }
+    .llb-blue-container-userShow div {
+        width: 70vw;
+        margin-bottom: 3vh;
+        margin-top: 4vh;
+    }
+    .llb-title-tutoIsStarted {
+        font-size: 22px;
+    }
+    .llb-choiceAvatar{
+        width:45%;
+        margin-top:5%;
+    }
+    .llb-avatarContainer{
+        display:flex;
+        justify-content:center;
+        margin-left:20%;
+    }
+    .llb-buttonEdit-Tuto{
         align-items:center;
-        margin-left:0;
-    }
-    .llb-blue-container-userShow div{
-        width:70vw;
-        margin-bottom:3vh;
-        margin-top:4vh;
-    }
-    .llb-title-tutoIsStarted{
-        font-size:22px;
     }
 }
