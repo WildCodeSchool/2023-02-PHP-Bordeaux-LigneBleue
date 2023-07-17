@@ -1,12 +1,12 @@
 <div class="llb-filter-bar-container">
 	<div class="form-check form-switch llb-filter-bar-switch">
-		<label class="form-check-label" for="flexSwitchCheckDefault">Commencé:</label>
-		<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+		<label class="form-check-label" for="flexSwitchCheckDefault">Favoris:</label>
+		<input class="form-check-input" onclick="filterIsLiked()" type="checkbox" role="switch" id="flexSwitchCheckDefault" {% if app.session.get("filters")["isLiked"] is defined %} checked={{app.session.get("filters").isLiked == "liked"}} {% endif %}>
 	</div>
 
 	<div class="form-check form-switch llb-filter-bar-switch">
 		<label class="form-check-label" for="flexSwitchCheckDefault">Terminé:</label>
-		<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+		<input class="form-check-input" onclick="filterIsValidated()" type="checkbox" role="switch" id="flexSwitchCheckDefault" {% if app.session.get("filters")["isValidated"] is defined %} checked={{app.session.get("filters").isLiked == "liked"}} {% endif %}>
 	</div>
 
 	{{ component('CategoryComponent') }}
@@ -17,6 +17,17 @@
 		<button type="button" class="btn btn-outline-light">Reset</button>
 	</a>
 </div>
+
+
+<script>
+	function filterIsLiked() {
+window.location.href = "/search/addFilter/isLiked_liked";
+}
+
+function filterIsValidated() {
+window.location.href = "/search/addFilter/isValidated_validated";
+}
+</script>
 
 
 {# <div class="llb-filter-bar-container">
