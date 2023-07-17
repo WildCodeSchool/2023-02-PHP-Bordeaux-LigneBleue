@@ -48,6 +48,5 @@ class TutorialCrudController extends AbstractCrudController
         return parent::configureCrud($crud)
             ->setPageTitle('index', 'Formations')
             ->setDefaultSort(['id' => 'DESC']);
-
     }
 }
