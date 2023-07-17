@@ -18,18 +18,18 @@
             <p class="llb-welcomeText-userPage">Bienvenue dans votre espace personnel.
                 Retrouvez dans cette section vos informations personnelles ainsi que les formations terminées et celles en cours.</p>
             <div class="llb-buttonEdit-Tuto">
-            <button class="llb-button-blue mb-4 restartButton" style="margin-top:-2%">Tuto Espace Perso</button>
+            <button class="llb-button-blue mb-4 restartButton">Tuto Espace Perso</button>
                 <a href="{{ path('app_user_edit_avatar', {'id': user.id}) }}" class="mt-4" style="text-decoration: none">
-                <button class="llb-button-blue" style="margin-top:-2%">Modifier son avatar</button>
+                <button class="llb-button-blue">Modifier son avatar</button>
             </a>
             </div>
         </div>
         {% if user.avatar is not null %}
             <img class="llb-avatarOfUser" src="{{ asset('build/images/' ~ user.avatar) }}" alt="Avatar">
         {% else %}
-            <div class="llb-card-avatar">
-                <a class="text-decoration-none d-flex justify-content-center align-items-center h-100 fw-bold" href="{{ path('app_user_edit_avatar', {'id': user.id}) }}">
-                    <p class="text-center">Choisissez un avatar</p>
+            <div class="llb-avatarIsNull">
+                <a href="{{ path('app_user_edit_avatar', {'id': user.id}) }}">
+                    <p>Veuillez sélectionner un avatar</p>
                 </a>
             </div>
         {% endif %}
