@@ -16,7 +16,7 @@ class SearchBarType extends AbstractType
                 'label' => false,
                 'csrf_protection' => false,
                 'attr' => [
-                    'class' => 'form-control llb_navbar_search_form js-searchform',
+                    'class' => 'llb_navbar_search_form js-searchform',
                     'placeholder' => 'Je cherche une formation',
                     'aria-label' => "Search",
                     'type' => "search",
