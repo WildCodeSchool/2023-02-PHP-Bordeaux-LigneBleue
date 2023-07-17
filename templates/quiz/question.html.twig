@@ -1,28 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello QuizController!{% endblock %}
+{% block title %}{{ quiz.tutorial.slug }}{% endblock %}
 
 {% block body %}
 
-    <div class="LBQuizSquare " id="swup" >
-    <div class="QuestionNumber" id="question-" >
+    {% include "/quiz/container.html.twig" %}
 
-        <div class="QuestionIndex">Question {{ questionIndex  }} sur {{ questionCount }}</div>
-        <div class="questionPrompt">{{ question.prompt }}</div>
-        <div class="lineUnderQuestion"></div>
-        <div class="propositions" >
-            <button class="llb-button-proposition-quiz" value="{{ question.proposition1 }}" >{{ question.proposition1 }}</button>
-            <button class="llb-button-proposition-quiz" value="{{ question.proposition2 }}" >{{ question.proposition2 }}</button>
-            <button class="llb-button-proposition-quiz" value="{{ question.proposition3 }}" >{{ question.proposition3 }}</button>
-            <button class="llb-button-proposition-quiz" value="{{ question.proposition4 }}" >{{ question.proposition4 }}</button>
-        </div>
-        <button class="validateQuestion" id="validate" type="submit">Valider ma réponse</button>
-        <meta name="csrf-token" content="{{ csrf_token }}" />
-
-
-    </div>
-
-    </div>
+    {#    <div class="LBQuizSquare " id="swup" >#}
+{#        <div class="QuestionNumber" id="question-" >#}
+{#            <div class="QuestionIndex">Question {{ questionIndex  }} sur {{ questionCount }}</div>#}
+{#            <div class="questionPrompt">{{ question.prompt }}</div>#}
+{#            <div class="lineUnderQuestion"></div>#}
+{#            <div class="propositions" >#}
+{#                <button class="llb-button-proposition-quiz" value="{{ question.proposition1 }}" >{{ question.proposition1 }}</button>#}
+{#                <button class="llb-button-proposition-quiz" value="{{ question.proposition2 }}" >{{ question.proposition2 }}</button>#}
+{#                <button class="llb-button-proposition-quiz" value="{{ question.proposition3 }}" >{{ question.proposition3 }}</button>#}
+{#                <button class="llb-button-proposition-quiz" value="{{ question.proposition4 }}" >{{ question.proposition4 }}</button>#}
+{#            </div>#}
+{#            <button class="validateQuestion" id="validate" type="submit">Valider ma réponse</button>#}
+{#            <meta name="csrf-token" content="{{ csrf_token }}" />#}
+{#            #}
+{#        </div>#}
+{#    </div>#}
 
     <script>
         function handleQuiz() {
@@ -96,10 +95,7 @@
                 }
             });
         }
-
         handleQuiz();
-
-
     </script>
 {% endblock %}
 

@@ -10,9 +10,9 @@
 			{% include "modules/_blueContainerSearch.html.twig" %}
 		{% else %}
 			{% if userInput is defined %}
-				<h1>Aucun résultats pour: "{{ userInput }}"</h1>
+				<h1 class="text-center">Aucun résultat pour : "{{ userInput }}"</h1>
 			{% else %}
-				<h1>Utilisez la barre de recherche pour trouver une formation.</h1>
+				<h1 class="text-center">Utilisez la barre de recherche pour trouver une formation.</h1>
 			{% endif %}
 		{% endif %}
 	</div>

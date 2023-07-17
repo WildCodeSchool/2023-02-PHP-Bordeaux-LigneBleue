@@ -8,6 +8,7 @@
 
 	<div class="llb-tutorial-show">
 
+{# <h1 class="mb-4 llb-font-title">JE COMMENCE UNE NOUVELLE FORMATION</h1>#}
 
 		<div class="llb-tutorial-show-start-card">
 
@@ -41,7 +42,7 @@
 
 				<p>{{ tutorial.objective }}</p>
 
-				<a data-no-swup class="llb-button-blue text-decoration-none" href="{{ path("app_tutorial_start", {"slug": tutorial.slug} )}}" id="sequenceButton" onclick="startSequence(event)">Je commence le tuto</a>
+				<a data-no-swup class="llb-button-blue text-decoration-none llb-align-center" href="{{ path("app_tutorial_start", {"slug": tutorial.slug} )}}" id="sequenceButton" onclick="startSequence(event)">Je commence le tuto</a>
 			</div>
 
 

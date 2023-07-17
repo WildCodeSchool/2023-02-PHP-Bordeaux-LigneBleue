@@ -1,0 +1,120 @@
+.llb-navbar {
+    background-color: $llb-blue;
+    z-index: 100;
+    padding: 1.5% 2% 1.5% 2%;
+}
+
+.llb-navbar-brand {
+    color: white;
+    font-family: 'Slicker', sans-serif;
+}
+
+.llb-navbar-brand:hover {
+    color: $llb-yellow;
+}
+
+.llb-navbar-button {
+    color: white;
+    border-color: white;
+    width: 100%;
+}
+
+.llb-navbar-button:hover {
+    color: $llb-blue;
+    background-color: $llb-yellow;
+    border-color: $llb-yellow;
+}
+
+.llb-search-form {
+    width: 30vw;
+}
+
+.llb_navbar_search_button {
+    border-radius: 0 5px 5px 0;
+    width: 3vw;
+}
+
+.llb_navbar_search_button img {
+    width: 1.5vw;
+    height: 1.5vw;
+}
+
+.llb-container-form {
+    //height: 50%;
+    padding: 1%;
+}
+
+.llb_navbar_search_form {
+    border-radius: 5px 0 0 5px;
+    width: 25vw;
+}
+
+.llb-navbar-brand img {
+    margin-right: 1%;
+}
+
+input[type=text]:focus, textarea:focus {
+    box-shadow: 0 0 5px $llb-light-blue;
+    padding: 0;
+    margin: 0;
+    border: 1px solid $llb-light-blue;
+}
+
+.llb_navbar_search_form::placeholder {
+    color: $llb-blue !important;
+    opacity: 0.8;
+    font-weight: bold;
+    padding: 0 1vw 0 0;
+    border-radius: 0 5px 5px 0;
+    border-color: $llb-light-blue;
+    height: 100%;
+    margin: 0;
+}
+
+.llb-search-form-suggestion-container {
+    background-color: white;
+    position: absolute;
+    z-index: 200;
+    width: 25vw;
+    border: solid 1px #dfe2e5;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin: 0;
+    padding-left: 0;
+}
+
+.llb-search-form-suggestion-container>li {
+    padding: 2%;
+    list-style: none;
+    border-bottom: solid 1px #dfe2e5;
+}
+
+.llb-search-form-suggestion-container>li:hover {
+    font-weight: bold;
+}
+
+.llb-search-form-suggestion-container>li>a {
+    color: $llb-blue;
+}
+
+@media screen and (max-width: 480px) {
+    .llb-search-form {
+        width: 100%;
+    }
+
+        .llb_navbar_search_form {
+        width: 90%;
+    }
+    .llb_navbar_search_button {
+        width: 10%;
+    }
+    .llb_navbar_search_button img {
+        width: 4vw;
+        height: 4vw;
+    }
+
+    .btn:focus, .btn.focus {
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+}
