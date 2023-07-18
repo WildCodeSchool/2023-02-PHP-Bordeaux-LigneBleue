@@ -23,6 +23,8 @@
 .llb-tutorial-show-start-card-tags-container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
 }
 
 .llb-tutorial-show-start-card-left-div {
@@ -97,25 +99,26 @@
         height: 65vh;
         flex-direction: column-reverse;
         justify-content: center;
+        align-items: center;
         color: white;
         background-image: none;
-        background-color: $llb-light-blue;
-        padding: 0 0 5% 0;
+        background-color: $llb-yellow;
+        padding: 0;
     }
 
     .llb-tutorial-show-start-card-img {
-        max-width: 100%;
+        max-width: 90%;
         max-height: 50%;
         object-fit: contain;
-        margin: 5% 0 0 0
     }
 
     .llb-tutorial-show-start-card-left-div {
-        max-width: 100%;
+        width: 90%;
         max-height: 100%;
         display: flex;
         align-items: center;
-        justify-content: center;
+        padding: 5%;
+        margin: 0;
     }
 
     .llb-tutorial-show-start-card-left-div>div {
@@ -126,13 +129,16 @@
         width: 100%;
     }
 
+    .llb-tutorial-show-start-card-tags-container {
+        margin: 0 0 5% 0;
+    }
+
     .llb-tutorial-show-start-card-left-div>div>h2 {
         margin: 5% 0 5% 0;
     }
 
     .llb-tutorial-show-start-card-left-div>p {
         font-size: small;
-        padding: 3% 10% 0 10%;
         text-align: center;
     }
 
@@ -151,5 +157,10 @@
     .llb-tutorial-show-start-card-tags-container {
         width: 100%;
         justify-content: center;
+    }
+
+    .llb-tutorial-show-start-card-left-div>a {
+        width: 100%; 
+        font-size: small;
     }
 }
