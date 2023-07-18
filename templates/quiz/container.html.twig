@@ -45,8 +45,8 @@
                 {% else %}
                 <div class="Encouragement">N'hésitez pas à revoir le tuto et retentez votre chance.</div>
         {% endif %}
-        <a data-no-swup href={{ path('app_user_show', {"id": app.user.id} ) }}>
-            <button class="LBComeback" id="validate">Retour au profil</button>
+        <a data-no-swup href={{ path('app_tutorial_show', {"slug": quiz.tutorial.slug} ) }}>
+            <button class="LBComeback" id="validate">Retour au Tuto</button>
         </a>
     </div>
     {% endif %}

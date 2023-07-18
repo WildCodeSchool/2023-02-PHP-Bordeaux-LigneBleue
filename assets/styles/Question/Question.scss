@@ -18,7 +18,7 @@
 }
 
 .QuestionNumber{
-
+    height: 100%;
 
 
 }
@@ -71,7 +71,7 @@
 }
 
 .validateQuestion{
-    margin-left: 27vw;
+    margin-left: 25vw;
     width: 22vw;
     height: 9vh;
     left: 320px;
@@ -85,6 +85,7 @@
     font-weight:bolder;
     font-size:1.5vw;
 }
+
 
 .green-button{
     width: 368px;
@@ -142,3 +143,23 @@
     flex-direction: row;
 
 }
+@media screen and (max-width: 480px){
+
+    .QuestionIndex{
+        font-size:5vw;
+    }
+    .questionPrompt{
+        font-size: 7vw;
+    }
+    .validateQuestion{
+
+        width: 52.5vw;
+        height: 9vh;
+        font-size:4.5vw;
+
+    }
+
+
+
+}
+
