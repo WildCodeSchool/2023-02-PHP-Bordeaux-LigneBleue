@@ -11,9 +11,6 @@
     justify-content: space-around;
 }
 
-.llb-filter-bar-container>div {}
-
-
 .llb-filter-bar-switch {
     display: flex;
     align-items: center;
@@ -45,3 +42,21 @@
     background-color: $llb-yellow;
 }
 
+@media screen and (max-width: 480px) {
+    .llb-filter-bar-container {
+        // flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        height: fit-content;
+        width: 90% !important;
+        margin: 5% !important;
+        max-width: none;
+        height: 20vh;
+    }
+
+    .llb-filter-bar-container>a,
+    .llb-filter-bar-container>a>button {
+        width: 100%;
+        margin: 1% 0 0 0
+    }
+}

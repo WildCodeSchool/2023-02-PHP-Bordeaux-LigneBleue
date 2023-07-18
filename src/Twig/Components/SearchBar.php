@@ -29,7 +29,7 @@ final class SearchBar extends AbstractController
 
     public function getTutorials(): ?array
     {
-        return empty($this->query) ? null : $this->tutorialRepository->searchTutorials($this->query, null, 5);
+        return empty($this->query) ? null : $this->tutorialRepository->searchTutorials($this->query, null, 5, null);
     }
 
     protected function instantiateForm(): FormInterface

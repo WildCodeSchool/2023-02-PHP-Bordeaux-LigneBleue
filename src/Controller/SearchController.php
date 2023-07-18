@@ -23,8 +23,13 @@ class SearchController extends AbstractController
         $session = $request->getSession();
         $userInput = $session->get("userInput");
         $filters = $session->get("filters");
+        $user = $this->getUser();
 
-        $tutorials = $tutorialRepository->searchTutorials($userInput, $filters, null);
+        if (isset($user)) {
+            $tutorials = $tutorialRepository->searchTutorials($userInput, $filters, null, $user->getId());
+        } else {
+            $tutorials = $tutorialRepository->searchTutorials($userInput, $filters, null, null);
+        }
 
         $userTutorials = [];
         foreach ($tutorials as $tutorial) {
@@ -71,11 +76,21 @@ class SearchController extends AbstractController
         return $this->redirectToRoute("app_search");
     }
 
+    #[Route("/search/removeFilter/{filterRaw}", name: "app_search_remove_filters")]
+    public function removeFilter(Request $request, string $filterRaw): Response
+    {
+        $session = $request->getSession();
+        $filters = $session->get("filters");
+        unset($filters[$filterRaw]);
+        $session->set("filters", $filters);
+
+        return $this->redirectToRoute("app_search");
+    }
+
 
     #[Route("/search/addFilter/{filterRaw}", name: "app_search_addFilter")]
     public function addFilter(Request $request, string $filterRaw): Response
     {
-
         $filterArray = explode("_", $filterRaw);
 
         $session = $request->getSession();
