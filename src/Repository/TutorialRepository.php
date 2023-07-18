@@ -89,7 +89,7 @@ class TutorialRepository extends ServiceEntityRepository
 
         if (isset($filters)) {
             foreach ($filters as $filterType => $filterKey) {
-                if ($filterType == "isLiked" || $filterType == "isValidated") {
+                if ($filterType == "isLiked" || $filterType == "isValidated" && isset($userID)) {
                     $this->addUtFilter($qb, $filterKey, $userID);
                     continue;
                 }
@@ -125,29 +125,29 @@ class TutorialRepository extends ServiceEntityRepository
     public function addUtFilter(QueryBuilder $qb, string $filterKey, int $userID): QueryBuilder
     {
         if ($filterKey == "liked") {
-            $userTutorials = $this->utRepo->findBy(["user" => $userID, "isLiked" => true]);
-            $utTutorialsIDs = [];
+            $utIsLiked = $this->utRepo->findBy(["user" => $userID, "isLiked" => true]);
+            $utIsLikedIDs = [];
 
-            foreach ($userTutorials as $ut) {
-                $utTutorialsIDs[] = $ut->getTutorial()->getId();
+            foreach ($utIsLiked as $ut) {
+                $utIsLikedIDs[] = $ut->getTutorial()->getId();
             }
 
             $qb
-                ->andWhere("tutorial.id IN (:array)")
-                ->setParameter(":array", $utTutorialsIDs);
+                ->andWhere("tutorial.id IN (:isLikedArray)")
+                ->setParameter(":isLikedArray", $utIsLikedIDs);
         }
 
         if ($filterKey == "validated") {
-            $userTutorials = $this->utRepo->findBy(["user" => $userID, "isValidated" => true]);
-            $utTutorialsIDs = [];
+            $utIsValidated = $this->utRepo->findBy(["user" => $userID, "isValidated" => true]);
+            $utisValidatedIDs = [];
 
-            foreach ($userTutorials as $ut) {
-                $utTutorialsIDs[] = $ut->getTutorial()->getId();
+            foreach ($utIsValidated as $ut) {
+                $utisValidatedIDs[] = $ut->getTutorial()->getId();
             }
 
             $qb
-                ->andWhere("tutorial.id IN (:array)")
-                ->setParameter(":array", $utTutorialsIDs);
+                ->andWhere("tutorial.id IN (:isValidatedArray)")
+                ->setParameter(":isValidatedArray", $utisValidatedIDs);
         }
 
         return $qb;
