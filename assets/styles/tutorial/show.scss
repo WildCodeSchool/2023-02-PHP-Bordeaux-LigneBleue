@@ -23,6 +23,8 @@
 .llb-tutorial-show-start-card-tags-container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
 }
 
 .llb-tutorial-show-start-card-left-div {
@@ -94,15 +96,50 @@
 
 @media screen and (max-width: 480px) {
     .llb-tutorial-show-start-card {
-        height: 20vh;
+        height: 65vh;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        background-image: none;
+        background-color: $llb-yellow;
+        padding: 0;
     }
 
-    .llb-tutorial-show-start-card-left-div>h2 {
-        font-size: x-large;
+    .llb-tutorial-show-start-card-img {
+        max-width: 90%;
+        max-height: 50%;
+        object-fit: contain;
+    }
+
+    .llb-tutorial-show-start-card-left-div {
+        width: 90%;
+        max-height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 5%;
+        margin: 0;
+    }
+
+    .llb-tutorial-show-start-card-left-div>div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .llb-tutorial-show-start-card-tags-container {
+        margin: 0 0 5% 0;
+    }
+
+    .llb-tutorial-show-start-card-left-div>div>h2 {
+        margin: 5% 0 5% 0;
     }
 
     .llb-tutorial-show-start-card-left-div>p {
         font-size: small;
+        text-align: center;
     }
 
     .llb-tutorial-show-end-card {
@@ -110,13 +147,20 @@
         justify-content: center;
         align-items: center;
         flex-direction: row;
+        padding: 5%
     }
 
     .llb-tutorial-show-end-card>div>h1 {
-        font-size: large;
+        font-size: medium;
     }
 
-    .llb-tutorial-show-end-card>div>h5 {
+    .llb-tutorial-show-start-card-tags-container {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .llb-tutorial-show-start-card-left-div>a {
+        width: 100%; 
         font-size: small;
     }
 }

@@ -1,49 +1,69 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ tutorial.title }}
+{% block title %}
+	{{ tutorial.title }}
 {% endblock %}
 
 {% block body %}
+
 	<div class="llb-tutorial-show">
-{#        <h1 class="mb-4 llb-font-title">JE COMMENCE UNE NOUVELLE FORMATION</h1>#}
+
+{# <h1 class="mb-4 llb-font-title">JE COMMENCE UNE NOUVELLE FORMATION</h1>#}
+
 		<div class="llb-tutorial-show-start-card">
+
 			<div class="llb-tutorial-show-start-card-left-div">
+
 				<div>
 					<h2>{{tutorial.title}}</h2>
-					<div class="llb-tutorial-show-start-card-tags-container mt-3">
+
+
+					<div class="llb-tutorial-show-start-card-tags-container ">
 						{% for tag in tutorial.tags %}
 							{% include "tag/_badge.html.twig" %}
 						{% endfor %}
+
 						<a class="llb-tag-badge d-flex align-items-center mb-0 llb-mlr text-decoration-none" href={{ path("app_search_filterAll", {'filterRaw': "category_" ~ tutorial.theme.category.id} )}}>
 							<span class="badge rounded-pill">
 								{{ tutorial.theme.category.categoryTitle }}
 							</span>
 						</a>
+
 						<a class="llb-tag-badge d-flex align-items-center mb-0 text-decoration-none" href={{ path("app_search_filterAll", {'filterRaw': "theme_" ~ tutorial.theme.id} )}}>
 							<span class="badge rounded-pill">
 								{{ tutorial.theme.title }}
 							</span>
 						</a>
 					</div>
+
+
 				</div>
+
+
 				<p>{{ tutorial.objective }}</p>
 
 				<a data-no-swup class="llb-button-blue text-decoration-none llb-align-center" href="{{ path("app_tutorial_start", {"slug": tutorial.slug} )}}" id="sequenceButton" onclick="startSequence(event)">Je commence le tuto</a>
 			</div>
+
+
 			<img class="llb-tutorial-show-start-card-img" src={{ asset(upload_path ~ tutorial.picturePath) }} alt="{{ tutorial.title }}">
 		</div>
-        <div class="llb-tutorial-show-sequences-container position-relative" id="sequenceContainer">
-            {% for sequence in tutorial.sequences %}
-                {% include "sequence/_card.html.twig" %}
-            {% endfor %}
-            <div class="llb-tutorial-show-end-card">
-                <div>
-                    <h1>Je teste mes connaissances !</h1>
-                </div>
-                <a href={{ path("app_quiz_start", {"quizTitle": tutorial.quiz.title} )}}>
-                    <button class="llb-button-yellow">Je commence le quiz</button>
-                </a>
-            </div>
-        </div>
+
+
+		<div class="llb-tutorial-show-sequences-container position-relative" id="sequenceContainer">
+			{% for sequence in tutorial.sequences %}
+				{% include "sequence/_card.html.twig" %}
+			{% endfor %}
+			<div class="llb-tutorial-show-end-card">
+				<div>
+					<h1>Je teste mes connaissances !</h1>
+				</div>
+				<a href={{ path("app_quiz_start", {"quizTitle": tutorial.quiz.title} )}}>
+					<button class="llb-button-yellow">Je commence le quiz</button>
+				</a>
+			</div>
+		</div>
+
+
 	</div>
 {% endblock %}

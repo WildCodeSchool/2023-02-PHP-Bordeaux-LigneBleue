@@ -28,9 +28,11 @@
 @media screen and (max-width: 480px) {
     .llb-sequence-card {
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .llb-sequence-card>img {
-        width: 100%;
+        max-width: 100%;
     }
 }
