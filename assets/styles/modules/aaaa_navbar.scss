@@ -39,6 +39,10 @@
     opacity: 0.8;
     font-weight: bold;
     padding: 0 1vw 0 0;
+    border-radius: 0 5px 5px 0;
+    border-color: $llb-light-blue;
+    height: 100%;
+    margin: 0;
 }
 
 .llb-search-form-suggestion-container {
@@ -65,13 +69,6 @@
 
 .llb-search-form-suggestion-container>li>a {
     color: $llb-blue;
-}
-
-.llb_navbar_search_form::placeholder {
-    border-radius: 0px 5px 5px 0px;
-    border-color: $llb-light-blue;
-    height: 100%;
-    margin: 0;
 }
 
 .llb_navbar_search_button {

@@ -1,7 +1,9 @@
 <div class="card llb-sequence-card {{ sequence.exercice ? 'llb-bg-sequence' : '' }}">
+
     <div class="{{ sequence.exercice ? 'triangle-code' : 'd-none' }}">
         <p class="llb-rotate">Exercice</p>
     </div>
+	
 	<img class src={{ asset(upload_path ~ sequence.picturePath) }} alt={{upload_path ~ sequence.picturePath}}>
 
 	<div>
