@@ -11,23 +11,27 @@
 }
 
 .LBScore{
-    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
     color: white;
     font-weight: bolder;
     text-align: center;
-    margin-bottom: 3%;
 }
 
 .Bravo{
-    margin: auto;
-    color: white;
-    font-size:7vw;
+    color: $llb-yellow;
+    font-size:6vw;
 }
+
 .Note{
     color: white;
     font-size: 4vw;
     margin-bottom: 3%;
 }
+
 .Encouragement{
     color: white;
     font-size:2vw;
@@ -66,7 +70,7 @@
 .LB-quizTitle{
     font-weight:bolder;
     margin: auto;
-    color: white;
+    color: #FFCB05;
     font-size:5vw;
 }
 
@@ -101,3 +105,19 @@
     font-size: small;
     margin:auto;
 }
+
+.llb-width-75 {
+    width: 75%;
+}
+
+@media screen and (max-width: 480px) {
+    .LB-quizTitle {
+        margin: 3vw auto
+    }
+    .llb-width-75 {
+        width: unset;
+    }
+    .Bravo{
+        font-size: 7vh;
+    }
+    }

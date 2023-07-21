@@ -6,49 +6,58 @@
 
     <!--         QUIZ          -->
     <div class="LBQuizSquare" >
-            {% if app.request.attributes.get('_route') is same as('app_quiz_start') %}
-            <h1 class="LB-quizTitle text-center">Quiz : {{ quiz.tutorial.slug }}</h1>
-            <div class="w-75 mt-5 mb-5 llb-align-center text-center">
-                <h3 class="text-white">Que le jeu commence ! Ce quiz vous permettra de mettre en pratique ce que vous avez appris lors du précédent tutoriel. Bonne chance !</h3>
-            </div>
-            <a class="text-decoration-none w-100" href="{{ path('app_question_show', { 'quizTitle': quiz.title, 'questionIndex': 1 }) }}">
-                <button class="llb-button-yellow llb-align-center">Commencer</button>
-            </a>
+        {% if app.request.attributes.get('_route') is same as('app_quiz_start') %}
+        <h1 class="LB-quizTitle text-center">Quiz : {{ quiz.tutorial.slug }}</h1>
+        <div class="mt-5 mb-5 llb-align-center text-center llb-width-75">
+            <h2 class="text-white fw-bold">C'est parti !</h2>
+            <h4 class="text-white mt-3 mb-3">Ce quiz vous permettra de mettre en pratique ce que vous avez appris lors du précédent tutoriel.</h4>
+            <h4 class="text-white">Bonne chance !</h4>
         </div>
-        {% endif %}
-
-        {% if app.request.attributes.get('_route') is same as('app_question_show') %}
-            <div class="QuestionNumber" id="question-" >
-                <div class="QuestionIndex">Question {{ questionIndex  }} sur {{ questionCount }}</div>
-                <div class="questionPrompt">{{ question.prompt }}</div>
-                <div class="lineUnderQuestion"></div>
-                <div class="propositions" >
-                    <button class="llb-button-proposition-quiz" value="{{ question.proposition1 }}" >{{ question.proposition1 }}</button>
-                    <button class="llb-button-proposition-quiz" value="{{ question.proposition2 }}" >{{ question.proposition2 }}</button>
-                    <button class="llb-button-proposition-quiz" value="{{ question.proposition3 }}" >{{ question.proposition3 }}</button>
-                    <button class="llb-button-proposition-quiz" value="{{ question.proposition4 }}" >{{ question.proposition4 }}</button>
-                </div>
-                <button class="validateQuestion" id="validate" type="submit">Valider ma réponse</button>
-                <meta name="csrf-token" content="{{ csrf_token }}" />
-            </div>
-
-        {% endif %}
-
-        {% if app.request.attributes.get('_route') is same as('app_quiz_end') %}
-            <div class="LBScore">
-                <div class="Bravo">Quiz terminé!</div>
-                <div class="Note">
-                    Votre score :
-                    {{ countCorrectAnswers }} / {{ questionCount }}</div>
-                {% if countCorrectAnswers ==  questionCount %}
-                <div class="Encouragement">Bravo ! Vous êtes maintenant un peu plus proche du monde numérique, continuez ainsi.</div>
-                {% else %}
-                <div class="Encouragement">N'hésitez pas à revoir le tuto et retentez votre chance.</div>
-        {% endif %}
-        <a data-no-swup href={{ path('app_user_show', {"id": app.user.id} ) }}>
-            <button class="LBComeback" id="validate">Retour au profil</button>
+        <a class="text-decoration-none w-100 d-flex justify-content-center" href="{{ path('app_question_show', { 'quizTitle': quiz.title, 'questionIndex': 1 }) }}">
+            <button class="validateQuestion">Commencer</button>
         </a>
     </div>
+    {% endif %}
+
+    {% if app.request.attributes.get('_route') is same as('app_question_show') %}
+        <div class="QuestionNumber" id="question-" >
+            <div class="QuestionIndex">Question {{ questionIndex  }} sur {{ questionCount }}</div>
+            <div class="questionPrompt">{{ question.prompt }}</div>
+            <div class="lineUnderQuestion"></div>
+            <div class="propositions" >
+                <button class="llb-button-proposition-quiz" value="{{ question.proposition1 }}" >{{ question.proposition1 }}</button>
+                <button class="llb-button-proposition-quiz" value="{{ question.proposition2 }}" >{{ question.proposition2 }}</button>
+                <button class="llb-button-proposition-quiz" value="{{ question.proposition3 }}" >{{ question.proposition3 }}</button>
+                <button class="llb-button-proposition-quiz" value="{{ question.proposition4 }}" >{{ question.proposition4 }}</button>
+            </div>
+            <div class="d-flex justify-content-center w-100">
+                <button class="validateQuestion" id="validate" type="submit">Valider ma réponse</button>
+            </div>
+            <meta name="csrf-token" content="{{ csrf_token }}" />
+        </div>
+
+    {% endif %}
+
+    {% if app.request.attributes.get('_route') is same as('app_quiz_end') %}
+        <div class="LBScore">
+            <div class="Bravo">Quiz terminé !</div>
+            <div class="Note mt-3 mb-3">
+                Votre score :
+                {{ countCorrectAnswers }} / {{ questionCount }}</div>
+            {% if countCorrectAnswers ==  questionCount %}
+                <div class="d-flex flex-column">
+                    <h3 class="text-center text-white">Bravo !</h3>
+                    <h4 class="text-center text-white mb-3">Vous êtes maintenant un peu plus proche du monde numérique, continuez ainsi.</h4>
+                </div>
+            {% else %}
+                <div>
+                    <h3 class="text-center text-white">N'hésitez pas à revoir le tuto et retentez votre chance.</h3>
+                </div>
+            {% endif %}
+            <a data-no-swup class="d-flex justify-content-center text-decoration-none" href={{ path('app_user_show', {"id": app.user.id} ) }}>
+                <button class="validateQuestion" id="validate">Retour au profil</button>
+            </a>
+        </div>
     {% endif %}
 
 </div>

@@ -80,6 +80,11 @@
     margin-left: 1%;
 }
 
+.llb-liked-card h5 {
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
 .llb-liked-card:hover {
     -ms-transform: scale(1.1);
     /* IE 9 */
@@ -98,4 +103,32 @@
     .llb-tutorial-card {
         width: 100%;
     }
-}
+    .llb-liked-card {
+        width: 100%;
+        padding: 2%;
+        margin-top: 4%;
+        margin-bottom: 4%;
+    }
+    .llb-liked-card h5 {
+        margin-bottom: 2%;
+        margin-top: 2%;
+    }
+    .llb-liked-card .card-body svg {
+        width: 5vw;
+        height: 5vw;
+    }
+    .llb-rotate {
+        display: none;
+    }
+    .triangle-code {
+        border-top : 15vw solid $llb-yellow;
+        border-right : 15vw solid transparent;
+    }
+    .llb-liked-card > svg {
+        top: -1%;
+        right: 5%;
+        width: 10vw;
+        height: 10vw;
+    }
+
+    }
