@@ -24,8 +24,6 @@ class ContactController extends AbstractController
             $objet = $data['objet'];
             $name = $data['name'];
 
-
-
             $email = (new Email())
                 ->from($address)
                 ->to('admin@admin.com')

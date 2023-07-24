@@ -150,5 +150,4 @@ class TutorialController extends AbstractController
 
         return $this->redirectToRoute('app_tutorial_index', [], Response::HTTP_SEE_OTHER);
     }
-
 }

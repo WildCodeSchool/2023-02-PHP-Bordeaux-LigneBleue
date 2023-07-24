@@ -12,3 +12,21 @@
     width: auto !important;
     max-width: 40vw !important;
 }
+
+.chart-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+@media screen and (max-width: 480px) {
+    .chart1 {
+        width: 80vw !important;
+        max-width: unset !important;
+    }
+    .chart-col{
+        width: 100%;
+    }
+}
