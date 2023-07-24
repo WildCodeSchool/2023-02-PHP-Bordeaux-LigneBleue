@@ -16,7 +16,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 80vw;
+    width: 90vw;
     margin: 3% auto 0 auto;
     padding: 2% 5%;
     border-radius: 16px;
@@ -64,9 +64,28 @@
 @media screen and (max-width: 480px) {
     .llb-blue-container {
         width: 90vw;
+
     }
 
     .llb-blue-container-card-container {
         align-items: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin: 0 !important
+    }
+
+    .llb-blue-container-title {
+        margin: 0 0 5% 0;
+
+    }
+
+    .llb-blue-container-title>h1 {
+        font-size: 30px;
+        line-height: 30px;
+        margin: 5% 0 0 0;
+    }
+
+    .llb-blue-container-title>h2 {
+        font-size: 20px;
     }
 }

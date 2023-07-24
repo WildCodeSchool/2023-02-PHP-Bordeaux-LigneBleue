@@ -72,21 +72,21 @@ input[type=text]:focus, textarea:focus {
 }
 
 .llb-search-form-suggestion-container {
-    background-color: white;
+    background-color: $llb-light-blue;
     position: absolute;
     z-index: 200;
     width: 25vw;
-    border: solid 1px #dfe2e5;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     margin: 0;
     padding-left: 0;
+    top: 71%;
 }
 
 .llb-search-form-suggestion-container>li {
     padding: 2%;
     list-style: none;
-    border-bottom: solid 1px #dfe2e5;
+    //border-bottom: solid 1px #dfe2e5;
 }
 
 .llb-search-form-suggestion-container>li:hover {
@@ -101,8 +101,7 @@ input[type=text]:focus, textarea:focus {
     .llb-search-form {
         width: 100%;
     }
-
-        .llb_navbar_search_form {
+    .llb_navbar_search_form {
         width: 90%;
     }
     .llb_navbar_search_button {
@@ -112,9 +111,21 @@ input[type=text]:focus, textarea:focus {
         width: 4vw;
         height: 4vw;
     }
-
     .btn:focus, .btn.focus {
         outline: 0;
         box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+    .navbar-collapse {
+        flex-direction: column-reverse;
+    }
+    .navbar-nav {
+        width: 100%;
+    }
+    #js-searchBox {
+        width: 100%;
+    }
+    .llb-search-form-suggestion-container {
+        width: 85%;
+        top: 95%;
     }
 }
