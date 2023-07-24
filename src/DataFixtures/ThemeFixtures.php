@@ -22,11 +22,11 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
     {
         foreach (FixturesContent::getThemes() as $theme) {
             $manager->persist($this->feedThemeObject(
-                $theme[0],
-                $theme[1],
-                $theme[2],
-                $theme[3],
-                $theme[4]
+                $theme["title"],
+                $theme["indexOrder"],
+                $theme["iconPath"],
+                $theme["categoryRef"],
+                $theme["themeRef"]
             ));
         }
 
