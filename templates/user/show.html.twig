@@ -1,145 +1,150 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mon profil{% endblock %}
-		{% block stylesheets %}
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/css/shepherd.css"/>
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+{% block title %}Mon profil
+{% endblock %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/css/shepherd.css"/>
+	{{ encore_entry_link_tags('app') }}
+{% endblock %}
 
 
-		{% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-            <script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
-        {% endblock %}
+{% block javascripts %}
+	{{ encore_entry_script_tags('app') }}
+	<script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
+{% endblock %}
 {% block body %}
-    <div class="llb-welcome-userPage">
-        <div class="llb-leftPart-userPage">
-            <h2 class="llb-welcome-title">Bienvenue {{ user.firstname|capitalize }}</h2>
-            <p class="llb-welcomeText-userPage">Bienvenue dans votre espace personnel.
-                Retrouvez dans cette section vos informations personnelles ainsi que les formations terminées et celles en cours.</p>
-            <div class="llb-buttonEdit-Tuto">
-            <button class="llb-button-blue mb-4 restartButton">Tuto Espace Perso</button>
-                <a href="{{ path('app_user_edit_avatar', {'id': user.id}) }}" class="mt-4" style="text-decoration: none">
-                <button class="llb-button-blue">Modifier son avatar</button>
-            </a>
-            </div>
-        </div>
-        {% if user.avatar is not null %}
-            <img class="llb-avatarOfUser" src="{{ asset('build/images/' ~ user.avatar) }}" alt="Avatar">
-        {% else %}
-            <div class="llb-avatarIsNull">
-                <a href="{{ path('app_user_edit_avatar', {'id': user.id}) }}">
-                    <p>Veuillez sélectionner un avatar</p>
-                </a>
-            </div>
-        {% endif %}
-    </div>
+	<div class="llb-welcome-userPage">
+		<div class="llb-leftPart-userPage">
+			<h2 class="llb-welcome-title">Bienvenue
+				{{ user.firstname|capitalize }}</h2>
+			<p class="llb-welcomeText-userPage">Bienvenue dans votre espace personnel.
+				                Retrouvez dans cette section vos informations personnelles ainsi que les formations terminées et celles en cours.</p>
+			<div class="llb-buttonEdit-Tuto">
+				<button class="llb-button-blue mb-4 restartButton">Tuto Espace Perso</button>
+				<a href="{{ path('app_user_edit_avatar', {'id': user.id}) }}" class="mt-4" style="text-decoration: none">
+					<button class="llb-button-blue">Modifier son avatar</button>
+				</a>
+			</div>
+		</div>
+		{% if user.avatar is not null %}
+			<img class="llb-avatarOfUser" src="{{ asset('build/images/' ~ user.avatar) }}" alt="Avatar">
+		{% else %}
+			<div class="llb-avatarIsNull">
+				<a href="{{ path('app_user_edit_avatar', {'id': user.id}) }}">
+					<p>Veuillez sélectionner un avatar</p>
+				</a>
+			</div>
+		{% endif %}
+	</div>
 
-    <section class="llb-cards-userPage">
-        <div class="llb-cardConnect d-flex flex-column p-4" id="llb-infoUserCard">
-            <h5 class="llb-title-cards3-userPage fw-bold">Mes informations personnelles</h5>
-            <a class="nav-link text-warning" href="{{ path('app_user_edit', {"id": app.user.id}) }}">
-                <button class="llb-button-yellow" style="margin-top: 10%; margin-left: 5%; width:60%">Voir</button>
-            </a>
-            <div class="llb-img-container">
-                <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme.png') }}">
-            </div>
-        </div>
+	<section class="llb-cards-userPage">
+		<div class="llb-cardConnect d-flex flex-column p-4" id="llb-infoUserCard">
+			<h5 class="llb-title-cards3-userPage fw-bold">Mes informations personnelles</h5>
+			<a class="nav-link text-warning" href="{{ path('app_user_edit', {"id": app.user.id}) }}">
+				<button class="llb-button-yellow" style="margin-top: 10%; margin-left: 5%; width:60%">Voir</button>
+			</a>
+			<div class="llb-img-container">
+				<img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme.png') }}">
+			</div>
+		</div>
 
-        <div class="llb-cardConnect d-flex flex-column p-4" id="llb-tutoIsSavedUserCard">
-            <h5 class="llb-title-cards3-userPage fw-bold">Mes formations sauvegardées</h5>
-            <a class="nav-link text-warning" href="{{ path('app_user_show_valid') }}">
-                <button class="llb-button-yellow" style="margin-top: 10%; margin-left: 5%; width:60%">Voir</button>
-            </a>
-            <div class="llb-img-container">
-                <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-homme.png') }}">
-            </div>
-        </div>
+		<div class="llb-cardConnect d-flex flex-column p-4" id="llb-tutoIsSavedUserCard">
+			<h5 class="llb-title-cards3-userPage fw-bold">Mes formations sauvegardées</h5>
+			<a class="nav-link text-warning" href="{{ path('app_user_show_valid') }}">
+				<button class="llb-button-yellow" style="margin-top: 10%; margin-left: 5%; width:60%">Voir</button>
+			</a>
+			<div class="llb-img-container">
+				<img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-homme.png') }}">
+			</div>
+		</div>
 
-        <div class="llb-cardConnect d-flex flex-column p-4" id="llb-tutoIsFinishedUserCard">
-            <h5 class="llb-title-cards3-userPage fw-bold">Mes formations terminées</h5>
-            <a class="nav-link text-warning" href="{{ path('app_user_tutorial_completed', {'id': app.user.id}) }}">
-                <button class="llb-button-yellow" style="margin-top: 10%; margin-left: 5%; width:60%">Voir</button>
-            </a>
-            <div class="llb-img-container">
-                <img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme2.png') }}">
-            </div>
-        </div>
-    </section>
+		<div class="llb-cardConnect d-flex flex-column p-4" id="llb-tutoIsFinishedUserCard">
+			<h5 class="llb-title-cards3-userPage fw-bold">Mes formations terminées</h5>
+			<a class="nav-link text-warning" href="{{ path('app_user_tutorial_completed', {'id': app.user.id}) }}">
+				<button class="llb-button-yellow" style="margin-top: 10%; margin-left: 5%; width:60%">Voir</button>
+			</a>
+			<div class="llb-img-container">
+				<img class="llb-img-cardsUserPage" src="{{ asset('build/images/logo-card-femme2.png') }}">
+			</div>
+		</div>
+	</section>
 
-    <div class="llb-blue-container-userShow">
-        <h1 class="llb-title-tutoIsStarted text-center">Mes formations en cours</h1>
-        <div class="llb-tutoCardIsStarted">
-            {% if utStarted %}
-                {% for tutorial in utStarted %}
-                    <div class="llb-liked-card started-like">
-                        <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top position-relative rounded-top" alt="..." style="height:25vh">
-                        <div class="card-body d-flex flex-column justify-content-between w-100">
-                            <div class="d-flex align-items-center justify-content-center w-100">
-                                <h5 class="card-title mb-3 mt-3">{{ tutorial.tutorial.title }}</h5>
-                            </div>
-                            <div class="d-flex justify-content-center mt-2 mb-3">
-                                {% for tag in tutorial.tutorial.tags %}
-                                    {% include "tag/_badge.html.twig" %}
-                                {% endfor %}
-                                <a class="llb-tag-badge d-flex align-items-center mb-0 text-decoration-none" style="margin-left: 2%;" href={{ path("app_search_filterAll", {'filterRaw': "category_" ~ tutorial.tutorial.theme.category.id} )}}>
-							<span class="badge rounded-pill">
-								{{ tutorial.tutorial.theme.category.categoryTitle }}
-							</span>
-                                </a>
-                                <a data-no-swup href="{{ path('app_tutorial_like', {'slug': tutorial.tutorial.slug}) }}" style="margin-left: 2%;" id="wishlist" onclick="addToWishlist(event)">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="1.5vw" height="1.5w" fill="{{ app.user.isInUserTutorialLiked(tutorial.tutorial.title) ? '#0C5395' : '#dddddd' }}" class="bi bi-heart" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                                    </svg>
-                                </a>
-                            </div>
-                            <a href="{{ path("app_tutorial_show", {"slug": tutorial.tutorial.slug} )}}" class="btn btn-primary llb-button-yellow llb-tutorial-card-button">Commencer</a>
-                        </div>
-                    </div>
-                {% endfor %}
-            {% endif %}
-            {% if utStarted is empty %}
-                <div class="d-flex flex-column justify-content-center align-items-center w-100">
-                    <h3 class="text-white">Vous n'avez pas encore commencé de formation.</h3>
-                    <h3 class="text-white">Retrouvez toutes les formations en cliquant <a class="llb-ici-link" href="{{ path('app_category_index') }}">ici</a></h3>
-                </div>
-            {% endif %}
-        </div>
-        <h1 class="llb-title-tutoIsStarted text-center mt-5" id="llb-title-tutoIsLiked">Vous pourriez avoir envie d'essayer :</h1>
-        <div class="llb-tutoCardIsStarted">
-            {% for tutorial in associatedTutorials %}
-                <div class="llb-liked-card started-like">
-                    <img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top position-relative rounded-top" alt="..." style="height:25vh">
-                    <div class="card-body d-flex flex-column justify-content-between w-100">
-                        <div class="d-flex align-items-center justify-content-center w-100">
-                            <h5 class="card-title mb-3 mt-3">{{ tutorial.title }}</h5>
-                        </div>
-                        <div class="d-flex justify-content-center mt-2 mb-3">
-                            {% for tag in tutorial.tags %}
-                                {% include "tag/_badge.html.twig" %}
-                            {% endfor %}
-                            <a class="llb-tag-badge d-flex align-items-center mb-0 text-decoration-none" style="margin-left: 2%;" href={{ path("app_search_filterAll", {'filterRaw': "category_" ~ tutorial.theme.category.id} )}}>
-							<span class="badge rounded-pill">
-								{{ tutorial.theme.category.categoryTitle }}
-							</span>
-                            </a>
-                            <a data-no-swup href="{{ path('app_tutorial_like', {'slug': tutorial.slug}) }}" style="margin-left: 2%;" id="wishlist" onclick="addToWishlist(event)">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5vw" height="1.5w" fill="{{ app.user.isInUserTutorialLiked(tutorial.title) ? '#0C5395' : '#dddddd' }}" class="bi bi-heart" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                                </svg>
-                            </a>
-                        </div>
-                        <a href="{{ path("app_tutorial_show", {"slug": tutorial.slug} )}}" class="btn btn-primary llb-button-yellow llb-tutorial-card-button">Commencer</a>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-    <!--         BLUE STRIP 1          -->
-    <div class="llb-background-light-blue-userPage llb-category-size d-flex align-items-center justify-content-center 100vh"></div>
-<script>function resetUserTuto()
-    {
-        console.log("ma foction")
-        tour.start();
-    }</script>
+	<div class="llb-blue-container-userShow">
+		<h1 class="llb-title-tutoIsStarted text-center">Mes formations en cours</h1>
+		<div class="llb-tutoCardIsStarted">
+			{% if utStarted %}
+				{% for tutorial in utStarted %}
+					<div class="llb-liked-card started-like">
+						<img src="{{ asset('build/images/cmp-mail.jpeg') }}" class="card-img-top position-relative rounded-top" alt="..." style="height:25vh">
+						<div class="card-body d-flex flex-column justify-content-between w-100">
+							<div class="d-flex align-items-center justify-content-center w-100">
+								<h5 class="card-title mb-3 mt-3">{{ tutorial.tutorial.title }}</h5>
+							</div>
+							<div class="d-flex justify-content-center mt-2 mb-3">
+								{% for tag in tutorial.tutorial.tags %}
+									{% include "tag/_badge.html.twig" %}
+								{% endfor %}
+								<a class="llb-tag-badge d-flex align-items-center mb-0 text-decoration-none" style="margin-left: 2%;" href={{ path("app_search_filterAll", {'filterRaw': "category_" ~ tutorial.tutorial.theme.category.id} )}}>
+									<span class="badge rounded-pill">
+										{{ tutorial.tutorial.theme.category.categoryTitle }}
+									</span>
+								</a>
+								<a data-no-swup href="{{ path('app_tutorial_like', {'slug': tutorial.tutorial.slug}) }}" style="margin-left: 2%;" id="wishlist" onclick="addToWishlist(event)">
+									<svg xmlns="http://www.w3.org/2000/svg" width="1.5vw" height="1.5w" fill="{{ app.user.isInUserTutorialLiked(tutorial.tutorial.title) ? '#0C5395' : '#dddddd' }}" class="bi bi-heart" viewbox="0 0 16 16">
+										<path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+									</svg>
+								</a>
+							</div>
+							<a href="{{ path("app_tutorial_show", {"slug": tutorial.tutorial.slug} )}}" class="btn btn-primary llb-button-yellow llb-tutorial-card-button">Commencer</a>
+						</div>
+					</div>
+				{% endfor %}
+			{% endif %}
+			{% if utStarted is empty %}
+				<div class="d-flex flex-column justify-content-center align-items-center w-100">
+					<h3 class="text-white">Vous n'avez pas encore commencé de formation.</h3>
+					<h3 class="text-white">Retrouvez toutes les formations en cliquant
+						<a class="llb-ici-link" href="{{ path('app_category_index') }}">ici</a>
+					</h3>
+				</div>
+			{% endif %}
+		</div>
+		<h1 class="llb-title-tutoIsStarted text-center mt-5" id="llb-title-tutoIsLiked">Vous pourriez avoir envie d'essayer :</h1>
+		<div class="llb-tutoCardIsStarted">
+			{% for tutorial in associatedTutorials %}
+				<div class="llb-liked-card started-like">
+					<img src={{ asset(upload_path ~ tutorial.picturePath) }} class="card-img-top position-relative rounded-top" alt="..." style="height:25vh">
+					<div class="card-body d-flex flex-column justify-content-between w-100">
+						<div class="d-flex align-items-center justify-content-center w-100">
+							<h5 class="card-title mb-3 mt-3">{{ tutorial.title }}</h5>
+						</div>
+						<div class="d-flex justify-content-center mt-2 mb-3">
+							{% for tag in tutorial.tags %}
+								{% include "tag/_badge.html.twig" %}
+							{% endfor %}
+							<a class="llb-tag-badge d-flex align-items-center mb-0 text-decoration-none" style="margin-left: 2%;" href={{ path("app_search_filterAll", {'filterRaw': "category_" ~ tutorial.theme.category.id} )}}>
+								<span class="badge rounded-pill">
+									{{ tutorial.theme.category.categoryTitle }}
+								</span>
+							</a>
+							<a data-no-swup href="{{ path('app_tutorial_like', {'slug': tutorial.slug}) }}" style="margin-left: 2%;" id="wishlist" onclick="addToWishlist(event)">
+								<svg xmlns="http://www.w3.org/2000/svg" width="1.5vw" height="1.5w" fill="{{ app.user.isInUserTutorialLiked(tutorial.title) ? '#0C5395' : '#dddddd' }}" class="bi bi-heart" viewbox="0 0 16 16">
+									<path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+								</svg>
+							</a>
+						</div>
+						<a href="{{ path("app_tutorial_show", {"slug": tutorial.slug} )}}" class="btn btn-primary llb-button-yellow llb-tutorial-card-button">Commencer</a>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<!--         BLUE STRIP 1          -->
+	<div class="llb-background-light-blue-userPage llb-category-size d-flex align-items-center justify-content-center 100vh"></div>
+	<script>
+		function resetUserTuto() {
+console.log("ma foction")
+tour.start();
+}
+	</script>
 {% endblock %}

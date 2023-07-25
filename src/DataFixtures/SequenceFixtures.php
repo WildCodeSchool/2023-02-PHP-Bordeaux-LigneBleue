@@ -13,9 +13,9 @@ class SequenceFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
-        foreach (FixturesContent::getAllSequencesContent() as $tutorialData) {
-            $manager->persist($this->feedSequenceObject($tutorialData));
-        }
+        $sequences = FixturesContent::getAllSequencesContent();
+        $sequences = array_map([$this, 'feedSequenceObject'], $sequences);
+        array_walk($sequences, [$manager, 'persist']);
 
         $manager->flush();
     }
@@ -38,22 +38,4 @@ class SequenceFixtures extends Fixture implements DependentFixtureInterface
 
         return $sequence;
     }
-
-
-            // for ($i = 1; $i <= 12; $i++) {
-        //     for ($j = 0; $j < 9; $j++) {
-        //         for ($k = 1; $k <= $sequencesPerTutorial; $k++) {
-        //             $sequence = new Sequence();
-        //             $sequence->setTitle('tuto' . $i . $j . "_sequence" . $k);
-        //             $sequence->setContent($this->faker->paragraph(30));
-        //             $sequence->setExercice(false);
-        //             $sequence->setIndexOrder($k);
-        //             $sequence->setPicturePath("mbl-sms.jpg");
-        //             $sequence->setTutorial($this->getReference("tutorial_" . $i . $j));
-
-        //             $manager->persist($sequence);
-        //             $sequences[] = $sequence;
-        //         }
-        //     }
-        // }
 }
