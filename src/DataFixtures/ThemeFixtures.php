@@ -52,7 +52,8 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
         $theme->setSlug($this->slugger->slug($theme->getTitle()));
         $theme->setIconPath($iconPath);
         $theme->setCategory($this->getReference($categoryRef));
-        $this->addReference("theme_" . $themeRef . "_" . $theme->getTitle(), $theme);
+        $this->addReference("theme_" . $themeRef . "_" . $theme->getSlug(), $theme);
+        echo "theme_" . $themeRef . "_" . $theme->getSlug() . "\n";
 
         return $theme;
     }
