@@ -3,55 +3,25 @@
 namespace App\DataFixtures;
 
 use App\Entity\Tutorial;
+use App\Service\FixturesContent;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Faker\Factory;
-use Faker\Generator;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 class TutorialFixtures extends Fixture implements DependentFixtureInterface
 {
-    private Generator $faker;
     private SluggerInterface $slugger;
 
     public function __construct(SluggerInterface $slugger)
     {
-        $this->faker = Factory::create();
         $this->slugger = $slugger;
     }
 
     public function load(ObjectManager $manager): void
     {
-        $tutorialsPerTheme = 9;
-
-        $tagReferences = [
-            "tag_Débutant",
-            "tag_Intermédiaire",
-            "tag_Avancé"
-        ];
-
-        for ($i = 1; $i <= 12; $i++) {
-            for ($j = 0; $j < $tutorialsPerTheme; $j++) {
-                $tutorial = new Tutorial();
-
-                $tutorialTitle = $this->faker->words(2, true);
-                $tutorial->setTitle($tutorialTitle);
-                $tutorial->setObjective($this->faker->sentence());
-                $tutorial->setIsPublished(true);
-                $tutorial->setIndexOrder($j + 1);
-                $tutorial->setPicturePath("cmp-webcam.png");
-                $tutorial->setTheme($this->getReference("theme_" . $i));
-
-                $tutorial->addTag($this->getReference($tagReferences[array_rand($tagReferences)]));
-                $slug = $this->slugger->slug($tutorialTitle);
-                $tutorial->setSlug($slug);
-
-                $this->addReference("tutorial_" . $i . $j, $tutorial);
-
-
-                $manager->persist($tutorial);
-            }
+        foreach (FixturesContent::getAllTutorialsContent() as $tutorial) {
+            $manager->persist($this->feedTutorialObject($tutorial));
         }
 
         $manager->flush();
@@ -63,5 +33,24 @@ class TutorialFixtures extends Fixture implements DependentFixtureInterface
             ThemeFixtures::class,
             TagFixtures::class
         ];
+    }
+
+    public function feedTutorialObject(array $tutorialData): Tutorial
+    {
+        $tutorial = new Tutorial();
+
+        $tutorial->setTitle($tutorialData["title"]);
+        $tutorial->setObjective($tutorialData["objective"]);
+        $tutorial->setIsPublished($tutorialData["isPublished"]);
+        $tutorial->setIndexOrder($tutorialData["indexOrder"]);
+        $tutorial->setPicturePath($tutorialData["picturePath"]);
+        $tutorial->setTheme($this->getReference($tutorialData["themeRef"]));
+        $tutorial->addTag($this->getReference($tutorialData["tagRef"]));
+        $tutorial->setSlug($this->slugger->slug($tutorial->getTitle()));
+        $this->addReference("tutorial_" . $tutorialData["tutorialRef"], $tutorial);
+        // echo "tutorial_" . $tutorialData["tutorialRef"] . "\n";
+
+
+        return $tutorial;
     }
 }
