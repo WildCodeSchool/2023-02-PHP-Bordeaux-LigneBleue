@@ -50,6 +50,7 @@ class TutorialFixtures extends Fixture implements DependentFixtureInterface
         $this->addReference("tutorial_" . $tutorialData["tutorialRef"], $tutorial);
         // echo "tutorial_" . $tutorialData["tutorialRef"] . "\n";
 
+
         return $tutorial;
     }
 }
