@@ -77,19 +77,20 @@
     height: 10vw;
     background-color: $llb-blue;
     background-size: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    //display: flex;
+    //justify-content: space-around;
+    //align-items: center;
     margin-top: 2.5%;
     border-radius: 6px;
-    width: 100%;
+    //width: 100%;
 }
 
 .llb-tutorial-show-end-card>a {
     text-decoration: none;
+    margin: 5%;
 }
 
-.llb-tutorial-show-end-card>div {
+.llb-tutorial-show-end-card>h1 {
     color: white;
 }
 
@@ -154,11 +155,14 @@
         padding: 5%
     }
 
-    .llb-tutorial-show-end-card>div>h1 {
+    .llb-tutorial-show-end-card>h1 {
         font-size: medium;
+        width: 50%;
+        text-align: center;
+        margin: 0;
     }
 
-    .llb-tutorial-show-start-card-tags-container {
+        .llb-tutorial-show-start-card-tags-container {
         width: 100%;
         justify-content: center;
     }
