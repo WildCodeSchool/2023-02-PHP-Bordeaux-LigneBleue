@@ -96,11 +96,11 @@
                 }
             }) }}
             <a class="mb-2" href="{{ path('app_forgot_password_request') }}" style="font-size:14px">Cliquez ici pour réinitialiser son mot de passe</a>
-<div class="llb-button-edit-profil" style="margin-top:5%">
+<div class="llb-button-edit-profil d-flex justify-content-center w-100" style="margin-top:5%">
     <button class="llb-button-yellow mb-4">{{ button_label|default('Enregistrer') }}</button>
 </div>
 {{ form_end(userType) }}
-            <div class="llb-button-edit-profil" style="margin-top:2%">
+            <div class="llb-button-edit-profil d-flex justify-content-center w-100" style="margin-top:2%">
                 {{ include('user/_delete_form.html.twig') }}
             </div>
         </div>
