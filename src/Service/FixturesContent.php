@@ -2,6 +2,8 @@
 
 namespace App\Service;
 
+use Faker\Factory;
+
 class FixturesContent
 {
     public array $themes;
@@ -340,5 +342,102 @@ class FixturesContent
                 "tutorialRef" => "Others_Maison-Connectees_Smart-TV"
             ],
         ];
+    }
+
+    public static function getAllSequencesContent(): array
+    {
+        return array_merge(
+            self::getSequenceCustomContent(),
+            self::getSequenceGenericContent()
+        );
+    }
+
+    public static function getTutorialRefs(): array
+    {
+        return [
+            // "tutorial_Smartphone_Communication_Phone",
+            "tutorial_Smartphone_Communication_SMS",
+            "tutorial_Smartphone_Communication_Whatsapp",
+            "tutorial_Smartphone_Hardware_TouchScreen",
+            "tutorial_Smartphone_Hardware_Camera",
+            "tutorial_Smartphone_Hardware_Wifi",
+            "tutorial_Smartphone_Software_Youtube",
+            "tutorial_Smartphone_Software_Facebook",
+            "tutorial_Smartphone_Software_Spotify",
+            "tutorial_Computer_Internet_Browser",
+            "tutorial_Computer_Internet_TV",
+            "tutorial_Computer_Internet_Amazon",
+            "tutorial_Computer_Hardware_Mouse",
+            "tutorial_Computer_Hardware_Keyboard",
+            "tutorial_Computer_Hardware_Wifi",
+            "tutorial_Computer_Communications_Power",
+            "tutorial_Computer_Communications_Mail",
+            "tutorial_Computer_Communications_videoCall",
+            "tutorial_Others_Accessoires-Connectes_SmartWatch",
+            "tutorial_Others_Box-Internet_Box-Internet",
+            "tutorial_Others_Maison-Connectees_Smart-TV",
+        ];
+    }
+
+    public static function getSequenceCustomContent(): array
+    {
+        $faker = Factory::create();
+
+        return [
+            [
+                "title" => "Taper un numéros de téléphone",
+                "content" => $faker->paragraph(10, true),
+                "exercice" => false,
+                "indexOrder" => 1,
+                "picturePath" => "mbl-sms.jpg",
+                "tutorialRef" => "tutorial_Smartphone_Communication_Phone"
+            ],
+            [
+                "title" => "Enregistrer un Numéros",
+                "content" => $faker->paragraph(10, true),
+                "exercice" => true,
+                "indexOrder" => 1,
+                "picturePath" => "mbl-sms.jpg",
+                "tutorialRef" => "tutorial_Smartphone_Communication_Phone"
+            ],
+            [
+                "title" => "Appeler un Contact",
+                "content" => $faker->paragraph(10, true),
+                "exercice" => false,
+                "indexOrder" => 1,
+                "picturePath" => "mbl-sms.jpg",
+                "tutorialRef" => "tutorial_Smartphone_Communication_Phone"
+            ],
+            [
+                "title" => "Écouter ses Messages Vocaux",
+                "content" => $faker->paragraph(10, true),
+                "exercice" => false,
+                "indexOrder" => 1,
+                "picturePath" => "mbl-sms.jpg",
+                "tutorialRef" => "tutorial_Smartphone_Communication_Phone"
+            ],
+        ];
+    }
+
+    public static function getSequenceGenericContent(): array
+    {
+        $faker = Factory::create();
+        $tutorialRefs = self::getTutorialRefs();
+
+        $sequences = [];
+        foreach ($tutorialRefs as $tutorialRef) {
+            for ($i = 0; $i < rand(3, 7); $i++) {
+                $sequences[] = [
+                    "title" => $faker->sentence(),
+                    "content" => $faker->paragraph(10, true),
+                    "exercice" => rand(1, 4) == 4,
+                    "indexOrder" => $i + 1,
+                    "picturePath" => "mbl-sms.jpg",
+                    "tutorialRef" => $tutorialRef
+                ];
+            }
+        }
+
+        return $sequences;
     }
 }

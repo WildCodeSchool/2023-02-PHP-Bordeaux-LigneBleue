@@ -48,6 +48,7 @@ class TutorialFixtures extends Fixture implements DependentFixtureInterface
         $tutorial->addTag($this->getReference($tutorialData["tagRef"]));
         $tutorial->setSlug($this->slugger->slug($tutorial->getTitle()));
         $this->addReference("tutorial_" . $tutorialData["tutorialRef"], $tutorial);
+        // echo "tutorial_" . $tutorialData["tutorialRef"] . "\n";
 
         return $tutorial;
     }
