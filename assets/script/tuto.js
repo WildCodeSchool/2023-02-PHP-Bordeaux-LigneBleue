@@ -73,7 +73,7 @@ tour.addStep({
 tour.addStep({
     id: 'step4',
     attachTo: {
-        element: '#js-tuto-navbar',
+        element: '#js-forma-navbar',
         on: 'top',
     },
     canClickTarget: false,
@@ -93,7 +93,6 @@ tour.addStep({
         },
     ],
 });
-
 tour.addStep({
     id: 'step5',
     attachTo: {
