@@ -418,13 +418,13 @@ class FixturesContent
                 Enfin, sachez que pour les utiliser au mieux, vous devrez les mettre à jour régulièrement !",
                 "exercice" => false,
                 "indexOrder" => 1,
-                "picturePath" => "mbl-sms.jpg",
+                "picturePath" => "what-navigator.jpeg",
                 "tutorialRef" => "tutorial_Computer_Internet_Browser"
             ],
             [
                 "title" => "Quels sont les différents navigateurs qui existent ?",
                 "content" => "Chrome : Développé par Google, il fonctionne sous la majorité des systèmes d’exploitation. Les utilisateurs apprécient en général sa vitesse d'utilisation et ses nombreuses fonctionnalités, applications et extensions disponibles.
- 
+
                 Safari : Distribué et disponible uniquement pour les produits Apple. Safari se revendique comme extrêmement rapide et personnalisable.
                 Mozilla Firefox : Développé par la fondation Mozilla et ses nombreux bénévoles. Il est disponible sur la majorité des systèmes d'exploitation. Il possède également de nombreuses fonctionnalités et extensions et apparaît réputé pour la protection des données personnelles.
                 Microsoft Edge : Navigateur web de la société Microsoft, pré-installé sur les appareils sous Windows. Il existe depuis 2015 et remplace Internet Explorer plus mis à jour et donc non sécurisé. Microsoft Edge fonctionne aussi sous macOS, Android et iOS.
@@ -433,7 +433,7 @@ class FixturesContent
                 Brave : Open source gratuit, Brave cherche avant tout à protéger la vie privée en bloquant par défaut les pisteurs et les pubs. Il fonctionne sous Windows, Linux, macOS, iOS ou Android.",
                 "exercice" => false,
                 "indexOrder" => 2,
-                "picturePath" => "mbl-sms.jpg",
+                "picturePath" => "navi.jpeg",
                 "tutorialRef" => "tutorial_Computer_Internet_Browser"
             ],
             [
@@ -441,7 +441,7 @@ class FixturesContent
                 "content" => "Quel(s) est(sont) le(s) navigateur(s) installé(s) sur votre appareil ?",
                 "exercice" => true,
                 "indexOrder" => 3,
-                "picturePath" => "mbl-sms.jpg",
+                "picturePath" => "navigateur-internet.jpg",
                 "tutorialRef" => "tutorial_Computer_Internet_Browser"
             ],
             [
@@ -449,7 +449,7 @@ class FixturesContent
                 "content" => "Afin d’améliorer votre expérience utilisateur, les navigateurs proposent une multitude d’extension. Ces outils peuvent par exemple vous servir à prendre des mesures, trouver les polices d’écriture utilisées, traduire des pages web ou simplement personnaliser votre curseur de souris !",
                 "exercice" => false,
                 "indexOrder" => 4,
-                "picturePath" => "mbl-sms.jpg",
+                "picturePath" => "personalisation-navigator.jpeg",
                 "tutorialRef" => "tutorial_Computer_Internet_Browser"
             ],
             [
@@ -458,7 +458,7 @@ class FixturesContent
                 Lorsque l’url de la page commence par « https:// », le « s » correspond à « secure ». Un cadenas fermé peut également apparaître dans la fenêtre de naviagation.",
                 "exercice" => false,
                 "indexOrder" => 5,
-                "picturePath" => "mbl-sms.jpg",
+                "picturePath" => "security-navigator.jpeg",
                 "tutorialRef" => "tutorial_Computer_Internet_Browser"
             ],
             /////////////////////////// TUTORIAL SEARCH //////////////////////////
@@ -469,7 +469,7 @@ class FixturesContent
                 Le moteur de recherche utilise les mots-clefs que vous allez taper pour chercher la bonne information. En quelques instants, vous aurez ainsi accès à différents types de ressources en lien avec votre recherche : sites et pages web, articles, images, vidéos, etc.",
                 "exercice" => false,
                 "indexOrder" => 1,
-                "picturePath" => "mbl-sms.jpg",
+                "picturePath" => "searchbar.jpg",
                 "tutorialRef" => "tutorial_Computer_Internet_Search"
             ],
             [
@@ -485,7 +485,7 @@ class FixturesContent
                 Lilo : Fondé en 2014, le moteur de recherche français finance des projets sociaux et environnementaux choisis par les internautes. Pour rendre son moteur efficace, il a noué des partenariats avec Bing, Google et Yahoo, entre autres. Lilo protège également vos données personnelles (pas de collecte ni de revente de données utilisateurs).",
                 "exercice" => false,
                 "indexOrder" => 2,
-                "picturePath" => "mbl-sms.jpg",
+                "picturePath" => "search-motor.jpeg",
                 "tutorialRef" => "tutorial_Computer_Internet_Search"
             ],
             [
@@ -493,7 +493,7 @@ class FixturesContent
                 "content" => "Rendez-vous sur votre navigateur internet et lancez votre moteur de recherche préféré. Cliquez sur la barre de recherche et rentrez des mots-clés. Plus vos mots-clés seront précis et pertinents, plus les résultats seront adaptés à votre demande. Mettre beaucoup de mots risque de vous renvoyer trop de résultats et donc vous demander plus de travail de filtrage ensuite.",
                 "exercice" => false,
                 "indexOrder" => 3,
-                "picturePath" => "mbl-sms.jpg",
+                "picturePath" => "MUSEUM-SEO.jpg",
                 "tutorialRef" => "tutorial_Computer_Internet_Search"
             ],
             [
@@ -502,7 +502,7 @@ class FixturesContent
                 OU quel est le moteur de recherche associé  votre navigateur ?",
                 "exercice" => true,
                 "indexOrder" => 4,
-                "picturePath" => "mbl-sms.jpg",
+                "picturePath" => "mot-cle.jpeg",
                 "tutorialRef" => "tutorial_Computer_Internet_Search"
             ],
             [
@@ -510,7 +510,7 @@ class FixturesContent
                 "content" => "Même avec les bons mots clés, il y aura toujours beaucoup de résultats. Les premiers résultats sont souvent ceux qui correspondent le mieux à votre recherche. Mais les premiers résultats peuvent aussi être des « annonces ». Il s’agit de sites web qui ont payé pour figurer dans les premiers résultats. Un résultat de recherche est composé de trois parties : le nom du site, son adresse URL et le résumé de son contenu. Pour choisir le meilleur résultat, il faut prendre le temps de lire ces différents éléments pour voir si l’objectif correspond à ce que nous recherchons.",
                 "exercice" => false,
                 "indexOrder" => 5,
-                "picturePath" => "mbl-sms.jpg",
+                "picturePath" => "choisir-search.jpeg",
                 "tutorialRef" => "tutorial_Computer_Internet_Search"
             ],
         ];
