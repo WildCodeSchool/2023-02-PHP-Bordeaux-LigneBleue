@@ -24,10 +24,11 @@
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    padding-left  : 2vw;
-    padding-right: 2vw;
-    padding-top: 1vw;
-    padding-bottom: 1vw;
+    //padding-left  : 2vw;
+    //padding-right: 2vw;
+    //padding-top: 1vw;
+    //padding-bottom: 1vw;
+    padding: 1vw 2vw;
 }
 
 .llb-button-yellow:hover {
@@ -41,10 +42,11 @@
     color: white;
     border-radius: 6px;
     border: solid 1px #FF1501;
-    padding-left  : 2vw;
-    padding-right: 2vw;
-    padding-top: 1vw;
-    padding-bottom: 1vw;
+    //padding-left  : 2vw;
+    //padding-right: 2vw;
+    //padding-top: 1vw;
+    //padding-bottom: 1vw;
+    padding: 1vw 2vw;
 }
 
 .llb-button-red:hover {
@@ -57,4 +59,10 @@
     padding: 2vh;
     border-radius: 6px;
     border-color: $llb-blue;
+}
+
+@media screen and (max-width: 480px) {
+    .llb-button-yellow, .llb-button-red {
+        padding: 2vw 4vw;
+    }
 }

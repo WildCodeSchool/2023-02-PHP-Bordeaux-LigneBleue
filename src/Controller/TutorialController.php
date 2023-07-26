@@ -48,42 +48,6 @@ class TutorialController extends AbstractController
         ]);
     }
 
-    #[Route('/{slug}', name: 'app_tutorial_show', methods: ['GET'])]
-    public function show(Tutorial $tutorial, UserTutorialRepository $utRepository): Response
-    {
-        return $this->render('tutorial/show.html.twig', [
-            'tutorial' => $tutorial,
-        ]);
-    }
-
-    #[Route('/{id}/edit', name: 'app_tutorial_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Tutorial $tutorial, TutorialRepository $tutorialRepository): Response
-    {
-        $form = $this->createForm(TutorialType::class, $tutorial);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $tutorialRepository->save($tutorial, true);
-
-            return $this->redirectToRoute('app_tutorial_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('tutorial/edit.html.twig', [
-            'tutorial' => $tutorial,
-            'form' => $form,
-        ]);
-    }
-
-    #[Route('/{id}', name: 'app_tutorial_delete', methods: ['POST'])]
-    public function delete(Request $request, Tutorial $tutorial, TutorialRepository $tutorialRepository): Response
-    {
-        if ($this->isCsrfTokenValid('delete' . $tutorial->getId(), $request->request->get('_token'))) {
-            $tutorialRepository->remove($tutorial, true);
-        }
-
-        return $this->redirectToRoute('app_tutorial_index', [], Response::HTTP_SEE_OTHER);
-    }
-
     #[Route('/like/{slug}', name: 'app_tutorial_like', methods: ['GET'])]
     public function likedTutorial(
         Tutorial $tutorial,
@@ -150,4 +114,41 @@ class TutorialController extends AbstractController
             'isStarted' => true,
         ]);
     }
+
+    #[Route('/{slug}', name: 'app_tutorial_show', methods: ['GET'])]
+    public function show(Tutorial $tutorial, UserTutorialRepository $utRepository): Response
+    {
+        return $this->render('tutorial/show.html.twig', [
+            'tutorial' => $tutorial,
+        ]);
+    }
+
+    #[Route('/{id}/edit', name: 'app_tutorial_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, Tutorial $tutorial, TutorialRepository $tutorialRepository): Response
+    {
+        $form = $this->createForm(TutorialType::class, $tutorial);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $tutorialRepository->save($tutorial, true);
+
+            return $this->redirectToRoute('app_tutorial_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('tutorial/edit.html.twig', [
+            'tutorial' => $tutorial,
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/{id}', name: 'app_tutorial_delete', methods: ['POST'])]
+    public function delete(Request $request, Tutorial $tutorial, TutorialRepository $tutorialRepository): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $tutorial->getId(), $request->request->get('_token'))) {
+            $tutorialRepository->remove($tutorial, true);
+        }
+
+        return $this->redirectToRoute('app_tutorial_index', [], Response::HTTP_SEE_OTHER);
+    }
+
 }

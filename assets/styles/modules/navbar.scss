@@ -97,6 +97,11 @@ input[type=text]:focus, textarea:focus {
     color: $llb-blue;
 }
 
+.llb-navbar-container {
+    display: flex;
+    justify-content: end;
+}
+
 @media screen and (max-width: 480px) {
     .llb-search-form {
         width: 100%;
@@ -128,4 +133,7 @@ input[type=text]:focus, textarea:focus {
         width: 85%;
         top: 95%;
     }
-}
+    .llb-navbar-container {
+        display: unset;
+    }
+    }

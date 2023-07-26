@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -45,10 +46,10 @@ class RegistrationFormType extends AbstractType
                     'Non binaire' => 'non binaire'
                 ]
             ])
-            ->add('birthday', DateType::class, [
-                'placeholder' => [
+            ->add('birthday', BirthdayType::class, [
+                /*'placeholder' => [
                     'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour',
-                ],
+                ],*/
                 'format' => 'dd MMMM yyyy',
                 'years' => range(1950, 2023),
                 ])
@@ -87,6 +88,7 @@ class RegistrationFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'attr' => ['novalidate' => 'novalidate']
         ]);
     }
 }

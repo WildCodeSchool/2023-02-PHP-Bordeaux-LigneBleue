@@ -28,7 +28,9 @@ class UserFixtures extends Fixture
         $userSuperAdmin->setBirthday($faker->dateTimeBetween('-50 years', '-18 years'));
         $userSuperAdmin->setGender('femme');
         $userSuperAdmin->setAdress($faker->address);
-        $userSuperAdmin->setEmail($faker->email);
+        $userSuperAdmin->setEmail(
+            $userSuperAdmin->getFirstname() . "." . $userSuperAdmin->getLastname() . "@wmail.com"
+        );
         $userSuperAdmin->setPassword($this->passwordHasher->hashPassword($userSuperAdmin, 'admin'));
         $userSuperAdmin->setRoles(['ROLE_SUPER_ADMIN']);
         $manager->persist($userSuperAdmin);
@@ -42,7 +44,7 @@ class UserFixtures extends Fixture
             $user->setBirthday($faker->dateTimeBetween('-50 years', '-18 years'));
             $user->setGender(array_rand($gender));
             $user->setAdress($faker->address);
-            $user->setEmail($faker->email);
+            $user->setEmail($user->getFirstname() . "." . $user->getLastname() . "@wmail.com");
             $user->setPassword($this->passwordHasher->hashPassword($user, 'test'));
             $manager->persist($user);
         }
