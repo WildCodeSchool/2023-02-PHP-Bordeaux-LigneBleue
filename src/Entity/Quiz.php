@@ -20,15 +20,15 @@ class Quiz
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?int $questionsAmount = null;
-
     #[ORM\OneToOne(inversedBy: 'quiz', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Tutorial $tutorial = null;
 
     #[ORM\OneToMany(mappedBy: 'quiz', targetEntity: Question::class, orphanRemoval: true)]
     private Collection $questions;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $slug = null;
 
     public function __construct()
     {
@@ -53,18 +53,6 @@ class Quiz
     public function setTitle(string $title): static
     {
         $this->title = $title;
-
-        return $this;
-    }
-
-    public function getQuestionsAmount(): ?int
-    {
-        return count($this->getQuestions()->toArray());
-    }
-
-    public function setQuestionsAmount(?int $questionsAmount): static
-    {
-        $this->questionsAmount = count($this->getQuestions()->toArray());
 
         return $this;
     }
@@ -107,6 +95,18 @@ class Quiz
                 $question->setQuiz(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(?string $slug): static
+    {
+        $this->slug = $slug;
 
         return $this;
     }
