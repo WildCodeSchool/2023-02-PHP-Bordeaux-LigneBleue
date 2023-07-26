@@ -26,9 +26,16 @@ class QuizFixtures extends Fixture implements DependentFixtureInterface
         $quizzes = array_map([$this, "feedQuizObject"], $quizzes);
         array_walk($quizzes, [$manager, "persist"]);
 
-        $questions = FixturesContent::getQuestionsCustomContent();
+        // dd(FixturesContent::getAllQuestionsContent());
+
+        $questions = FixturesContent::getAllQuestionsContent();
         $questions = array_map([$this, "feedQuestionObject"], $questions);
         array_walk($questions, [$manager, "persist"]);
+
+
+        // foreach (FixturesContent::getAllQuizzesContent() as $quizData) {
+        //     echo $quizData["quizRef"] . "\n";
+        // }
 
         $manager->flush();
     }
@@ -47,8 +54,7 @@ class QuizFixtures extends Fixture implements DependentFixtureInterface
         $quiz->setTitle($tutorial->getTitle());
         $quiz->setTutorial($tutorial);
         $quiz->setSlug($this->slugger->slug($quiz->getTitle()));
-
-        $this->addReference("quiz_" . $quizData["quizRef"], $quiz);
+        $this->addReference($quizData["quizRef"], $quiz);
 
         return $quiz;
     }

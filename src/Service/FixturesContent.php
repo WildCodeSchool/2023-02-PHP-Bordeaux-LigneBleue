@@ -54,7 +54,7 @@ class FixturesContent
                 "themeRef" => 'Computer'
             ],
             [
-                "title" => "Accessoires",
+                "title" => "Accessoires Connectes",
                 "indexOrder" => 1,
                 "iconPath" => "others/accessories/llb-icon-watch.png",
                 "categoryRef" => "category_Autres",
@@ -247,7 +247,7 @@ class FixturesContent
                 "tutorialRef" => "Computer_Internet_Search"
             ],
             ////////////COMPUTER HARDWARE/////////////////
-            [          
+            [
                 "title" => "Comment utiliser la Souris",
                 "objective" => "Apprendre à utliser une souris d'ordinateur",
                 "isPublished" => true,
@@ -399,14 +399,17 @@ class FixturesContent
 
     public static function getSequenceCustomContent(): array
     {
-        $faker = Factory::create();
-
         return [
             /////////////////////////// TUTORIAL BROWSER //////////////////////////
             [
                 "title" => "Qu’est-ce qu’un navigateur ?",
-                "content" => "Un navigateur est un logiciel qui permet de traduire le langage des sites web en langage humain. C’est le bateau qui permet de naviguer sur l’océan qu’est le web !
-                Il existe une multitude de navigateurs gratuits, cependant certains protègent mieux vos données personnelles. En fonction du navigateur utilisé, certains sites peuvent plus ou moins bien fonctionner. Nous vous conseillons donc d’en installer plusieurs.
+                "content" => "Un navigateur est un logiciel qui permet de traduire le langage
+                 des sites web en langage humain. C’est le bateau qui permet de naviguer sur l’océan qu’est
+                  le web !
+                Il existe une multitude de navigateurs gratuits, cependant certains protègent mieux vos
+                 données
+                 personnelles. En fonction du navigateur utilisé, certains sites peuvent plus ou moins bien 
+                 fonctionner. Nous vous conseillons donc d’en installer plusieurs.
                 Enfin, sachez que pour les utiliser au mieux, vous devrez les mettre à jour régulièrement !",
                 "exercice" => false,
                 "indexOrder" => 1,
@@ -415,14 +418,30 @@ class FixturesContent
             ],
             [
                 "title" => "Quels sont les différents navigateurs qui existent ?",
-                "content" => "Chrome : Développé par Google, il fonctionne sous la majorité des systèmes d’exploitation. Les utilisateurs apprécient en général sa vitesse d'utilisation et ses nombreuses fonctionnalités, applications et extensions disponibles.
+                "content" => "Chrome : Développé par Google, il fonctionne sous la majorité des systèmes d’exploitation.
+                 Les utilisateurs apprécient en général sa vitesse d'utilisation et ses nombreuses fonctionnalités,
+                  applications et extensions disponibles.
 
-                Safari : Distribué et disponible uniquement pour les produits Apple. Safari se revendique comme extrêmement rapide et personnalisable.
-                Mozilla Firefox : Développé par la fondation Mozilla et ses nombreux bénévoles. Il est disponible sur la majorité des systèmes d'exploitation. Il possède également de nombreuses fonctionnalités et extensions et apparaît réputé pour la protection des données personnelles.
-                Microsoft Edge : Navigateur web de la société Microsoft, pré-installé sur les appareils sous Windows. Il existe depuis 2015 et remplace Internet Explorer plus mis à jour et donc non sécurisé. Microsoft Edge fonctionne aussi sous macOS, Android et iOS.
+                Safari : Distribué et disponible uniquement pour les produits Apple. Safari se revendique comme
+                 extrêmement rapide et personnalisable.
+                Mozilla Firefox : Développé par la fondation Mozilla et ses nombreux bénévoles. Il est disponible sur
+                 la majorité des systèmes d'exploitation. Il possède également de nombreuses fonctionnalités et
+                  extensions
+                  et apparaît réputé pour la protection des données personnelles.
+                Microsoft Edge : Navigateur web de la société Microsoft, pré-installé sur les appareils sous 
+                Windows.
+                 Il existe depuis 2015 et remplace Internet Explorer plus mis à jour et donc non sécurisé. 
+                 Microsoft
+                  Edge fonctionne aussi sous macOS, Android et iOS.
                  Il propose également des outils intégrés pour vous aider lors de vos achats en ligne.
-                Opera : Navigateur norvégien créé en 1995, Opera fonctionne aussi bien sous Windows, Linux, macOS, iOS ou Android. Il a été un des premiers à instaurer les onglets pour faciliter la navigation. Son avantage ? il possède un VPN intégré pour naviguer en toute sécurité.
-                Brave : Open source gratuit, Brave cherche avant tout à protéger la vie privée en bloquant par défaut les pisteurs et les pubs. Il fonctionne sous Windows, Linux, macOS, iOS ou Android.",
+                Opera : Navigateur norvégien créé en 1995, Opera fonctionne aussi bien sous Windows, Linux, 
+                macOS, iOS
+                 ou Android. Il a été un des premiers à instaurer les onglets pour faciliter la navigation. 
+                 Son avantage ?
+                  il possède un VPN intégré pour naviguer en toute sécurité.
+                Brave : Open source gratuit, Brave cherche avant tout à protéger la vie privée en bloquant 
+                par défaut les
+                 pisteurs et les pubs. Il fonctionne sous Windows, Linux, macOS, iOS ou Android.",
                 "exercice" => false,
                 "indexOrder" => 2,
                 "picturePath" => "navi.jpeg",
@@ -438,7 +457,12 @@ class FixturesContent
             ],
             [
                 "title" => "Comment personnaliser son navigateur ?",
-                "content" => "Afin d’améliorer votre expérience utilisateur, les navigateurs proposent une multitude d’extension. Ces outils peuvent par exemple vous servir à prendre des mesures, trouver les polices d’écriture utilisées, traduire des pages web ou simplement personnaliser votre curseur de souris !",
+                "content" => "Afin d’améliorer votre expérience utilisateur, les navigateurs proposent
+                 une multitude
+                 d’extension. Ces outils peuvent par exemple vous servir à prendre des mesures, trouver 
+                 les polices 
+                 d’écriture utilisées, traduire des pages web ou simplement personnaliser votre curseur 
+                 de souris !",
                 "exercice" => false,
                 "indexOrder" => 4,
                 "picturePath" => "personalisation-navigator.jpeg",
@@ -446,8 +470,14 @@ class FixturesContent
             ],
             [
                 "title" => "Comment savoir si une page est sécurisée ?",
-                "content" => "Avec l’avènement d’internet, de nombreuses arnaques numériques ont vues le jour. En cas de doute, n’hésitez pas à rentrer le nom du site et le mot « arnaque » sur un moteur de recherche pour voir si d’autres utilisateurs ont eu une mauvaise expérience.
-                Lorsque l’url de la page commence par « https:// », le « s » correspond à « secure ». Un cadenas fermé peut également apparaître dans la fenêtre de naviagation.",
+                "content" => "Avec l’avènement d’internet, de nombreuses arnaques numériques ont vues le 
+                jour. En cas
+                 de doute, n’hésitez pas à rentrer le nom du site et le mot « arnaque » sur un moteur de 
+                 recherche pour
+                  voir si d’autres utilisateurs ont eu une mauvaise expérience.
+                Lorsque l’url de la page commence par « https:// », le « s » correspond à « secure ». 
+                Un cadenas fermé
+                peut également apparaître dans la fenêtre de naviagation.",
                 "exercice" => false,
                 "indexOrder" => 5,
                 "picturePath" => "security-navigator.jpeg",
@@ -456,9 +486,20 @@ class FixturesContent
             /////////////////////////// TUTORIAL SEARCH //////////////////////////
             [
                 "title" => "Qu’est-ce qu’un moteur de recherche ?",
-                "content" => "Un moteur de recherche est une application web qui fonctionne comme un « annuaire » de tous les sites web. Sans lui, il serait impossible de trouver une information dans l’océan du web. Il s’agit donc de la boussole de votre bateau !
-                A la différence du navigateur, le moteur de recherche ne s’installe pas sur votre équipement. Pour changer de moteur de recherche, il faut modifier les paramètres du navigateur ou se rendre à l’adresse URL du site web. Par exemple : www. qwant.fr
-                Le moteur de recherche utilise les mots-clefs que vous allez taper pour chercher la bonne information. En quelques instants, vous aurez ainsi accès à différents types de ressources en lien avec votre recherche : sites et pages web, articles, images, vidéos, etc.",
+                "content" => "Un moteur de recherche est une application web qui fonctionne comme 
+                un « annuaire » de
+                 tous les sites web. Sans lui, il serait impossible de trouver une information dans 
+                 l’océan du web. Il
+                  s’agit donc de la boussole de votre bateau !
+                A la différence du navigateur, le moteur de recherche ne s’installe pas sur votre équipement.
+                 Pour changer
+                 de moteur de recherche, il faut modifier les paramètres du navigateur ou se rendre à 
+                 l’adresse URL du site
+                  web. Par exemple : www. qwant.fr
+                Le moteur de recherche utilise les mots-clefs que vous allez taper pour chercher la bonne information.
+                 En quelques instants, vous aurez ainsi accès à différents types de ressources en 
+                 lien avec votre recherche
+                  : sites et pages web, articles, images, vidéos, etc.",
                 "exercice" => false,
                 "indexOrder" => 1,
                 "picturePath" => "searchbar.jpg",
@@ -466,15 +507,50 @@ class FixturesContent
             ],
             [
                 "title" => " Quelques exemples de moteurs de recherche:",
-                "content" => "Certains navigateurs sont installés avec un moteur de recherche par défaut : Google Chrome avec Google ou encore Microsoft Edge avec Bing. Vous pouvez facilement changer cela grâce aux paramètres de votre navigateur. Voici les principaux moteurs de recherche :
-                Google : Créé en 1998, le moteur de recherche américain Google est le leader mondial incontesté, 90% des utilisateurs du web du monde entier l'utilisent. Il tient sa réputation de la puissance de ses algorithmes (ensemble d'instructions dans un calcul permettant d'obtenir un résultat). Google suscite néanmoins beaucoup d'inquiétudes quant au respect de la vie privée et de la confidentialité des données.
-                Bing : Fondé en 2009 par la société américaine Microsoft, Bing est aujourd'hui le deuxième moteur de recherche utilisé au monde, loin derrière Google. Il a succédé aux différents moteurs de recherche créés par Microsoft : MSN search, Windows Live Search, Live Search.
-                Yahoo : L'américain Yahoo existe depuis 1994. Il est à l'origine un annuaire web et fait ainsi partie des premiers moteurs de recherche utilisés. Associé à Bing depuis 2009, il se sert de ses algorithmes.
-                Qwant : Existant depuis 2013, l'européen Qwant refuse de tracer ses utilisateurs ou de vendre leurs données personnelles pour garantir la vie privée. De même, il se veut le plus neutre possible dans l'affichage des résultats de recherche.
-                DuckDuckGO : Créé en 2008, l'américain garantit à ses utilisateurs un respect de leur vie privée. Il refuse de filtrer et de personnaliser à votre insu, grâce à vos données collectées, les publicités qui s'affichent.
-                 L'outil préfère vous donner accès à l'ensemble du Web en filtrant vous-mêmes vos résultats en fonction de vos besoins.
-                Ecosia : Moteur de recherche allemand, fondé en 2009, il se base sur Bing qu'il a adapté. Il reverse 80% de ses bénéfices à des associations à but non lucratif, luttant contre la déforestation dans les pays du Sud. Ses bénéfices proviennent ainsi des recherches sur son moteur mais aussi des liens publicitaires. Vous avez la possibilité toutefois de ne pas afficher les publicités. En l'utilisant vous contribuerez à la reforestation : déjà plus 130 millions d'arbres plantés depuis sa création ! Ecosia assure également protéger vos données personnelles.
-                Lilo : Fondé en 2014, le moteur de recherche français finance des projets sociaux et environnementaux choisis par les internautes. Pour rendre son moteur efficace, il a noué des partenariats avec Bing, Google et Yahoo, entre autres. Lilo protège également vos données personnelles (pas de collecte ni de revente de données utilisateurs).",
+                "content" => "Certains navigateurs sont installés avec un moteur de recherche 
+                par défaut : Google Chrome
+                 avec Google ou encore Microsoft Edge avec Bing. Vous pouvez facilement changer 
+                 cela grâce aux paramètres
+                  de votre navigateur. Voici les principaux moteurs de recherche :
+                Google : Créé en 1998, le moteur de recherche américain Google est le leader mondial 
+                incontesté, 90% des
+                 utilisateurs du web du monde entier l'utilisent. Il tient sa réputation de la puissance 
+                 de ses algorithmes
+                  (ensemble d'instructions dans un calcul permettant d'obtenir un résultat). Google 
+                  suscite néanmoins beaucoup
+                   d'inquiétudes quant au respect de la vie privée et de la confidentialité des données.
+                Bing : Fondé en 2009 par la société américaine Microsoft, Bing est aujourd'hui le deuxième 
+                moteur de recherche
+                 utilisé au monde, loin derrière Google. Il a succédé aux différents moteurs de recherche 
+                 créés par Microsoft :
+                     MSN search, Windows Live Search, Live Search.
+                Yahoo : L'américain Yahoo existe depuis 1994. Il est à l'origine un annuaire web et fait 
+                ainsi partie des premiers
+                 moteurs de recherche utilisés. Associé à Bing depuis 2009, il se sert de ses algorithmes.
+                Qwant : Existant depuis 2013, l'européen Qwant refuse de tracer ses utilisateurs ou de vendre
+                 leurs données personnelles
+                 pour garantir la vie privée. De même, il se veut le plus neutre possible dans l'affichage des
+                  résultats de recherche.
+                DuckDuckGO : Créé en 2008, l'américain garantit à ses utilisateurs un respect de leur vie privée.
+                 Il refuse de filtrer
+                 et de personnaliser à votre insu, grâce à vos données collectées, les publicités qui s'affichent.
+                 L'outil préfère vous donner accès à l'ensemble du Web en filtrant vous-mêmes vos résultats en 
+                 fonction de vos besoins.
+                Ecosia : Moteur de recherche allemand, fondé en 2009, il se base sur Bing qu'il a adapté. Il 
+                reverse 80% de ses 
+                 à des associations à but non lucratif, luttant contre la déforestation dans les pays du Sud. 
+                 Ses bénéfices proviennent
+                  ainsi des recherches sur son moteur mais aussi des liens publicitaires. Vous avez la possibilité
+                   toutefois de ne pas
+                   afficher les publicités. En l'utilisant vous contribuerez à la reforestation : déjà plus 130
+                    millions d'arbres plantés
+                    depuis sa création ! Ecosia assure également protéger vos données personnelles.
+                Lilo : Fondé en 2014, le moteur de recherche français finance des projets sociaux et environnement
+                 aux choisis par les
+                 internautes. Pour rendre son moteur efficace, il a noué des partenariats avec Bing, Google et Yahoo,
+                  entre autres.
+                  Lilo protège également vos données personnelles (pas de collecte ni de revente de données 
+                  utilisateurs).",
                 "exercice" => false,
                 "indexOrder" => 2,
                 "picturePath" => "search-motor.jpeg",
@@ -482,7 +558,13 @@ class FixturesContent
             ],
             [
                 "title" => "Comment faire une recherche ?",
-                "content" => "Rendez-vous sur votre navigateur internet et lancez votre moteur de recherche préféré. Cliquez sur la barre de recherche et rentrez des mots-clés. Plus vos mots-clés seront précis et pertinents, plus les résultats seront adaptés à votre demande. Mettre beaucoup de mots risque de vous renvoyer trop de résultats et donc vous demander plus de travail de filtrage ensuite.",
+                "content" => "Rendez-vous sur votre navigateur internet et lancez votre moteur de recherche 
+                préféré. Cliquez sur la
+                 barre de recherche et rentrez des mots-clés. Plus vos mots-clés seront précis et pertinents, 
+                 plus les résultats 
+                 seront adaptés à votre demande. Mettre beaucoup de mots risque de vous renvoyer trop de résultats
+                  et donc vous demander
+                  plus de travail de filtrage ensuite.",
                 "exercice" => false,
                 "indexOrder" => 3,
                 "picturePath" => "MUSEUM-SEO.jpg",
@@ -490,7 +572,9 @@ class FixturesContent
             ],
             [
                 "title" => "Exercice:",
-                "content" => "quels seraient les meilleurs mots clefs pour la recherche suivante “je cherche un recette de gâteau aux pommes sans gluten”
+                "content" => "quels seraient les meilleurs mots clefs pour la recherche suivante “je cherche 
+                un recette
+                 de gâteau aux pommes sans gluten”
                 OU quel est le moteur de recherche associé  votre navigateur ?",
                 "exercice" => true,
                 "indexOrder" => 4,
@@ -499,7 +583,16 @@ class FixturesContent
             ],
             [
                 "title" => "Comment choisir le résultat?",
-                "content" => "Même avec les bons mots clés, il y aura toujours beaucoup de résultats. Les premiers résultats sont souvent ceux qui correspondent le mieux à votre recherche. Mais les premiers résultats peuvent aussi être des « annonces ». Il s’agit de sites web qui ont payé pour figurer dans les premiers résultats. Un résultat de recherche est composé de trois parties : le nom du site, son adresse URL et le résumé de son contenu. Pour choisir le meilleur résultat, il faut prendre le temps de lire ces différents éléments pour voir si l’objectif correspond à ce que nous recherchons.",
+                "content" => "Même avec les bons mots clés, il y aura toujours beaucoup de résultats. Les premiers
+                 résultats sont
+                 souvent ceux qui correspondent le mieux à votre recherche. Mais les premiers résultats peuvent aussi
+                  être des « annonces ».
+                  Il s’agit de sites web qui ont payé pour figurer dans les premiers résultats. Un résultat de recherche
+                   est composé de
+                   trois parties : le nom du site, son adresse URL et le résumé de son contenu. Pour choisir le meilleur
+                    résultat, il faut
+                    prendre le temps de lire ces différents éléments pour voir si l’objectif correspond à ce que nous 
+                    recherchons.",
                 "exercice" => false,
                 "indexOrder" => 5,
                 "picturePath" => "choisir-search.jpeg",
@@ -561,11 +654,11 @@ class FixturesContent
     {
         return [
             [
-                "quizRef" => "Computer_Internet_Browser",
+                "quizRef" => "quiz_tutorial_Computer_Internet_Browser",
                 "tutorialRef" => "tutorial_Computer_Internet_Browser"
             ],
             [
-                "quizRef" => "Computer_Internet_Search",
+                "quizRef" => "quiz_tutorial_Computer_Internet_Search",
                 "tutorialRef" => "tutorial_Computer_Internet_Search"
             ],
         ];
@@ -584,6 +677,112 @@ class FixturesContent
         return $quizzes;
     }
 
+    public static function getQuizzesRefs(): array
+    {
+        return [
+            "quiz_tutorial_Smartphone_Communication_Phone",
+            "quiz_tutorial_Smartphone_Communication_SMS",
+            "quiz_tutorial_Smartphone_Communication_Whatsapp",
+            "quiz_tutorial_Smartphone_Hardware_TouchScreen",
+            "quiz_tutorial_Smartphone_Hardware_Camera",
+            "quiz_tutorial_Smartphone_Hardware_Wifi",
+            "quiz_tutorial_Smartphone_Software_Youtube",
+            "quiz_tutorial_Smartphone_Software_Facebook",
+            "quiz_tutorial_Smartphone_Software_Spotify",
+            "quiz_tutorial_Computer_Internet_TV",
+            "quiz_tutorial_Computer_Hardware_Mouse",
+            "quiz_tutorial_Computer_Hardware_Keyboard",
+            "quiz_tutorial_Computer_Hardware_Wifi",
+            "quiz_tutorial_Computer_Communications_Power",
+            "quiz_tutorial_Computer_Communications_Mail",
+            "quiz_tutorial_Computer_Communications_videoCall",
+            "quiz_tutorial_Others_Accessoires-Connectes_SmartWatch",
+            "quiz_tutorial_Others_Box-Internet_Box-Internet",
+            "quiz_tutorial_Others_Maison-Connectee_Smart-TV",
+        ];
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public static function getAllQuestionsContent(): array
+    {
+        return array_merge(
+            self::getQuestionsCustomContent(),
+            self::getQuestionsGenericContent()
+        );
+    }
+
+    public static function getQuestionsGenericContent(): array
+    {
+        $questions = [];
+        foreach (self::getQuizzesRefs() as $quizzesRef) {
+            $questions[] = [
+                // [
+                "prompt" => "Question",
+                "proposition1" => "Mauvaise Réponse",
+                "proposition2" => "Mauvaise Réponse",
+                "proposition3" => "Bonne Réponse",
+                "proposition4" => "Mauvaise Réponse",
+                "answer" => "Bonne Réponse",
+                "quizRef" => $quizzesRef
+                // ],
+                // [
+                //     "prompt" => "Question 2",
+                //     "proposition1" => "Mauvaise Réponse",
+                //     "proposition2" => "Mauvaise Réponse",
+                //     "proposition3" => "Bonne Réponse",
+                //     "proposition4" => "Mauvaise Réponse",
+                //     "answer" => "Bonne Réponse",
+                //     "quizRef" => $quizzesRef
+                // ],
+                // [
+                //     "prompt" => "Question 3",
+                //     "proposition1" => "Mauvaise Réponse",
+                //     "proposition2" => "Mauvaise Réponse",
+                //     "proposition3" => "Bonne Réponse",
+                //     "proposition4" => "Mauvaise Réponse",
+                //     "answer" => "Bonne Réponse",
+                //     "quizRef" => $quizzesRef
+                // ],
+                // [
+                //     "prompt" => "Question 4",
+                //     "proposition1" => "Mauvaise Réponse",
+                //     "proposition2" => "Mauvaise Réponse",
+                //     "proposition3" => "Bonne Réponse",
+                //     "proposition4" => "Mauvaise Réponse",
+                //     "answer" => "Bonne Réponse",
+                //     "quizRef" => $quizzesRef
+                // ],
+            ];
+        }
+
+        return $questions;
+    }
+
     public static function getQuestionsCustomContent(): array
     {
         return [
@@ -594,7 +793,7 @@ class FixturesContent
                 "proposition3" => "Edge",
                 "proposition4" => "Bing",
                 "answer" => "Bing",
-                "quizRef" => "quiz_Computer_Internet_Browser"
+                "quizRef" => "quiz_tutorial_Computer_Internet_Browser"
             ],
             [
                 "prompt" => "Par quoi commence l'URL d'un sîte sécurisé ?",
@@ -603,26 +802,26 @@ class FixturesContent
                 "proposition3" => "https",
                 "proposition4" => "www",
                 "answer" => "https",
-                "quizRef" => "quiz_Computer_Internet_Browser"
+                "quizRef" => "quiz_tutorial_Computer_Internet_Browser"
             ],
             [
-                "prompt" => "Exemple",
-                "proposition1" => "bla",
-                "proposition2" => "bli",
-                "proposition3" => "blou",
-                "proposition4" => "blargh",
-                "answer" => "blou",
-                "quizRef" => "quiz_Computer_Internet_Search"
+                "prompt" => "Qui n'est âs un moteur de recherche",
+                "proposition1" => "Google",
+                "proposition2" => "Bing",
+                "proposition3" => "Chrome",
+                "proposition4" => "Yahoo",
+                "answer" => "Chrome",
+                "quizRef" => "quiz_tutorial_Computer_Internet_Search"
             ],
-            [
-                "prompt" => "Exemple",
-                "proposition1" => "bla",
-                "proposition2" => "bli",
-                "proposition3" => "blou",
-                "proposition4" => "blargh",
-                "answer" => "blou",
-                "quizRef" => "quiz_Computer_Internet_Search"
-            ],
+            // [
+            //     "prompt" => "Parmis les moteurs de recherches suivant, qui ",
+            //     "proposition1" => "bla",
+            //     "proposition2" => "bli",
+            //     "proposition3" => "blou",
+            //     "proposition4" => "blargh",
+            //     "answer" => "blou",
+            //     "quizRef" => "quiz_Computer_Internet_Search"
+            // ],
         ];
     }
 }
