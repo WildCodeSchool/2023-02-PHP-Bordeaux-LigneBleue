@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Form\ContactType;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -41,7 +43,11 @@ class ContactController extends AbstractController
                          </div>');
 
                 $mailer->send($email);
+                $user = $this->getUser();
+                $userId = $user->getId();
+                return $this->redirectToRoute('app_user_show', ['id' => $userId]);
         }
+
 
         return $this->render('contact/index.html.twig', [
             'formulaireContact' => $form,

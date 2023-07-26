@@ -20,9 +20,13 @@ class TutorialFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager): void
     {
-        foreach (FixturesContent::getAllTutorialsContent() as $tutorial) {
-            $manager->persist($this->feedTutorialObject($tutorial));
-        }
+        // foreach (FixturesContent::getAllTutorialsContent() as $tutorial) {
+        //     $manager->persist($this->feedTutorialObject($tutorial));
+        // }
+
+        $tutorials = FixturesContent::getAllTutorialsContent();
+        $tutorials = array_map([$this, 'feedTutorialObject'], $tutorials);
+        array_walk($tutorials, [$manager, 'persist']);
 
         $manager->flush();
     }
