@@ -20,15 +20,9 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager): void
     {
-        foreach (FixturesContent::getThemes() as $theme) {
-            $manager->persist($this->feedThemeObject(
-                $theme["title"],
-                $theme["indexOrder"],
-                $theme["iconPath"],
-                $theme["categoryRef"],
-                $theme["themeRef"]
-            ));
-        }
+        $theme = FixturesContent::getThemesContent();
+        $theme = array_map([$this, 'feedThemeObject'], $theme);
+        array_walk($theme, [$manager, 'persist']);
 
         $manager->flush();
     }
@@ -38,21 +32,16 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
         return [CategoryFixtures::class];
     }
 
-    public function feedThemeObject(
-        string $title,
-        int $indexOrder,
-        string $iconPath,
-        string $categoryRef,
-        string $themeRef
-    ): Theme {
+    public function feedThemeObject(array $tutorialData): Theme
+    {
         $theme = new Theme();
 
-        $theme->setTitle($title);
-        $theme->setIndexOrder($indexOrder);
+        $theme->setTitle($tutorialData["title"]);
+        $theme->setIndexOrder($tutorialData["indexOrder"]);
         $theme->setSlug($this->slugger->slug($theme->getTitle()));
-        $theme->setIconPath($iconPath);
-        $theme->setCategory($this->getReference($categoryRef));
-        $this->addReference("theme_" . $themeRef . "_" . $theme->getSlug(), $theme);
+        $theme->setIconPath($tutorialData["iconPath"]);
+        $theme->setCategory($this->getReference($tutorialData["categoryRef"]));
+        $this->addReference("theme_" . $tutorialData["themeRef"] . "_" . $theme->getSlug(), $theme);
         // echo "theme_" . $themeRef . "_" . $theme->getSlug() . "\n";
 
         return $theme;

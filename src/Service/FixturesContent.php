@@ -8,7 +8,7 @@ class FixturesContent
 {
     public array $themes;
 
-    public static function getThemes(): array
+    public static function getThemesContent(): array
     {
         return [
             [
@@ -68,11 +68,11 @@ class FixturesContent
                 "themeRef" => 'Others'
             ],
             [
-                "Maison Connectées",
-                3,
-                "others/smartHome/llb-icon-home.png",
-                "category_Autres",
-                'Others'
+                "title" => "Maison Connectées",
+                "indexOrder" => 3,
+                "iconPath" => "others/smartHome/llb-icon-home.png",
+                "categoryRef" => "category_Autres",
+                "themeRef" => 'Others'
             ]
         ];
     }
