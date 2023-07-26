@@ -28,9 +28,7 @@ class UserFixtures extends Fixture
         $userSuperAdmin->setBirthday($faker->dateTimeBetween('-50 years', '-18 years'));
         $userSuperAdmin->setGender('femme');
         $userSuperAdmin->setAdress($faker->address);
-        $userSuperAdmin->setEmail(
-            $userSuperAdmin->getFirstname() . "." . $userSuperAdmin->getLastname() . "@wmail.com"
-        );
+        $userSuperAdmin->setEmail("admin@wmail.com");
         $userSuperAdmin->setPassword($this->passwordHasher->hashPassword($userSuperAdmin, 'admin'));
         $userSuperAdmin->setRoles(['ROLE_SUPER_ADMIN']);
         $manager->persist($userSuperAdmin);
