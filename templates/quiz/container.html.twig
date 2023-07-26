@@ -7,7 +7,7 @@
     <!--         QUIZ          -->
     <div class="LBQuizSquare" >
         {% if app.request.attributes.get('_route') is same as('app_quiz_start') %}
-        <h1 class="LB-quizTitle text-center">Quiz : {{ quiz.tutorial.slug }}</h1>
+        <h1 class="LB-quizTitle text-center">Quiz : {{ quiz.tutorial.title }}</h1>
         <div class="mt-5 mb-5 llb-align-center text-center llb-width-75">
             <h2 class="text-white fw-bold">C'est parti !</h2>
             <h4 class="text-white mt-3 mb-3">Ce quiz vous permettra de mettre en pratique ce que vous avez appris lors du précédent tutoriel.</h4>
