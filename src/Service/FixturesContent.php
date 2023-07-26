@@ -654,11 +654,11 @@ class FixturesContent
     {
         return [
             [
-                "quizRef" => "Computer_Internet_Browser",
+                "quizRef" => "quiz_tutorial_Computer_Internet_Browser",
                 "tutorialRef" => "tutorial_Computer_Internet_Browser"
             ],
             [
-                "quizRef" => "Computer_Internet_Search",
+                "quizRef" => "quiz_tutorial_Computer_Internet_Search",
                 "tutorialRef" => "tutorial_Computer_Internet_Search"
             ],
         ];
@@ -677,6 +677,112 @@ class FixturesContent
         return $quizzes;
     }
 
+    public static function getQuizzesRefs(): array
+    {
+        return [
+            "quiz_tutorial_Smartphone_Communication_Phone",
+            "quiz_tutorial_Smartphone_Communication_SMS",
+            "quiz_tutorial_Smartphone_Communication_Whatsapp",
+            "quiz_tutorial_Smartphone_Hardware_TouchScreen",
+            "quiz_tutorial_Smartphone_Hardware_Camera",
+            "quiz_tutorial_Smartphone_Hardware_Wifi",
+            "quiz_tutorial_Smartphone_Software_Youtube",
+            "quiz_tutorial_Smartphone_Software_Facebook",
+            "quiz_tutorial_Smartphone_Software_Spotify",
+            "quiz_tutorial_Computer_Internet_TV",
+            "quiz_tutorial_Computer_Hardware_Mouse",
+            "quiz_tutorial_Computer_Hardware_Keyboard",
+            "quiz_tutorial_Computer_Hardware_Wifi",
+            "quiz_tutorial_Computer_Communications_Power",
+            "quiz_tutorial_Computer_Communications_Mail",
+            "quiz_tutorial_Computer_Communications_videoCall",
+            "quiz_tutorial_Others_Accessoires-Connectes_SmartWatch",
+            "quiz_tutorial_Others_Box-Internet_Box-Internet",
+            "quiz_tutorial_Others_Maison-Connectee_Smart-TV",
+        ];
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public static function getAllQuestionsContent(): array
+    {
+        return array_merge(
+            self::getQuestionsCustomContent(),
+            self::getQuestionsGenericContent()
+        );
+    }
+
+    public static function getQuestionsGenericContent(): array
+    {
+        $questions = [];
+        foreach (self::getQuizzesRefs() as $quizzesRef) {
+            $questions[] = [
+                // [
+                "prompt" => "Question",
+                "proposition1" => "Mauvaise Réponse",
+                "proposition2" => "Mauvaise Réponse",
+                "proposition3" => "Bonne Réponse",
+                "proposition4" => "Mauvaise Réponse",
+                "answer" => "Bonne Réponse",
+                "quizRef" => $quizzesRef
+                // ],
+                // [
+                //     "prompt" => "Question 2",
+                //     "proposition1" => "Mauvaise Réponse",
+                //     "proposition2" => "Mauvaise Réponse",
+                //     "proposition3" => "Bonne Réponse",
+                //     "proposition4" => "Mauvaise Réponse",
+                //     "answer" => "Bonne Réponse",
+                //     "quizRef" => $quizzesRef
+                // ],
+                // [
+                //     "prompt" => "Question 3",
+                //     "proposition1" => "Mauvaise Réponse",
+                //     "proposition2" => "Mauvaise Réponse",
+                //     "proposition3" => "Bonne Réponse",
+                //     "proposition4" => "Mauvaise Réponse",
+                //     "answer" => "Bonne Réponse",
+                //     "quizRef" => $quizzesRef
+                // ],
+                // [
+                //     "prompt" => "Question 4",
+                //     "proposition1" => "Mauvaise Réponse",
+                //     "proposition2" => "Mauvaise Réponse",
+                //     "proposition3" => "Bonne Réponse",
+                //     "proposition4" => "Mauvaise Réponse",
+                //     "answer" => "Bonne Réponse",
+                //     "quizRef" => $quizzesRef
+                // ],
+            ];
+        }
+
+        return $questions;
+    }
+
     public static function getQuestionsCustomContent(): array
     {
         return [
@@ -687,7 +793,7 @@ class FixturesContent
                 "proposition3" => "Edge",
                 "proposition4" => "Bing",
                 "answer" => "Bing",
-                "quizRef" => "quiz_Computer_Internet_Browser"
+                "quizRef" => "quiz_tutorial_Computer_Internet_Browser"
             ],
             [
                 "prompt" => "Par quoi commence l'URL d'un sîte sécurisé ?",
@@ -696,26 +802,26 @@ class FixturesContent
                 "proposition3" => "https",
                 "proposition4" => "www",
                 "answer" => "https",
-                "quizRef" => "quiz_Computer_Internet_Browser"
+                "quizRef" => "quiz_tutorial_Computer_Internet_Browser"
             ],
             [
-                "prompt" => "Exemple",
-                "proposition1" => "bla",
-                "proposition2" => "bli",
-                "proposition3" => "blou",
-                "proposition4" => "blargh",
-                "answer" => "blou",
-                "quizRef" => "quiz_Computer_Internet_Search"
+                "prompt" => "Qui n'est âs un moteur de recherche",
+                "proposition1" => "Google",
+                "proposition2" => "Bing",
+                "proposition3" => "Chrome",
+                "proposition4" => "Yahoo",
+                "answer" => "Chrome",
+                "quizRef" => "quiz_tutorial_Computer_Internet_Search"
             ],
-            [
-                "prompt" => "Exemple",
-                "proposition1" => "bla",
-                "proposition2" => "bli",
-                "proposition3" => "blou",
-                "proposition4" => "blargh",
-                "answer" => "blou",
-                "quizRef" => "quiz_Computer_Internet_Search"
-            ],
+            // [
+            //     "prompt" => "Parmis les moteurs de recherches suivant, qui ",
+            //     "proposition1" => "bla",
+            //     "proposition2" => "bli",
+            //     "proposition3" => "blou",
+            //     "proposition4" => "blargh",
+            //     "answer" => "blou",
+            //     "quizRef" => "quiz_Computer_Internet_Search"
+            // ],
         ];
     }
 }
