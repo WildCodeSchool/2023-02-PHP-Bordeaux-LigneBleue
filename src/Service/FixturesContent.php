@@ -54,7 +54,7 @@ class FixturesContent
                 "themeRef" => 'Computer'
             ],
             [
-                "title" => "Accessoires Connectés",
+                "title" => "Accessoires",
                 "indexOrder" => 1,
                 "iconPath" => "others/accessories/llb-icon-watch.png",
                 "categoryRef" => "category_Autres",
@@ -247,7 +247,7 @@ class FixturesContent
                 "tutorialRef" => "Computer_Internet_Search"
             ],
             ////////////COMPUTER HARDWARE/////////////////
-            [
+            [          
                 "title" => "Comment utiliser la Souris",
                 "objective" => "Apprendre à utliser une souris d'ordinateur",
                 "isPublished" => true,
@@ -385,14 +385,6 @@ class FixturesContent
             "tutorial_Others_Maison-Connectee_Smart-TV",
         ];
     }
-
-
-
-
-
-
-
-
 
 
 

@@ -11,6 +11,7 @@
 /public/bundles/
 /var/
 /vendor/
+/migrations/
 ###< symfony/framework-bundle ###
 
 ###> symfony/webpack-encore-bundle ###

@@ -35,8 +35,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
- /*   #[Assert\NotBlank]
-    #[Assert\Length(min: 6)]*/
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
@@ -63,7 +61,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column]
     private ?int $level = null;
-
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserTutorial::class)]
     private Collection $userTutorials;
