@@ -8,67 +8,63 @@ use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use App\Entity\Quiz;
 use App\Entity\Question;
 use App\Entity\Tutorial;
+use App\Service\FixturesContent;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class QuizFixtures extends Fixture implements DependentFixtureInterface
 {
-    public function load(ObjectManager $manager): void
+    private SluggerInterface $slugger;
+
+    public function __construct(SluggerInterface $slugger)
     {
-        $this->loadQuizzes($manager);
+        $this->slugger = $slugger;
     }
 
-    private function loadQuizzes(ObjectManager $manager): void
+    public function load(ObjectManager $manager): void
     {
+        $quizzes = FixturesContent::getAllQuizzesContent();
+        $quizzes = array_map([$this, "feedQuizObject"], $quizzes);
+        array_walk($quizzes, [$manager, "persist"]);
 
-        $tutorials = $manager->getRepository(Tutorial::class)->findAll();
-
-        foreach ($tutorials as $tutorial) {
-            $quiz = new Quiz();
-            $quiz->setTitle('Quiz ' . $tutorial->getId());
-//            $quiz->setQuestionsAmount(3);
-            $quiz->setTutorial($tutorial);
-            $manager->persist($quiz);
-
-            $this->createQuestions($manager, $quiz);
-        }
+        $questions = FixturesContent::getQuestionsCustomContent();
+        $questions = array_map([$this, "feedQuestionObject"], $questions);
+        array_walk($questions, [$manager, "persist"]);
 
         $manager->flush();
     }
 
-    private function createQuestions(ObjectManager $manager, Quiz $quiz): void
-    {
-        $questionsData = [
-            [
-                'prompt' => '¿Cuál es la capital de Francia?',
-                'proposition1' => 'Roma',
-                'proposition2' => 'París',
-                'proposition3' => 'Londres',
-                'proposition4' => 'Berlín',
-                'answer' => 'París',
-            ],
-            [
-                'prompt' => '¿Combien de Champions a gaigné le Barça ?',
-                'proposition1' => '3',
-                'proposition2' => '11',
-                'proposition3' => '1',
-                'proposition4' => '5',
-                'answer' => '5',
-            ],
-        ];
-
-        foreach ($questionsData as $questionData) {
-            $question = new Question();
-            $question->setPrompt($questionData['prompt']);
-            $question->setProposition1($questionData['proposition1']);
-            $question->setProposition2($questionData['proposition2']);
-            $question->setProposition3($questionData['proposition3']);
-            $question->setProposition4($questionData['proposition4']);
-            $question->setAnswer($questionData['answer']);
-            $question->setQuiz($quiz);
-            $manager->persist($question);
-        }
-    }
     public function getDependencies()
     {
         return [TutorialFixtures::class];
+    }
+
+    public function feedQuizObject(array $quizData): Quiz
+    {
+        $quiz = new Quiz();
+
+        $tutorial = $this->getReference($quizData["tutorialRef"]);
+
+        $quiz->setTitle($tutorial->getTitle());
+        $quiz->setTutorial($tutorial);
+        $quiz->setSlug($this->slugger->slug($quiz->getTitle()));
+
+        $this->addReference("quiz_" . $quizData["quizRef"], $quiz);
+
+        return $quiz;
+    }
+
+    public function feedQuestionObject(array $questionData): Question
+    {
+        $question = new Question();
+
+        $question->setPrompt($questionData['prompt']);
+        $question->setProposition1($questionData['proposition1']);
+        $question->setProposition2($questionData['proposition2']);
+        $question->setProposition3($questionData['proposition3']);
+        $question->setProposition4($questionData['proposition4']);
+        $question->setAnswer($questionData['answer']);
+        $question->setQuiz($this->getReference($questionData["quizRef"]));
+
+        return $question;
     }
 }
