@@ -8,7 +8,7 @@ class FixturesContent
 {
     public array $themes;
 
-    public static function getThemes(): array
+    public static function getThemesContent(): array
     {
         return [
             [
@@ -54,7 +54,7 @@ class FixturesContent
                 "themeRef" => 'Computer'
             ],
             [
-                "title" => "Accessoires Connectés",
+                "title" => "Accessoires",
                 "indexOrder" => 1,
                 "iconPath" => "others/accessories/llb-icon-watch.png",
                 "categoryRef" => "category_Autres",
@@ -68,11 +68,11 @@ class FixturesContent
                 "themeRef" => 'Others'
             ],
             [
-                "Maison Connectées",
-                3,
-                "others/smartHome/llb-icon-home.png",
-                "category_Autres",
-                'Others'
+                "title" => "Maison Connectée",
+                "indexOrder" => 3,
+                "iconPath" => "others/smartHome/llb-icon-home.png",
+                "categoryRef" => "category_Autres",
+                "themeRef" => 'Others'
             ]
         ];
     }
@@ -199,8 +199,8 @@ class FixturesContent
         return [
             ////////////COMPUTER INTERNET/////////////////
             [
-                "title" => "Utiliser la Navigateur Internet",
-                "objective" => "Apprendre à utiliser le navigateur internet",
+                "title" => "Utiliser un Navigateur Internet",
+                "objective" => "Apprendre à utiliser un navigateur internet",
                 "isPublished" => true,
                 "indexOrder" => 1,
                 "picturePath" => "mbl-sms.jpg",
@@ -234,7 +234,7 @@ class FixturesContent
             ////////////COMPUTER HARDWARE/////////////////
             [
                 "title" => "Utiliser la Souris",
-                "objective" => "Apprendre à utliser une souris d'ordinateur",
+                "objective" => "Apprendre à utiliser une souris d'ordinateur",
                 "isPublished" => true,
                 "indexOrder" => 1,
                 "picturePath" => "mbl-sms.jpg",
@@ -245,7 +245,7 @@ class FixturesContent
             ],
             [
                 "title" => "Utiliser le Clavier",
-                "objective" => "Apprendre à utliser un clavier d'ordinateur",
+                "objective" => "Apprendre à utiliser un clavier d'ordinateur",
                 "isPublished" => true,
                 "indexOrder" => 2,
                 "picturePath" => "mbl-sms.jpg",
