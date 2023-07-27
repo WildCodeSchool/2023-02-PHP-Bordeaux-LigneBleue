@@ -214,7 +214,7 @@ class FixturesContent
         return [
             ////////////COMPUTER INTERNET/////////////////
             [
-                "title" => "Utiliser le Navigateur Internet",
+                "title" => "Comment utiliser le Navigateur Internet",
                 "objective" => "Apprendre à utiliser le navigateur internet",
                 "isPublished" => true,
                 "indexOrder" => 1,
