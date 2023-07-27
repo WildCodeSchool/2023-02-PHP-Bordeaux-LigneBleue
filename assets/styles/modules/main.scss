@@ -4,7 +4,8 @@
 }
 
 input:focus {
-    text-indent: 11.75px;
+    // text-indent: 11.75px;
+    outline-offset: 0;
 }
 
 .llb-background-light-blue {
