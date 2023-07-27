@@ -1,6 +1,10 @@
 .llb-userpage-size {
     top: 90%;
-    height: 100%;
+    height: 90%;
+}
+
+input:focus {
+    text-indent: 11.75px;
 }
 
 .llb-background-light-blue {
@@ -21,8 +25,9 @@
     top: 40%;
     bottom: 0;
 }
+
 .llb-contact-size {
-    height:70%;
+    height: 70%;
     top: 40%;
     bottom: 0;
 }
