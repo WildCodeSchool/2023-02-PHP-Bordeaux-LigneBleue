@@ -19,7 +19,7 @@ class FixturesContent
                 "themeRef" => 'Smartphone'
             ],
             [
-                "title" => "Hardware",
+                "title" => "Mon Smartphone",
                 "indexOrder" => 2,
                 "iconPath" => "smartphone/hardware/llb-icon-hardware.png",
                 "categoryRef" => "category_Smartphone",
@@ -33,7 +33,7 @@ class FixturesContent
                 "themeRef" => 'Smartphone'
             ],
             [
-                "title" => "Hardware",
+                "title" => "Mon Ordinateur",
                 "indexOrder" => 1,
                 "iconPath" => "desktop/hardware/llb-icon-desktop.png",
                 "categoryRef" => "category_Ordinateur",
@@ -54,7 +54,7 @@ class FixturesContent
                 "themeRef" => 'Computer'
             ],
             [
-                "title" => "Accessoires Connectes",
+                "title" => "Accessoires Connectés",
                 "indexOrder" => 1,
                 "iconPath" => "others/accessories/llb-icon-watch.png",
                 "categoryRef" => "category_Autres",
@@ -145,7 +145,7 @@ class FixturesContent
                 "isPublished" => true,
                 "indexOrder" => 1,
                 "picturePath" => "tactile.jpg",
-                "themeRef" => "theme_Smartphone_Hardware",
+                "themeRef" => "theme_Smartphone_Mon-Smartphone",
                 "tagRef" => "tag_Débutant",
                 "categoryRef" => "Smartphone",
                 "tutorialRef" => "Smartphone_Hardware_TouchScreen"
@@ -156,7 +156,7 @@ class FixturesContent
                 "isPublished" => true,
                 "indexOrder" => 2,
                 "picturePath" => "picture-smartphone.jpg",
-                "themeRef" => "theme_Smartphone_Hardware",
+                "themeRef" => "theme_Smartphone_Mon-Smartphone",
                 "tagRef" => "tag_Intermédiaire",
                 "categoryRef" => "Smartphone",
                 "tutorialRef" => "Smartphone_Hardware_Camera"
@@ -167,7 +167,7 @@ class FixturesContent
                 "isPublished" => true,
                 "indexOrder" => 3,
                 "picturePath" => "wifi-smartphone.jpeg",
-                "themeRef" => "theme_Smartphone_Hardware",
+                "themeRef" => "theme_Smartphone_Mon-Smartphone",
                 "tagRef" => "tag_Avancé",
                 "categoryRef" => "Smartphone",
                 "tutorialRef" => "Smartphone_Hardware_Wifi"
@@ -253,7 +253,7 @@ class FixturesContent
                 "isPublished" => true,
                 "indexOrder" => 1,
                 "picturePath" => "souris.jpeg",
-                "themeRef" => "theme_Computer_Hardware",
+                "themeRef" => "theme_Computer_Mon-Ordinateur",
                 "tagRef" => "tag_Débutant",
                 "categoryRef" => "Ordinateur",
                 "tutorialRef" => "Computer_Hardware_Mouse"
@@ -264,7 +264,7 @@ class FixturesContent
                 "isPublished" => true,
                 "indexOrder" => 2,
                 "picturePath" => "clavier.jpeg",
-                "themeRef" => "theme_Computer_Hardware",
+                "themeRef" => "theme_Computer_Mon-Ordinateur",
                 "tagRef" => "tag_Intermédiaire",
                 "categoryRef" => "Ordinateur",
                 "tutorialRef" => "Computer_Hardware_Keyboard"
@@ -275,7 +275,7 @@ class FixturesContent
                 "isPublished" => true,
                 "indexOrder" => 3,
                 "picturePath" => "wifi-computer.jpg",
-                "themeRef" => "theme_Computer_Hardware",
+                "themeRef" => "theme_Computer_Mon-Ordinateur",
                 "tagRef" => "tag_Avancé",
                 "categoryRef" => "Ordinateur",
                 "tutorialRef" => "Computer_Hardware_Wifi"

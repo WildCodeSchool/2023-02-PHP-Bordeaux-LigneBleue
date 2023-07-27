@@ -32,17 +32,16 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
         return [CategoryFixtures::class];
     }
 
-    public function feedThemeObject(array $tutorialData): Theme
+    public function feedThemeObject(array $themeData): Theme
     {
         $theme = new Theme();
 
-        $theme->setTitle($tutorialData["title"]);
-        $theme->setIndexOrder($tutorialData["indexOrder"]);
+        $theme->setTitle($themeData["title"]);
+        $theme->setIndexOrder($themeData["indexOrder"]);
         $theme->setSlug($this->slugger->slug($theme->getTitle()));
-        $theme->setIconPath($tutorialData["iconPath"]);
-        $theme->setCategory($this->getReference($tutorialData["categoryRef"]));
-        $this->addReference("theme_" . $tutorialData["themeRef"] . "_" . $theme->getSlug(), $theme);
-        // echo "theme_" . $themeRef . "_" . $theme->getSlug() . "\n";
+        $theme->setIconPath($themeData["iconPath"]);
+        $theme->setCategory($this->getReference($themeData["categoryRef"]));
+        $this->addReference("theme_" . $themeData["themeRef"] . "_" . $theme->getSlug(), $theme);
 
         return $theme;
     }
