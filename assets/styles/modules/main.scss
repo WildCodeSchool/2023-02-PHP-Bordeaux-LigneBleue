@@ -4,7 +4,6 @@
 }
 
 input:focus {
-    text-indent: 11.75px;
     outline-offset: 0;
 }
 
@@ -34,6 +33,12 @@ input:focus {
 }
 
 .llb-category-size {
+    height: 150%;
+    top: 30%;
+    bottom: 0;
+}
+
+.llb-user-profile-size {
     height: 120%;
     top: 50%;
     bottom: 0;
@@ -41,7 +46,7 @@ input:focus {
 
 .llb-50-size {
     height: 50%;
-    top: 50%;
+    top: 30%;
     bottom: 0;
 }
 
