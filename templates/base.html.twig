@@ -5,10 +5,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="icon" type="image/png" href="{{ asset('build/images/favicon.png') }}"/>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0VALOkkyok0cB-7WO23wZuyuE8QrzEEc&libraries=places&callback=initAutocomplete" async="" defer=""></script>
-        <script src="https://unpkg.com/@swup/preload-plugin@2"></script>
-        <title>
+		<script src="https://unpkg.com/@swup/preload-plugin@2"></script>
+		<title>
 			{% block title %}
-                La Ligne Bleue
+				La Ligne Bleue
 			{% endblock %}
 		</title>
 		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
@@ -17,9 +17,9 @@
 			{{ encore_entry_link_tags('app') }}
 		{% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
 
 		<!---------FONTS------->
 		<link href="https://fonts.cdnfonts.com/css/slicker" rel="stylesheet">
@@ -30,10 +30,11 @@
 
 	<!---------END OF FONTS-------->
 	</head>
-	<body {{ stimulus_controller('symfony/ux-swup/swup') }}>
+	<body
+		{{ stimulus_controller('symfony/ux-swup/swup') }}>
 		{# read and display just one flash message type #}
-		{% for message in app.flashes('notice') %}
-			<div class="flash-notice">
+		{% for message in app.flashes("success") %}
+			<div class="alert alert-success">
 				{{ message }}
 			</div>
 		{% endfor %}
@@ -43,7 +44,7 @@
 
 		{% include 'modules/footer.html.twig' %}
 
-        <script src="/script/wishlist.js"></script>
-        <script src="/script/startSequence.js"></script>
+		<script src="/script/wishlist.js"></script>
+		<script src="/script/startSequence.js"></script>
 	</body>
 </html>

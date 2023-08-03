@@ -42,10 +42,16 @@ class ContactController extends AbstractController
                             </div>
                          </div>');
 
-                $mailer->send($email);
+            $mailer->send($email);
+            $this->addFlash("success", "Votre message a bien été envoyé!");
+
+            if ($this->getUser()) {
                 $user = $this->getUser();
                 $userId = $user->getId();
                 return $this->redirectToRoute('app_user_show', ['id' => $userId]);
+            }
+
+            return $this->redirectToRoute("app_home");
         }
 
 

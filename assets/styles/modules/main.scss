@@ -1,6 +1,10 @@
 .llb-userpage-size {
-    top: 90%;
-    height: 100%;
+    top: 80%;
+    height: 80%;
+}
+
+input:focus {
+    outline-offset: 0;
 }
 
 .llb-background-light-blue {
@@ -21,21 +25,28 @@
     top: 40%;
     bottom: 0;
 }
+
 .llb-contact-size {
-    height:70%;
+    height: 70%;
     top: 40%;
     bottom: 0;
 }
 
 .llb-category-size {
-    height: 80%;
+    height: 150%;
+    top: 30%;
+    bottom: 0;
+}
+
+.llb-user-profile-size {
+    height: 120%;
     top: 50%;
     bottom: 0;
 }
 
 .llb-50-size {
     height: 50%;
-    top: 50%;
+    top: 30%;
     bottom: 0;
 }
 
